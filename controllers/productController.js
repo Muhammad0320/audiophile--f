@@ -14,15 +14,26 @@ exports.createNewProduct = async (req, res) => {
 };
 
 exports.getAllProducts = async (req, res) => {
-  const allProducts = await Product.find();
+  const product = await Product.find();
 
   res.status(200).json({
     status: 'success',
 
-    result: allProducts.length,
+    result: product.length,
 
     data: {
-      allProducts,
+      product,
+    },
+  });
+};
+
+exports.getProduct = async (req, res) => {
+  const product = await Product.findById(req.params.id);
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      product,
     },
   });
 };
