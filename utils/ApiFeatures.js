@@ -30,6 +30,20 @@ class ApiFeatures {
       const sortBy = this.queryString.sort.replaceAll(',', ' ');
 
       this.query = this.query.sort(sortBy);
+    } else {
+      this.query = this.query.sort('-createdAt');
+    }
+
+    return this;
+  }
+
+  limitFields() {
+    if (this.queryString.fields) {
+      const fields = this.queryString.fields.replaceAll(',', ' ');
+
+      this.query = this.query.select(fields);
+    } else {
+      this.query = this.query.select('-__v');
     }
 
     return this;
