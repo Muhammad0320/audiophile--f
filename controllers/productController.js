@@ -39,7 +39,7 @@ exports.getProduct = async (req, res) => {
 };
 
 exports.updateProduct = async (req, res) => {
-  const UpdatedProduct = await Product.findByIdAndUpdate(
+  const updatedProduct = await Product.findByIdAndUpdate(
     req.params.id,
     req.body,
     {
@@ -48,10 +48,16 @@ exports.updateProduct = async (req, res) => {
     }
   );
 
-  res.status(200).json({
+  res.status(201).json({
     status: 'success',
     data: {
-      product: UpdatedProduct,
+      product: updatedProduct,
     },
   });
+};
+
+exports.deleteProduct = async (req, res) => {
+  await Product.findByIdAndDelete(req.params.id);
+
+  res.status(204).json({ status: 'success' });
 };
