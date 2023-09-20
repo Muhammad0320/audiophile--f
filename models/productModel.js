@@ -1,118 +1,125 @@
 const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      minlength: [true, 'Products name should have at least 4 chars'],
-      trim: true,
-      required: [true, 'A product must have a name'],
+const productSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    minlength: [true, 'Products name should have at least 4 chars'],
+    trim: true,
+    required: [true, 'A product must have a name'],
+  },
+
+  image: {
+    type: String,
+    required: [true, 'A product must have an image'],
+  },
+
+  category: {
+    type: String,
+    required: [true, 'A product must belong to a category'],
+    enum: ['earphones', 'headphones', 'speaker', 'wired-earphone'],
+  },
+
+  categoryImage: {
+    type: String,
+    required: [true, 'A product must have a category image'],
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
+
+  new: {
+    type: Boolean,
+  },
+
+  price: {
+    type: Number,
+    required: [true, 'A product must have a price'],
+  },
+
+  discountPrice: {
+    type: Number,
+    validate: {
+      validator: function (val) {
+        return this.price > val;
+      },
+
+      message: 'Discount price should be less than regular prices',
     },
+  },
 
-    image: {
-      type: String,
-      required: [true, 'A product must have an image'],
-    },
+  description: {
+    type: String,
+    trim: true,
+    required: [true, 'A product must have a description'],
+  },
 
-    category: {
-      type: String,
-      required: [true, 'A product must belong to a category'],
-      enum: ['earphones', 'headphones', 'speaker', 'wired-earphone'],
-    },
+  includes: [
+    {
+      quality: {
+        type: Number,
+        min: [1, 'An item must have at least one quantity'],
+      },
 
-    categoryImage: {
-      type: String,
-      required: [true, 'A product must have a category image'],
-    },
-
-    createdAt: {
-      type: Date,
-      default: Date.now(),
-    },
-
-    new: {
-      type: Boolean,
-    },
-
-    price: {
-      type: Number,
-      required: [true, 'A product must have a price'],
-    },
-
-    discountPrice: {
-      type: Number,
-      validate: {
-        validator: function (val) {
-          return this.price > val;
-        },
-
-        message: 'Discount price should be less than regular prices',
+      item: {
+        type: String,
+        trim: true,
+        maxlength: [40, 'Item characters must be less or equal than 40'],
       },
     },
+  ],
 
-    description: {
-      type: String,
-      trim: true,
-      required: [true, 'A product must have a description'],
-    },
-
-    includes: [
-      {
-        quality: {
-          type: Number,
-          min: [1, 'An item must have at least one quantity'],
-        },
-
-        item: {
-          type: String,
-          trim: true,
-          maxlength: [40, 'Item characters must be less or equal than 40'],
-        },
-      },
+  features: {
+    type: String,
+    trim: true,
+    required: [
+      true,
+      'A product have to possess some features, if not what is the point of your sales',
     ],
+  },
 
-    features: {
-      type: String,
-      trim: true,
-      required: [
-        true,
-        'A product have to possess some features, if not what is the point of your sales',
-      ],
-    },
+  gallery: {
+    first: String,
+    second: String,
+    third: String,
+  },
 
-    gallery: {
-      first: String,
-      second: String,
-      third: String,
-    },
+  slug: {
+    type: String,
+    trim: true,
+  },
 
-    slug: {
-      type: String,
-      trim: true,
-    },
-
-    others: [
-      {
-        slug: {
-          type: String,
-          trim: true,
-        },
-
-        name: {
-          type: String,
-          required: true,
-        },
-
-        image: String,
+  others: [
+    {
+      slug: {
+        type: String,
+        trim: true,
       },
-    ],
-  }
 
-  //   {
-  //     toJSON: { virtuals: true },
-  //     toObject: { virtuals: true },
-  //   }
-);
+      name: {
+        type: String,
+        required: true,
+      },
+
+      image: String,
+    },
+  ],
+
+  ratingsAverage: {
+    type: Number,
+    default: 4.5,
+  },
+
+  ratingsQuantity: {
+    type: Number,
+    default: 0,
+  },
+});
+
+productSchema.virtual('discountPercent').get(function () {
+  return (this.discountPrice / this.price) * 100;
+});
 
 productSchema.set('toJSON', { getters: true, virtuals: true });
 productSchema.set('toObject', { getters: true, virtuals: true });
