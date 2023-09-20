@@ -4,9 +4,9 @@ const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      trim: true,
       minlength: [true, 'Products name should have at least 4 chars'],
-      required: [true, 'A product must have a name'],
+      trim: true,
+      //   required: [true, 'A product must have a name'],
     },
 
     image: {
@@ -17,11 +17,7 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, 'A product must belong to a category'],
-      enum: {
-        values: ['earphones', 'headphones', 'speaker', 'wired-earphone'],
-        message:
-          'Product category should be either be earpohones, headphones, speakers or wired-earphone',
-      },
+      enum: ['earphones', 'headphones', 'speaker', 'wired-earphone'],
     },
 
     categoryImage: {
@@ -50,12 +46,12 @@ const productSchema = new mongoose.Schema(
           return this.price > val;
         },
 
-        message: [],
+        message: 'Discount price should be less than regular prices',
       },
     },
 
     description: {
-      tpe: String,
+      type: String,
       trim: true,
       required: [true, 'A product must have a description'],
     },
@@ -77,7 +73,7 @@ const productSchema = new mongoose.Schema(
 
     features: {
       type: String,
-      trim: true,
+      trim: String,
       required: [
         true,
         'A product have to possess some features, if not what is the point of your sales',
@@ -99,7 +95,6 @@ const productSchema = new mongoose.Schema(
       {
         slug: {
           type: String,
-
           trim: true,
         },
 
@@ -111,10 +106,17 @@ const productSchema = new mongoose.Schema(
         image: String,
       },
     ],
-  },
-
-  {
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true },
   }
+
+  //   {
+  //     toJSON: { virtuals: true },
+  //     toObject: { virtuals: true },
+  //   }
 );
+
+productSchema.set('toJSON', { getters: true, virtuals: true });
+productSchema.set('toObject', { getters: true, virtuals: true });
+
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;

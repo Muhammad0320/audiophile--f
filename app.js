@@ -8,6 +8,6 @@ app.use((req, res, next) => {
   console.log('Hello');
 });
 
-app.use('/', productRoutes);
+app.use('/api/v1/products', productRoutes);
 
 module.exports = app;
