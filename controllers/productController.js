@@ -15,7 +15,7 @@ exports.createNewProduct = async (req, res) => {
 exports.getAllProducts = async (req, res) => {
   console.log(req.query);
 
-  const features = new ApiFeatures(Product.find(), req.query).filter();
+  const features = new ApiFeatures(Product.find(), req.query).filter().sort();
 
   const product = await features.query;
 

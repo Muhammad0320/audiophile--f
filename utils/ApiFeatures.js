@@ -24,6 +24,16 @@ class ApiFeatures {
 
     return this;
   }
+
+  sort() {
+    if (this.queryString.sort) {
+      const sortBy = this.queryString.sort.replaceAll(',', ' ');
+
+      this.query = this.query.sort(sortBy);
+    }
+
+    return this;
+  }
 }
 
 module.exports = ApiFeatures;
