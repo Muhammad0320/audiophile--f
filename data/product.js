@@ -4,13 +4,11 @@ export const fakeData = [
     slug: 'yx1-earphones',
     name: 'YX1 Wireless Earphones',
     image: {
-      desktop: '/assets/product-yx1-earphones/desktop/image-product.jpg',
+      '/assets/product-yx1-earphones/desktop/image-product.jpg',
     },
     category: 'earphones',
-    categoryImage: {
-      desktop:
-        '/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg',
-    },
+    categoryImage: '/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg',
+    
     new: true,
     price: 599,
     description:
@@ -41,13 +39,13 @@ export const fakeData = [
     ],
     gallery: {
       first: {
-        desktop: '/assets/product-yx1-earphones/desktop/image-gallery-1.jpg',
+        '/assets/product-yx1-earphones/desktop/image-gallery-1.jpg',
       },
       second: {
-        desktop: '/assets/product-yx1-earphones/desktop/image-gallery-2.jpg',
+        '/assets/product-yx1-earphones/desktop/image-gallery-2.jpg',
       },
       third: {
-        desktop: '/assets/product-yx1-earphones/desktop/image-gallery-3.jpg',
+        '/assets/product-yx1-earphones/desktop/image-gallery-3.jpg',
       },
     },
     others: [
@@ -55,21 +53,21 @@ export const fakeData = [
         slug: 'xx99-mark-one-headphones',
         name: 'XX99 Mark I',
         image: {
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
         },
       },
       {
         slug: 'xx59-headphones',
         name: 'XX59',
         image: {
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          '/assets/shared/desktop/image-xx59-headphones.jpg',
         },
       },
       {
         slug: 'zx9-speaker',
         name: 'ZX9 Speaker',
         image: {
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          '/assets/shared/desktop/image-zx9-speaker.jpg',
         },
       },
     ],
@@ -79,11 +77,11 @@ export const fakeData = [
     slug: 'xx59-headphones',
     name: 'XX59 Headphones',
     image: {
-      desktop: '/assets/product-xx59-headphones/desktop/image-product.jpg',
+      '/assets/product-xx59-headphones/desktop/image-product.jpg',
     },
     category: 'headphones',
     categoryImage: {
-      desktop:
+     
         '/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg',
     },
     new: false,
@@ -112,13 +110,13 @@ export const fakeData = [
     ],
     gallery: {
       first: {
-        desktop: '/assets/product-xx59-headphones/desktop/image-gallery-1.jpg',
+        '/assets/product-xx59-headphones/desktop/image-gallery-1.jpg',
       },
       second: {
-        desktop: '/assets/product-xx59-headphones/desktop/image-gallery-2.jpg',
+        '/assets/product-xx59-headphones/desktop/image-gallery-2.jpg',
       },
       third: {
-        desktop: '/assets/product-xx59-headphones/desktop/image-gallery-3.jpg',
+        '/assets/product-xx59-headphones/desktop/image-gallery-3.jpg',
       },
     },
     others: [
@@ -126,21 +124,21 @@ export const fakeData = [
         slug: 'xx99-mark-two-headphones',
         name: 'XX99 Mark II',
         image: {
-          desktop: '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg',
+          '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg',
         },
       },
       {
         slug: 'xx99-mark-one-headphones',
         name: 'XX99 Mark I',
         image: {
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
         },
       },
       {
         slug: 'zx9-speaker',
         name: 'ZX9 Speaker',
         image: {
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          '/assets/shared/desktop/image-zx9-speaker.jpg',
         },
       },
     ],
@@ -150,12 +148,12 @@ export const fakeData = [
     slug: 'xx99-mark-one-headphones',
     name: 'XX99 Mark I Headphones',
     image: {
-      desktop:
+     
         '/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg',
     },
     category: 'headphones',
     categoryImage: {
-      desktop:
+     
         '/assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg',
     },
     new: false,
@@ -184,15 +182,15 @@ export const fakeData = [
     ],
     gallery: {
       first: {
-        desktop:
+       
           '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg',
       },
       second: {
-        desktop:
+       
           '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg',
       },
       third: {
-        desktop:
+       
           '/assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg',
       },
     },
@@ -201,21 +199,21 @@ export const fakeData = [
         slug: 'xx99-mark-two-headphones',
         name: 'XX99 Mark II',
         image: {
-          desktop: '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg',
+          '/assets/shared/desktop/image-xx99-mark-two-headphones.jpg',
         },
       },
       {
         slug: 'xx59-headphones',
         name: 'XX59',
         image: {
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          '/assets/shared/desktop/image-xx59-headphones.jpg',
         },
       },
       {
         slug: 'zx9-speaker',
         name: 'ZX9 Speaker',
         image: {
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          '/assets/shared/desktop/image-zx9-speaker.jpg',
         },
       },
     ],
@@ -225,12 +223,12 @@ export const fakeData = [
     slug: 'xx99-mark-two-headphones',
     name: 'XX99 Mark II Headphones',
     image: {
-      desktop:
+     
         '/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg',
     },
     category: 'headphones',
     categoryImage: {
-      desktop:
+     
         '/assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg',
     },
     new: true,
@@ -263,15 +261,15 @@ export const fakeData = [
     ],
     gallery: {
       first: {
-        desktop:
+       
           '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg',
       },
       second: {
-        desktop:
+       
           '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg',
       },
       third: {
-        desktop:
+       
           '/assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg',
       },
     },
@@ -280,21 +278,21 @@ export const fakeData = [
         slug: 'xx99-mark-one-headphones',
         name: 'XX99 Mark I',
         image: {
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
         },
       },
       {
         slug: 'xx59-headphones',
         name: 'XX59',
         image: {
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          '/assets/shared/desktop/image-xx59-headphones.jpg',
         },
       },
       {
         slug: 'zx9-speaker',
         name: 'ZX9 Speaker',
         image: {
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
+          '/assets/shared/desktop/image-zx9-speaker.jpg',
         },
       },
     ],
@@ -304,13 +302,11 @@ export const fakeData = [
     slug: 'zx7-speaker',
     name: 'ZX7 Speaker',
     image: {
-      desktop: '/assets/product-zx7-speaker/desktop/image-product.jpg',
+      '/assets/product-zx7-speaker/desktop/image-product.jpg',
     },
     category: 'speakers',
-    categoryImage: {
-      desktop:
-        '/assets/product-zx7-speaker/desktop/image-category-page-preview.jpg',
-    },
+    categoryImage:'/assets/product-zx7-speaker/desktop/image-category-page-preview.jpg',
+    
     new: false,
     price: 3500,
     description:
@@ -340,36 +336,36 @@ export const fakeData = [
       },
     ],
     gallery: {
-      first: {
-        desktop: '/assets/product-zx7-speaker/desktop/image-gallery-1.jpg',
-      },
-      second: {
-        desktop: '/assets/product-zx7-speaker/desktop/image-gallery-2.jpg',
-      },
-      third: {
-        desktop: '/assets/product-zx7-speaker/desktop/image-gallery-3.jpg',
-      },
+      first: 
+        '/assets/product-zx7-speaker/desktop/image-gallery-1.jpg',
+      
+      second: 
+        '/assets/product-zx7-speaker/desktop/image-gallery-2.jpg',
+      
+      third: 
+        '/assets/product-zx7-speaker/desktop/image-gallery-3.jpg',
+      
     },
     others: [
       {
         slug: 'zx9-speaker',
         name: 'ZX9 Speaker',
-        image: {
-          desktop: '/assets/shared/desktop/image-zx9-speaker.jpg',
-        },
+        image: 
+          '/assets/shared/desktop/image-zx9-speaker.jpg',
+        
       },
       {
         slug: 'xx99-mark-one-headphones',
         name: 'XX99 Mark I',
         image: {
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
         },
       },
       {
         slug: 'xx59-headphones',
         name: 'XX59',
         image: {
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          '/assets/shared/desktop/image-xx59-headphones.jpg',
         },
       },
     ],
@@ -379,7 +375,7 @@ export const fakeData = [
     slug: 'zx9-speaker',
     name: 'ZX9 Speaker',
     image: {
-      desktop: '/assets/product-zx9-speaker/desktop/image-product.jpg',
+      '/assets/product-zx9-speaker/desktop/image-product.jpg',
     },
     category: 'speakers',
     categoryImage: {
@@ -387,7 +383,7 @@ export const fakeData = [
         '/assets/product-zx9-speaker/mobile/image-category-page-preview.jpg',
       tablet:
         '/assets/product-zx9-speaker/tablet/image-category-page-preview.jpg',
-      desktop:
+     
         '/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg',
     },
     new: true,
@@ -420,13 +416,13 @@ export const fakeData = [
     ],
     gallery: {
       first: {
-        desktop: '/assets/product-zx9-speaker/desktop/image-gallery-1.jpg',
+        '/assets/product-zx9-speaker/desktop/image-gallery-1.jpg',
       },
       second: {
-        desktop: '/assets/product-zx9-speaker/desktop/image-gallery-2.jpg',
+        '/assets/product-zx9-speaker/desktop/image-gallery-2.jpg',
       },
       third: {
-        desktop: '/assets/product-zx9-speaker/desktop/image-gallery-3.jpg',
+        '/assets/product-zx9-speaker/desktop/image-gallery-3.jpg',
       },
     },
     others: [
@@ -434,21 +430,21 @@ export const fakeData = [
         slug: 'zx7-speaker',
         name: 'ZX7 Speaker',
         image: {
-          desktop: '/assets/shared/desktop/image-zx7-speaker.jpg',
+          '/assets/shared/desktop/image-zx7-speaker.jpg',
         },
       },
       {
         slug: 'xx99-mark-one-headphones',
         name: 'XX99 Mark I',
         image: {
-          desktop: '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
+          '/assets/shared/desktop/image-xx99-mark-one-headphones.jpg',
         },
       },
       {
         slug: 'xx59-headphones',
         name: 'XX59',
         image: {
-          desktop: '/assets/shared/desktop/image-xx59-headphones.jpg',
+          '/assets/shared/desktop/image-xx59-headphones.jpg',
         },
       },
     ],

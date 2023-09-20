@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       minlength: [true, 'Products name should have at least 4 chars'],
       trim: true,
-      //   required: [true, 'A product must have a name'],
+      required: [true, 'A product must have a name'],
     },
 
     image: {
@@ -73,7 +73,7 @@ const productSchema = new mongoose.Schema(
 
     features: {
       type: String,
-      trim: String,
+      trim: true,
       required: [
         true,
         'A product have to possess some features, if not what is the point of your sales',

@@ -2,11 +2,17 @@ const express = require('express');
 
 const productRoutes = require('./routes/productRoutes');
 
+const morgan = require('morgan');
+
 const app = express();
 
-app.use((req, res, next) => {
-  console.log('Hello');
-});
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
 
 app.use('/api/v1/products', productRoutes);
 
