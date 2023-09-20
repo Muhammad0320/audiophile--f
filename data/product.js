@@ -1,6 +1,8 @@
 export const fakeData = [
   {
     id: 1,
+    ratingsAverage: 4.5,
+    ratingsQuantity: 122,
     slug: 'yx1-earphones',
     name: 'YX1 Wireless Earphones',
     image: '/assets/product-yx1-earphones/desktop/image-product.jpg',
@@ -64,6 +66,8 @@ export const fakeData = [
   },
   {
     id: 2,
+    ratingsAverage: 4.6,
+    ratingsQuantity: 56,
     slug: 'xx59-headphones',
     name: 'XX59 Headphones',
     image: '/assets/product-xx59-headphones/desktop/image-product.jpg',
@@ -123,6 +127,8 @@ export const fakeData = [
   },
   {
     id: 3,
+    ratingsAverage: 3.5,
+    ratingsQuantity: 78,
     slug: 'xx99-mark-one-headphones',
     name: 'XX99 Mark I Headphones',
     image: '/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg',
@@ -185,6 +191,8 @@ export const fakeData = [
   },
   {
     id: 4,
+    ratingsAverage: 5,
+    ratingsQuantity: 39,
     slug: 'xx99-mark-two-headphones',
     name: 'XX99 Mark II Headphones',
     image: '/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg',
@@ -253,6 +261,8 @@ export const fakeData = [
   },
   {
     id: 5,
+    ratingsAverage: 4.0,
+    ratingsQuantity: 96,
     slug: 'zx7-speaker',
     name: 'ZX7 Speaker',
     image: '/assets/product-zx7-speaker/desktop/image-product.jpg',
@@ -316,6 +326,8 @@ export const fakeData = [
   },
   {
     id: 6,
+    ratingsAverage: 3.8,
+    ratingsQuantity: 107,
     slug: 'zx9-speaker',
     name: 'ZX9 Speaker',
     image: '/assets/product-zx9-speaker/desktop/image-product.jpg',

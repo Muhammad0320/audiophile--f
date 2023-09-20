@@ -1,9 +1,8 @@
 const Product = require('../models/productModel');
+const ApiFeatures = require('../utils/ApiFeatures');
 
 exports.createNewProduct = async (req, res) => {
   const newUser = await Product.create(req.body);
-
-  console.log(req.body);
 
   res.status(201).json({
     status: 'success',
@@ -14,7 +13,11 @@ exports.createNewProduct = async (req, res) => {
 };
 
 exports.getAllProducts = async (req, res) => {
-  const product = await Product.find();
+  console.log(req.query);
+
+  const features = new ApiFeatures(Product.find(), req.query).filter();
+
+  const product = await features.query;
 
   res.status(200).json({
     status: 'success',
