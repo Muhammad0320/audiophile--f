@@ -37,3 +37,21 @@ exports.getProduct = async (req, res) => {
     },
   });
 };
+
+exports.updateProduct = async (req, res) => {
+  const UpdatedProduct = await Product.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      product: UpdatedProduct,
+    },
+  });
+};
