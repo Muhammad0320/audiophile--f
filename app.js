@@ -22,6 +22,6 @@ app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} route on this server `));
 });
 
-module.exports = app;
-
 app.use(globalErrorHandler);
+
+module.exports = app;

@@ -30,6 +30,9 @@ const globalErrorHandler = (err, req, res, next) => {
   } else if (process.env.NODE_ENV === 'production') {
     const error = structuredClone(err);
 
+    // console.log(error);
+    // console.log(err);
+
     sendErrorProd(error, res);
   }
 };
