@@ -171,4 +171,23 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     .createHash('sha265')
     .update(resetToken)
     .digest('hex');
+
+  const user = await User.findOne({
+    passwordResetToken: hasedToken,
+    passwordResetExpires: { $gte: Date.now() }
+  });
+
+  if (!user) {
+    return next(new AppError('Token is invalid or has expired', 400));
+  }
+
+  user.password = req.body.password;
+  user.passwordConfirm = req.body.passwordConfirm;
+
+  user.passwordResetToken = undefined;
+  user.passwordResetExpires = undefined;
+
+  await user.save();
+
+  sendJwt(res, user, req);
 });
