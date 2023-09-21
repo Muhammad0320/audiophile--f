@@ -1,39 +1,12 @@
 const Product = require('../models/productModel');
 const ApiFeatures = require('../utils/ApiFeatures');
-const { createOne } = require('./handlerFactory');
+const { createOne, getAll, getOne } = require('./handlerFactory');
 
 exports.createNewProduct = createOne(Product);
 
-exports.getAllProducts = async (req, res) => {
-  const features = new ApiFeatures(Product.find(), req.query)
-    .filter()
-    .sort()
-    .limitFields()
-    .paginate();
+exports.getAllProducts = getAll(Product);
 
-  const product = await features.query;
-
-  res.status(200).json({
-    status: 'success',
-
-    result: product.length,
-
-    data: {
-      product,
-    },
-  });
-};
-
-exports.getProduct = async (req, res) => {
-  const product = await Product.findById(req.params.id);
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      product,
-    },
-  });
-};
+exports.getProduct = getOne(Product);
 
 exports.updateProduct = async (req, res) => {
   const updatedProduct = await Product.findByIdAndUpdate(
