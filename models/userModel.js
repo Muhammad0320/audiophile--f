@@ -57,6 +57,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
     select: false
+  },
+
+  passwordChangedAt: {
+    type: Date
   }
 });
 
@@ -78,6 +82,18 @@ userSchema.methods.checkPasswordCorrect = async function(
   hashedPassword
 ) {
   return await bcrypt.compare(password, hashedPassword);
+};
+
+userSchema.methods.passwordChagedAfter = function(JWTTimeStamp) {
+  if (this.passwordChangedAt) {
+    const passwordChagedTimeStamp = new Date(
+      Math.round(this.passwordChangedAt / 1000)
+    ).getTime();
+
+    return passwordChagedTimeStamp > JWTTimeStamp;
+  }
+
+  return true;
 };
 
 const User = mongoose.model('User', userSchema);
