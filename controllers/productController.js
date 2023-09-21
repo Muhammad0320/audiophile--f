@@ -100,10 +100,16 @@ exports.getBestProduct = (req, res, next) => {
   next();
 };
 
-// exports.getProductBelow = async (req, res, next) => {
+exports.getProductBelow = async (req, res) => {
+  const price = req.params.below * 1;
 
-//     const price = req.params.below * 1
+  const products = await Product.find({ price: { $lte: price } });
 
-//     const products = await Product.
-
-// }
+  res.status(200).json({
+    status: 'success',
+    result: products.length,
+    data: {
+      products,
+    },
+  });
+};
