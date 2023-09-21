@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken');
+const catchAsync = require('../utils/catchAsync');
+const User = require('../models/userModel');
 
 const signJwt = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -26,3 +28,20 @@ const sendJwt = (res, user, req) => {
     user
   });
 };
+
+exports.signUp = catchAsync(async (req, res) => {
+  const { name, email, password, passwordConfirm, role, photo } = req.body;
+
+  const filteredBody = {
+    name,
+    email,
+    password,
+    passwordConfirm,
+    role,
+    photo
+  };
+
+  const newUser = await User.create(filteredBody);
+
+  sendJwt(res, newUser, req);
+});
