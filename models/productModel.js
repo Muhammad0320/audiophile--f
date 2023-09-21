@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: [true, 'A product must belong to a category'],
-    enum: ['earphones', 'headphones', 'speaker', 'wired-earphone'],
+    enum: ['earphones', 'headphones', 'speakers', 'wired-earphones'],
   },
 
   categoryImage: {
@@ -109,6 +109,8 @@ const productSchema = new mongoose.Schema({
   ratingsAverage: {
     type: Number,
     default: 4.5,
+    max: [5, 'RatingAverage should not be above 5'],
+    min: [1, 'RatingsAverage should not be below 1 '],
   },
 
   ratingsQuantity: {
