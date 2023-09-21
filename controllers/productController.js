@@ -1,11 +1,11 @@
 const Product = require('../models/productModel');
-const ApiFeatures = require('../utils/ApiFeatures');
+
 const {
   createOne,
   getAll,
   getOne,
   deleteOne,
-  updateOne,
+  updateOne
 } = require('./handlerFactory');
 
 exports.createNewProduct = createOne(Product);
@@ -17,7 +17,7 @@ exports.deleteProduct = deleteOne(Product);
 exports.getProductStatistics = async (req, res) => {
   const stats = await Product.aggregate([
     {
-      $match: { price: { $gte: 99 } },
+      $match: { price: { $gte: 99 } }
     },
 
     {
@@ -27,16 +27,16 @@ exports.getProductStatistics = async (req, res) => {
         maxPrice: { $max: '$price' },
         avgPrice: { $avg: '$price' },
         avgRating: { $avg: '$ratingsAverage' },
-        numProduct: { $sum: 1 },
-      },
-    },
+        numProduct: { $sum: 1 }
+      }
+    }
   ]);
 
   res.status(200).json({
     status: 'success',
     data: {
-      stats,
-    },
+      stats
+    }
   });
 };
 
@@ -56,7 +56,7 @@ exports.getProductBelow = async (req, res) => {
     status: 'success',
     result: products.length,
     data: {
-      products,
-    },
+      products
+    }
   });
 };

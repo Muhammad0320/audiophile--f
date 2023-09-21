@@ -5,69 +5,69 @@ const productSchema = new mongoose.Schema({
     type: String,
     minlength: [true, 'Products name should have at least 4 chars'],
     trim: true,
-    required: [true, 'A product must have a name'],
+    required: [true, 'A product must have a name']
   },
 
   image: {
     type: String,
-    required: [true, 'A product must have an image'],
+    required: [true, 'A product must have an image']
   },
 
   category: {
     type: String,
     required: [true, 'A product must belong to a category'],
-    enum: ['earphones', 'headphones', 'speakers', 'wired-earphones'],
+    enum: ['earphones', 'headphones', 'speakers', 'wired-earphones']
   },
 
   categoryImage: {
     type: String,
-    required: [true, 'A product must have a category image'],
+    required: [true, 'A product must have a category image']
   },
 
   createdAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now()
   },
 
   new: {
-    type: Boolean,
+    type: Boolean
   },
 
   price: {
     type: Number,
-    required: [true, 'A product must have a price'],
+    required: [true, 'A product must have a price']
   },
 
   discountPrice: {
     type: Number,
     validate: {
-      validator: function (val) {
+      validator: function(val) {
         return this.price > val;
       },
 
-      message: 'Discount price should be less than regular prices',
-    },
+      message: 'Discount price should be less than regular prices'
+    }
   },
 
   description: {
     type: String,
     trim: true,
-    required: [true, 'A product must have a description'],
+    required: [true, 'A product must have a description']
   },
 
   includes: [
     {
       quality: {
         type: Number,
-        min: [1, 'An item must have at least one quantity'],
+        min: [1, 'An item must have at least one quantity']
       },
 
       item: {
         type: String,
         trim: true,
-        maxlength: [40, 'Item characters must be less or equal than 40'],
-      },
-    },
+        maxlength: [40, 'Item characters must be less or equal than 40']
+      }
+    }
   ],
 
   features: {
@@ -75,51 +75,51 @@ const productSchema = new mongoose.Schema({
     trim: true,
     required: [
       true,
-      'A product have to possess some features, if not what is the point of your sales',
-    ],
+      'A product have to possess some features, if not what is the point of your sales'
+    ]
   },
 
   gallery: {
     first: String,
     second: String,
-    third: String,
+    third: String
   },
 
   slug: {
     type: String,
-    trim: true,
+    trim: true
   },
 
   others: [
     {
       slug: {
         type: String,
-        trim: true,
+        trim: true
       },
 
       name: {
         type: String,
-        required: true,
+        required: true
       },
 
-      image: String,
-    },
+      image: String
+    }
   ],
 
   ratingsAverage: {
     type: Number,
     default: 4.5,
     max: [5, 'RatingAverage should not be above 5'],
-    min: [1, 'RatingsAverage should not be below 1 '],
+    min: [1, 'RatingsAverage should not be below 1 ']
   },
 
   ratingsQuantity: {
     type: Number,
-    default: 0,
-  },
+    default: 0
+  }
 });
 
-productSchema.virtual('discountPercent').get(function () {
+productSchema.virtual('discountPercent').get(function() {
   return (this.discountPrice / this.price) * 100;
 });
 

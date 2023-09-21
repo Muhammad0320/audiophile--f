@@ -1,8 +1,9 @@
 const express = require('express');
 
+const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 
-const morgan = require('morgan');
+const AppError = require('./utils/appError');
 
 const app = express();
 
@@ -15,5 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/api/v1/products', productRoutes);
+
+app.all('*', (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} route on this server `));
+});
 
 module.exports = app;

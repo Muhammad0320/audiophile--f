@@ -7,7 +7,7 @@ const {
   deleteProduct,
   getProductStatistics,
   getBestProduct,
-  getProductBelow,
+  getProductBelow
 } = require('../controllers/productController');
 
 const router = express.Router();
@@ -18,8 +18,15 @@ router.route('/top-5-cheap').get(getBestProduct, getAllProducts);
 
 router.route('/products-below/:below').get(getProductBelow);
 
-router.route('/').post(createNewProduct).get(getAllProducts);
+router
+  .route('/')
+  .post(createNewProduct)
+  .get(getAllProducts);
 
-router.route('/:id').patch(updateProduct).get(getProduct).delete(deleteProduct);
+router
+  .route('/:id')
+  .patch(updateProduct)
+  .get(getProduct)
+  .delete(deleteProduct);
 
 module.exports = router;
