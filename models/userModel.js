@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const validator = require('validator');
 
+const crypto = require('crypto');
+
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
@@ -61,7 +63,11 @@ const userSchema = new mongoose.Schema({
 
   passwordChangedAt: {
     type: Date
-  }
+  },
+
+  passwordResetToken: String,
+
+  passwordResetExpires: Date
 });
 
 userSchema.set('toJSON', { getters: true, virtuals: true });
@@ -86,14 +92,26 @@ userSchema.methods.checkPasswordCorrect = async function(
 
 userSchema.methods.passwordChagedAfter = function(JWTTimeStamp) {
   if (this.passwordChangedAt) {
-    const passwordChagedTimeStamp = new Date(
-      Math.round(this.passwordChangedAt / 1000)
-    ).getTime();
+    const passwordChagedTimeStamp = Number.parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
 
     return passwordChagedTimeStamp > JWTTimeStamp;
   }
 
   return true;
+};
+
+userSchema.methods.generatePasswordResetToken = function() {
+  const resetToken = crypto.randomBytes(32).toString('hex');
+
+  this.passwordResetToken = crypto
+    .createHash('sha256')
+    .update(resetToken)
+    .digest('hex');
+
+  return resetToken;
 };
 
 const User = mongoose.model('User', userSchema);
