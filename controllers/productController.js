@@ -1,16 +1,8 @@
 const Product = require('../models/productModel');
 const ApiFeatures = require('../utils/ApiFeatures');
+const { createOne } = require('./handlerFactory');
 
-exports.createNewProduct = async (req, res) => {
-  const newUser = await Product.create(req.body);
-
-  res.status(201).json({
-    status: 'success',
-    data: {
-      newUser,
-    },
-  });
-};
+exports.createNewProduct = createOne(Product);
 
 exports.getAllProducts = async (req, res) => {
   const features = new ApiFeatures(Product.find(), req.query)
