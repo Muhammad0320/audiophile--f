@@ -3,6 +3,9 @@ const catchAsync = require('../utils/catchAsync');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const { promisify } = require('util');
+
+const crypto = require('crypto');
+
 const sendMail = require('../utils/email');
 
 const signJwt = id => {
@@ -159,4 +162,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
       message: 'Something went very wrong while trying to send the mail 😐'
     });
   }
+});
+
+exports.resetPassword = catchAsync(async (req, res, next) => {
+  const { resetToken } = req.params;
+
+  const hasedToken = crypto
+    .createHash('sha265')
+    .update(resetToken)
+    .digest('hex');
 });
