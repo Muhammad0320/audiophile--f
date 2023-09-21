@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 
 const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
@@ -22,3 +23,5 @@ app.all('*', (req, res, next) => {
 });
 
 module.exports = app;
+
+app.use(globalErrorHandler);

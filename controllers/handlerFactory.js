@@ -1,4 +1,5 @@
 const ApiFeatures = require('../utils/ApiFeatures');
+const AppError = require('../utils/appError');
 
 exports.createOne = Modal => async (req, res) => {
   const newUser = await Modal.create(req.body);
@@ -34,6 +35,15 @@ exports.getAll = Modal => async (req, res) => {
 exports.getOne = Modal => async (req, res) => {
   const product = await Modal.findById(req.params.id);
 
+  console.log(product);
+
+  if (!product) {
+    return new AppError(
+      `There is no product with this ID: ${req.params.id}`,
+      404
+    );
+  }
+
   res.status(200).json({
     status: 'success',
     data: {
@@ -52,6 +62,13 @@ exports.updateOne = Modal => async (req, res) => {
     }
   );
 
+  if (!updatedProduct) {
+    return new AppError(
+      `There is no product with this ID: ${req.params.id}`,
+      404
+    );
+  }
+
   res.status(201).json({
     status: 'success',
     data: {
@@ -61,7 +78,14 @@ exports.updateOne = Modal => async (req, res) => {
 };
 
 exports.deleteOne = Modal => async (req, res) => {
-  await Modal.findByIdAndDelete(req.params.id);
+  const product = await Modal.findByIdAndDelete(req.params.id);
+
+  if (!product) {
+    return new AppError(
+      `There is no product with this ID: ${req.params.id}`,
+      404
+    );
+  }
 
   res.status(204).json({ status: 'success' });
 };
