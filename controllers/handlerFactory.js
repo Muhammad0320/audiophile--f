@@ -1,7 +1,8 @@
 const ApiFeatures = require('../utils/ApiFeatures');
 const AppError = require('../utils/appError');
+const catchAsync = require('../utils/catchAsync');
 
-exports.createOne = Modal => async (req, res) => {
+exports.createOne = catchAsync(Modal => async (req, res) => {
   const newUser = await Modal.create(req.body);
 
   res.status(201).json({
@@ -10,9 +11,9 @@ exports.createOne = Modal => async (req, res) => {
       newUser
     }
   });
-};
+});
 
-exports.getAll = Modal => async (req, res) => {
+exports.getAll = catchAsync(Modal => async (req, res) => {
   const features = new ApiFeatures(Modal.find(), req.query)
     .filter()
     .sort()
@@ -30,12 +31,10 @@ exports.getAll = Modal => async (req, res) => {
       product
     }
   });
-};
+});
 
-exports.getOne = Modal => async (req, res) => {
+exports.getOne = catchAsync(Modal => async (req, res) => {
   const product = await Modal.findById(req.params.id);
-
-  console.log(product);
 
   if (!product) {
     return new AppError(
@@ -50,9 +49,9 @@ exports.getOne = Modal => async (req, res) => {
       product
     }
   });
-};
+});
 
-exports.updateOne = Modal => async (req, res) => {
+exports.updateOne = catchAsync(Modal => async (req, res) => {
   const updatedProduct = await Modal.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -75,9 +74,9 @@ exports.updateOne = Modal => async (req, res) => {
       product: updatedProduct
     }
   });
-};
+});
 
-exports.deleteOne = Modal => async (req, res) => {
+exports.deleteOne = catchAsync(Modal => async (req, res) => {
   const product = await Modal.findByIdAndDelete(req.params.id);
 
   if (!product) {
@@ -88,4 +87,4 @@ exports.deleteOne = Modal => async (req, res) => {
   }
 
   res.status(204).json({ status: 'success' });
-};
+});
