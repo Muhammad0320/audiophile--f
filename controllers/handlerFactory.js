@@ -81,9 +81,9 @@ exports.updateOne = Modal =>
 
 exports.deleteOne = Modal =>
   catchAsync(async (req, res) => {
-    const product = await Modal.findByIdAndDelete(req.params.id);
+    const deleteProd = await Modal.findByIdAndDelete(req.params.id);
 
-    if (!product) {
+    if (!deleteProd) {
       return new AppError(
         `There is no product with this ID: ${req.params.id}`,
         404
