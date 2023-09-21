@@ -1,31 +1,17 @@
 const Product = require('../models/productModel');
 const ApiFeatures = require('../utils/ApiFeatures');
-const { createOne, getAll, getOne, deleteOne } = require('./handlerFactory');
+const {
+  createOne,
+  getAll,
+  getOne,
+  deleteOne,
+  updateOne,
+} = require('./handlerFactory');
 
 exports.createNewProduct = createOne(Product);
-
 exports.getAllProducts = getAll(Product);
-
 exports.getProduct = getOne(Product);
-
-exports.updateProduct = async (req, res) => {
-  const updatedProduct = await Product.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-      runValidators: true,
-    }
-  );
-
-  res.status(201).json({
-    status: 'success',
-    data: {
-      product: updatedProduct,
-    },
-  });
-};
-
+exports.updateProduct = updateOne(Product);
 exports.deleteProduct = deleteOne(Product);
 
 exports.getProductStatistics = async (req, res) => {
