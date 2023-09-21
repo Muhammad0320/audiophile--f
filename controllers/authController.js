@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const catchAsync = require('../utils/catchAsync');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
+const { promisify } = require('util');
 
 const signJwt = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -47,27 +48,55 @@ exports.signUp = catchAsync(async (req, res) => {
   sendJwt(res, newUser, req);
 });
 
-exports.login = catchAsync(async (req, res) => {
+exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
 
   // Check if email and password is specified
 
   if (!email || !password) {
-    return new AppError('Please input your email and password', 400);
+    return next(new AppError('Please input your email and password', 400));
   }
 
-  const user = User.findOne({ email }).select('+password');
+  const user = await User.findOne({ email }).select('+password');
 
   // Check if password is correct
 
-  if (!user || !(await User.checkPasswordCorrect(password, user.password))) {
-    return new AppError(
-      'Invalid login credentials: Check your email or password',
-      400
+  if (!user || !(await user.checkPasswordCorrect(password, user.password))) {
+    return next(
+      new AppError(
+        'Invalid login credentials: Check your email or password',
+        400
+      )
     );
   }
 
   // Send jwt to the client
 
   sendJwt(res, user, req);
+});
+
+exports.protect = catchAsync(async (req, res, next) => {
+  let token;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    token = req.headers.authorization.split(' ')[1];
+  }
+  //   } else if (req.cookies.jwt) {
+  //     token = req.cookies.jwt;
+  //   }
+
+  if (!token) {
+    return next(
+      new AppError('You are not logged in! Log in to gain access', 400)
+    );
+  }
+
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+  console.log(decoded);
+
+  next();
 });

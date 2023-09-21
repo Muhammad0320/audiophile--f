@@ -9,6 +9,7 @@ const {
   getBestProduct,
   getProductBelow
 } = require('../controllers/productController');
+const { protect } = require('../controllers/authController');
 
 const router = express.Router();
 
@@ -21,7 +22,7 @@ router.route('/products-below/:below').get(getProductBelow);
 router
   .route('/')
   .post(createNewProduct)
-  .get(getAllProducts);
+  .get(protect, getAllProducts);
 
 router
   .route('/:id')
