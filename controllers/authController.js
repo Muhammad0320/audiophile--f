@@ -178,7 +178,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   });
 
   if (!user) {
-    return next(new AppError('Token is invalid or has expired', 400));
+    return next(new AppError('Token is invalid or has expired', 403));
   }
 
   user.password = req.body.password;
@@ -191,3 +191,13 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
   sendJwt(res, user, req);
 });
+
+exports.restrictTo = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new AppError('You are not authorized to perform this action', 401)
+      );
+    }
+  };
+};
