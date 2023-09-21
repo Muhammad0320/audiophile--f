@@ -40,6 +40,15 @@ const userSchema = new mongoose.Schema({
   photo: {
     type: String,
     default: 'default.jpg'
+  },
+
+  role: {
+    type: String,
+    default: 'user',
+    enum: {
+      values: ['user', 'merchant', 'admin'],
+      message: 'Role can either be user, mercant or admin '
+    }
   }
 });
 
