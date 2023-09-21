@@ -19,7 +19,7 @@ const sendErrorProd = (err, res) => {
   }
 };
 
-const globalErrorHandler = (err, req, res) => {
+const globalErrorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
 
   err.status = err.status || 'error';
