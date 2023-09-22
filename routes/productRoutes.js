@@ -9,7 +9,7 @@ const {
   getBestProduct,
   getProductBelow
 } = require('../controllers/productController');
-const { protect } = require('../controllers/authController');
+const { protect, restrictTo } = require('../controllers/authController');
 
 const router = express.Router();
 
@@ -21,13 +21,13 @@ router.route('/products-below/:below').get(getProductBelow);
 
 router
   .route('/')
-  .post(createNewProduct)
-  .get(protect, getAllProducts);
+  .post(protect, restrictTo('admin'), createNewProduct)
+  .get(getAllProducts);
 
 router
   .route('/:id')
-  .patch(updateProduct)
+  .patch(protect, restrictTo('admin'), updateProduct)
   .get(getProduct)
-  .delete(deleteProduct);
+  .delete(protect, restrictTo('admin'), deleteProduct);
 
 module.exports = router;
