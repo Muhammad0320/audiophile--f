@@ -9,6 +9,13 @@ const {
   deleteOne
 } = require('./handlerFactory');
 
+exports.addTourUserIds = (req, res, next) => {
+  req.body.user = req.user.id;
+  req.body.product = req.params.productId;
+
+  next();
+};
+
 exports.addItemToCart = createOne(Cart);
 
 exports.getAllCarts = getAll(Cart);
@@ -18,13 +25,6 @@ exports.getCart = getOne(Cart);
 exports.updateCart = updateOne(Cart);
 
 exports.deleteCart = deleteOne(Cart);
-
-exports.addTourUserIds = (req, res, next) => {
-  req.body.user = req.user.id;
-  req.body.tour = req.params.tourId;
-
-  next();
-};
 
 exports.getMyCart = catchAsync(async (req, res, next) => {
   const myCart = await Cart.find({ user: req.user.id });

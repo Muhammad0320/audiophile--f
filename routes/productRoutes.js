@@ -22,7 +22,7 @@ router.route('/top-5-cheap').get(getBestProduct, getAllProducts);
 
 router.route('/products-below/:below').get(getProductBelow);
 
-router.use('/:tourId/cart', cartRouter);
+router.use('/:productId/cart', cartRouter);
 
 router
   .route('/')
