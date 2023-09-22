@@ -17,7 +17,7 @@ router.use(protect);
 
 router
   .route('/')
-  .get(restrictTo('admin', 'user'), getAllCarts)
+  .get(restrictTo('admin'), getAllCarts)
   .post(addItemToCart);
 
 router.use(restrictTo('admin', 'user'));

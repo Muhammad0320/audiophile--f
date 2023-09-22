@@ -8,12 +8,14 @@ const cartSchema = new mongoose.Schema({
 
   user: {
     type: mongoose.Schema.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: [true, 'A cart must belong to a user']
   },
 
   product: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Product'
+    ref: 'Product',
+    required: [true, 'A product must be added to cart']
   },
 
   createdAt: {
