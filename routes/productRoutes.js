@@ -9,6 +9,9 @@ const {
   getBestProduct,
   getProductBelow
 } = require('../controllers/productController');
+
+const cartRouter = require('./cartRoutes');
+
 const { protect, restrictTo } = require('../controllers/authController');
 
 const router = express.Router();
@@ -18,6 +21,8 @@ router.route('/get-product-stats').get(getProductStatistics);
 router.route('/top-5-cheap').get(getBestProduct, getAllProducts);
 
 router.route('/products-below/:below').get(getProductBelow);
+
+router.route('/:id/cart', cartRouter);
 
 router
   .route('/')
