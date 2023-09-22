@@ -213,13 +213,16 @@ exports.updateCurrentUserPassword = catchAsync(async (req, res, next) => {
   }
 
   if (
-    !currentUser.checkPasswordCorrect(currentPassword, currentUser.password)
+    !(await currentUser.checkPasswordCorrect(
+      currentPassword,
+      currentUser.password
+    ))
   ) {
     return next(new AppError('Incorrect current password', 400));
   }
 
   currentUser.password = password;
-  currentPassword.passwordConfirm = passwordConfirm;
+  currentUser.passwordConfirm = passwordConfirm;
 
   await currentUser.save();
 
