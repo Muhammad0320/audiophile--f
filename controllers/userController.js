@@ -50,7 +50,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 
   const filteredBody = filteredObj(req.body, 'name', 'email', 'photo');
 
-  const user = await User.findByIdAndUpdate(req.user.id, filteredBody, {
+  const user = await User.findByIdAndUpdate(req.user._id, filteredBody, {
     new: true,
     runValidators: true
   });
@@ -66,5 +66,17 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     data: {
       user
     }
+  });
+});
+
+exports.deleteMe = catchAsync(async (req, res, next) => {
+  if (!req.user) {
+    return next(new AppError('You are not logged in! Login to gain access'));
+  }
+
+  await User.findByIdAndUpdate(req.user._id, { active: false });
+
+  res.status(204).json({
+    status: 'success'
   });
 });
