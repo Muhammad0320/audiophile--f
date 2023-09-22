@@ -23,7 +23,7 @@ router
 router.use(restrictTo('admin', 'user'));
 
 router
-  .route('/id')
+  .route('/:id')
   .patch(updateCart)
   .get(getCart)
   .delete(deleteCart);
