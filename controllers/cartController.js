@@ -19,7 +19,7 @@ exports.updateCart = updateOne(Cart);
 
 exports.deleteCart = deleteOne(Cart);
 
-exports.addUserId = (req, res, next) => {
+exports.addTourUserIds = (req, res, next) => {
   req.body.user = req.user.id;
   req.body.tour = req.params.id;
 
