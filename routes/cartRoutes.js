@@ -4,10 +4,13 @@ const {
   addItemToCart,
   updateCart,
   getCart,
-  deleteCart
+  deleteCart,
+  getMyCart
 } = require('../controllers/cartController');
 
 const router = express.Router();
+
+router.route('/myCart').get(getMyCart);
 
 router
   .route('/')
