@@ -6,6 +6,8 @@ exports.createOne = Modal =>
   catchAsync(async (req, res) => {
     const newUser = await Modal.create(req.body);
 
+    console.log(req.body);
+
     res.status(201).json({
       status: 'success',
       data: {

@@ -21,7 +21,7 @@ exports.deleteCart = deleteOne(Cart);
 
 exports.addTourUserIds = (req, res, next) => {
   req.body.user = req.user.id;
-  req.body.tour = req.params.id;
+  req.body.tour = req.params.tourId;
 
   next();
 };
