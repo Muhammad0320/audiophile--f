@@ -1,13 +1,15 @@
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
-const { getAll, getOne, updateOne } = require('./handlerFactory');
+const { getAll, getOne, updateOne, deleteOne } = require('./handlerFactory');
 
 exports.getAllUsers = getAll(User);
 
 exports.getUser = getOne(User);
 
 exports.updateUser = updateOne(User);
+
+exports.deleteOne = deleteOne(User);
 
 exports.getMe = catchAsync(async (req, res, next) => {
   const currentUser = await User.findById(req.user.id);
