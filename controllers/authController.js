@@ -202,3 +202,29 @@ exports.restrictTo = (...roles) => {
     next();
   };
 };
+
+exports.updateCurrentUserPassword = catchAsync(async (req, res, next) => {
+  const { password, passwordConfirm, currentPassword } = req.body;
+
+  const currentUser = await User.findById(req.user.id).select('+password');
+
+  if (!currentPassword) {
+    return next(new AppError('Please provide your current password', 400));
+  }
+
+  if (!currentUser.checkPasswordCorrect(password, currentUser.password)) {
+    return next(new AppError('Incorrect current password', 400));
+  }
+
+  currentUser.password = password;
+  currentPassword.passwordConfirm = passwordConfirm;
+
+  await currentUser.save();
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      updatedUser: currentUser
+    }
+  });
+});
