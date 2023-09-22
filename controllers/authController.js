@@ -199,5 +199,6 @@ exports.restrictTo = (...roles) => {
         new AppError('You are not authorized to perform this action', 401)
       );
     }
+    next();
   };
 };
