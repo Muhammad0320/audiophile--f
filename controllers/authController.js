@@ -212,7 +212,9 @@ exports.updateCurrentUserPassword = catchAsync(async (req, res, next) => {
     return next(new AppError('Please provide your current password', 400));
   }
 
-  if (!currentUser.checkPasswordCorrect(password, currentUser.password)) {
+  if (
+    !currentUser.checkPasswordCorrect(currentPassword, currentUser.password)
+  ) {
     return next(new AppError('Incorrect current password', 400));
   }
 

@@ -75,7 +75,7 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   if (!currentPassword) {
     return next(
       new AppError(
-        'Please provide your current password before performing this ation',
+        'We need your current password before you can perform this operation! For security purpose ',
         404
       )
     );
