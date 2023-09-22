@@ -19,7 +19,6 @@ router.route('/myCart').get(getMyCart);
 router
   .route('/')
   .get(restrictTo('admin'), getAllCarts)
-  .post(addItemToCart)
   .post(addTourUserIds, addItemToCart);
 
 router.use(restrictTo('admin', 'user'));
