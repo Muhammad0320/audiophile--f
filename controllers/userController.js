@@ -25,3 +25,24 @@ exports.getMe = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+const filteredObj = (body, ...allowedFields) => {
+  const newObj = {};
+
+  Object.keys(body).forEach(el => {
+    if (allowedFields.includes(el)) newObj[el] = body[el];
+  });
+
+  return newObj;
+};
+
+exports.updateMe = catchAsync(async (req, res, next) => {
+  if (req.body.password || req.body.passwordConfirm) {
+    return next(
+      new AppError(
+        'This route is for updating other user data other than sesitive data like password, kindly navigate to /updateCurrentPassword  to update your password',
+        400
+      )
+    );
+  }
+});
