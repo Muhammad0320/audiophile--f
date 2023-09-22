@@ -9,7 +9,7 @@ exports.getUser = getOne(User);
 
 exports.updateUser = updateOne(User);
 
-exports.deleteOne = deleteOne(User);
+exports.deleteUser = deleteOne(User);
 
 exports.getMe = catchAsync(async (req, res, next) => {
   const currentUser = await User.findById(req.user.id);
