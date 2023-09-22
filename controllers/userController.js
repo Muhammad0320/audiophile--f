@@ -50,7 +50,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 
   const filteredBody = filteredObj(req.body, 'name', 'email', 'photo');
 
-  const user = await User.findByIdAndUpdate(req.user._id, filteredBody, {
+  const user = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,
     runValidators: true
   });
@@ -70,11 +70,32 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteMe = catchAsync(async (req, res, next) => {
-  if (!req.user) {
-    return next(new AppError('You are not logged in! Login to gain access'));
+  const { currentPassword } = req.body;
+
+  if (!currentPassword) {
+    return next(
+      new AppError(
+        'Please provide your current password before performing this ation',
+        404
+      )
+    );
   }
 
-  await User.findByIdAndUpdate(req.user._id, { active: false });
+  const toBeDeletedUser = await User.findByIdAndUpdate(
+    req.user.id,
+    { active: false },
+    { new: true, runValidators: true }
+  ).select('+password');
+
+  if (
+    !toBeDeletedUser ||
+    !(await toBeDeletedUser.checkPasswordCorrect(
+      currentPassword,
+      toBeDeletedUser.password
+    ))
+  ) {
+    return next(new AppError('Incorrent current password! try again', 400));
+  }
 
   res.status(204).json({
     status: 'success'
