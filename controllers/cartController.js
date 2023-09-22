@@ -19,6 +19,13 @@ exports.updateCart = updateOne(Cart);
 
 exports.deleteCart = deleteOne(Cart);
 
+exports.addUserId = (req, res, next) => {
+  req.body.user = req.user.id;
+  req.body.tour = req.params.id;
+
+  next();
+};
+
 exports.getMyCart = catchAsync(async (req, res, next) => {
   const myCart = await Cart.find({ user: req.user.id });
 
