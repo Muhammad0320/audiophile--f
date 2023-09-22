@@ -10,10 +10,6 @@ const {
 } = require('./handlerFactory');
 
 exports.addTourUserIds = (req, res, next) => {
-  console.log(req.params);
-  console.log(req.user);
-  console.log(req.user);
-
   if (!req.body.proudct) req.body.product = req.params.productId;
   if (!req.body.user) req.body.user = req.user.id;
 
