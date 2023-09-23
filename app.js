@@ -8,6 +8,8 @@ const rateLimit = require('express-rate-limit');
 
 const hpp = require('hpp');
 
+const helmet = require('helmet');
+
 const xss = require('xss-clean');
 
 const morgan = require('morgan');
@@ -41,6 +43,8 @@ app.use(
     ]
   })
 );
+
+app.use(helmet());
 
 app.use(
   rateLimit({
