@@ -45,8 +45,8 @@ const handleDuplicateError = err => {
 const handleJsonWebTokenError = () =>
   new AppError('Invalid token, Please login again', 403);
 
-
-const handleJsonWebTokenExpires () => new AppError('Expired token, please login again, 403')
+const handleJsonWebTokenExpires = () =>
+  new AppError('Expired token, please login again, 403');
 
 const globalErrorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
@@ -61,12 +61,13 @@ const globalErrorHandler = (err, req, res, next) => {
     if (error.name === 'CastError') error = handleCastError(error);
     if (error.name === 'ValidationError') error = handleValidationError(error);
 
-    if (error.code === 11000) error = handleDuplicateError(error);
+    if (error.code === 11000) error = handleDuplicateError();
 
     if (error.message === 'JsonWebTokenError')
       error = handleJsonWebTokenError(error);
 
-    if(error.message === 'TokenExpiredError') error 
+    if (error.message === 'TokenExpiredError')
+      error = handleJsonWebTokenExpires();
 
     sendErrorProd(error, res);
   }
