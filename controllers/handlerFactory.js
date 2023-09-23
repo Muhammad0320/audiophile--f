@@ -6,8 +6,6 @@ exports.createOne = Modal =>
   catchAsync(async (req, res) => {
     const newUser = await Modal.create(req.body);
 
-    console.log(req.body);
-
     res.status(201).json({
       status: 'success',
       data: {
@@ -24,15 +22,15 @@ exports.getAll = Modal =>
       .limitFields()
       .paginate();
 
-    const product = await features.query;
+    const doc = await features.query;
 
     res.status(200).json({
       status: 'success',
 
-      result: product.length,
+      result: doc.length,
 
       data: {
-        product
+        data: doc
       }
     });
   });

@@ -26,7 +26,7 @@ router.route('/products-below/:below').get(getProductBelow);
 
 router.use('/:productId/cart', cartRouter);
 
-router.use('/productId/review', reviewRouter);
+router.use('/:productId/review', reviewRouter);
 
 router
   .route('/')
