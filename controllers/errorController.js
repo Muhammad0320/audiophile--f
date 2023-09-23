@@ -28,10 +28,7 @@ const globalErrorHandler = (err, req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === 'production') {
-    const error = structuredClone(err);
-
-    // console.log(error);
-    // console.log(err);
+    const error = JSON.parse(JSON.stringify(err));
 
     sendErrorProd(error, res);
   }
