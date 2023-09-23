@@ -10,7 +10,7 @@ const {
 
 exports.createNewProduct = createOne(Product);
 exports.getAllProducts = getAll(Product);
-exports.getProduct = getOne(Product);
+exports.getProduct = getOne(Product, { path: 'reviews' });
 exports.updateProduct = updateOne(Product);
 exports.deleteProduct = deleteOne(Product);
 
