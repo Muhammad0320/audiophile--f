@@ -3,13 +3,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 
 const sanitize = require('express-mongo-sanitize');
-
 const rateLimit = require('express-rate-limit');
-
 const hpp = require('hpp');
-
 const helmet = require('helmet');
-
 const xss = require('xss-clean');
 
 const morgan = require('morgan');
@@ -47,6 +43,7 @@ app.use(
 app.use(helmet());
 
 app.use(
+  '/api',
   rateLimit({
     max: 150,
     windowMs: 60 * 60 * 1000,
