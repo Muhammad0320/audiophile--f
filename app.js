@@ -8,6 +8,8 @@ const rateLimit = require('express-rate-limit');
 
 const hpp = require('hpp');
 
+const xss = require('xss-clean');
+
 const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -24,6 +26,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(sanitize());
+
+app.use(xss());
 
 app.use(
   hpp({
