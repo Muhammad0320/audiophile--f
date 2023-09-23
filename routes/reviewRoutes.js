@@ -9,8 +9,11 @@ const {
   getReviewsOnProduct,
   getReviewOnUser
 } = require('../controllers/reviewController');
+const { protect, restrictTo } = require('../controllers/authController');
 
 const router = express.Router({ mergeParams: true });
+
+router.use(protect);
 
 router.route('/my-reviews').get(getReviewOnUser);
 
@@ -19,6 +22,8 @@ router
   .get(getAllReviews)
   .post(addProductUserIds, createNewReview)
   .get(getReviewsOnProduct);
+
+router.use(restrictTo('user', 'admin'));
 
 router
   .route('/:id')
