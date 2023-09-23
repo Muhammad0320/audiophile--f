@@ -12,6 +12,8 @@ const {
 
 const cartRouter = require('./cartRoutes');
 
+const reviewRouter = require('./reviewRoutes');
+
 const { protect, restrictTo } = require('../controllers/authController');
 
 const router = express.Router();
@@ -23,6 +25,8 @@ router.route('/top-5-cheap').get(getBestProduct, getAllProducts);
 router.route('/products-below/:below').get(getProductBelow);
 
 router.use('/:productId/cart', cartRouter);
+
+router.use('/productId/review', reviewRouter);
 
 router
   .route('/')
