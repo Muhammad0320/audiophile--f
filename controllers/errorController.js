@@ -36,6 +36,12 @@ const handleValidationError = err => {
   return new AppError(message, 400);
 };
 
+const handleDuplicateError = err => {
+  const message = `Duplicate value: ${err.keyValue.email}, Please try another value`;
+
+  return new AppError(message, 403);
+};
+
 const globalErrorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
 
@@ -48,6 +54,8 @@ const globalErrorHandler = (err, req, res, next) => {
 
     if (error.name === 'CastError') error = handleCastError(error);
     if (error.name === 'ValidationError') error = handleValidationError(error);
+
+    if (error.code === 11000) error = '';
 
     console.log('Okay', err);
 
