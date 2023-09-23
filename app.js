@@ -8,6 +8,8 @@ const hpp = require('hpp');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 
+const cors = require('cors');
+
 const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -26,6 +28,8 @@ if (process.env.NODE_ENV === 'development') {
 app.use(sanitize());
 
 app.use(xss());
+
+app.use(cors());
 
 app.use(
   hpp({
