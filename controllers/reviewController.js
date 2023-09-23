@@ -49,6 +49,7 @@ exports.getReviewOnUser = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
+    result: userReview.length,
     data: {
       reviews: userReview
     }
