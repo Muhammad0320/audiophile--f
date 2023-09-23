@@ -28,6 +28,14 @@ const handleCastError = err => {
   return new AppError(message, 404);
 };
 
+const handleValidationError = err => {
+  const values = Object.values(err.errors).map(el => el.message);
+
+  const message = values.join('. ');
+
+  return new AppError(message, 400);
+};
+
 const globalErrorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
 
@@ -39,6 +47,11 @@ const globalErrorHandler = (err, req, res, next) => {
     let error = JSON.parse(JSON.stringify(err));
 
     if (error.name === 'CastError') error = handleCastError(error);
+    if (error.name === 'ValidationError') error = handleValidationError(error);
+
+    console.log('Okay', err);
+
+    console.log('alright', error);
 
     sendErrorProd(error, res);
   }
