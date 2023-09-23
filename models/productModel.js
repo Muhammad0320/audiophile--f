@@ -123,6 +123,12 @@ productSchema.virtual('discountPercent').get(function() {
   return (this.discountPrice / this.price) * 100;
 });
 
+productSchema.virtual('revires', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'product'
+});
+
 productSchema.set('toJSON', { getters: true, virtuals: true });
 productSchema.set('toObject', { getters: true, virtuals: true });
 

@@ -19,9 +19,9 @@ router.route('/my-reviews').get(getReviewOnUser);
 
 router
   .route('/')
+  .get(getAllReviews)
   .post(addProductUserIds, createNewReview)
-  .get(getReviewsOnProduct)
-  .get(getAllReviews);
+  .get(getReviewsOnProduct);
 
 router.use(restrictTo('user', 'admin'));
 
