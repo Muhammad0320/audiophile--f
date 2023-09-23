@@ -1,3 +1,5 @@
+const AppError = require('../utils/appError');
+
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
@@ -20,6 +22,12 @@ const sendErrorProd = (err, res) => {
   }
 };
 
+const handleCastError = err => {
+  const message = `Invalid product _id: ${err.value}`;
+
+  return new AppError(message, 404);
+};
+
 const globalErrorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
 
@@ -28,7 +36,9 @@ const globalErrorHandler = (err, req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === 'production') {
-    const error = JSON.parse(JSON.stringify(err));
+    let error = JSON.parse(JSON.stringify(err));
+
+    if (error.name === 'CastError') error = handleCastError(error);
 
     sendErrorProd(error, res);
   }
