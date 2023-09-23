@@ -60,7 +60,8 @@ const globalErrorHandler = (err, req, res, next) => {
 
     if (error.code === 11000) error = handleDuplicateError(error);
 
-    if ((error.message = 'JsonWebTokenError')) '';
+    if (error.message === 'JsonWebTokenError')
+      error = handleJsonWebTokenError(error);
 
     console.log('Okay', err);
 
