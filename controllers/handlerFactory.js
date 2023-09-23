@@ -35,9 +35,13 @@ exports.getAll = Modal =>
     });
   });
 
-exports.getOne = Modal =>
+exports.getOne = (Modal, popOptions) =>
   catchAsync(async (req, res, next) => {
-    const product = await Modal.findById(req.params.id);
+    let query = Modal.find(req.params.id);
+
+    if (popOptions) query = query.populate(popOptions);
+
+    const product = await query;
 
     if (!product) {
       return next(
