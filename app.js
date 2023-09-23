@@ -2,6 +2,8 @@ const express = require('express');
 
 const cookieParser = require('cookie-parser');
 
+const sanitize = require('express-mongo-sanitize');
+
 const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -16,6 +18,8 @@ const app = express();
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+app.use(sanitize());
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
