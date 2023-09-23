@@ -6,10 +6,13 @@ const {
   createNewReview,
   updateReview,
   deleteReview,
-  getReviewsOnProduct
+  getReviewsOnProduct,
+  getReviewOnUser
 } = require('../controllers/reviewController');
 
 const router = express.Router({ mergeParams: true });
+
+router.route('/my-reviews').get(getReviewOnUser);
 
 router
   .route('/')
