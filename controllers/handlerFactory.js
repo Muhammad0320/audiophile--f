@@ -37,7 +37,7 @@ exports.getAll = Modal =>
 
 exports.getOne = (Modal, popOptions) =>
   catchAsync(async (req, res, next) => {
-    let query = Modal.find(req.params.id);
+    let query = Modal.findById(req.params.id);
 
     if (popOptions) query = query.populate(popOptions);
 
