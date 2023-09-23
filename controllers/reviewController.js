@@ -39,6 +39,21 @@ exports.getReviewsOnProduct = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getReviewOnUser = catchAsync(async (req, res, next) => {
+  const userReview = await Review.find({ user: req.user.id });
+
+  if (!userReview) {
+    return next(new AppError(`You haven't written any review yet`, 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      reviews: userReview
+    }
+  });
+});
+
 exports.addProductUserIds = (req, res, next) => {
   if (!req.body.product) req.body.product = req.params.productId;
 
