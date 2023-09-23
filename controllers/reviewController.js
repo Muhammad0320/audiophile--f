@@ -9,9 +9,9 @@ const {
   deleteOne
 } = require('./handlerFactory');
 
-exports.createNewRating = createOne(Review);
+exports.createNewReview = createOne(Review);
 
-exports.getAllRatings = getAll(Review);
+exports.getAllReviews = getAll(Review);
 
 exports.getReview = getOne(Review);
 
