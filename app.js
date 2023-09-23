@@ -6,6 +6,8 @@ const sanitize = require('express-mongo-sanitize');
 
 const rateLimit = require('express-rate-limit');
 
+const hpp = require('hpp');
+
 const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -22,6 +24,19 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(sanitize());
+
+app.use(
+  hpp({
+    whitelist: [
+      'duration',
+      'discountPrice',
+      'price',
+      'ratingsAverage',
+      'ratingsQuantity',
+      'category'
+    ]
+  })
+);
 
 app.use(
   rateLimit({
