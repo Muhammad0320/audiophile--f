@@ -5,7 +5,8 @@ const {
   addProductUserIds,
   createNewReview,
   updateReview,
-  deleteReview
+  deleteReview,
+  getReviewsOnProduct
 } = require('../controllers/reviewController');
 
 const router = express.Router({ mergeParams: true });
@@ -13,7 +14,8 @@ const router = express.Router({ mergeParams: true });
 router
   .route('/')
   .get(getAllReviews)
-  .post(addProductUserIds, createNewReview);
+  .post(addProductUserIds, createNewReview)
+  .get(getReviewsOnProduct);
 
 router
   .route('/:id')
