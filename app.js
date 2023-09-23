@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser');
 
 const sanitize = require('express-mongo-sanitize');
 
+const rateLimit = require('express-rate-limit');
+
 const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -20,6 +22,14 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(sanitize());
+
+app.use(
+  rateLimit({
+    max: 150,
+    windowMs: 60 * 60 * 1000,
+    message: 'Too many requests from this IP'
+  })
+);
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
