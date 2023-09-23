@@ -42,6 +42,9 @@ const handleDuplicateError = err => {
   return new AppError(message, 403);
 };
 
+const handleJsonWebTokenError = err =>
+  new AppError('Invalid token, Please login again', 401);
+
 const globalErrorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
 
@@ -56,6 +59,8 @@ const globalErrorHandler = (err, req, res, next) => {
     if (error.name === 'ValidationError') error = handleValidationError(error);
 
     if (error.code === 11000) error = handleDuplicateError(error);
+
+    if ((error.message = 'JsonWebTokenError')) '';
 
     console.log('Okay', err);
 
