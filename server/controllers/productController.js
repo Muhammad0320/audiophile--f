@@ -17,7 +17,7 @@ exports.updateProduct = updateOne(Product);
 exports.deleteProduct = deleteOne(Product);
 
 exports.getProductDetail = catchAsync(async (req, res, next) => {
-  const product = await Product.findOne({ slug: req.params.id });
+  const product = await Product.findOne({ slug: req.params.slug });
 
   if (!product) {
     return next(new AppError('There is no product with such slug', 404));
