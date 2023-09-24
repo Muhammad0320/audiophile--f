@@ -11,14 +11,14 @@ const CategoryContainer = styled.div`
 `;
 
 function CategoryEarphones() {
-  const { categoryProduct, isLoading } = useProductCategory("earphones");
+  const { categoryProduct = [], isLoading } = useProductCategory("earphones");
 
   if (isLoading) return <Spinner />;
 
   return (
     <CategoryContainer>
       {categoryProduct.map((data, index) => (
-        <Category key={data.id} categoryData={data} index={index} />
+        <Category key={data._id} categoryData={data} index={index} />
       ))}
 
       <CategoryBox />
