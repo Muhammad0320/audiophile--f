@@ -1,5 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { fakeData } from "../../service/data";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   DescriptionContainer,
@@ -19,8 +18,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
 
 import UpdateCartItem from "../../ui/UpdateCartItem";
-import { useGetProductBySlug } from "../category/useProductBySlug";
+
 import Spinner from "../../ui/Spinner";
+import { useGetProductBySlug } from "./useProductBySlug";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -134,8 +134,6 @@ const OtherTextBox = styled.div`
 `;
 
 function ProductDetails() {
-  const { slug } = useParams();
-
   const { isLoading, product = {} } = useGetProductBySlug();
 
   const navigate = useNavigate();
@@ -144,7 +142,7 @@ function ProductDetails() {
     new: isNew,
     price,
     includes,
-    image: { desktop: productImage },
+    image,
     name,
     features,
     id,
@@ -153,11 +151,7 @@ function ProductDetails() {
     others,
   } = product;
 
-  const {
-    first: { desktop: galleryImage1 },
-    second: { desktop: galleryImage2 },
-    third: { desktop: galleryImage3 },
-  } = gallery;
+  const { first, second, third } = gallery;
 
   const { moveBack } = useMoveBack();
 
@@ -167,7 +161,7 @@ function ProductDetails() {
   const handleAddToCart = () => {
     const newCartItem = {
       productID: id,
-      cartImage: productImage,
+      cartImage: image,
       cartName,
       unitPrice: price,
       totalPrice: price * 1,
@@ -191,7 +185,7 @@ function ProductDetails() {
       </SmallButton>
       <Container>
         <ImageContainer style={{ gridColumn: "1 / 2" }}>
-          <img src={productImage} alt="product" />
+          <img src={image} alt="product" />
         </ImageContainer>
 
         <DescriptionContainer>
@@ -232,25 +226,25 @@ function ProductDetails() {
       </FeatureBox>
 
       <GalleryContainer>
-        <img src={galleryImage1} alt="GalleryImage 1" />
-        <img src={galleryImage2} alt="GalleryImage 2" />
-        <img src={galleryImage3} alt="GalleryImage 3 " />
+        <img src={first} alt="GalleryImage 1" />
+        <img src={second} alt="GalleryImage 2" />
+        <img src={third} alt="GalleryImage 3 " />
       </GalleryContainer>
 
       <Heading type="others"> You may also like </Heading>
       <OthersContainer>
         {others.map((item) => {
-          const currentItemID = fakeData.find((el) => el.slug === item.slug).id;
+          // const currentItemID = fakeData.find((el) => el.slug === item.slug).id;
 
           return (
             <>
               <OtherImageContainer>
-                <img src={item?.image?.desktop} alt=" OtherImage " />
+                <img src={item?.image} alt=" OtherImage " />
               </OtherImageContainer>
 
               <OtherTextBox>
                 <p> {item.name} </p>
-                <Button onClick={() => navigate(`/product/${currentItemID}`)}>
+                <Button onClick={() => navigate(`/product/${item.slug}`)}>
                   {" "}
                   see product{" "}
                 </Button>

@@ -46,14 +46,14 @@ app.use(
 
 app.use(helmet());
 
-app.use(
-  '/api',
-  rateLimit({
-    max: 150,
-    windowMs: 60 * 60 * 1000,
-    message: 'Too many requests from this IP'
-  })
-);
+// app.use(
+//   '/api',
+//   rateLimit({
+//     max: 150,
+//     windowMs: 60 * 60 * 1000,
+//     message: 'Too many requests from this IP'
+//   })
+// );
 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));

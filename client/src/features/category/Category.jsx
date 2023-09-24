@@ -68,7 +68,7 @@ export const ProductPrice = styled.p`
 `;
 
 function Category({ categoryData, index }) {
-  const { image, id, new: isNew, name, description } = categoryData;
+  const { image, id, new: isNew, name, description, slug } = categoryData;
 
   const navigate = useNavigate();
 
@@ -89,7 +89,7 @@ function Category({ categoryData, index }) {
         {isNew && <NewProduct> New product </NewProduct>}
         <ProductName> {name} </ProductName>
         <Text> {description} </Text>
-        <Button onClick={() => navigate(`/product/${id}`)}>
+        <Button onClick={() => navigate(`/product/${slug}`)}>
           {" "}
           See product{" "}
         </Button>

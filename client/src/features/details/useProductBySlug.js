@@ -1,18 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProductBySlug } from "../../service/apiProduct";
 import { useParams } from "react-router-dom";
+import { getProductBySlug } from "../../service/apiProduct";
 
 export const useGetProductBySlug = () => {
   const { slug } = useParams();
 
   const {
     data: product,
-    isLoading,
     error,
+    isLoading,
   } = useQuery({
-    queryFn: getProductBySlug(slug),
-    queryKey: ["product", slug],
+    queryKey: ["product-slug"],
+
+    queryFn: () => getProductBySlug(slug),
   });
 
-  return { product, isLoading, error };
+  return { product, error, isLoading };
 };

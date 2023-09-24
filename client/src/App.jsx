@@ -32,9 +32,9 @@ function App() {
             <Route path="earphones" element={<Earphone />} />
             <Route path="speakers" element={<Speakers />} />
             <Route path="checkout" element={<CheckoutPage />} />
-
-            <Route path="product/:productID" element={<Details />} />
             <Route path="product/:slug" element={<Details />} />
+
+            {/* <Route path="product/:productID" element={<Details />} /> */}
           </Route>
         </Routes>
       </BrowserRouter>
