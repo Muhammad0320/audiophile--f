@@ -27,7 +27,6 @@ export const getProductBySlug = async (slug) => {
     const res = await axios.get(
       `http://127.0.0.1:3000/api/v1/products/${slug}`
     );
-    console.log(res);
 
     return res.data.data;
   } catch (error) {
@@ -38,8 +37,6 @@ export const getProductBySlug = async (slug) => {
 export const getProductById = async (id) => {
   try {
     const res = await axios.get(`http://127.0.0.1:3000/api/v1/products/${id}`);
-
-    console.log(res.data);
 
     return res.data.data;
   } catch (error) {

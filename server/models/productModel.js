@@ -57,7 +57,7 @@ const productSchema = new mongoose.Schema({
 
   includes: [
     {
-      quality: {
+      quantity: {
         type: Number,
         min: [1, 'An item must have at least one quantity']
       },

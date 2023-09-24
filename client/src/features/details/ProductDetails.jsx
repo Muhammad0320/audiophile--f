@@ -21,6 +21,7 @@ import UpdateCartItem from "../../ui/UpdateCartItem";
 
 import Spinner from "../../ui/Spinner";
 import { useGetProductBySlug } from "./useProductBySlug";
+import { testdata } from "../../service/data";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -134,12 +135,15 @@ const OtherTextBox = styled.div`
 `;
 
 function ProductDetails() {
-  const { isLoading, product = {} } = useGetProductBySlug();
+  const { isLoading, product } = useGetProductBySlug();
+
+  // const product = testdata;
 
   const navigate = useNavigate();
 
+  // console.log(isLoading, testing?.product);
+
   const {
-    new: isNew,
     price,
     includes,
     image,
@@ -149,15 +153,16 @@ function ProductDetails() {
     gallery,
     description,
     others,
-  } = product;
+    new: isNew,
+  } = product?.product || {};
 
-  const { first, second, third } = gallery;
+  const { first, second, third } = gallery || {};
 
   const { moveBack } = useMoveBack();
 
   const dispatch = useDispatch();
 
-  const cartName = name.split(" ").slice(0, -1).join(" ");
+  const cartName = name?.split(" ").slice(0, -1).join(" ");
   const handleAddToCart = () => {
     const newCartItem = {
       productID: id,
@@ -215,7 +220,7 @@ function ProductDetails() {
           <Heading> in the box </Heading>
 
           <InTheBoxContainer>
-            {includes.map((item) => (
+            {includes?.map((item) => (
               <InTheBox>
                 <Quantity> {item.quantity + "x"} </Quantity>
                 <Text> {item.item} </Text>
@@ -231,9 +236,9 @@ function ProductDetails() {
         <img src={third} alt="GalleryImage 3 " />
       </GalleryContainer>
 
-      <Heading type="others"> You may also like </Heading>
+      {product && <Heading type="others"> You may also like </Heading>}
       <OthersContainer>
-        {others.map((item) => {
+        {others?.map((item) => {
           // const currentItemID = fakeData.find((el) => el.slug === item.slug).id;
 
           return (
