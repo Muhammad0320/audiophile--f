@@ -1,4 +1,6 @@
 const Product = require('../models/productModel');
+const AppError = require('../utils/appError');
+const catchAsync = require('../utils/catchAsync');
 
 const {
   createOne,
@@ -13,6 +15,21 @@ exports.getAllProducts = getAll(Product);
 exports.getProduct = getOne(Product, { path: 'reviews' });
 exports.updateProduct = updateOne(Product);
 exports.deleteProduct = deleteOne(Product);
+
+exports.getProductDetail = catchAsync(async (req, res, next) => {
+  const product = await Product.findOne({ slug: req.params.id });
+
+  if (!product) {
+    return next(new AppError('There is no product with such slug', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      product
+    }
+  });
+});
 
 exports.getProductStatistics = async (req, res) => {
   const stats = await Product.aggregate([
