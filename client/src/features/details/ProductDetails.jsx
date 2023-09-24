@@ -19,6 +19,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
 
 import UpdateCartItem from "../../ui/UpdateCartItem";
+import { useGetProductBySlug } from "../category/useProductBySlug";
+import Spinner from "../../ui/Spinner";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -134,9 +136,7 @@ const OtherTextBox = styled.div`
 function ProductDetails() {
   const { slug } = useParams();
 
-  const {} = "";
-
-  const product = "";
+  const { isLoading, product = {} } = useGetProductBySlug();
 
   const navigate = useNavigate();
 
@@ -180,6 +180,8 @@ function ProductDetails() {
   const currentQuantity = useSelector(getCurrentItemQuantityById(id));
 
   const isInCart = currentQuantity > 0;
+
+  if (isLoading) return <Spinner />;
 
   return (
     <ProductContainer>
