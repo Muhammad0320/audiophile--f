@@ -7,7 +7,8 @@ const {
   deleteProduct,
   getProductStatistics,
   getBestProduct,
-  getProductBelow
+  getProductBelow,
+  getProductDetail
 } = require('../controllers/productController');
 
 const cartRouter = require('./cartRoutes');
@@ -23,6 +24,8 @@ router.route('/get-product-stats').get(getProductStatistics);
 router.route('/top-5-cheap').get(getBestProduct, getAllProducts);
 
 router.route('/products-below/:below').get(getProductBelow);
+
+router.route('/:slug').get(getProductDetail);
 
 router.use('/:productId/cart', cartRouter);
 
