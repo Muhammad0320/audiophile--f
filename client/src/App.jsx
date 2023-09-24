@@ -34,6 +34,7 @@ function App() {
             <Route path="checkout" element={<CheckoutPage />} />
 
             <Route path="product/:productID" element={<Details />} />
+            <Route path="product/:slug" element={<Details />} />
           </Route>
         </Routes>
       </BrowserRouter>

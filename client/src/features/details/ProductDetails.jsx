@@ -20,8 +20,6 @@ import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
 
 import UpdateCartItem from "../../ui/UpdateCartItem";
 
-
-
 const FeatureBox = styled.div`
   display: flex;
   align-items: flex-start;
@@ -134,9 +132,11 @@ const OtherTextBox = styled.div`
 `;
 
 function ProductDetails() {
-  const { productID } = useParams();
+  const { slug } = useParams();
 
-  const product = fakeData.find((data) => data.id === +productID);
+  const {} = "";
+
+  const product = "";
 
   const navigate = useNavigate();
 
