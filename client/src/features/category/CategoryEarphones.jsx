@@ -4,6 +4,7 @@ import Category from "./Category";
 import ContainerHero from "../../ui/ContainerHero";
 import CategoryBox from "../../ui/CategoryBox";
 import { useProductCategory } from "./useProductCategory";
+import Spinner from "../../ui/Spinner";
 
 const CategoryContainer = styled.div`
   margin: 15rem 0;
@@ -11,6 +12,9 @@ const CategoryContainer = styled.div`
 
 function CategoryEarphones() {
   const { categoryProduct, isLoading } = useProductCategory("earphones");
+
+  if (isLoading) return <Spinner />;
+
   return (
     <CategoryContainer>
       {categoryProduct.map((data, index) => (
