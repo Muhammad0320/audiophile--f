@@ -1,21 +1,24 @@
 import { styled } from "styled-components";
-import { fakeData } from "../../service/data";
 
 import Category from "./Category";
 import ContainerHero from "../../ui/ContainerHero";
 import CategoryBox from "../../ui/CategoryBox";
-
-const speakersData = fakeData.filter((data) => data.category === "speakers");
+import { useProductCategory } from "./useProductCategory";
+import Spinner from "../../ui/Spinner";
 
 const CategoryContainer = styled.div`
   margin: 15rem 0;
 `;
 
 function CategorySpeakers() {
+  const { categoryProduct = [], isLoading } = useProductCategory("speakers");
+
+  if (isLoading) return <Spinner />;
+
   return (
     <CategoryContainer>
-      {speakersData.map((data, index) => (
-        <Category key={data.id} categoryData={data} index={index} />
+      {categoryProduct.map((data, index) => (
+        <Category key={data._id} categoryData={data} index={index} />
       ))}
 
       <CategoryBox />
