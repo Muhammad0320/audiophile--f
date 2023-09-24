@@ -1,20 +1,19 @@
 import { styled } from "styled-components";
-import { fakeData } from "../../service/data";
 
 import Category from "./Category";
 import ContainerHero from "../../ui/ContainerHero";
 import CategoryBox from "../../ui/CategoryBox";
-
-const earphoneData = fakeData.filter((data) => data.category === "earphones");
+import { useProductCategory } from "./useProductCategory";
 
 const CategoryContainer = styled.div`
   margin: 15rem 0;
 `;
 
 function CategoryEarphones() {
+  const { categoryProduct, isLoading } = useProductCategory("earphones");
   return (
     <CategoryContainer>
-      {earphoneData.map((data, index) => (
+      {categoryProduct.map((data, index) => (
         <Category key={data.id} categoryData={data} index={index} />
       ))}
 
