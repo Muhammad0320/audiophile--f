@@ -3,7 +3,7 @@ import { getAllProducts } from "../../service/apiProduct";
 
 export const useProducts = () => {
   const {
-    data: product,
+    data: products,
     isLoading,
     error,
   } = useQuery({
@@ -11,5 +11,5 @@ export const useProducts = () => {
     queryKey: ["products"],
   });
 
-  return { product, isLoading, error };
+  return { products, isLoading, error };
 };
