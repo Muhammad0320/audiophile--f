@@ -5,8 +5,13 @@ import ContainerHeroImages from "../ui/ContainerHeroImages";
 import ContainerLayout from "../ui/ContainerLayout";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
+import { useProducts } from "./category/useProduct";
 
 function HomePage() {
+  const { isLoading, product } = useProducts();
+
+  console.log(product, isLoading);
+
   return (
     <ContainerLayout>
       <Header home={true} />

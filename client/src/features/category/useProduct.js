@@ -7,7 +7,7 @@ export const useProducts = () => {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["product"],
+    queryKey: ["products"],
     queryFn: getAllProducts,
   });
 

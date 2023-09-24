@@ -129,6 +129,10 @@ productSchema.virtual('reviews', {
   foreignField: 'product'
 });
 
+productSchema.index({ category: 1, price: 1 });
+
+productSchema.index({ slug: 1 });
+
 productSchema.set('toJSON', { getters: true, virtuals: true });
 productSchema.set('toObject', { getters: true, virtuals: true });
 
