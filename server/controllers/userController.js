@@ -14,12 +14,6 @@ exports.deleteUser = deleteOne(User);
 exports.getMe = catchAsync(async (req, res, next) => {
   const currentUser = await User.findById(req.user.id);
 
-  if (!currentUser) {
-    return next(
-      new AppError('You are not logged in! Log in to gain access', 401)
-    );
-  }
-
   res.status(200).json({
     status: 'success',
     data: {
