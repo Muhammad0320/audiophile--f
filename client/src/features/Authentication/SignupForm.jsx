@@ -11,17 +11,20 @@ function SignupForm() {
 
   const { signup, isLoading } = useSignup();
 
-  const onSubmit = ({ name, email, password, passwordConfirm }) => {
+  const onSubmit = ({ name, email, password, passwordConfirm }, e) => {
+    e.preventDefault();
+    console.log(name);
+
     signup(
       { name, email, password, passwordConfirm },
       {
-        onSettled: () => reset(),
+        // onSettled: () => reset(),
       }
     );
   };
 
   return (
-    <Form2 onSubmit={() => handleSubmit(onSubmit)}>
+    <Form2 onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Name">
         <Input
           id="name"
@@ -34,7 +37,7 @@ function SignupForm() {
         <Input
           id="email"
           type="email"
-          {...register("name", { required: " User must have an email " })}
+          {...register("email", { required: " User must have an email " })}
         />
       </FormRow>
 
@@ -42,14 +45,14 @@ function SignupForm() {
         <Input
           id="password"
           type="password"
-          {...register("name", { required: "Please input your password" })}
+          {...register("password", { required: "Please input your password" })}
         />
       </FormRow>
 
       <FormRow label="Confirm password">
         <Input
           id="passwordConfirm"
-          type="passwordConfirm"
+          type="password"
           {...register("passwordConfirm", {
             required: "confirm your password",
           })}
