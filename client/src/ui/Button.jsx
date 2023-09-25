@@ -52,6 +52,15 @@ const Button = styled.button`
       padding: 1.4rem 2.4rem;
       font-size: 1.5rem;
     `}
+
+    ${(props) =>
+    props.withspinner === "true" &&
+    css`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 1.5rem;
+    `}
 `;
 
 export default Button;

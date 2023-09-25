@@ -18,7 +18,7 @@ function SignupForm() {
     signup(
       { name, email, password, passwordConfirm },
       {
-        // onSettled: () => reset(),
+        onSettled: () => reset(),
       }
     );
   };
@@ -60,7 +60,7 @@ function SignupForm() {
       </FormRow>
 
       {isLoading ? (
-        <Button>
+        <Button withspinner={"true"}>
           {"  "}
           <SpinnerMini />
           {"  "}
