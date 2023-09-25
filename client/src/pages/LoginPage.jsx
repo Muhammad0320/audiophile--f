@@ -14,7 +14,7 @@ const PageContainer = styled.div`
 `;
 
 const StyledSignupContainer = styled.div`
-  /* width: 80%; */
+  width: 110%;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@ const StyledSignupContainer = styled.div`
   background-color: var(--color-white-1);
   border-radius: 1.5rem;
   row-gap: 3rem;
-  /* box-shadow: 0 0  ; */
+  box-shadow: 0 5px 5px 5px rgba(16, 16, 16, 0.3);
 `;
 
 const StyledSVG = styled.div`
