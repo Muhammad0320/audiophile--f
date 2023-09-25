@@ -10,7 +10,7 @@ import Speakers from "./pages/Speakers";
 import GlobalStyles from "./styles/GlobalStyles";
 import Details from "./pages/Details";
 import CheckoutPage from "./pages/CheckoutPage";
-import SignupForm from "./features/Authentication/SignupForm";
+import SignupPage from "./pages/SignupPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,7 +38,7 @@ function App() {
             {/* <Route path="product/:productID" element={<Details />} /> */}
           </Route>
 
-          <Route path="signup" element={<SignupForm />} />
+          <Route path="signup" element={<SignupPage />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
