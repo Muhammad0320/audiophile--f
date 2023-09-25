@@ -7,23 +7,17 @@ import { useSignup } from "./useSignup";
 import Button from "../../ui/Button";
 
 function SignupForm() {
-  const {
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, reset, handleSubmit } = useForm();
 
   const { signup, isLoading } = useSignup();
 
   const onSubmit = ({ name, email, password, passwordConfirm }, e) => {
     e.preventDefault();
-    console.log(name);
 
     signup(
       { name, email, password, passwordConfirm },
       {
-        // onSettled: () => reset(),
+        onSettled: () => reset(),
       }
     );
   };
