@@ -16,7 +16,7 @@ const StyledSignupContainer = styled.div`
   row-gap: 3rem;
 `;
 
-const styledSVG = styled.div`
+const StyledSVG = styled.div`
   & svg {
     fill: var(--color-dark);
     transition: all 0.3s;
@@ -36,9 +36,9 @@ function LoginPage() {
   return (
     <StyledSignupContainer>
       <Heading> Log in to your account </Heading>
-      <styledSVG>
+      <StyledSVG>
         <SVG src={IconLogo} />
-      </styledSVG>
+      </StyledSVG>
       <LoginForm />
     </StyledSignupContainer>
   );
