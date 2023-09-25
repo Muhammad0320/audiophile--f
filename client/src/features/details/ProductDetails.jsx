@@ -39,6 +39,14 @@ export const Heading = styled.h4`
   text-transform: uppercase;
 
   ${(props) =>
+    props.type === "login" &&
+    css`
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+    `}
+
+  ${(props) =>
     props.type === "others" &&
     css`
       text-align: center;

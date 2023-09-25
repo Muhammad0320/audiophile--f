@@ -10,13 +10,16 @@ const StyledSignupContainer = styled.div`
   width: 80%;
   justify-content: center;
   align-items: center;
-
+  padding: 4rem auto;
   background-color: var(--color-white-2);
 
   row-gap: 3rem;
 `;
 
 const StyledSVG = styled.div`
+  justify-self: center;
+  /* height: 5rem;
+  width: 15rem; */
   & svg {
     fill: var(--color-dark);
     transition: all 0.3s;
@@ -35,10 +38,10 @@ const StyledSVG = styled.div`
 function LoginPage() {
   return (
     <StyledSignupContainer>
-      <Heading> Log in to your account </Heading>
       <StyledSVG>
         <SVG src={IconLogo} />
       </StyledSVG>
+      <Heading type="login"> Log in to your account </Heading>
       <LoginForm />
     </StyledSignupContainer>
   );
