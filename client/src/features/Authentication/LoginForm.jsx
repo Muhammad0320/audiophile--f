@@ -3,15 +3,28 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 
 import { useForm } from "react-hook-form";
-import { useSignup } from "./useSignup";
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
+import { useLogin } from "./useLogin";
 
 function SignupForm() {
   const { register, reset, handleSubmit } = useForm();
 
+  const { login, isLoading } = useLogin();
+
+  const onSubmit = ({ email, password }, e) => {
+    e.preventDefault();
+
+    login(
+      { email, password },
+      {
+        onSettled: () => reset(),
+      }
+    );
+  };
+
   return (
-    <Form2 onSubmit={{}}>
+    <Form2 onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Email">
         <Input
           id="email"
@@ -28,7 +41,7 @@ function SignupForm() {
         />
       </FormRow>
 
-      {/* {isLoading ? (
+      {isLoading ? (
         <Button withspinner={"true"}>
           {"  "}
           <SpinnerMini />
@@ -37,7 +50,7 @@ function SignupForm() {
         </Button>
       ) : (
         <Button> Create Account </Button>
-      )} */}
+      )}
     </Form2>
   );
 }
