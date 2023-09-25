@@ -19,7 +19,7 @@ const StyledSignupContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 4rem 2rem;
-  background-color: var(--color-white-2);
+  background-color: var(--color-white-1);
   border-radius: 1.5rem;
   row-gap: 3rem;
   /* box-shadow: 0 0  ; */
@@ -27,8 +27,7 @@ const StyledSignupContainer = styled.div`
 
 const StyledSVG = styled.div`
   justify-self: center;
-  /* height: 5rem;
-  width: 15rem; */
+
   & svg {
     fill: var(--color-dark);
     transition: all 0.3s;
