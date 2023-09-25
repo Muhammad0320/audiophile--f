@@ -24,7 +24,7 @@ const ImageContainer = styled.img`
 `;
 
 function Avatar({ user }) {
-  console.log(user);
+  //   console.log(user);
 
   return (
     <StyledAvatar>
