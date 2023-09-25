@@ -7,7 +7,7 @@ import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
 import { useLogin } from "./useLogin";
 
-function SignupForm() {
+function LoginForm() {
   const { register, reset, handleSubmit } = useForm();
 
   const { login, isLoading } = useLogin();
@@ -55,4 +55,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default LoginForm;
