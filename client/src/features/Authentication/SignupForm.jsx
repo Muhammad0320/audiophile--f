@@ -9,7 +9,7 @@ function SignupForm() {
 
   return (
     <Form2>
-      <FormRow label="name">
+      <FormRow label="Name">
         <Input
           id="name"
           type="text"
@@ -17,7 +17,7 @@ function SignupForm() {
         />
       </FormRow>
 
-      <FormRow label="email">
+      <FormRow label="Email">
         <Input
           id="email"
           type="email"
@@ -25,7 +25,7 @@ function SignupForm() {
         />
       </FormRow>
 
-      <FormRow label="password">
+      <FormRow label="Password">
         <Input
           id="password"
           type="password"
@@ -33,7 +33,7 @@ function SignupForm() {
         />
       </FormRow>
 
-      <FormRow label="confirm password">
+      <FormRow label="Confirm password">
         <Input
           id="passwordConfirm"
           type="passwordConfirm"
