@@ -13,7 +13,7 @@ const StyledSignupContainer = styled.div`
   row-gap: 3rem;
 `;
 
-function SignupPage() {
+function LoginPage() {
   return (
     <StyledSignupContainer>
       <Heading> Log in to your account </Heading>
@@ -23,4 +23,4 @@ function SignupPage() {
   );
 }
 
-export default SignupPage;
+export default LoginPage;
