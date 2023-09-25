@@ -5,15 +5,24 @@ import LoginForm from "../features/Authentication/LoginForm";
 import SVG from "react-inlinesvg";
 import { IconLogo } from "../ui/Icons";
 
-const StyledSignupContainer = styled.div`
+const PageContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
   display: grid;
-  width: 80%;
   justify-content: center;
   align-items: center;
-  padding: 4rem auto;
-  background-color: var(--color-white-2);
+`;
 
+const StyledSignupContainer = styled.div`
+  /* width: 80%; */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: var(--color-white-2);
+  border-radius: 1.5rem;
   row-gap: 3rem;
+  /* box-shadow: 0 0  ; */
 `;
 
 const StyledSVG = styled.div`
@@ -37,13 +46,15 @@ const StyledSVG = styled.div`
 
 function LoginPage() {
   return (
-    <StyledSignupContainer>
-      <StyledSVG>
-        <SVG src={IconLogo} />
-      </StyledSVG>
-      <Heading type="login"> Log in to your account </Heading>
-      <LoginForm />
-    </StyledSignupContainer>
+    <PageContainer>
+      <StyledSignupContainer>
+        <StyledSVG>
+          <SVG src={IconLogo} />
+        </StyledSVG>
+        <Heading type="login"> Log in to your account </Heading>
+        <LoginForm />
+      </StyledSignupContainer>
+    </PageContainer>
   );
 }
 
