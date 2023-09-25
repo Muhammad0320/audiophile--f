@@ -14,7 +14,7 @@ export const signupApi = async ({ name, email, password, passwordConfirm }) => {
       },
     });
 
-    console.log(res);
+    toast.success("New user successfully created, check your email to confirm");
 
     return res.data;
   } catch (error) {
