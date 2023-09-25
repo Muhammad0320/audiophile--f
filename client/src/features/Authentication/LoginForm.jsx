@@ -46,10 +46,10 @@ function LoginForm() {
           {"  "}
           <SpinnerMini />
           {"  "}
-          <span> Creating Account... </span>{" "}
+          <span> Logging user in... </span>{" "}
         </Button>
       ) : (
-        <Button> Create Account </Button>
+        <Button> Login </Button>
       )}
     </Form2>
   );

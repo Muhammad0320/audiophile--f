@@ -9,6 +9,7 @@ const sendErrorDev = (err, res) => {
 };
 
 const sendErrorProd = (err, res) => {
+  console.log(err);
   if (err.isOperational) {
     res.status(err.statusCode).json({
       stats: err.status,
@@ -57,6 +58,8 @@ const globalErrorHandler = (err, req, res, next) => {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === 'production') {
     let error = JSON.parse(JSON.stringify(err));
+
+    error.message = err.message;
 
     if (error.name === 'CastError') error = handleCastError(error);
     if (error.name === 'ValidationError') error = handleValidationError(error);

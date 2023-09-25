@@ -13,7 +13,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 import Details from "./pages/Details";
 import CheckoutPage from "./pages/CheckoutPage";
 import SignupPage from "./pages/SignupPage";
-import LoginForm from "./features/Authentication/LoginForm";
+import LoginPage from "./pages/LoginPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -42,7 +42,7 @@ function App() {
           </Route>
 
           <Route path="signup" element={<SignupPage />} />
-          <Route path="login" element={<LoginForm />} />
+          <Route path="login" element={<LoginPage />} />
         </Routes>
 
         <Toaster
