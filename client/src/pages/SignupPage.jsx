@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Heading } from "../features/details/ProductDetails";
-import LoginForm from "../features/Authentication/LoginForm";
 
 import SVG from "react-inlinesvg";
 import { IconLogo } from "../ui/Icons";
@@ -23,7 +22,7 @@ const StyledSignupContainer = styled.div`
   background-color: var(--color-white-1);
   border-radius: 1.5rem;
   row-gap: 3rem;
-  box-shadow: 0 5px 5px 5px rgba(16, 16, 16, 0.3);
+  box-shadow: 0 5px 5px 3px rgba(16, 16, 16, 0.2);
 `;
 
 const StyledSVG = styled.div`

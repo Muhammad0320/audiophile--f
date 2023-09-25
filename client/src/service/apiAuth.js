@@ -35,6 +35,8 @@ export const loginApi = async ({ email, password }) => {
 
     toast.success("Login successful");
 
+    window.location("/home");
+
     return res.data;
   } catch (error) {
     console.log(error);
