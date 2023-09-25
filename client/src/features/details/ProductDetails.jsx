@@ -30,7 +30,7 @@ const FeatureBox = styled.div`
   margin: 15rem 0;
 `;
 
-const Heading = styled.h4`
+export const Heading = styled.h4`
   font-size: 3.5rem;
   font-weight: 600;
 
