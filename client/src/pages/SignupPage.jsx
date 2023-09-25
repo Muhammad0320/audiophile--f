@@ -4,7 +4,10 @@ import SignupForm from "../features/Authentication/SignupForm";
 
 const StyledSignupContainer = styled.div`
   display: grid;
-  place-items: center;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+
   background-color: var(--color-white-2);
 
   row-gap: 3rem;

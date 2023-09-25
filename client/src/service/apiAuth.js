@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const signup = async ({ name, email, password, passwordConfirm }) => {
+export const signupApi = async ({ name, email, password, passwordConfirm }) => {
   try {
     const res = await axios({
       method: "POST",

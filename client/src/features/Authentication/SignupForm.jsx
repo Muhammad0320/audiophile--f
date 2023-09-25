@@ -3,12 +3,25 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 
 import { useForm } from "react-hook-form";
+import { useSignup } from "./useSignup";
+import Button from "../../ui/Button";
 
 function SignupForm() {
   const { register, reset, handleSubmit, formState } = useForm();
 
+  const { signup, isLoading } = useSignup();
+
+  const onSubmit = ({ name, email, password, passwordConfirm }) => {
+    signup(
+      { name, email, password, passwordConfirm },
+      {
+        onSettled: () => reset(),
+      }
+    );
+  };
+
   return (
-    <Form2>
+    <Form2 onSubmit={() => handleSubmit(onSubmit)}>
       <FormRow label="Name">
         <Input
           id="name"
@@ -42,6 +55,8 @@ function SignupForm() {
           })}
         />
       </FormRow>
+
+      <Button>{isLoading ? "creating account..." : "create account"} </Button>
     </Form2>
   );
 }
