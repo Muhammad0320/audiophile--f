@@ -14,12 +14,13 @@ export const useSignup = () => {
       toast.success("New user created successfully, check your email");
     },
 
-    onError: () => {
-      toast.error("An error occured while creating new user, try again");
+    onError: (error) => {
+      console.log(error);
+      toast.error(error.message);
     },
   });
 
-  console.log(signup);
+  // console.log(signup);
 
   return { signup, isLoading, error };
 };

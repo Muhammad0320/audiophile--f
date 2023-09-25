@@ -7,7 +7,12 @@ import { useSignup } from "./useSignup";
 import Button from "../../ui/Button";
 
 function SignupForm() {
-  const { register, reset, handleSubmit, formState } = useForm();
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const { signup, isLoading } = useSignup();
 

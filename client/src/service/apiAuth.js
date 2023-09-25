@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const signupApi = async ({ name, email, password, passwordConfirm }) => {
   try {
@@ -17,6 +18,8 @@ export const signupApi = async ({ name, email, password, passwordConfirm }) => {
 
     return res.data;
   } catch (error) {
+    console.log(error);
+    toast.error(error.response.data.message);
     console.log(error.response.data.message);
   }
 };

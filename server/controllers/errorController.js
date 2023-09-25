@@ -61,7 +61,7 @@ const globalErrorHandler = (err, req, res, next) => {
     if (error.name === 'CastError') error = handleCastError(error);
     if (error.name === 'ValidationError') error = handleValidationError(error);
 
-    if (error.code === 11000) error = handleDuplicateError();
+    if (error.code === 11000) error = handleDuplicateError(error);
 
     if (error.message === 'JsonWebTokenError')
       error = handleJsonWebTokenError(error);
