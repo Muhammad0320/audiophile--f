@@ -5,6 +5,7 @@ import Input from "../../ui/Input";
 import { useForm } from "react-hook-form";
 import { useSignup } from "./useSignup";
 import Button from "../../ui/Button";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function SignupForm() {
   const { register, reset, handleSubmit } = useForm();
@@ -17,7 +18,7 @@ function SignupForm() {
     signup(
       { name, email, password, passwordConfirm },
       {
-        onSettled: () => reset(),
+        // onSettled: () => reset(),
       }
     );
   };
@@ -58,7 +59,16 @@ function SignupForm() {
         />
       </FormRow>
 
-      <Button>{isLoading ? "creating account..." : "create account"} </Button>
+      {isLoading ? (
+        <Button>
+          {"  "}
+          <SpinnerMini />
+          {"  "}
+          <span> Creating Account... </span>{" "}
+        </Button>
+      ) : (
+        <Button> Create Account </Button>
+      )}
     </Form2>
   );
 }
