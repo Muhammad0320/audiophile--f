@@ -7,6 +7,9 @@ import Modal from "./Modal";
 import Cart from "../features/cart/Cart";
 import { useSelector } from "react-redux";
 import { getTotalCartQuantity } from "../features/cart/cartSlice";
+import { useUser } from "../features/users/useUser";
+import Avatar from "../features/users/avatar";
+import { Text } from "../features/category/Category";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -60,6 +63,8 @@ const CartIconNotification = styled.span`
 function Nav({ type }) {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
+  const { user = {}, isLoading } = useUser();
+
   return (
     <Modal>
       {type === "header" && (
@@ -77,19 +82,27 @@ function Nav({ type }) {
             <NavItem to="/earphones">earphones</NavItem>
           </NavList>
 
-          <Modal.Open opens="cart">
-            <HeaderIcon>
-              <SVG src={IconCart} />
+          <>
+            {isLoading ? (
+              <Text type="avatar"> Loading... </Text>
+            ) : (
+              <Avatar user={user} />
+            )}
 
-              {totalQuantity > 0 && (
-                <CartIconNotification> {totalQuantity} </CartIconNotification>
-              )}
-            </HeaderIcon>
-          </Modal.Open>
+            <Modal.Open opens="cart">
+              <HeaderIcon>
+                <SVG src={IconCart} />
 
-          <Modal.Window name="cart">
-            <Cart />
-          </Modal.Window>
+                {totalQuantity > 0 && (
+                  <CartIconNotification> {totalQuantity} </CartIconNotification>
+                )}
+              </HeaderIcon>
+            </Modal.Open>
+
+            <Modal.Window name="cart">
+              <Cart />
+            </Modal.Window>
+          </>
         </StyledNav>
       )}
 

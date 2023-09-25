@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import { useLogin } from "../Authentication/useLogin";
-import { useUser } from "./useUser";
-import Spinner from "../../ui/Spinner";
 
 const StyledAvatar = styled.div`
   display: flex;
@@ -14,24 +11,20 @@ const StyledAvatar = styled.div`
 
 const ImageContainer = styled.img`
   display: block;
-  height: 2rem;
-  width: 2rem;
+  height: 4rem;
+  width: 4rem;
 
   border-radius: 50%;
   box-sizing: content-box;
-  transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in;
 
   &:hover {
     border: 2px solid var(--color-primary);
   }
 `;
 
-function Avatar() {
-  const { user = {}, isLoading } = useUser();
-
+function Avatar({ user }) {
   console.log(user);
-
-  if (isLoading) return <Spinner />;
 
   return (
     <StyledAvatar>

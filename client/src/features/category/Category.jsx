@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import Button from "../../ui/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -58,6 +58,13 @@ export const Text = styled.p`
   margin-right: 8rem;
   opacity: 0.7;
   font-size: 2rem;
+
+  ${(props) =>
+    props.type === "avatar" &&
+    css`
+      color: var(--color-white);
+      margin-right: 2rem;
+    `}
 `;
 
 export const ProductPrice = styled.p`
