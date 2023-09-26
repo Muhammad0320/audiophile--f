@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     --color-white: #fff ;
     --color-white-1: #fafafa;
     --color-white-2: #f1f1f1 ;
+    --box-shadow: 0 5px 5px 3px rgba(16, 16, 16, 0.2);
 
 }
 

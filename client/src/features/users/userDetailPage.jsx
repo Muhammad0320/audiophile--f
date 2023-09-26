@@ -7,3 +7,7 @@ const pageContainer = styled.div`
   justify-content: center;
   align-content: center;
 `;
+
+const detailsContainer = styled.div`
+  background-color: var(--color-white-1);
+`;
