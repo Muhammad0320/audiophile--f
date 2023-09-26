@@ -47,7 +47,7 @@ function App() {
           </Route>
 
           <Route element={<Account />}>
-            <Route path="account" element={<Account />} />
+            <Route path="me" element={<Account />} />
           </Route>
 
           <Route path="signup" element={<SignupPage />} />
