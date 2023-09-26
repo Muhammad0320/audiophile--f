@@ -8,7 +8,7 @@ const Input = styled.input`
   color: var(--color-dark);
   border-radius: 1rem;
   margin-bottom: 2rem;
-
+  position: relative;
   &::-webkit-input-placeholder {
     color: var(--color-dark);
     opacity: 0.7;
@@ -18,6 +18,8 @@ const Input = styled.input`
     props.account === "true" &&
     css`
       width: 80%;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
     `}
 
   /* &:valid,

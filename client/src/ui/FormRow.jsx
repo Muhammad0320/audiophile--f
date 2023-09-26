@@ -3,7 +3,7 @@ import { css, styled } from "styled-components";
 const StyledFormRow = styled.div`
   display: flex;
   flex-direction: column;
-  column-gap: 2rem;
+  column-gap: 3rem;
 
   ${(props) =>
     props.position === "left" &&
@@ -45,6 +45,13 @@ const Label = styled.label`
     css`
       color: red;
     `}
+
+  ${(props) =>
+    props.account === "true" &&
+    css`
+      font-weight: 600;
+      font-size: 2rem;
+    `}
 `;
 
 const Error = styled.span`
@@ -53,12 +60,20 @@ const Error = styled.span`
   font-weight: 400;
 `;
 
-function FormRow({ children, error, label, position }) {
+function FormRow({ children, error, label, position, account }) {
   return (
     <StyledFormRow position={position}>
       {label && (
         <LabelContainer>
-          {label && <Label htmlFor={children?.props?.id}> {label} </Label>}
+          {label && (
+            <Label
+              htmlFor={children?.props?.id}
+              account={account ? "true" : ""}
+            >
+              {" "}
+              {label}{" "}
+            </Label>
+          )}
           {label && error && <Label type="error"> </Label>}
           {error && <Error> {error} </Error>}
         </LabelContainer>

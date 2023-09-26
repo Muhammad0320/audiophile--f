@@ -12,12 +12,12 @@ function Settings() {
   return (
     <InfoDetails>
       <Form2>
-        <FormRow label="Name">
-          <Input type="text" />
+        <FormRow account label="Name">
+          <Input account="true" type="text" />
         </FormRow>
 
-        <FormRow label="Email address">
-          <Input type="text" />
+        <FormRow account label="Email address">
+          <Input account="true" type="text" />
         </FormRow>
       </Form2>
     </InfoDetails>
