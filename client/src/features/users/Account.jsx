@@ -36,7 +36,7 @@ const Sidebar = styled.div`
   padding: 2rem 3rem;
 `;
 
-const NavItem = styled.li`
+const NavItem = styled.a`
   display: flex;
   font-size: 2rem;
   padding: 1rem;
@@ -73,8 +73,9 @@ function Account() {
           {" "}
           <NavList>
             {" "}
-            <NavItem> settings </NavItem> <NavItem> My Cart </NavItem>{" "}
-            <NavItem> My Reviews </NavItem> <NavItem> My order </NavItem>{" "}
+            <NavItem href="/settings"> settings </NavItem>{" "}
+            <NavItem> My Cart </NavItem> <NavItem> My Reviews </NavItem>{" "}
+            <NavItem> My order </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
         <Outlet />
