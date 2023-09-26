@@ -63,7 +63,7 @@ const CartIconNotification = styled.span`
 function Nav({ type }) {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
-  // const { user = {}, isLoading } = useUser();
+  const { user = {}, isLoading } = useUser();
 
   return (
     <Modal>
@@ -83,11 +83,11 @@ function Nav({ type }) {
           </NavList>
 
           <>
-            {/* {isLoading ? (
+            {isLoading ? (
               <Text type="avatar"> Loading... </Text>
             ) : (
-              <Avatar user={{}} />
-            )} */}
+              <Avatar user={user} />
+            )}
 
             <Modal.Open opens="cart">
               <HeaderIcon>
