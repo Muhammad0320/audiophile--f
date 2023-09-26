@@ -39,7 +39,7 @@ export const getCurrentUserApi = async () => {
     });
 
     console.log(res.data);
-    return res.data;
+    return res.data.data.user;
   } catch (error) {
     console.log(error.response.data.message);
   }
