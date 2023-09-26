@@ -4,6 +4,7 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import { useForm } from "react-hook-form";
 import Button from "../../ui/Button";
+import { useUser } from "./useUser";
 
 const InfoDetails = styled.div`
   padding: 5rem 6rem;
@@ -11,6 +12,10 @@ const InfoDetails = styled.div`
 `;
 
 function Settings() {
+  const {
+    user: { name, email },
+  } = useUser();
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = ({ name, email }, e) => {
@@ -26,6 +31,7 @@ function Settings() {
           <Input
             account="true"
             type="text"
+            defaultValue={name}
             {...register("name", {
               required: "This field is required",
             })}
@@ -33,7 +39,12 @@ function Settings() {
         </FormRow>
 
         <FormRow account label="Email address">
-          <Input account="true" type="text" {...register("email")} />
+          <Input
+            account="true"
+            defaultValue={email}
+            type="text"
+            {...register("email")}
+          />
         </FormRow>
         <Button> Save settings </Button>
       </Form2>
