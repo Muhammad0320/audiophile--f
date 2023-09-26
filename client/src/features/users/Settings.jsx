@@ -12,9 +12,15 @@ const InfoDetails = styled.div`
 function Settings() {
   const { register, handleSubmit } = useForm();
 
+  const onSubmit = ({ name, email }, e) => {
+    e.preventDefault();
+
+    console.log(email, name);
+  };
+
   return (
     <InfoDetails>
-      <Form2>
+      <Form2 onSubmit={handleSubmit(onSubmit)}>
         <FormRow account label="Name">
           <Input
             account="true"
