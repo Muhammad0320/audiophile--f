@@ -3,18 +3,17 @@ import { css, styled } from "styled-components";
 const PageContainer = styled.div`
   background-color: var(--color-white);
 
-  display: grid;
   height: 100vh;
   width: 100vw;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const DetailsContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
   background-color: var(--color-white-1);
   padding: 2rem 4rem;
   box-shadow: var(--box-shadow);
@@ -41,6 +40,7 @@ const NavItem = styled.li`
   justify-content: center;
   align-content: center;
   text-transform: uppercase;
+  position: relative;
 
   &::before {
     content: "";
@@ -49,7 +49,9 @@ const NavItem = styled.li`
     width: 2px;
     position: absolute;
     transform: scaleY(0);
-    background-color: var(--color-primary);
+    background-color: var(--color-white);
+    left: 0;
+    top: 0;
     transition: transform 0.2s;
   }
 
