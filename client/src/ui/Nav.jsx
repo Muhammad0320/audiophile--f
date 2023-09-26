@@ -60,7 +60,7 @@ const CartIconNotification = styled.span`
   color: rgba(0, 0, 0, 0.7);
 `;
 
-const AuthContainer = styled.button`
+const AuthButton = styled.button`
   display: grid;
   place-items: center;
   padding: 1.2rem 2.5rem;
