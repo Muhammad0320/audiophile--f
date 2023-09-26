@@ -58,3 +58,22 @@ const InfoDetails = styled.div`
   padding: 2rem 3rem;
   grid-column: 2 / -1;
 `;
+
+function Account() {
+  return (
+    <PageContainer>
+      <DetailsContainer>
+        <Sidebar>
+          {" "}
+          <NavList>
+            {" "}
+            <NavItem> </NavItem>{" "}
+          </NavList>{" "}
+        </Sidebar>
+        <InfoDetails> </InfoDetails>
+      </DetailsContainer>
+    </PageContainer>
+  );
+}
+
+export default Account;
