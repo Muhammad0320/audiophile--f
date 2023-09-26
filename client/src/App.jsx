@@ -16,6 +16,7 @@ import Details from "./pages/Details";
 import CheckoutPage from "./pages/CheckoutPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import Account from "./features/users/Account";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -43,6 +44,10 @@ function App() {
             <Route path="product/:slug" element={<Details />} />
 
             {/* <Route path="product/:productID" element={<Details />} /> */}
+          </Route>
+
+          <Route element={<Account />}>
+            <Route path="account" element={<Account />} />
           </Route>
 
           <Route path="signup" element={<SignupPage />} />
