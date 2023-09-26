@@ -4,7 +4,7 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 
 const InfoDetails = styled.div`
-  padding: 2rem 3rem;
+  padding: 5rem 6rem;
   grid-column: 2 / -1;
 `;
 

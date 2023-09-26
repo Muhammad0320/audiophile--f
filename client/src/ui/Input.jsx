@@ -14,6 +14,12 @@ const Input = styled.input`
     opacity: 0.7;
   }
 
+  ${(props) =>
+    props.account === "true" &&
+    css`
+      width: 80%;
+    `}
+
   /* &:valid,
   &:focus {
     border: 1px solid var(--color-primary);
