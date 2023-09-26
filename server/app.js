@@ -25,11 +25,36 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+app.use(cookieParser());
+
 app.use(sanitize());
 
 app.use(xss());
 
-app.use(cors());
+// app.use(cors());
+
+// app.use('*', cors());
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization'
+  );
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+  );
+  next();
+});
+
+app.use(
+  cors({
+    origin: 'http://127.0.0.1:5173',
+    methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
+    credentials: true
+  })
+);
 
 app.use(
   hpp({
@@ -55,12 +80,11 @@ app.use(helmet());
 //   })
 // );
 
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use((req, res, next) => {
-//   console.log(req.cookies);
-// });
+app.use((req, res, next) => {
+  console.log(req.cookies);
+});
 
 app.use(express.json());
 

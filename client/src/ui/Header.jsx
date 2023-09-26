@@ -3,6 +3,7 @@ import { css, styled } from "styled-components";
 import Button from "./Button";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../features/users/useUser";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;

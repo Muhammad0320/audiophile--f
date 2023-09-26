@@ -2,9 +2,9 @@ const jwt = require('jsonwebtoken');
 const catchAsync = require('../utils/catchAsync');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
-const { promisify } = require('util');
-
 const crypto = require('crypto');
+
+const { promisify } = require('util');
 
 const sendMail = require('../utils/email');
 
@@ -21,8 +21,7 @@ const sendJwt = (res, user, req) => {
     expires: new Date(
       Date.now() + process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
-    httpOnly: true,
-    secure: req.secure
+    httpOnly: true
   };
 
   res.cookie('jwt', token, cookieOptions);
@@ -91,7 +90,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     token = req.cookies.jwt;
   }
 
-  console.log('client', req.cookies.jwt);
+  console.log('client', req.cookies);
 
   if (!token) {
     return next(
@@ -114,6 +113,44 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 
   req.user = currentUser;
+
+  next();
+});
+
+exports.isLoggedIn = catchAsync(async (req, res, next) => {
+  try {
+    const token = req.cookies.jwt;
+
+    if (token) {
+      // Verify the token
+
+      const decoded = await promisify(jwt.verify)(
+        token,
+        process.env.JWT_SECRET
+      );
+
+      const currentUser = await User.findById(decoded.id);
+      // Check if user still exists
+
+      if (!currentUser) {
+        return next();
+      }
+
+      // Check if user changed password after token was issued
+
+      if (currentUser.changedPasswordAfter(decoded.iat)) {
+        return next();
+      }
+
+      // Grant access to protected route
+
+      res.locals.user = currentUser;
+
+      return next();
+    }
+  } catch (error) {
+    return error;
+  }
 
   next();
 });
