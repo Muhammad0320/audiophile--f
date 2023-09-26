@@ -12,9 +12,7 @@ const InfoDetails = styled.div`
 `;
 
 function Settings() {
-  const {
-    user: { name, email },
-  } = useUser();
+  const { user: { name, email } = {} } = useUser();
 
   const { register, handleSubmit } = useForm();
 
