@@ -4,6 +4,8 @@ const PageContainer = styled.div`
   background-color: var(--color-white);
 
   display: grid;
+  height: 100vh;
+  width: 100vw;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-items: center;
