@@ -24,7 +24,9 @@ const NavList = styled.ul`
 
   display: flex;
   flex-flow: column;
-  row-gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 4rem;
 `;
 
 const Sidebar = styled.div`
@@ -50,7 +52,7 @@ const NavItem = styled.li`
     position: absolute;
     transform: scaleY(0);
     background-color: var(--color-white);
-    left: 0;
+    left: 10;
     top: 0;
     transition: transform 0.2s;
   }
