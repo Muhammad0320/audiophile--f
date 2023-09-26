@@ -28,6 +28,8 @@ function Avatar({ user }) {
 
   const firstname = name?.split(" ")[0];
 
+  console.log(user);
+
   console.log(firstname);
 
   return (
