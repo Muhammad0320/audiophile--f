@@ -47,11 +47,11 @@ const NavItem = styled.li`
     content: "";
     height: 100%;
 
-    width: 2px;
+    width: 4px;
     position: absolute;
     transform: scaleY(0);
     background-color: var(--color-white);
-    left: 10;
+    left: -7rem;
     top: 0;
     transition: transform 0.2s;
   }
