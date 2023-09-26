@@ -84,7 +84,9 @@ const AuthButton = styled.button`
 function Nav({ type }) {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
-  const { user = {}, isLoading } = useUser();
+  const { user, isLoading } = useUser();
+
+  console.log(user);
 
   return (
     <Modal>

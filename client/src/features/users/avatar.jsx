@@ -25,7 +25,7 @@ const ImageContainer = styled.img`
 
 function Avatar({ user }) {
   console.log(user);
-  const { name, photo } = user;
+  // const { name, photo } = user();
   //   console.log(user);
 
   // const firstname = name?.split(" ")[0];
@@ -33,7 +33,7 @@ function Avatar({ user }) {
   return (
     <StyledAvatar>
       <ImageContainer src={`/assets/users/default.jpg`} alt="user-avatar" />
-      <span> {"goat"} </span>
+      <span> Mustapha </span>
     </StyledAvatar>
   );
 }
