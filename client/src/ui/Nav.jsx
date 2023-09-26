@@ -10,7 +10,6 @@ import { getTotalCartQuantity } from "../features/cart/cartSlice";
 import { useUser } from "../features/users/useUser";
 import Avatar from "../features/users/avatar";
 import { Text } from "../features/category/Category";
-import SpinnerMini from "./SpinnerMini";
 
 const StyledNav = styled.nav`
   display: flex;
