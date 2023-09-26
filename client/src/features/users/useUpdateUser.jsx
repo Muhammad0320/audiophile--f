@@ -4,7 +4,7 @@ import { updateUserData } from "../../service/apiAuth";
 import toast from "react-hot-toast";
 
 export const useUpdateUSer = () => {
-  const {} = useMutation({
+  const { mutate: updateUser, isLoading: isMutating } = useMutation({
     mutationFn: updateUserData,
 
     onSuccess: () => {
@@ -15,4 +15,6 @@ export const useUpdateUSer = () => {
       toast.error("There was an error updating the the user, try again");
     },
   });
+
+  return { updateUser, isMutating };
 };
