@@ -68,6 +68,7 @@ const AuthButton = styled.button`
   border: 2px solid var(--color-white);
   font-size: 2rem;
   font-weight: 500;
+  text-transform: uppercase;
 
   &:first-of-type {
     margin-right: 2rem;
@@ -96,13 +97,12 @@ function Nav({ type }) {
             <NavItem to="/earphones">earphones</NavItem>
           </NavList>
 
+          {/* <Text type="avatar"> Loading... </Text> */}
           <>
-            {isLoading ? (
-              <Text type="avatar"> Loading... </Text>
-            ) : (
-              <Avatar user={user} />
-            )}
+            {/* {
 
+            user ? <>  <Avatar user={user} />
+          
             <Modal.Open opens="cart">
               <HeaderIcon>
                 <SVG src={IconCart} />
@@ -115,7 +115,16 @@ function Nav({ type }) {
 
             <Modal.Window name="cart">
               <Cart />
-            </Modal.Window>
+            </Modal.Window>     
+          
+            </>
+ 
+            : 
+            
+            <> <AuthButton> Signup </AuthButton>  <AuthButton> Login </AuthButton> <>
+
+
+          } */}
           </>
         </StyledNav>
       )}
