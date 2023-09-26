@@ -60,6 +60,20 @@ const CartIconNotification = styled.span`
   color: rgba(0, 0, 0, 0.7);
 `;
 
+const AuthContainer = styled.button`
+  display: grid;
+  place-items: center;
+  padding: 1.2rem 2.5rem;
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  font-size: 2rem;
+  font-weight: 500;
+
+  &:first-of-type {
+    margin-right: 2rem;
+  }
+`;
+
 function Nav({ type }) {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
