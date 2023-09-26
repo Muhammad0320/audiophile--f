@@ -70,6 +70,12 @@ const AuthButton = styled.button`
   font-size: 2rem;
   font-weight: 500;
   text-transform: uppercase;
+  transition: background-color 0.3s ease-out;
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
 
   &:first-of-type {
     margin-right: 2rem;
