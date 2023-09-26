@@ -23,7 +23,7 @@ const StyledFormRow = styled.div`
       grid-column: 1 / -1;
     `}
 
-    &:has(btn) btn {
+    &:has(button) nutton {
     align-self: flex-end;
   }
 `;
