@@ -24,12 +24,15 @@ const ImageContainer = styled.img`
 `;
 
 function Avatar({ user }) {
+  const { name, photo } = user;
   //   console.log(user);
+
+  const firstname = name.split(" ")[0];
 
   return (
     <StyledAvatar>
-      <ImageContainer />
-      <span> Muhammad </span>
+      <ImageContainer src={`/assets/users/${photo}`} alt="user-avatar" />
+      <span> {firstname} </span>
     </StyledAvatar>
   );
 }
