@@ -10,6 +10,7 @@ import { getTotalCartQuantity } from "../features/cart/cartSlice";
 import { useUser } from "../features/users/useUser";
 import Avatar from "../features/users/avatar";
 import { Text } from "../features/category/Category";
+import SpinnerMini from "./SpinnerMini";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -82,6 +83,7 @@ function Nav({ type }) {
 
   return (
     <Modal>
+      {/* <Text type="avatar"> Loading... </Text> */}
       {type === "header" && (
         <StyledNav>
           <HeaderIcon to="/home">
@@ -97,35 +99,45 @@ function Nav({ type }) {
             <NavItem to="/earphones">earphones</NavItem>
           </NavList>
 
-          {/* <Text type="avatar"> Loading... </Text> */}
-          <>
-            {/* {
+          {isLoading && <Text type="avatar"> Loading... </Text>}
 
-            user ? <>  <Avatar user={user} />
-          
-            <Modal.Open opens="cart">
-              <HeaderIcon>
-                <SVG src={IconCart} />
+          {user ? (
+            <>
+              <Avatar user={user} />
 
-                {totalQuantity > 0 && (
-                  <CartIconNotification> {totalQuantity} </CartIconNotification>
-                )}
-              </HeaderIcon>
-            </Modal.Open>
-
-            <Modal.Window name="cart">
-              <Cart />
-            </Modal.Window>     
-          
+              <Modal.Open opens="cart">
+                <HeaderIcon>
+                  <SVG src={IconCart} />
+                  {totalQuantity > 0 && (
+                    <CartIconNotification>
+                      {" "}
+                      {totalQuantity}{" "}
+                    </CartIconNotification>
+                  )}
+                </HeaderIcon>
+              </Modal.Open>
+              <Modal.Window name="cart">
+                <Cart />
+              </Modal.Window>
             </>
- 
-            : 
-            
-            <> <AuthButton> Signup </AuthButton>  <AuthButton> Login </AuthButton> <>
+          ) : (
+            <>
+              {" "}
+              <AuthButton> Login </AuthButton> <AuthButton> Signup </AuthButton>{" "}
+            </>
+          )}
 
-
-          } */}
-          </>
+          <Modal.Open opens="cart">
+            <HeaderIcon>
+              <SVG src={IconCart} />
+              {totalQuantity > 0 && (
+                <CartIconNotification> {totalQuantity} </CartIconNotification>
+              )}
+            </HeaderIcon>
+          </Modal.Open>
+          <Modal.Window name="cart">
+            <Cart />
+          </Modal.Window>
         </StyledNav>
       )}
 
