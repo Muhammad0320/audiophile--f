@@ -56,5 +56,7 @@ export const updateUserData = async ({ email, password }) => {
     },
   });
 
+  console.log(res.data);
+
   return res.data;
 };

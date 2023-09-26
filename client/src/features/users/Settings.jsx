@@ -5,6 +5,8 @@ import Input from "../../ui/Input";
 import { useForm } from "react-hook-form";
 import Button from "../../ui/Button";
 import { useUser } from "./useUser";
+import { useUpdateUSer } from "./useUpdateUser";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 const InfoDetails = styled.div`
   padding: 5rem 6rem;
@@ -14,12 +16,16 @@ const InfoDetails = styled.div`
 function Settings() {
   const { user: { name, email } = {} } = useUser();
 
+  const { updateUser, isUpdating } = useUpdateUSer();
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = ({ name, email }, e) => {
     e.preventDefault();
 
-    console.log(email, name);
+    updateUser({ name, email });
+
+    // console.log(email, name);
   };
 
   return (
@@ -44,7 +50,15 @@ function Settings() {
             {...register("email")}
           />
         </FormRow>
-        <Button> Save settings </Button>
+
+        {isUpdating ? (
+          <Button withspinner="true" disabled={isUpdating}>
+            {" "}
+            <SpinnerMini /> <span> updating settings </span>{" "}
+          </Button>
+        ) : (
+          <Button withspinner="true"> Save settings </Button>
+        )}
       </Form2>
     </InfoDetails>
   );

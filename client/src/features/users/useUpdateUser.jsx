@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export const useUpdateUSer = () => {
   const queryClient = useQueryClient();
 
-  const { mutate: updateUser, isLoading: isMutating } = useMutation({
+  const { mutate: updateUser, isLoading: isUpdating } = useMutation({
     mutationFn: updateUserData,
 
     onSuccess: ({ user }) => {
@@ -14,6 +14,7 @@ export const useUpdateUSer = () => {
       toast.success("User data updated successfully");
       queryClient.invalidateQueries({ queryKey: ["user"] });
       queryClient.setQueriesData(["user", user]);
+      console.log(user);
     },
 
     onError: () => {
@@ -21,5 +22,5 @@ export const useUpdateUSer = () => {
     },
   });
 
-  return { updateUser, isMutating };
+  return { updateUser, isUpdating };
 };
