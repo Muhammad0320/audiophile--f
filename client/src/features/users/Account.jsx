@@ -12,6 +12,9 @@ const PageContainer = styled.div`
 `;
 
 const DetailsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--color-white-1);
   padding: 2rem 4rem;
   box-shadow: var(--box-shadow);
