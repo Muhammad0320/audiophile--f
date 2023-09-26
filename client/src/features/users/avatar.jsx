@@ -24,7 +24,11 @@ const ImageContainer = styled.img`
 `;
 
 function Avatar({ user }) {
-  const { name, photo } = user();
+  console.log(user);
+
+  const { name, photo } = user;
+
+  console.log(name);
 
   const firstname = name?.split(" ")[0];
 

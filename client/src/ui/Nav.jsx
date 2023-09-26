@@ -60,7 +60,8 @@ const CartIconNotification = styled.span`
   color: rgba(0, 0, 0, 0.7);
 `;
 
-const AuthButton = styled.button`
+const AuthButton = styled.a`
+  text-decoration: none;
   display: grid;
   place-items: center;
   padding: 1.2rem 2.5rem;
@@ -86,9 +87,10 @@ function Nav({ type }) {
 
   const { user, isLoading } = useUser();
 
+  if (isLoading) return <Text type="avatar"> Loading... </Text>;
+
   return (
     <Modal>
-      {/* <Text type="avatar"> Loading... </Text> */}
       {type === "header" && (
         <StyledNav>
           <HeaderIcon to="/home">
@@ -104,33 +106,34 @@ function Nav({ type }) {
             <NavItem to="/earphones">earphones</NavItem>
           </NavList>
 
-          {isLoading && <Text type="avatar"> Loading... </Text>}
+          <>
+            {user ? (
+              <>
+                <Avatar user={user} />
 
-          {user ? (
-            <>
-              <Avatar user={user} />
-
-              <Modal.Open opens="cart">
-                <HeaderIcon>
-                  <SVG src={IconCart} />
-                  {totalQuantity > 0 && (
-                    <CartIconNotification>
-                      {" "}
-                      {totalQuantity}{" "}
-                    </CartIconNotification>
-                  )}
-                </HeaderIcon>
-              </Modal.Open>
-              <Modal.Window name="cart">
-                <Cart />
-              </Modal.Window>
-            </>
-          ) : (
-            <>
-              {" "}
-              <AuthButton> Login </AuthButton> <AuthButton> Signup </AuthButton>{" "}
-            </>
-          )}
+                <Modal.Open opens="cart">
+                  <HeaderIcon>
+                    <SVG src={IconCart} />
+                    {totalQuantity > 0 && (
+                      <CartIconNotification>
+                        {" "}
+                        {totalQuantity}{" "}
+                      </CartIconNotification>
+                    )}
+                  </HeaderIcon>
+                </Modal.Open>
+                <Modal.Window name="cart">
+                  <Cart />
+                </Modal.Window>
+              </>
+            ) : (
+              <>
+                {" "}
+                <AuthButton> Login </AuthButton>{" "}
+                <AuthButton> Signup </AuthButton>{" "}
+              </>
+            )}
+          </>
         </StyledNav>
       )}
 
