@@ -17,6 +17,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import Account from "./features/users/Account";
+import Settings from "./features/users/Settings";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +49,7 @@ function App() {
 
           <Route element={<Account />}>
             <Route path="me" element={<Account />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
 
           <Route path="signup" element={<SignupPage />} />
