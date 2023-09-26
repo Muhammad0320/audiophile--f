@@ -15,7 +15,6 @@ const DetailsContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
 
   background-color: var(--color-white-1);
-  padding: 2rem 4rem;
   box-shadow: var(--box-shadow);
 `;
 
