@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { css, styled } from "styled-components";
 
 const PageContainer = styled.div`
@@ -64,11 +65,6 @@ const NavItem = styled.li`
   ${(props) => props.active === "true" && css``}
 `;
 
-const InfoDetails = styled.div`
-  padding: 2rem 3rem;
-  grid-column: 2 / -1;
-`;
-
 function Account() {
   return (
     <PageContainer>
@@ -81,7 +77,7 @@ function Account() {
             <NavItem> My Reviews </NavItem> <NavItem> My order </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
-        <InfoDetails> </InfoDetails>
+        <Outlet />
       </DetailsContainer>
     </PageContainer>
   );
