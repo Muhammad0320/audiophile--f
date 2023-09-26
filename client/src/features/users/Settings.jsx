@@ -35,9 +35,8 @@ function Settings() {
         <FormRow account label="Email address">
           <Input account="true" type="text" {...register("email")} />
         </FormRow>
+        <Button> Save settings </Button>
       </Form2>
-
-      <Button> Save settings </Button>
     </InfoDetails>
   );
 }

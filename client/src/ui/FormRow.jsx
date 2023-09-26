@@ -23,8 +23,9 @@ const StyledFormRow = styled.div`
       grid-column: 1 / -1;
     `}
 
-    &:has(button) nutton {
+    &:has(button) button {
     align-self: flex-end;
+    justify-self: flex-start;
   }
 `;
 
