@@ -35,6 +35,7 @@ const NavItem = styled.li`
   font-size: 2rem;
   justify-content: center;
   align-content: center;
+  text-transform: uppercase;
 
   &::before {
     content: "";
@@ -67,7 +68,8 @@ function Account() {
           {" "}
           <NavList>
             {" "}
-            <NavItem> </NavItem>{" "}
+            <NavItem> settings </NavItem> <NavItem> My Cart </NavItem>{" "}
+            <NavItem> My Reviews </NavItem> <NavItem> My order </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
         <InfoDetails> </InfoDetails>
