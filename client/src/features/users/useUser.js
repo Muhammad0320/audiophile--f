@@ -7,7 +7,5 @@ export const useUser = () => {
     queryFn: getCurrentUserApi,
   });
 
-  console.log(user);
-
   return { user, isLoading };
 };

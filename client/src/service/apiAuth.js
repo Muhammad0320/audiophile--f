@@ -38,7 +38,6 @@ export const getCurrentUserApi = async () => {
       withCredentials: true,
     });
 
-    console.log(res.data);
     return res.data.data.user;
   } catch (error) {
     console.log(error.response.data.message);

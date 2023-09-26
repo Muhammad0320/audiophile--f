@@ -86,8 +86,6 @@ function Nav({ type }) {
 
   const { user, isLoading } = useUser();
 
-  console.log(user);
-
   return (
     <Modal>
       {/* <Text type="avatar"> Loading... </Text> */}
@@ -133,18 +131,6 @@ function Nav({ type }) {
               <AuthButton> Login </AuthButton> <AuthButton> Signup </AuthButton>{" "}
             </>
           )}
-
-          <Modal.Open opens="cart">
-            <HeaderIcon>
-              <SVG src={IconCart} />
-              {totalQuantity > 0 && (
-                <CartIconNotification> {totalQuantity} </CartIconNotification>
-              )}
-            </HeaderIcon>
-          </Modal.Open>
-          <Modal.Window name="cart">
-            <Cart />
-          </Modal.Window>
         </StyledNav>
       )}
 
