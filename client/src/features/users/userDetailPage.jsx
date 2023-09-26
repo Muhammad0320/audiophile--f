@@ -24,6 +24,8 @@ const NavList = styled.ul`
 `;
 
 const Sidebar = styled.div`
+  grid-column: 1 / 2;
+
   background-color: var(--color-primary);
   padding: 2rem 3rem;
 `;
@@ -50,4 +52,9 @@ const NavItem = styled.li`
   }
 
   ${(props) => props.active === "true" && css``}
+`;
+
+const InfoDetails = styled.div`
+  padding: 2rem 3rem;
+  grid-column: 2 / -1;
 `;
