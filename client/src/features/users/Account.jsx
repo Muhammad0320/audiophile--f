@@ -38,6 +38,7 @@ const Sidebar = styled.div`
 const NavItem = styled.li`
   display: flex;
   font-size: 2rem;
+  padding: 1rem;
   justify-content: center;
   align-content: center;
   text-transform: uppercase;
