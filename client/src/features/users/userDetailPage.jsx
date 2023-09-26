@@ -17,6 +17,10 @@ const DetailsContainer = styled.div`
 
 const NavList = styled.ul`
   color: var(--color-white);
+
+  display: flex;
+  flex-flow: column;
+  row-gap: 1rem;
 `;
 
 const Sidebar = styled.div`
