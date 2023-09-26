@@ -75,7 +75,7 @@ export const ProductPrice = styled.p`
 `;
 
 function Category({ categoryData, index }) {
-  const { image, id, new: isNew, name, description, slug } = categoryData;
+  const { image, new: isNew, name, description, slug } = categoryData;
 
   const navigate = useNavigate();
 

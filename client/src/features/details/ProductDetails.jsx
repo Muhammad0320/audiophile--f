@@ -21,7 +21,6 @@ import UpdateCartItem from "../../ui/UpdateCartItem";
 
 import Spinner from "../../ui/Spinner";
 import { useGetProductBySlug } from "./useProductBySlug";
-import { testdata } from "../../service/data";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -148,8 +147,6 @@ function ProductDetails() {
   // const product = testdata;
 
   const navigate = useNavigate();
-
-  // console.log(isLoading, testing?.product);
 
   const {
     price,
