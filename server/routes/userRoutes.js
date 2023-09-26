@@ -6,7 +6,8 @@ const {
   resetPassword,
   updateCurrentUserPassword,
   protect,
-  restrictTo
+  restrictTo,
+  isLoggedIn
 } = require('../controllers/authController');
 const {
   getAllUsers,
@@ -28,11 +29,10 @@ router.route('/passwordReset/:token').patch(resetPassword);
 
 router.route('/login').post(login);
 
+router.route('/me').get(isLoggedIn, getMe);
 router.use(protect);
 
 router.route('/updatePassword').patch(updateCurrentUserPassword);
-
-router.route('/me').get(getMe);
 
 router.route('/deleteMe').delete(deleteMe);
 

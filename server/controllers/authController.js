@@ -117,7 +117,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   next();
 });
 
-exports.isLoggedIn = catchAsync(async (req, res, next) => {
+exports.isLoggedIn = async (req, res, next) => {
   try {
     const token = req.cookies.jwt;
 
@@ -153,7 +153,7 @@ exports.isLoggedIn = catchAsync(async (req, res, next) => {
   }
 
   next();
-});
+};
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
   const { email } = req.body;
