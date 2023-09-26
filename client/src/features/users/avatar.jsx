@@ -23,18 +23,12 @@ const ImageContainer = styled.img`
   }
 `;
 
-function Avatar(props) {
-  console.log(props);
-
-  const user = props.user;
-
-  console.log(user);
-
+function Avatar({ user }) {
   const { name, photo } = user;
 
-  console.log(name);
-
   const firstname = name?.split(" ")[0];
+
+  console.log(firstname);
 
   return (
     <StyledAvatar>
