@@ -21,15 +21,16 @@ const {
 
 const router = express.Router();
 
+router.route('/login').post(login);
+
 router.route('/signup').post(signUp);
 
 router.route('/forgotPassword').post(forgotPassword);
 
 router.route('/passwordReset/:token').patch(resetPassword);
 
-router.route('/login').post(login);
-
 router.route('/me').get(isLoggedIn, getMe);
+
 router.use(protect);
 
 router.route('/updatePassword').patch(updateCurrentUserPassword);
