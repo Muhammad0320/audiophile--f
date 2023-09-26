@@ -42,6 +42,10 @@ const NavItem = styled(NavLink)`
 const HeaderIcon = styled(NavLink)`
   cursor: pointer;
 
+  & > svg {
+    fill: var(--color-white);
+  }
+
   position: relative;
 `;
 
@@ -64,7 +68,7 @@ const AuthButton = styled.a`
   text-decoration: none;
   display: grid;
   place-items: center;
-  padding: 1.2rem 2.5rem;
+  padding: 1rem 2.5rem;
   background-color: transparent;
   border: 2px solid var(--color-white);
   font-size: 2rem;
@@ -75,6 +79,8 @@ const AuthButton = styled.a`
   &:hover {
     background-color: var(--color-primary);
     color: var(--color-white);
+
+    border: 2px solid var(--color-primary);
   }
 
   &:first-of-type {
@@ -82,12 +88,19 @@ const AuthButton = styled.a`
   }
 `;
 
+const NavCornerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+`;
+
 function Nav({ type }) {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
   const { user, isLoading } = useUser();
 
-  if (isLoading) return <Text type="avatar"> Loading... </Text>;
+  // if (isLoading) return <Text type="avatar"> Loading... </Text>;
 
   return (
     <Modal>
@@ -106,7 +119,7 @@ function Nav({ type }) {
             <NavItem to="/earphones">earphones</NavItem>
           </NavList>
 
-          <>
+          <NavCornerContainer>
             {user ? (
               <>
                 <Avatar user={user} />
@@ -129,11 +142,11 @@ function Nav({ type }) {
             ) : (
               <>
                 {" "}
-                <AuthButton> Login </AuthButton>{" "}
-                <AuthButton> Signup </AuthButton>{" "}
+                <AuthButton href="/login"> Login </AuthButton>{" "}
+                <AuthButton href="/signup"> Signup </AuthButton>{" "}
               </>
             )}
-          </>
+          </NavCornerContainer>
         </StyledNav>
       )}
 

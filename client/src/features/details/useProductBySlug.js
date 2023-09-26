@@ -5,8 +5,6 @@ import { getProductBySlug } from "../../service/apiProduct";
 export const useGetProductBySlug = () => {
   const { slug } = useParams();
 
-  console.log(slug);
-
   const queryClient = useQueryClient();
 
   const {

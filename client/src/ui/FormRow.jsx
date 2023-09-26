@@ -5,8 +5,6 @@ const StyledFormRow = styled.div`
   flex-direction: column;
   column-gap: 2rem;
 
-  
-
   ${(props) =>
     props.position === "left" &&
     css`
