@@ -8,6 +8,7 @@ import { useUser } from "./useUser";
 import { useUpdateUSer } from "./useUpdateUser";
 import SpinnerMini from "../../ui/SpinnerMini";
 import FileInput from "../../ui/FileInput";
+import { useUpdatePassword } from "./useUpdatePassword";
 
 const InfoDetails = styled.div`
   padding: 5rem 6rem;
@@ -52,7 +53,9 @@ const UserImage = styled.img`
 function Settings() {
   const { user: { name, email, photo } = {} } = useUser();
 
-  const { updateUser, isUpdating } = useUpdateUSer();
+  const { updateUser, isUpdating, reset } = useUpdateUSer();
+
+  const { updatePassword, isUpdatingPassowrd } = useUpdatePassword();
 
   const { register, handleSubmit } = useForm();
 
@@ -60,6 +63,20 @@ function Settings() {
     e.preventDefault();
 
     updateUser({ name, email });
+  };
+
+  const onSubmitPassword = (
+    { password, passwordConfirm, currentPassword },
+    e
+  ) => {
+    e.preventDefault();
+
+    updatePassword(
+      { currentPassword, password, passwordConfirm },
+      {
+        onSettled: () => reset(),
+      }
+    );
   };
 
   return (
@@ -94,14 +111,14 @@ function Settings() {
         {isUpdating ? (
           <Button withspinner="true" disabled={isUpdating}>
             {" "}
-            <SpinnerMini /> <span> updating settings </span>{" "}
+            <SpinnerMini /> <span> updating settings... </span>{" "}
           </Button>
         ) : (
           <Button withspinner="true"> Save settings </Button>
         )}
       </Form2>
 
-      <Form2>
+      <Form2 onSubmit={handleSubmit(onSubmitPassword)}>
         <FormRow account label="Current password">
           <Input
             type="password"
@@ -128,6 +145,15 @@ function Settings() {
             {...register("passwordConfirm")}
           />
         </FormRow>
+
+        {isUpdatingPassowrd ? (
+          <Button withspinner="true" disabled={isUpdatingPassowrd}>
+            {" "}
+            <SpinnerMini /> <span> updating password... </span>{" "}
+          </Button>
+        ) : (
+          <Button withspinner="true"> Save password </Button>
+        )}
       </Form2>
     </InfoDetails>
   );
