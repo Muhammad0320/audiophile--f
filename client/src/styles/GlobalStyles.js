@@ -8,10 +8,13 @@ const GlobalStyles = createGlobalStyle`
     --color-primary-light: #fbaf85;
     --color-dark: #000;
     --color-dark-1: #101010;
+    --color-dark-2:  rgba(0, 0, 0, 0.2);
     --color-white: #fff ;
     --color-white-1: #fafafa;
     --color-white-2: #f1f1f1 ;
-    --box-shadow: 0 5px 5px 3px rgba(16, 16, 16, 0.2);
+    --box-shadow-light: 0 5px 5px 3px rgba(16, 16, 16, 0.2); 
+    --box-shadow-dark: 0 5px 7px 5px rgba(16, 16, 16, 0.4); 
+
 
 }
 
