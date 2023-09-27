@@ -22,11 +22,6 @@ const Input = styled.input`
       margin-bottom: 2rem;
     `}
 
-  /* &:valid,
-  &:focus {
-    border: 1px solid var(--color-primary);
-  } */
-
   ${(props) =>
     props.error &&
     css`

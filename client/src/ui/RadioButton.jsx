@@ -16,7 +16,7 @@ const StyledRadioButton = styled.span`
   width: 2.5rem;
   height: 2.5rem;
 
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--color-dark-2);
 
   ${(props) =>
     props.isChecked === "checked" &&
@@ -42,7 +42,7 @@ const RadioLabelContainer = styled.label`
   font-weight: 600;
   column-gap: 2rem;
   cursor: pointer;
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--color-dark-2);
   border-radius: 1rem;
   padding: 1rem 0;
   width: 100%;
