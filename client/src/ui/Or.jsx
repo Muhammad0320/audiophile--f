@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Alt = styled.div`
+const Or = styled.div`
   font-size: 1.6rem;
 
   color: var(--color-dark-2);
@@ -19,4 +19,4 @@ const Alt = styled.div`
   }
 `;
 
-export default Alt;
+export default Or;
