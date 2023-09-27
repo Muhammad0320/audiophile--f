@@ -14,6 +14,20 @@ const InfoDetails = styled.div`
   grid-column: 2 / -1;
 `;
 
+const FileGroup = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 2rem;
+`;
+
+const UserImage = styled.img`
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+`;
+
 function Settings() {
   const { user: { name, email } = {} } = useUser();
 
