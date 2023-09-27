@@ -14,13 +14,18 @@ const InfoDetails = styled.div`
   grid-column: 2 / -1;
 
   display: flex;
+  justify-content: center;
+  /* width: 90%; */
+
+  overflow: auto;
 
   flex-flow: column;
 
-  row-gap: 2rem;
+  row-gap: 5rem;
 
-  &:first-child {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  &:has(form) form:first-of-type {
+    border-bottom: 2px solid red;
+    padding-bottom: 5rem;
   }
 `;
 
@@ -46,7 +51,7 @@ function Settings() {
 
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = ({ name, email }, e) => {
+  const onSubmitData = ({ name, email }, e) => {
     e.preventDefault();
 
     updateUser({ name, email });
@@ -54,7 +59,7 @@ function Settings() {
 
   return (
     <InfoDetails>
-      <Form2 onSubmit={handleSubmit(onSubmit)}>
+      <Form2 onSubmit={handleSubmit(onSubmitData)}>
         <FormRow account label="Name">
           <Input
             account="true"
@@ -89,6 +94,35 @@ function Settings() {
         ) : (
           <Button withspinner="true"> Save settings </Button>
         )}
+      </Form2>
+
+      <Form2>
+        <FormRow account label="Current password">
+          <Input
+            type="password"
+            placeholder="••••••••"
+            account="true"
+            {...register("currentPassword")}
+          />
+        </FormRow>
+
+        <FormRow account label="Password">
+          <Input
+            type="password"
+            placeholder="••••••••"
+            account="true"
+            {...register("password")}
+          />
+        </FormRow>
+
+        <FormRow account label="Confirm password">
+          <Input
+            type="password"
+            placeholder="••••••••"
+            account="true"
+            {...register("passwordConfirm")}
+          />
+        </FormRow>
       </Form2>
     </InfoDetails>
   );
