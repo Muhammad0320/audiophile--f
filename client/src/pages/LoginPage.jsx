@@ -53,7 +53,7 @@ function LoginPage() {
         </StyledSVG>
         <Heading type="login"> Log in to your account </Heading>
         <LoginForm />
-        <OtherAuthmethod authMethod="sign in" />
+        <OtherAuthmethod authMethod="create one" />
       </StyledSignupContainer>
     </PageContainer>
   );

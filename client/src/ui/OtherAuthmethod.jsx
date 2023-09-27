@@ -13,14 +13,19 @@ const StyledAuthMethod = styled.div`
 
   &:has(a) a {
     color: var(--color-primary);
+    transition: color 0.2s ease-in;
+
+    &:hover {
+      color: var(--color-primary-light);
+    }
   }
 `;
 
 function OtherAuthmethod({ authMethod }) {
   const message =
-    authMethod === "sign in" ? "I have no accout" : "I have an account";
+    authMethod !== "sign in" ? "I don't have an accout" : "I have an account";
 
-  const to = authMethod === "sign in" ? "login" : "/signup";
+  const to = authMethod === "sign in" ? "/login" : "/signup";
 
   return (
     <StyledAuthMethod>
