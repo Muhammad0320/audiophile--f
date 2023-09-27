@@ -53,11 +53,11 @@ const UserImage = styled.img`
 function Settings() {
   const { user: { name, email, photo } = {} } = useUser();
 
-  const { updateUser, isUpdating, reset } = useUpdateUSer();
+  const { updateUser, isUpdating } = useUpdateUSer();
 
   const { updatePassword, isUpdatingPassowrd } = useUpdatePassword();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmitData = ({ name, email }, e) => {
     e.preventDefault();
