@@ -48,7 +48,7 @@ function App() {
           </Route>
 
           <Route element={<Account />}>
-            <Route path="me" element={<Account />} />
+            <Route index element={<Navigate replace to="settings" />} />
             <Route path="settings" element={<Settings />} />
           </Route>
 
