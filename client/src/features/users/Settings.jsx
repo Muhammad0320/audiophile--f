@@ -21,11 +21,16 @@ const InfoDetails = styled.div`
 
   flex-flow: column;
 
-  row-gap: 5rem;
+  /* row-gap: 5rem; */
 
   &:has(form) form:first-of-type {
-    border-bottom: 2px solid red;
-    padding-bottom: 5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10rem;
+  }
+
+  &:has(form) form:last-of-type {
+    /* border-bottom: 2px solid rgba(0, 0, 0, 0.2); */
+    padding-top: 8rem;
   }
 `;
 

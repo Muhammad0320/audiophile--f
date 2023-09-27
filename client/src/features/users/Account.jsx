@@ -3,7 +3,7 @@ import { css, styled } from "styled-components";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
-
+  padding: 15rem 0;
   height: 100vh;
   width: 100vw;
   display: flex;
