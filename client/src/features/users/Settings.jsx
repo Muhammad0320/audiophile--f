@@ -29,7 +29,7 @@ const UserImage = styled.img`
 `;
 
 function Settings() {
-  const { user: { name, email } = {} } = useUser();
+  const { user: { name, email, photo } = {} } = useUser();
 
   const { updateUser, isUpdating } = useUpdateUSer();
 
@@ -65,7 +65,11 @@ function Settings() {
           />
         </FormRow>
 
-        <FileInput value="Upload photo" />
+        <FileGroup>
+          <UserImage src={`/assets/users/${photo}`} />
+
+          <FileInput value="Upload photo" />
+        </FileGroup>
 
         {isUpdating ? (
           <Button withspinner="true" disabled={isUpdating}>
