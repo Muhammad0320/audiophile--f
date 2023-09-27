@@ -20,11 +20,13 @@ function OtherAuthmethod({ authMethod }) {
   const message =
     authMethod === "sign in" ? "I have no accout" : "I have an account";
 
+  const to = authMethod === "sign in" ? "login" : "/signup";
+
   return (
     <StyledAuthMethod>
       <span> {message} </span>
 
-      <NavLink> {authMethod} </NavLink>
+      <NavLink to={to}> {authMethod} </NavLink>
     </StyledAuthMethod>
   );
 }
