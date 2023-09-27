@@ -1,7 +1,8 @@
+import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
 
 const StyledAvatar = styled(NavLink)`
+  position: relative;
   display: flex;
   justify-content: center;
   cursor: pointer;
