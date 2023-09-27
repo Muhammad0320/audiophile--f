@@ -38,7 +38,6 @@ function Settings() {
   const onSubmit = ({ name, email }, e) => {
     e.preventDefault();
 
-    console.log(email, name);
     updateUser({ name, email });
   };
 

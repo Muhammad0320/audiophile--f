@@ -1,12 +1,14 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledAvatar = styled.div`
+const StyledAvatar = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--color-white);
   font-size: 1.5rem;
   text-transform: uppercase;
+  cursor: pointer;
 `;
 
 const ImageContainer = styled.img`
@@ -28,12 +30,8 @@ function Avatar({ user }) {
 
   const firstname = name?.split(" ")[0];
 
-  console.log(user);
-
-  console.log(firstname);
-
   return (
-    <StyledAvatar>
+    <StyledAvatar to="/settings">
       <ImageContainer src={`/assets/users/${photo}`} alt="user-avatar" />
       <span> {firstname} </span>
     </StyledAvatar>
