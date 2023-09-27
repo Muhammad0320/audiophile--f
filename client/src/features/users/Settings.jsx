@@ -12,6 +12,16 @@ import FileInput from "../../ui/FileInput";
 const InfoDetails = styled.div`
   padding: 5rem 6rem;
   grid-column: 2 / -1;
+
+  display: flex;
+
+  flex-flow: column;
+
+  row-gap: 2rem;
+
+  &:first-child {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const FileGroup = styled.div`
@@ -19,6 +29,7 @@ const FileGroup = styled.div`
   justify-content: flex-start;
   align-items: center;
   column-gap: 2rem;
+  margin-bottom: 2rem;
 `;
 
 const UserImage = styled.img`
