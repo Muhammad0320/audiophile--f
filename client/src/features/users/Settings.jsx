@@ -7,6 +7,7 @@ import Button from "../../ui/Button";
 import { useUser } from "./useUser";
 import { useUpdateUSer } from "./useUpdateUser";
 import SpinnerMini from "../../ui/SpinnerMini";
+import FileInput from "../../ui/FileInput";
 
 const InfoDetails = styled.div`
   padding: 5rem 6rem;
@@ -49,6 +50,8 @@ function Settings() {
             {...register("email")}
           />
         </FormRow>
+
+        <FileInput value="Upload photo" />
 
         {isUpdating ? (
           <Button withspinner="true" disabled={isUpdating}>
