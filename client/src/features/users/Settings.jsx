@@ -67,7 +67,7 @@ function Settings() {
         <FileGroup>
           <UserImage src={`/assets/users/${photo}`} />
 
-          <FileInput value="Upload photo" />
+          {/* <FileInput value="Upload photo" /> */}
         </FileGroup>
 
         {isUpdating ? (

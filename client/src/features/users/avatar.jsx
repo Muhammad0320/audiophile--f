@@ -4,11 +4,11 @@ import styled from "styled-components";
 const StyledAvatar = styled(NavLink)`
   display: flex;
   justify-content: center;
+  cursor: pointer;
   align-items: center;
   color: var(--color-white);
   font-size: 1.5rem;
   text-transform: uppercase;
-  cursor: pointer;
 `;
 
 const ImageContainer = styled.img`

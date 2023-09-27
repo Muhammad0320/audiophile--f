@@ -36,7 +36,7 @@ const LabelContainer = styled.div`
   margin-bottom: 5px;
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   color: var(--color-dark);
   font-size: 1.5rem;
   font-weight: 500;
