@@ -4,6 +4,7 @@ import LoginForm from "../features/Authentication/LoginForm";
 
 import SVG from "react-inlinesvg";
 import { IconLogo } from "../ui/Icons";
+import OtherAuthmethod from "../ui/OtherAuthmethod";
 
 const PageContainer = styled.div`
   width: 100vw;
@@ -22,7 +23,7 @@ const StyledSignupContainer = styled.div`
   background-color: var(--color-white-1);
   border-radius: 1.5rem;
   row-gap: 3rem;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-light);
 `;
 
 const StyledSVG = styled.div`
@@ -52,6 +53,7 @@ function LoginPage() {
         </StyledSVG>
         <Heading type="login"> Log in to your account </Heading>
         <LoginForm />
+        <OtherAuthmethod authMethod="sign in" />
       </StyledSignupContainer>
     </PageContainer>
   );

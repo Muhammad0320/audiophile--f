@@ -16,7 +16,7 @@ const DetailsContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
 
   background-color: var(--color-white-1);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-dark);
 `;
 
 const NavList = styled.ul`
