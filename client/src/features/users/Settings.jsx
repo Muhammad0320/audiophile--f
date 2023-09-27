@@ -23,8 +23,8 @@ const FileGroup = styled.div`
 
 const UserImage = styled.img`
   position: relative;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
 `;
 
@@ -67,7 +67,7 @@ function Settings() {
         <FileGroup>
           <UserImage src={`/assets/users/${photo}`} />
 
-          {/* <FileInput value="Upload photo" /> */}
+          <FileInput name="photo" id="photo" accept="image/*" />
         </FileGroup>
 
         {isUpdating ? (

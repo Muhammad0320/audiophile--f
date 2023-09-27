@@ -3,6 +3,8 @@ import styled from "styled-components";
 const FileInput = styled.input.attrs({ type: "file" })`
   font-size: 1.4rem;
 
+  /* opacity: 0; */
+
   &::file-selector-button {
     font: inherit;
     font-weight: 500;
