@@ -25,12 +25,11 @@ const InfoDetails = styled.div`
   /* row-gap: 5rem; */
 
   &:has(form) form:first-of-type {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--color-dark-2);
     padding-bottom: 10rem;
   }
 
   &:has(form) form:last-of-type {
-    /* border-bottom: 2px solid rgba(0, 0, 0, 0.2); */
     padding-top: 8rem;
   }
 `;

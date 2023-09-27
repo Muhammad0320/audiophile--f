@@ -1,7 +1,7 @@
 import { css, styled } from "styled-components";
 
 const Input = styled.input`
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--color-dark-2);
   background-color: transparent;
   padding: 1rem 1.6rem;
   caret-color: var(--color-primary);

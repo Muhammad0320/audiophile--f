@@ -22,7 +22,7 @@ const StyledSignupContainer = styled.div`
   background-color: var(--color-white-1);
   border-radius: 1.5rem;
   row-gap: 3rem;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-light);
 `;
 
 const StyledSVG = styled.div`
