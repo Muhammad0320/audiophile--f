@@ -60,3 +60,22 @@ export const updateUserData = async ({ email, name }) => {
 
   return res.data;
 };
+
+export const updateUserPassword = async ({
+  password,
+  currentPassword,
+  passwordConfirm,
+}) => {
+  const res = await axios({
+    method: "PATCH",
+    url: "http://127.0.0.1:3000/api/v1/users/updatePassword",
+
+    data: {
+      currentPassword,
+      password,
+      passwordConfirm,
+    },
+  });
+
+  return res.data;
+};
