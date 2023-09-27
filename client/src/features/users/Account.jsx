@@ -44,6 +44,12 @@ const NavItem = styled.a`
   align-content: center;
   text-transform: uppercase;
   position: relative;
+  transition: translate 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    translate: 1rem 0.5rem;
+  }
 
   &::before {
     content: "";
@@ -53,7 +59,7 @@ const NavItem = styled.a`
     position: absolute;
     transform: scaleY(0);
     background-color: var(--color-white);
-    left: -7rem;
+    left: -8rem;
     top: 0;
     transition: transform 0.2s;
   }
