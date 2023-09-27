@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FileInput = styled.input.attrs({ type: "file" })`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 
   /* opacity: 0; */
 
@@ -14,6 +14,9 @@ const FileInput = styled.input.attrs({ type: "file" })`
     background-color: transparent;
     cursor: pointer;
     transition: color 0.2s;
+
+    text-decoration: underline;
+    text-underline-offset: 7px;
 
     &:hover {
       color: var(--color-primary-light);
