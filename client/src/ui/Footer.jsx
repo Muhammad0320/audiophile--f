@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
-import Nav from "./Nav";
 import { NavLink } from "react-router-dom";
+import Nav from "./Nav";
 
 import SVG from "react-inlinesvg";
 import { IconFacebook, IconInstagram, IconX } from "./Icons";
