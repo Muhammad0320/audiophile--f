@@ -70,7 +70,7 @@ const TableContext = createContext();
 function Table({ children, column }) {
   return (
     <TableContext.Provider value={{ column }}>
-      <TableContainer> {children} </TableContainer>
+      <TableContainer role="table"> {children} </TableContainer>
     </TableContext.Provider>
   );
 }
@@ -80,13 +80,23 @@ function Table({ children, column }) {
 const TableHeader = ({ children }) => {
   const { column } = useContext(TableContext);
 
-  return <Header column={column}> {children} </Header>;
+  return (
+    <Header as="header" role="row" column={column}>
+      {" "}
+      {children}{" "}
+    </Header>
+  );
 };
 
 const TableRow = ({ children }) => {
   const { column } = useContext(TableContext);
 
-  return <Row column={column}> {children} </Row>;
+  return (
+    <Row role="row" column={column}>
+      {" "}
+      {children}{" "}
+    </Row>
+  );
 };
 
 const TableBody = ({ data, render, resource }) => {

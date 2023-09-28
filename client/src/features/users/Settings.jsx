@@ -13,12 +13,11 @@ import { useUpdatePassword } from "./useUpdatePassword";
 const InfoDetails = styled.div`
   padding: 5rem 6rem;
   grid-column: 2 / -1;
+  overflow: auto;
 
   display: flex;
   justify-content: center;
   /* width: 90%; */
-
-  overflow: auto;
 
   flex-flow: column;
 
