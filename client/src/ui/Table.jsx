@@ -83,7 +83,7 @@ const TableHeader = ({ children }) => {
 const TableRow = ({ children }) => {
   const { column } = useContext(TableContext);
 
-  return <Header column={column}> {children} </Header>;
+  return <Row column={column}> {children} </Row>;
 };
 
 const TableBody = ({ data, render, resource }) => {
@@ -100,5 +100,13 @@ const TableFooter = ({ children }) => {
 };
 
 // Join the parent to its childrens
+
+Table.Header = TableHeader;
+
+Table.Row = TableRow;
+
+Table.Footer = TableFooter;
+
+Table.Body = TableBody;
 
 export default Table;
