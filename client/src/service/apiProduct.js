@@ -25,7 +25,7 @@ export const getProductsByCategory = async (category) => {
 export const getProductBySlug = async (slug) => {
   try {
     const res = await axios.get(
-      `http://127.0.0.1:3000/api/v1/products/${slug}`
+      `http://127.0.0.1:3000/api/v1/products/slug/${slug}`
     );
 
     return res.data.data;
