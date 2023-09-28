@@ -6,6 +6,7 @@ const StyledAvatar = styled(NavLink)`
   display: flex;
   justify-content: center;
   cursor: pointer;
+  margin-right: 3rem;
   align-items: center;
   color: var(--color-white);
   font-size: 1.5rem;
