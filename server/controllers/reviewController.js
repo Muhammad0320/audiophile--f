@@ -13,7 +13,7 @@ exports.createNewReview = createOne(Review);
 
 exports.getAllReviews = getAll(Review);
 
-exports.getReview = getOne(Review);
+exports.getReview = getOne(Review, { path: 'product' });
 
 exports.updateReview = updateOne(Review);
 
@@ -41,10 +41,9 @@ exports.getReviewsOnProduct = catchAsync(async (req, res, next) => {
 });
 
 exports.getReviewOnUser = catchAsync(async (req, res, next) => {
-  const userReview = await Review.find({ user: req.user.id }).populate({
-    path: 'product',
-    select: 'name image'
-  });
+  const userReview = await Review.find({ user: req.user.id }).populate(
+    'product'
+  );
 
   if (!userReview) {
     return next(new AppError(`You haven't written any review yet`, 404));

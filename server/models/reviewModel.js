@@ -32,6 +32,9 @@ const reviewSchema = new mongoose.Schema({
   }
 });
 
+reviewSchema.set('toJSON', { getters: true, virtuals: true });
+reviewSchema.set('toObject', { getters: true, virtuals: true });
+
 const Review = mongoose.model('Review', reviewSchema);
 
 module.exports = Review;
