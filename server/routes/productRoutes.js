@@ -25,7 +25,7 @@ router.route('/top-5-cheap').get(getBestProduct, getAllProducts);
 
 router.route('/products-below/:below').get(getProductBelow);
 
-router.route('/:slug').get(getProductDetail);
+// router.route('/:slug').get(getProductDetail);
 
 router.use('/:productId/cart', cartRouter);
 
