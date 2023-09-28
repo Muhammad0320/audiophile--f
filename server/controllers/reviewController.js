@@ -13,14 +13,16 @@ exports.createNewReview = createOne(Review);
 
 exports.getAllReviews = getAll(Review);
 
-exports.getReview = getOne(Review, { path: 'product' });
+exports.getReview = getOne(Review, { path: 'product', select: 'name image' });
 
 exports.updateReview = updateOne(Review);
 
 exports.deleteReview = deleteOne(Review);
 
 exports.getReviewsOnProduct = catchAsync(async (req, res, next) => {
-  const productReview = await Review.find({ product: req.params.productId });
+  const productReview = await Review.find({
+    product: req.params.productId
+  }).populate({ path: 'product', select: 'name image' });
 
   if (!productReview) {
     return next(
