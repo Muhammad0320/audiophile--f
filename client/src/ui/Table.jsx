@@ -20,8 +20,18 @@ const CommonRow = styled.div`
   column-gap: 2rem;
 `;
 
-const TableHeader = styled(CommonRow)`
+const Header = styled(CommonRow)`
   padding: 1.2rem 2rem;
 
   border-bottom: 1px solid var(--color-dark-2);
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  padding: 1.2rem 2rem;
+  align-items: center;
+
+  &:not(:has(*)) {
+    display: none;
+  }
 `;
