@@ -73,15 +73,15 @@ const userSchema = new mongoose.Schema({
 userSchema.set('toJSON', { getters: true, virtuals: true });
 userSchema.set('toObject', { getters: true, virtuals: true });
 
-userSchema.pre('save', async function(next) {
-  if (!this.isModified('password')) return next();
+// userSchema.pre('save', async function(next) {
+//   if (!this.isModified('password')) return next();
 
-  this.password = await bcrypt.hash(this.password, 12);
+//   this.password = await bcrypt.hash(this.password, 12);
 
-  this.passwordConfirm = undefined;
+//   this.passwordConfirm = undefined;
 
-  next();
-});
+//   next();
+// });
 
 userSchema.pre(/^find/, function(next) {
   this.find({ active: { $ne: false } });
