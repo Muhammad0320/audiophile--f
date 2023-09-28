@@ -23,7 +23,8 @@ const CommonRow = styled.div`
 
 const Header = styled(CommonRow)`
   padding: 1.2rem 2rem;
-
+  text-transform: uppercase;
+  font-weight: 600;
   border-bottom: 1px solid var(--color-dark-2);
 `;
 
