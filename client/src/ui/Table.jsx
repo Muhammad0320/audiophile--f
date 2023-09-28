@@ -71,6 +71,12 @@ const TableHeader = ({ children }) => {
   return <Header column={column}> {children} </Header>;
 };
 
+const TableRow = ({ children }) => {
+  const { column } = useContext(TableContext);
+
+  return <Header column={column}> {children} </Header>;
+};
+
 // Join the parent to its childrens
 
 export default Table;
