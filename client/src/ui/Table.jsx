@@ -81,6 +81,10 @@ const TableBody = ({ data, render }) => {
   return <Body> {data.map(render)} </Body>;
 };
 
+const TableFooter = ({ children }) => {
+  return <Footer> {children} </Footer>;
+};
+
 // Join the parent to its childrens
 
 export default Table;
