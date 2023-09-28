@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import styled from "styled-components";
 
 const TableContainer = styled.div`
@@ -56,6 +56,12 @@ function Table({ children, column }) {
 }
 
 // Create child elements
+
+const TableHeader = ({ children }) => {
+  const { column } = useContext(TableContext);
+
+  return <Header column={column}> {children} </Header>;
+};
 
 // Join the parent to its childrens
 
