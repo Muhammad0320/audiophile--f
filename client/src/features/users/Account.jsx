@@ -11,6 +11,14 @@ const PageContainer = styled.div`
   align-items: center;
 `;
 
+const OutLetContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const DetailsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -84,7 +92,9 @@ function Account() {
             <NavItem> My order </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
-        <Outlet />
+        <Outlet>
+          <Outlet />
+        </Outlet>
       </DetailsContainer>
     </PageContainer>
   );
