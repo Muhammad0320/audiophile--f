@@ -1,3 +1,4 @@
+import { createContext } from "react";
 import styled from "styled-components";
 
 const TableContainer = styled.div`
@@ -35,3 +36,27 @@ const Footer = styled.footer`
     display: none;
   }
 `;
+
+const Body = styled.div`
+  margin: 0.5rem 0;
+`;
+
+// Create context
+
+const TableContext = createContext();
+
+// Create parent element
+
+function Table({ children, column }) {
+  return (
+    <TableContext.Provider value={{ column }}>
+      <TableContainer> {children} </TableContainer>
+    </TableContext.Provider>
+  );
+}
+
+// Create child elements
+
+// Join the parent to its childrens
+
+export default Table;
