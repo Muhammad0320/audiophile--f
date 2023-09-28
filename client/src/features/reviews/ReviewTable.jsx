@@ -4,7 +4,7 @@ import ReviewItem from "./ReviewItem";
 import { useGetUserReview } from "./useGetUserReviews";
 
 function ReviewTable() {
-  const { reviews, isLoading } = useGetUserReview();
+  const { reviews = [], isLoading } = useGetUserReview();
 
   return (
     <Table column="0.9fr 1fr 2fr 1.2fr 1.4fr">

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { css, styled } from "styled-components";
 
 const PageContainer = styled.div`
@@ -11,13 +11,13 @@ const PageContainer = styled.div`
   align-items: center;
 `;
 
-const OutLetContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const OutLetContainer = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const DetailsContainer = styled.div`
   display: grid;
@@ -44,7 +44,7 @@ const Sidebar = styled.div`
   padding: 2rem 3rem;
 `;
 
-const NavItem = styled.a`
+const NavItem = styled(NavLink)`
   display: flex;
   font-size: 2rem;
   padding: 1rem;
@@ -87,14 +87,13 @@ function Account() {
           {" "}
           <NavList>
             {" "}
-            <NavItem href="/settings"> settings </NavItem>{" "}
-            <NavItem> My Cart </NavItem> <NavItem> My Reviews </NavItem>{" "}
+            <NavItem to="/settings"> settings </NavItem>{" "}
+            <NavItem> My Cart </NavItem>{" "}
+            <NavItem to="/my-reviews"> My Reviews </NavItem>{" "}
             <NavItem> My order </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
-        <Outlet>
-          <Outlet />
-        </Outlet>
+        <Outlet />
       </DetailsContainer>
     </PageContainer>
   );

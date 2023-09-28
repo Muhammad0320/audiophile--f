@@ -42,8 +42,10 @@ const Body = styled.div`
   margin: 0.5rem 0;
 `;
 
-const Row = styled.div`
+const Row = styled(CommonRow)`
   padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-dark-2);
