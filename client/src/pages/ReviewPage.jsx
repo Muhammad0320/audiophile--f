@@ -1,5 +1,7 @@
+import ReviewTable from "../features/reviews/ReviewTable";
+
 function ReviewPage() {
-  return <div></div>;
+  return <ReviewTable />;
 }
 
 export default ReviewPage;
