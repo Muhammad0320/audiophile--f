@@ -1,7 +1,17 @@
+import styled from "styled-components";
 import ReviewTable from "../features/reviews/ReviewTable";
 
+const ReviewContainer = styled.div`
+  grid-column: 2 / -1;
+  overflow: auto;
+`;
+
 function ReviewPage() {
-  return <ReviewTable />;
+  return (
+    <ReviewContainer>
+      <ReviewTable />;
+    </ReviewContainer>
+  );
 }
 
 export default ReviewPage;

@@ -18,6 +18,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import Account from "./features/users/Account";
 import Settings from "./features/users/Settings";
+import ReviewPage from "./pages/ReviewPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -50,6 +51,7 @@ function App() {
           <Route element={<Account />}>
             <Route index element={<Navigate replace to="settings" />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="my-reviews" element={<ReviewPage />} />
           </Route>
 
           <Route path="signup" element={<SignupPage />} />
