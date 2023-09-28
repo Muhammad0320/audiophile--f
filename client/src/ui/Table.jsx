@@ -41,6 +41,14 @@ const Body = styled.div`
   margin: 0.5rem 0;
 `;
 
+const Row = styled.div`
+  padding: 0.8rem 1.2rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--color-dark-2);
+  }
+`;
+
 // Create context
 
 const TableContext = createContext();
