@@ -20,8 +20,8 @@ const CommonRow = styled.div`
   column-gap: 2rem;
 `;
 
-// const TableHeader = styled(CommonRow)`
+const TableHeader = styled(CommonRow)`
+  padding: 1.2rem 2rem;
 
-//     padding: ;
-
-// `
+  border-bottom: 1px solid var(--color-dark-2);
+`;
