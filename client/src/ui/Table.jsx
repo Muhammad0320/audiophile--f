@@ -77,6 +77,10 @@ const TableRow = ({ children }) => {
   return <Header column={column}> {children} </Header>;
 };
 
+const TableBody = ({ data, render }) => {
+  return <Body> {data.map(render)} </Body>;
+};
+
 // Join the parent to its childrens
 
 export default Table;
