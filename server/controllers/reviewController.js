@@ -43,9 +43,10 @@ exports.getReviewsOnProduct = catchAsync(async (req, res, next) => {
 });
 
 exports.getReviewOnUser = catchAsync(async (req, res, next) => {
-  const userReview = await Review.find({ user: req.user.id }).populate(
-    'product'
-  );
+  const userReview = await Review.find({ user: req.user.id }).populate({
+    path: 'product',
+    select: 'name image'
+  });
 
   if (!userReview) {
     return next(new AppError(`You haven't written any review yet`, 404));
