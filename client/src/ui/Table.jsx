@@ -49,6 +49,15 @@ const Row = styled.div`
   }
 `;
 
+const Empty = styled.div`
+  font-size: 1.7rem;
+  color: currentColor;
+
+  text-align: center;
+
+  padding: 4rem 0;
+`;
+
 // Create context
 
 const TableContext = createContext();
@@ -77,7 +86,12 @@ const TableRow = ({ children }) => {
   return <Header column={column}> {children} </Header>;
 };
 
-const TableBody = ({ data, render }) => {
+const TableBody = ({ data, render, resource }) => {
+  if (!data.length)
+    return (
+      <Empty> {`There is no ${resource} to display  at the moment ☹ `} </Empty>
+    );
+
   return <Body> {data.map(render)} </Body>;
 };
 
