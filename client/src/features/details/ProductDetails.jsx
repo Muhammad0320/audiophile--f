@@ -168,6 +168,7 @@ function ProductDetails() {
   const dispatch = useDispatch();
 
   const cartName = name?.split(" ").slice(0, -1).join(" ");
+
   const handleAddToCart = () => {
     const newCartItem = {
       productID: id,

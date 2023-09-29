@@ -36,16 +36,12 @@ function ReviewItem({ data }) {
   const collapsedWord =
     review.slice().split(" ").slice(0, 10).join(" ") + "...";
 
-  const reviewedProduct = name
-    .slice()
-    .split(" ")
-    .slice(0, name.length - 1)
-    .join(" ");
+  //   const reviewedProduct = name.slice().split(" ").slice(0, -1).join(" ");
 
   return (
     <Table.Row>
       <Image src={image} />
-      <Name> {reviewedProduct} </Name>
+      <Name> {name} </Name>
       <Review>
         <span>{expand ? review : collapsedWord}</span>
         {"  "}{" "}
