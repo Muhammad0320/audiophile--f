@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import styled from "styled-components";
 
 import { HiEllipsisVertical } from "react-icons/hi2";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 const StyledList = styled.ul`
   position: fixed;
@@ -105,6 +106,21 @@ const Toggle = ({ id }) => {
       {" "}
       <HiEllipsisVertical />{" "}
     </StyledToggle>
+  );
+};
+
+const List = ({ id, children }) => {
+  const { openId, close, position } = useContext(MenuContext);
+
+  const { ref } = useClickOutside(close);
+
+  if (id !== openId) return null;
+
+  return (
+    <StyledList ref={ref} position={position}>
+      {" "}
+      {children}{" "}
+    </StyledList>
   );
 };
 
