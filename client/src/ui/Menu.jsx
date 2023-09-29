@@ -18,6 +18,13 @@ const StyledToggle = styled.button`
   border: none;
   border-radius: 0;
 
+  padding: 0.7rem 1rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--color-white-2);
+  }
+
   & > svg {
     color: var(--color-dark);
     height: 5rem;
@@ -41,7 +48,7 @@ const StyledButton = styled.button`
   transition: background-color 0.3s ease-out;
 
   &:hover {
-    background-color: var(--color-dark-2);
+    background-color: var(--color-white-2);
   }
 
   & > svg {
