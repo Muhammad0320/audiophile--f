@@ -38,7 +38,7 @@ const variations = {
     }
   `,
 
-  dark: css`
+  danger: css`
     background-color: var(--color-red-dark);
     color: var(--color-white);
     border: 1px solid var(--color-red-dark);
@@ -66,8 +66,6 @@ const Button = styled.button`
       padding: 1.4rem 2.4rem;
       font-size: 1.5rem;
     `}
-
-
 
     ${(props) =>
     props.withspinner === "true" &&
