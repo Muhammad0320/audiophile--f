@@ -14,7 +14,7 @@ const StyledList = styled.ul`
   overflow: hidden;
   padding: 0;
   /* height: 10rem; */
-  width: 15rem;
+  width: 13rem;
   right: ${(props) => props.position.x}px;
   top: ${(props) => props.position.y}px;
 `;
@@ -108,8 +108,8 @@ const Toggle = ({ id }) => {
     const rect = e.target?.closest("button").getBoundingClientRect();
 
     setPosition({
-      x: window.innerWidth - rect.x - rect.width,
-      y: rect.y + 18 + rect.height,
+      //   x: window.innerWidth - rect.x - rect.width,
+      y: rect.y + rect.height - 30,
     });
   };
 
