@@ -2,11 +2,11 @@ import { createContext, useContext } from "react";
 import styled from "styled-components";
 
 const TableContainer = styled.div`
-  margin: 2rem 0;
+  margin: 2rem 5rem;
 
   border: 1px solid var(--color-dark-2);
 
-  background-color: var(--color-white-2);
+  background-color: var(--color-white-1);
 
   font-size: 1.5rem;
 
@@ -16,9 +16,11 @@ const TableContainer = styled.div`
 const CommonRow = styled.div`
   display: grid;
   grid-template-columns: ${(props) => props.column};
-  align-content: center;
+  align-items: center;
+  /* text-align: center; */
+  transition: none;
 
-  column-gap: 2rem;
+  column-gap: 2.5rem;
 `;
 
 const Header = styled(CommonRow)`
@@ -40,12 +42,11 @@ const Footer = styled.footer`
 
 const Body = styled.div`
   margin: 0.5rem 0;
+  /* width: 90%; */
 `;
 
 const Row = styled(CommonRow)`
   padding: 0.8rem 1.2rem;
-  display: flex;
-  align-items: center;
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-dark-2);

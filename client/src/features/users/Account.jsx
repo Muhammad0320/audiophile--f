@@ -3,9 +3,10 @@ import { css, styled } from "styled-components";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
-  padding: 15rem 0;
   height: 100vh;
   width: 100vw;
+  margin: 15rem 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +23,8 @@ const PageContainer = styled.div`
 const DetailsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
+  /* width: 80%; */
+  margin: 15rem 8rem;
   background-color: var(--color-white-1);
   box-shadow: var(--box-shadow-dark);
 `;
