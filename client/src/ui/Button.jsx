@@ -32,9 +32,23 @@ const variations = {
     transition: all 0.3s;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: var(--color-dark-3);
       color: var(--color-white);
-      border: 1px solid rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--color-dark-3);
+    }
+  `,
+
+  dark: css`
+    background-color: var(--color-red-dark);
+    color: var(--color-white);
+    border: 1px solid var(--color-red-dark);
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: var(--color-red-light);
+      color: var(--color-white);
+      border: 1px solid var(--color-red-light);
     }
   `,
 };
@@ -52,6 +66,8 @@ const Button = styled.button`
       padding: 1.4rem 2.4rem;
       font-size: 1.5rem;
     `}
+
+
 
     ${(props) =>
     props.withspinner === "true" &&
