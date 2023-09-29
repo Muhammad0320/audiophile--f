@@ -1,5 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import styled from "styled-components";
+
+import { HiEllipsisVertical } from "react-icons/hi2";
 
 const StyledList = styled.ul`
   position: fixed;
@@ -81,6 +83,28 @@ const Menu = ({ children }) => {
       {" "}
       {children}{" "}
     </MenuContext.Provider>
+  );
+};
+
+const Toggle = ({ id }) => {
+  const { close, open, openId, setPosition } = useContext(MenuContext);
+
+  const handleToggle = (e) => {
+    openId === "" && openId !== id ? open(id) : close();
+
+    const rect = e.target?.closest("button").getBoundingClientRect();
+
+    setPosition({
+      x: window.innerWidth - rect.x - rect.width,
+      y: rect.y + 8 + rect.height,
+    });
+  };
+
+  return (
+    <StyledToggle onClick={handleToggle}>
+      {" "}
+      <HiEllipsisVertical />{" "}
+    </StyledToggle>
   );
 };
 
