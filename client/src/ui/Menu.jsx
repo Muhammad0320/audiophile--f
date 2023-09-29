@@ -133,4 +133,10 @@ const Button = ({ icon, children, onClick }) => {
   );
 };
 
+Menu.Button = Button;
+
+Menu.List = List;
+
+Menu.Toggle = Toggle;
+
 export default Menu;
