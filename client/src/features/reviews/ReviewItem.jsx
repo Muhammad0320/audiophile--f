@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Table from "../../ui/Table";
 import { useState } from "react";
+import Menu from "../../ui/Menu";
+import { HiPencil, HiTrash } from "react-icons/hi2";
 
 const Image = styled.img`
   display: inline-block;
@@ -30,6 +32,7 @@ function ReviewItem({ data }) {
   const {
     review,
     rating,
+    id,
     product: { image, name },
   } = data || {};
 
@@ -52,7 +55,21 @@ function ReviewItem({ data }) {
 
       <span> {rating} </span>
 
-      <div></div>
+      <div>
+        <Menu>
+          <Menu.Toggle id={id} />
+
+          <Menu.List id={id}>
+            <li>
+              <Menu.Button icon={<HiPencil />}> Edit </Menu.Button>
+            </li>
+
+            <li>
+              <Menu.Button icon={<HiTrash />}> Delete </Menu.Button>
+            </li>
+          </Menu.List>
+        </Menu>
+      </div>
     </Table.Row>
   );
 }

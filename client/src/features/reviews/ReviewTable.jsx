@@ -8,7 +8,7 @@ const ReviewContainer = styled.div`
   grid-column: 2 / -1;
   overflow: auto;
   margin: 0 3rem;
-  /* width: 90%; */
+
   /* position: relative; */
   display: flex;
   justify-content: center;

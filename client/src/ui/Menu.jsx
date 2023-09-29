@@ -11,6 +11,8 @@ const StyledList = styled.ul`
   box-shadow: var(--box-shadow-light);
   border-radius: 1rem;
 
+  overflow: hidden;
+
   right: ${(props) => props.position.x}px;
   top: ${(props) => props.position.y}px;
 `;
@@ -39,6 +41,12 @@ const StyledButton = styled.button`
   background: none;
 
   border: none;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
 
   border-radius: 0;
 
@@ -69,17 +77,17 @@ const StyledButton = styled.button`
 const MenuContext = createContext();
 
 const Menu = ({ children }) => {
-  const [isOpen, setIsOpen] = useState("");
+  const [openId, setOpenId] = useState("");
 
   const [position, setPosition] = useState({});
 
-  const open = setIsOpen;
+  const open = setOpenId;
 
-  const close = setIsOpen("");
+  const close = () => setOpenId("");
 
   return (
     <MenuContext.Provider
-      value={{ isOpen, position, setPosition, open, close }}
+      value={{ openId, position, setPosition, open, close }}
     >
       {" "}
       {children}{" "}
@@ -91,6 +99,7 @@ const Toggle = ({ id }) => {
   const { close, open, openId, setPosition } = useContext(MenuContext);
 
   const handleToggle = (e) => {
+    console.log(openId);
     openId === "" && openId !== id ? open(id) : close();
 
     const rect = e.target?.closest("button").getBoundingClientRect();
@@ -112,6 +121,7 @@ const Toggle = ({ id }) => {
 const List = ({ id, children }) => {
   const { openId, close, position } = useContext(MenuContext);
 
+  console.log(id, openId);
   const { ref } = useClickOutside(close);
 
   if (id !== openId) return null;
@@ -125,8 +135,16 @@ const List = ({ id, children }) => {
 };
 
 const Button = ({ icon, children, onClick }) => {
+  const { close } = useContext(MenuContext);
+
+  const handleClick = () => {
+    close();
+
+    onClick?.();
+  };
+
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton onClick={handleClick}>
       {" "}
       {icon} <span> {children} </span>{" "}
     </StyledButton>
