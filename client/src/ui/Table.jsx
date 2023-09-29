@@ -26,6 +26,8 @@ const CommonRow = styled.div`
 const Header = styled(CommonRow)`
   padding: 1.2rem 2rem;
   text-transform: uppercase;
+  font-size: 1.8rem;
+  background-color: var(--color-white-2);
   font-weight: 600;
   border-bottom: 1px solid var(--color-dark-2);
 `;
@@ -42,7 +44,6 @@ const Footer = styled.footer`
 
 const Body = styled.div`
   margin: 0.5rem 0;
-  /* width: 90%; */
 `;
 
 const Row = styled(CommonRow)`
