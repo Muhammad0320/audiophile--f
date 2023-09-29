@@ -68,7 +68,7 @@ function CartItem({ cart, page }) {
   const CurrentQuantity = useSelector(getCurrentItemQuantityById(productID));
 
   const dispatch = useDispatch();
-  
+
   return (
     <CartItemContainer>
       <CartItemImageContainer>
