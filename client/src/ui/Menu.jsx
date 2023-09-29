@@ -12,7 +12,9 @@ const StyledList = styled.ul`
   border-radius: 1rem;
 
   overflow: hidden;
-
+  padding: 0;
+  /* height: 10rem; */
+  width: 15rem;
   right: ${(props) => props.position.x}px;
   top: ${(props) => props.position.y}px;
 `;
@@ -46,9 +48,11 @@ const StyledButton = styled.button`
   width: 100%;
   height: 100%;
 
-  text-align: center;
+  text-align: left;
 
   border-radius: 0;
+
+  padding: 2rem;
 
   font-size: 1.5rem;
 
@@ -105,7 +109,7 @@ const Toggle = ({ id }) => {
 
     setPosition({
       x: window.innerWidth - rect.x - rect.width,
-      y: rect.y + 8 + rect.height,
+      y: rect.y + 18 + rect.height,
     });
   };
 
