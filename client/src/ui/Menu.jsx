@@ -25,6 +25,37 @@ const StyledToggle = styled.button`
   }
 `;
 
+const StyledButton = styled.button`
+  background: none;
+
+  border: none;
+
+  border-radius: 0;
+
+  font-size: 1.5rem;
+
+  padding: 1.3rem;
+
+  gap: 2.1rem;
+
+  transition: background-color 0.3s ease-out;
+
+  &:hover {
+    background-color: var(--color-dark-2);
+  }
+
+  & > svg {
+    height: 1.5rem;
+    width: 1.5rem;
+
+    margin-right: 1rem;
+
+    color: currentColor;
+
+    transition: all 0.2s;
+  }
+`;
+
 const MenuContext = createContext();
 
 const Menu = ({ children }) => {
