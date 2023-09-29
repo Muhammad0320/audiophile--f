@@ -12,6 +12,19 @@ const StyledList = styled.ul`
   top: ${(props) => props.position.y}px;
 `;
 
+const StyledToggle = styled.button`
+  background: none;
+
+  border: none;
+  border-radius: 0;
+
+  & > svg {
+    color: var(--color-dark);
+    height: 5rem;
+    width: 5rem;
+  }
+`;
+
 const MenuContext = createContext();
 
 const Menu = ({ children }) => {
