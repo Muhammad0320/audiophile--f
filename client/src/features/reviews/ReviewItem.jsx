@@ -40,12 +40,10 @@ function ReviewItem({ data }) {
       <Image src={image} />
       <Name> {name} </Name>
       <Review>
-        <span>
-          <span>{expand ? review : collapsedWord}</span>
+        <span>{expand ? review : collapsedWord}</span>
 
-          <span onClick={() => setExpand((expand) => !expand)}>
-            {expand ? "show less" : "show more"}
-          </span>
+        <span onClick={() => setExpand((expand) => !expand)}>
+          {expand ? "show less" : "show more"}
         </span>
       </Review>
 
