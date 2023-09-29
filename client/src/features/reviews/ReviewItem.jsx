@@ -15,6 +15,7 @@ const Review = styled.span`
 
   & > span:last-of-type {
     color: var(--color-primary);
+    cursor: pointer;
   }
 `;
 
@@ -33,7 +34,7 @@ function ReviewItem({ data }) {
   } = data || {};
 
   const collapsedWord =
-    review.slice().split(" ").slice(0, 15).join(" ") + "...";
+    review.slice().split(" ").slice(0, 10).join(" ") + "...";
 
   return (
     <Table.Row>
@@ -41,7 +42,7 @@ function ReviewItem({ data }) {
       <Name> {name} </Name>
       <Review>
         <span>{expand ? review : collapsedWord}</span>
-
+        {"  "}{" "}
         <span onClick={() => setExpand((expand) => !expand)}>
           {expand ? "show less" : "show more"}
         </span>
