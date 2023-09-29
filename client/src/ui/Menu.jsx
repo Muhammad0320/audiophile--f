@@ -124,4 +124,13 @@ const List = ({ id, children }) => {
   );
 };
 
+const Button = ({ icon, children, onClick }) => {
+  return (
+    <StyledButton onClick={onClick}>
+      {" "}
+      {icon} <span> {children} </span>{" "}
+    </StyledButton>
+  );
+};
+
 export default Menu;
