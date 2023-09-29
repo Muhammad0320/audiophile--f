@@ -8,20 +8,15 @@ const StyledConfirm = styled.div`
 
   box-shadow: var(--box-shadow-light);
 
-  width: 40%;
-
   padding: 2rem 2.6rem;
 `;
 
 const StyledText = styled.p`
-  font-size: 1.4rem;
+  font-size: 2.2rem;
 
-  color: var(--color-black);
+  font-weight: 500;
 
-  span {
-    font-weight: 600;
-    font-size: 1.5rem;
-  }
+  color: var(--color-dark);
 `;
 
 const ButtonContainer = styled.div`
@@ -37,7 +32,7 @@ function DeleteConfirm({ onClose, OnConfirm, resource }) {
   return (
     <StyledConfirm>
       <StyledText>
-        {`Are sure you wamt to delete this <span> ${resource} </span>  because this action cannot ne undone  `}
+        {`Are sure you want to delete this  ${resource}  because this action cannot be undone  `}
       </StyledText>
 
       <ButtonContainer>

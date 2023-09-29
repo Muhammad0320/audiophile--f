@@ -63,8 +63,8 @@ function ReviewItem({ data }) {
 
             <Menu.List id={id}>
               <li>
-                <Menu.Button icon={<HiPencil />}> Edit </Menu.Button>
-                <Modal.Open opens="edit-review"></Modal.Open>
+                {/* <Menu.Button icon={<HiPencil />}> Edit </Menu.Button>
+                <Modal.Open opens="edit-review"></Modal.Open> */}
               </li>
 
               <li>
