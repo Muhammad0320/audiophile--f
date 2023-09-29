@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
     --color-primary-light: #fbaf85;
     --color-red-light: #e5383b;
     --color-red-dark: #da1e37;
-  
+    
     --color-dark: #000;
     --color-dark-1: #101010;
     --color-dark-2:  rgba(0, 0, 0, 0.2);

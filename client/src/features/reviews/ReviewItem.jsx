@@ -3,6 +3,8 @@ import Table from "../../ui/Table";
 import { useState } from "react";
 import Menu from "../../ui/Menu";
 import { HiPencil, HiTrash } from "react-icons/hi2";
+import Modal from "../../ui/Modal";
+import DeleteConfirm from "../../ui/DeleteConfirm";
 
 const Image = styled.img`
   display: inline-block;
@@ -54,22 +56,30 @@ function ReviewItem({ data }) {
       </Review>
 
       <span> {rating} </span>
+      <Modal>
+        <div>
+          <Menu>
+            <Menu.Toggle id={id} />
 
-      <div>
-        <Menu>
-          <Menu.Toggle id={id} />
+            <Menu.List id={id}>
+              <li>
+                <Menu.Button icon={<HiPencil />}> Edit </Menu.Button>
+                <Modal.Open opens="edit-review"></Modal.Open>
+              </li>
 
-          <Menu.List id={id}>
-            <li>
-              <Menu.Button icon={<HiPencil />}> Edit </Menu.Button>
-            </li>
+              <li>
+                <Modal.Open opens="delete-review">
+                  <Menu.Button icon={<HiTrash />}> Delete </Menu.Button>
+                </Modal.Open>
+              </li>
+            </Menu.List>
+          </Menu>
 
-            <li>
-              <Menu.Button icon={<HiTrash />}> Delete </Menu.Button>
-            </li>
-          </Menu.List>
-        </Menu>
-      </div>
+          <Modal.Window page="confirm-delete" name="delete-review">
+            <DeleteConfirm OnConfirm={{}} resource="review" />
+          </Modal.Window>
+        </div>
+      </Modal>
     </Table.Row>
   );
 }

@@ -20,9 +20,7 @@ const StyledModalConfirm = styled.div`
   transform: translate(-50%, -50%);
   background-color: var(--color-white);
   border-radius: 1.5rem;
-  /* height: 80%; */
-  /* box-shadow: var(--shadow-lg); */
-  /* padding: 3.2rem 4rem; */
+  box-shadow: var(--bos-shadow-light);
   transition: all 0.5s;
 `;
 
@@ -55,7 +53,7 @@ function Modal({ children }) {
 
 const Open = ({ children, opens }) => {
   const { open } = useContext(ModalContext);
-  
+
   return cloneElement(children, { onClick: () => open(() => opens) });
 };
 
@@ -63,7 +61,6 @@ const Window = ({ children, name, page }) => {
   const { openModal, close } = useContext(ModalContext);
 
   const { ref } = useClickOutside(close);
-
 
   if (openModal !== name) return null;
 
