@@ -16,7 +16,7 @@ const StyledCart = styled.div`
   align-self: flex-start;
 
   display: flex;
-  
+
   border-radius: 1rem;
   width: 40%;
   background-color: var(--color-white);
@@ -57,7 +57,7 @@ export const CartTextBold = styled.p`
 `;
 
 function Cart({ page }) {
-  const carts = useSelector(getCart);
+  // const carts = useSelector(getCart);
 
   const dispatch = useDispatch();
 
@@ -68,6 +68,8 @@ function Cart({ page }) {
   const shippingFee = 50;
 
   const vat = 0.2 * +totalCartPrice;
+
+  const carts = "";
 
   if (!carts.length)
     return (
