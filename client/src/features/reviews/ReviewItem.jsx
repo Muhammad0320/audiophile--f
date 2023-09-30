@@ -42,8 +42,10 @@ function ReviewItem({ data }) {
     product: { image, name },
   } = data || {};
 
-  const collapsedWord =
-    review.slice().split(" ").slice(0, 10).join(" ") + "...";
+  const rev =
+    review.slice().split(" ").length > 10 && !expand
+      ? review.slice().split(" ").slice(0, 10).join(" ") + "..."
+      : review;
 
   //   const reviewedProduct = name.slice().split(" ").slice(0, -1).join(" ");
 
@@ -52,11 +54,15 @@ function ReviewItem({ data }) {
       <Image src={image} />
       <Name> {name} </Name>
       <Review>
-        <span>{expand ? review : collapsedWord}</span>
+        <div>{rev}</div>
         {"  "}{" "}
-        <span onClick={() => setExpand((expand) => !expand)}>
-          {expand ? "show less" : "show more"}
-        </span>
+        {review.slice().split(" ").length > 10 ? (
+          <span onClick={() => setExpand((expand) => !expand)}>
+            {expand ? "show less" : "show more"}
+          </span>
+        ) : (
+          ""
+        )}
       </Review>
 
       <span> {rating} </span>
