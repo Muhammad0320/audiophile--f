@@ -5,6 +5,7 @@ import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteItem,
+  getCart,
   getCurrentItemQuantityById,
   setCartData,
 } from "./cartSlice";
@@ -79,6 +80,10 @@ function CartItem({ cart, page }) {
   }, [product, quantity, dispatch]);
 
   const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
+
+  const data = useSelector(getCart) || [];
+
+  console.log("okay", data);
 
   return (
     <CartItemContainer>

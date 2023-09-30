@@ -5,7 +5,12 @@ import { Text } from "../category/Category";
 
 import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, getCart, getTotalCartPrice } from "./cartSlice";
+import {
+  clearCart,
+  getCart,
+  getTotalCartPrice,
+  setCartData,
+} from "./cartSlice";
 import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import EmptyCart from "../../ui/EmptyCart";
@@ -60,13 +65,15 @@ export const CartTextBold = styled.p`
 `;
 
 function Cart({ page }) {
-  const test = useSelector(getCart);
-
-  console.log(test);
+  // const test = useSelector(getCart);
 
   const { carts = [], isLoading } = useGetMyCart();
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCartData(carts));
+  }, [carts, dispatch]);
 
   const totalCartPrice = useSelector(getTotalCartPrice);
 
