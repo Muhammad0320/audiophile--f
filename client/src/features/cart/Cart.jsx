@@ -85,8 +85,6 @@ function Cart({ page }) {
 
   console.log(test, "okay");
 
-  // const carts = "";
-
   if (!carts.length)
     return (
       <StyledCart>

@@ -3,14 +3,8 @@ import { Text } from "../category/Category";
 import UpdateCartItem from "../../ui/UpdateCartItem";
 import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteItem,
-  getCart,
-  getCurrentItemQuantityById,
-  setCartData,
-} from "./cartSlice";
+import { deleteItem, getCart, getCurrentItemQuantityById } from "./cartSlice";
 import { HiXMark } from "react-icons/hi2";
-import { useEffect } from "react";
 
 export const CartItemContainer = styled.li`
   display: flex;
@@ -69,15 +63,19 @@ const ButtonDelete = styled.button`
 `;
 
 function CartItem({ cart, page }) {
-  const { product, quantity } = cart;
+  const { product, quantity } = cart || [];
+
+  console.log(cart);
 
   const { image, price, name, id } = product;
 
-  // const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
-
   const data = useSelector(getCart) || [];
 
+  const dispatch = useDispatch();
+
   console.log("okay", data);
+
+  const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
 
   return (
     <CartItemContainer>
@@ -93,14 +91,14 @@ function CartItem({ cart, page }) {
       {!page && (
         <>
           <UpdateCartItem
-            // currentQuantity={CurrentQuantity}
+            currentQuantity={CurrentQuantity}
             id={id}
             type="cart"
           />
 
-          {/* <ButtonDelete onClick={() => dispatch(deleteItem(id))}>
+          <ButtonDelete onClick={() => dispatch(deleteItem(id))}>
             <HiXMark />
-          </ButtonDelete> */}
+          </ButtonDelete>
         </>
       )}
 
