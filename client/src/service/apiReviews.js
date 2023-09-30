@@ -14,6 +14,8 @@ export const getCurrentUserReview = async () => {
 };
 
 export const deleteReviewApi = async ({ id }) => {
+  console.log(id);
+
   const res = await axios({
     method: "DELETE",
     url: `http://127.0.0.1:3000/api/v1/reviews/${id}`,

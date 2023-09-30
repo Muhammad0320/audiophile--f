@@ -80,7 +80,7 @@ function ReviewItem({ data }) {
 
           <Modal.Window page="confirm-delete" name="delete-review">
             <DeleteConfirm
-              OnConfirm={() => deleteReview(id)}
+              OnConfirm={() => deleteReview({ id })}
               isDeleting={isDeleting}
               resource="review"
             />
