@@ -8,5 +8,7 @@ export const useGetMyCart = () => {
     queryKey: ["cart"],
   });
 
+  console.log(carts);
+
   return { carts, isLoading };
 };

@@ -61,7 +61,7 @@ export const CartTextBold = styled.p`
 function Cart({ page }) {
   // const carts = useSelector(getCart);
 
-  const { carts, isLoading } = useGetMyCart();
+  const { carts = [], isLoading } = useGetMyCart();
 
   const dispatch = useDispatch();
 
