@@ -11,6 +11,8 @@ import CartItem from "./CartItem";
 import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
 import { grandTotalPrice } from "../../utils/constant";
+import { useGetMyCart } from "./useGetMyCart";
+import Spinner from "../../ui/Spinner";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -59,6 +61,8 @@ export const CartTextBold = styled.p`
 function Cart({ page }) {
   // const carts = useSelector(getCart);
 
+  const { carts, isLoading } = useGetMyCart();
+
   const dispatch = useDispatch();
 
   const totalCartPrice = useSelector(getTotalCartPrice);
@@ -69,7 +73,7 @@ function Cart({ page }) {
 
   const vat = 0.2 * +totalCartPrice;
 
-  const carts = "";
+  // const carts = "";
 
   if (!carts.length)
     return (
@@ -77,6 +81,8 @@ function Cart({ page }) {
         <EmptyCart />;
       </StyledCart>
     );
+
+  if (isLoading) return <Spinner />;
 
   return (
     <StyledCart>
