@@ -12,15 +12,3 @@ export const useGetMyCart = () => {
 
   return { carts, isLoading };
 };
-
-export const useGetCart = () => {
-  const { data: carts } = useQuery({
-    queryFn: getMyCart,
-
-    queryKey: ["cart"],
-  });
-
-  console.log(carts);
-
-  return carts;
-};

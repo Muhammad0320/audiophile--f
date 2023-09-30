@@ -65,8 +65,6 @@ export const CartTextBold = styled.p`
 `;
 
 function Cart({ page }) {
-  // const test = useSelector(getCart);
-
   const { carts = [], isLoading } = useGetMyCart();
 
   const dispatch = useDispatch();
@@ -82,6 +80,10 @@ function Cart({ page }) {
   const shippingFee = 50;
 
   const vat = 0.2 * +totalCartPrice;
+
+  const test = useSelector(getCart);
+
+  console.log(test, "okay");
 
   // const carts = "";
 

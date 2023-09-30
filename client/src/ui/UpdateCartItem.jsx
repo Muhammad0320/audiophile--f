@@ -39,16 +39,15 @@ const UpdateSign = styled.button`
 `;
 
 function UpdateCartItem({ currentQuantity, id, ...otherProps }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
     <Container {...otherProps}>
-      <UpdateSign onClick={() => dispatch(removeItemQuantity(id))}>
-        {" "}
-        -{" "}
-      </UpdateSign>
+      {/* <UpdateSign onClick={() => dispatch(removeItemQuantity(id))}> */}
+      <UpdateSign> - </UpdateSign>
       <span> {currentQuantity} </span>
-      <UpdateSign onClick={() => dispatch(addItemQuantity(id))}> + </UpdateSign>
+      {/* <UpdateSign onClick={() => dispatch(addItemQuantity(id))}> + </UpdateSign> */}
+      <UpdateSign> + </UpdateSign>
     </Container>
   );
 }

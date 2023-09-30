@@ -73,13 +73,7 @@ function CartItem({ cart, page }) {
 
   const { image, price, name, id } = product;
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setCartData({ product, quantity }));
-  }, [product, quantity, dispatch]);
-
-  const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
+  // const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
 
   const data = useSelector(getCart) || [];
 
@@ -99,14 +93,14 @@ function CartItem({ cart, page }) {
       {!page && (
         <>
           <UpdateCartItem
-            currentQuantity={CurrentQuantity}
+            // currentQuantity={CurrentQuantity}
             id={id}
             type="cart"
           />
 
-          <ButtonDelete onClick={() => dispatch(deleteItem(id))}>
+          {/* <ButtonDelete onClick={() => dispatch(deleteItem(id))}>
             <HiXMark />
-          </ButtonDelete>
+          </ButtonDelete> */}
         </>
       )}
 
