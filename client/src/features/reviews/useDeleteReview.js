@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 export const useDeleteReview = () => {
   const queryClient = useQueryClient();
 
-  const { mutate: deleteReview, isDeleting } = useMutation({
+  const { mutate: deleteReview, isLoading: isDeleting } = useMutation({
     mutationFn: deleteReviewApi,
 
     onSuccess: () => {

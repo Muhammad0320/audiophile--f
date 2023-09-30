@@ -17,6 +17,10 @@ const EditFormContainer = styled.div`
 function EditReviewForm({ review }) {
   const { reset, register, handleSubmit } = useForm({ defaultValues: review });
 
+  const OnSubmit = ({ rating, review }, e) => {
+    e.preventDefault();
+  };
+
   return (
     <EditFormContainer>
       <Form2 onSubmit={handleSubmit()}>
