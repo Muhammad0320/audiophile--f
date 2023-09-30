@@ -5,6 +5,7 @@ import Menu from "../../ui/Menu";
 import { HiPencil, HiTrash } from "react-icons/hi2";
 import Modal from "../../ui/Modal";
 import DeleteConfirm from "../../ui/DeleteConfirm";
+import { useDeleteReview } from "./useDeleteReview";
 
 const Image = styled.img`
   display: inline-block;
@@ -30,6 +31,8 @@ const Name = styled.span`
 
 function ReviewItem({ data }) {
   const [expand, setExpand] = useState(false);
+
+  const { deleteReview, isDeleting } = useDeleteReview();
 
   const {
     review,
@@ -76,7 +79,11 @@ function ReviewItem({ data }) {
           </Menu>
 
           <Modal.Window page="confirm-delete" name="delete-review">
-            <DeleteConfirm OnConfirm={{}} resource="review" />
+            <DeleteConfirm
+              OnConfirm={() => deleteReview(id)}
+              isDeleting={isDeleting}
+              resource="review"
+            />
           </Modal.Window>
         </div>
       </Modal>

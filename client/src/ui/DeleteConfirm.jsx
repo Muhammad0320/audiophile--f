@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "./Button";
+import SpinnerMini from "./SpinnerMini";
 
 const StyledConfirm = styled.div`
   background-color: var(--color-white);
@@ -28,7 +29,7 @@ const ButtonContainer = styled.div`
   column-gap: 2rem;
 `;
 
-function DeleteConfirm({ onClose, OnConfirm, resource }) {
+function DeleteConfirm({ onClose, OnConfirm, resource, isDeleting }) {
   return (
     <StyledConfirm>
       <StyledText>
@@ -40,9 +41,20 @@ function DeleteConfirm({ onClose, OnConfirm, resource }) {
           {" "}
           Cancel{" "}
         </Button>
-        <Button variation="danger" onClick={OnConfirm}>
-          {" "}
-          Delete{" "}
+        <Button
+          variation="danger"
+          disabled={isDeleting}
+          withspinner={isDeleting ? "true" : ""}
+          onClick={OnConfirm}
+        >
+          {isDeleting ? (
+            <>
+              {" "}
+              <SpinnerMini /> <span> Deleting... </span>{" "}
+            </>
+          ) : (
+            <span> Delete </span>
+          )}
         </Button>
       </ButtonContainer>
     </StyledConfirm>
