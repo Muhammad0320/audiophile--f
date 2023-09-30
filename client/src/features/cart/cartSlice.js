@@ -54,6 +54,7 @@ export const {
   removeItemQuantity,
   deleteItem,
   clearCart,
+  setCartData,
 } = cartSlice.actions;
 
 export const getCart = (state) => state.cart.cart;
