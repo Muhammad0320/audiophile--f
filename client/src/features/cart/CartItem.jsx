@@ -3,8 +3,13 @@ import { Text } from "../category/Category";
 import UpdateCartItem from "../../ui/UpdateCartItem";
 import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem, getCurrentItemQuantityById } from "./cartSlice";
+import {
+  deleteItem,
+  getCurrentItemQuantityById,
+  setCartData,
+} from "./cartSlice";
 import { HiXMark } from "react-icons/hi2";
+import { useEffect } from "react";
 
 export const CartItemContainer = styled.li`
   display: flex;
@@ -63,14 +68,17 @@ const ButtonDelete = styled.button`
 `;
 
 function CartItem({ cart, page }) {
-  const {
-    product: { image, price, name, id },
-    quantity,
-  } = cart;
+  const { product, quantity } = cart;
 
-  const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
+  const { image, price, name, id } = product;
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCartData({ product, quantity }));
+  }, [product, quantity, dispatch]);
+
+  const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
 
   return (
     <CartItemContainer>

@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { grandTotalPrice } from "../../utils/constant";
 import { useGetMyCart } from "./useGetMyCart";
 import Spinner from "../../ui/Spinner";
+import { useEffect } from "react";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -59,7 +60,9 @@ export const CartTextBold = styled.p`
 `;
 
 function Cart({ page }) {
-  // const carts = useSelector(getCart);
+  const test = useSelector(getCart);
+
+  console.log(test);
 
   const { carts = [], isLoading } = useGetMyCart();
 
