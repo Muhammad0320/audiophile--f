@@ -6,6 +6,7 @@ import { HiPencil, HiTrash } from "react-icons/hi2";
 import Modal from "../../ui/Modal";
 import DeleteConfirm from "../../ui/DeleteConfirm";
 import { useDeleteReview } from "./useDeleteReview";
+import EditReviewForm from "../../ui/EditReviewForm";
 
 const Image = styled.img`
   display: inline-block;
@@ -66,8 +67,9 @@ function ReviewItem({ data }) {
 
             <Menu.List id={id}>
               <li>
-                {/* <Menu.Button icon={<HiPencil />}> Edit </Menu.Button>
-                <Modal.Open opens="edit-review"></Modal.Open> */}
+                <Modal.Open opens="edit-review">
+                  <Menu.Button icon={<HiPencil />}> Edit </Menu.Button>
+                </Modal.Open>
               </li>
 
               <li>
@@ -84,6 +86,10 @@ function ReviewItem({ data }) {
               isDeleting={isDeleting}
               resource="review"
             />
+          </Modal.Window>
+
+          <Modal.Window page="edit-form" name="edit-review">
+            <EditReviewForm review={data} />
           </Modal.Window>
         </div>
       </Modal>
