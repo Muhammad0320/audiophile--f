@@ -21,3 +21,14 @@ export const deleteReviewApi = async ({ id }) => {
 
   return res.data;
 };
+
+export const updateReviewApi = async ({ id, data }) => {
+  const res = await axios({
+    method: "PATCH",
+    url: `http://127.0.0.1:3000/api/v1/reviews/${id}`,
+    data,
+    withCredentials: true,
+  });
+
+  return res.data;
+};
