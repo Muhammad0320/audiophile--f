@@ -5,26 +5,18 @@ const PageContainer = styled.div`
   background-color: var(--color-white);
   height: 100vh;
   width: 100vw;
-  margin: 15rem 0;
 
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-// const OutLetContainer = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
 const DetailsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   /* width: 80%; */
-  margin: 15rem 8rem;
+  margin: 0 8rem;
+
   background-color: var(--color-white-1);
   box-shadow: var(--box-shadow-dark);
 `;
@@ -74,6 +66,9 @@ const NavItem = styled(NavLink)`
     transition: transform 0.2s;
   }
 
+  &.active,
+  &.active:link,
+  &.active:visited,
   &:hover::before {
     transform: scaleY(1);
   }
@@ -90,9 +85,9 @@ function Account() {
           <NavList>
             {" "}
             <NavItem to="/settings"> settings </NavItem>{" "}
-            <NavItem> My Cart </NavItem>{" "}
+            <NavItem to="/my-cart"> My Cart </NavItem>{" "}
             <NavItem to="/my-reviews"> My Reviews </NavItem>{" "}
-            <NavItem> My order </NavItem>{" "}
+            <NavItem to="/my-order"> My order </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
         <Outlet />

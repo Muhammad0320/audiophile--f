@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 import styled from "styled-components";
 
 const TableContainer = styled.div`
-  margin: 2rem 5rem;
+  margin: 3rem 5rem;
 
   border: 1px solid var(--color-dark-2);
 

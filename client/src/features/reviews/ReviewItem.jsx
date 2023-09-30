@@ -47,8 +47,6 @@ function ReviewItem({ data }) {
       ? review.slice().split(" ").slice(0, 10).join(" ") + "..."
       : review;
 
-  //   const reviewedProduct = name.slice().split(" ").slice(0, -1).join(" ");
-
   return (
     <Table.Row>
       <Image src={image} />
