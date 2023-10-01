@@ -146,6 +146,14 @@ const OtherTextBox = styled.div`
   font-weight: 500;
 `;
 
+const UpdateCartButton = styled.div`
+  display: flex;
+
+  column-gap: 2rem;
+
+  align-items: center;
+`;
+
 function ProductDetails() {
   const { isLoading, product } = useGetProductBySlug();
   // const product = testdata;
@@ -193,9 +201,7 @@ function ProductDetails() {
 
   const getLatestCartITemQuantity = useSelector(getLastItemInCart);
   const handleCreateNewCartItem = () => {
-    console.log(getLatestCartITemQuantity);
-
-    // updateCart({_id, getLatestCartITemQuantity})
+    createNewItem({ id: _id, data: { quantity: getLatestCartITemQuantity } });
   };
 
   const currentQuantity = useSelector(getCurrentItemQuantityById(_id));
@@ -227,14 +233,14 @@ function ProductDetails() {
               add to cart{" "}
             </Button>
           ) : (
-            <>
+            <UpdateCartButton>
               <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
 
               <Button size="large" onClick={() => handleCreateNewCartItem()}>
                 {" "}
                 Save cart update{" "}
               </Button>
-            </>
+            </UpdateCartButton>
           )}
         </DescriptionContainer>
       </Container>
