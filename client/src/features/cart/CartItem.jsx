@@ -63,17 +63,13 @@ const ButtonDelete = styled.button`
 `;
 
 function CartItem({ cart, page }) {
-  const { product, quantity } = cart || [];
+  const { product, quantity } = cart;
 
   console.log(cart);
 
   const { image, price, name, id } = product;
 
-  const data = useSelector(getCart) || [];
-
   const dispatch = useDispatch();
-
-  console.log("okay", data);
 
   const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
 

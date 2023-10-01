@@ -3,12 +3,11 @@ import { getMyCart } from "../../service/apiCart";
 
 export const useGetMyCart = () => {
   const { data: carts, isLoading } = useQuery({
-    queryFn: getMyCart,
-
     queryKey: ["cart"],
-  });
 
-  console.log(carts);
+    queryFn: getMyCart,
+    retry: 3,
+  });
 
   return { carts, isLoading };
 };

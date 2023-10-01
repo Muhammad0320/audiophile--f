@@ -70,8 +70,15 @@ function Cart({ page }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setCartData(carts));
+    if (carts.length) {
+      dispatch(setCartData(carts));
+      console.log("sent");
+    }
   }, [carts, dispatch]);
+
+  const test = useSelector((state) => state.cart);
+
+  console.log(test);
 
   const totalCartPrice = useSelector(getTotalCartPrice);
 
@@ -81,10 +88,6 @@ function Cart({ page }) {
 
   const vat = 0.2 * +totalCartPrice;
 
-  const test = useSelector(getCart);
-
-  console.log(test, "okay");
-
   if (!carts.length)
     return (
       <StyledCart>
@@ -93,7 +96,6 @@ function Cart({ page }) {
     );
 
   if (isLoading) return <Spinner />;
-
   return (
     <StyledCart>
       <Container>
