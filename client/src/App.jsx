@@ -19,6 +19,10 @@ import LoginPage from "./pages/LoginPage";
 import Account from "./features/users/Account";
 import Settings from "./features/users/Settings";
 import ReviewPage from "./pages/ReviewPage";
+import { useDispatch, useSelector } from "react-redux";
+import { setCartData } from "./features/cart/cartSlice";
+import { useGetMyCart } from "./features/cart/useGetMyCart";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,6 +33,19 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  const { carts = [] } = useGetMyCart();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (carts.length) {
+      dispatch(setCartData(carts));
+      console.log("sent");
+    }
+  }, [carts, dispatch]);
+
+  console.log(useSelector((store) => store.cart));
+
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
