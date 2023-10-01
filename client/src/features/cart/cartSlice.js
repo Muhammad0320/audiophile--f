@@ -67,3 +67,5 @@ export const getTotalCartPrice = (state) =>
 
 export const getCurrentItemQuantityById = (_id) => (state) =>
   state.cart?.cart?.find((item) => item._id === _id)?.quantity ?? 0;
+
+export const getLastItemInCart = (state) => state.cart?.cart.at(-1);

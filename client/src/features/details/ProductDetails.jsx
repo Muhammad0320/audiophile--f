@@ -213,7 +213,11 @@ function ProductDetails() {
               add to cart{" "}
             </Button>
           ) : (
-            <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
+            <>
+              <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
+
+              <Button size="large"> Save cart update </Button>
+            </>
           )}
         </DescriptionContainer>
       </Container>
