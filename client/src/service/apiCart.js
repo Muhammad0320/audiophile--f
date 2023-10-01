@@ -11,3 +11,14 @@ export const getMyCart = async () => {
     console.log(error.response.data.message);
   }
 };
+
+export const createNewCartItemOnUser = async ({ id, data }) => {
+  const res = await axios({
+    method: "POST",
+    url: `http://127.0.0.1:3000/api/v1/products/${id}/cart`,
+    withCredentials: true,
+    data,
+  });
+
+  return res.data;
+};
