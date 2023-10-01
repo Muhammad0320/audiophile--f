@@ -69,17 +69,6 @@ function Cart({ page }) {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (carts.length) {
-      dispatch(setCartData(carts));
-      console.log("sent");
-    }
-  }, [carts, dispatch]);
-
-  const test = useSelector((state) => state.cart);
-
-  console.log(test);
-
   const totalCartPrice = useSelector(getTotalCartPrice);
 
   const navigate = useNavigate();

@@ -15,17 +15,15 @@ const cartSlice = createSlice({
     },
 
     addItem(state, action) {
-      state.cart.push(action.payload);
+      state.cart?.push(action.payload);
     },
 
     deleteItem(state, action) {
-      state.cart = state.cart.filter((item) => item._id !== action.payload);
+      state.cart = state.cart?.filter((item) => item._id !== action.payload);
     },
 
     addItemQuantity(state, action) {
-      const item = state.cart.product.find(
-        (item) => item._id === action.payload
-      );
+      const item = state.cart?.find((item) => item._id === action.payload);
 
       item.quantity++;
 

@@ -143,9 +143,7 @@ const OtherTextBox = styled.div`
 
 function ProductDetails() {
   const { isLoading, product } = useGetProductBySlug();
-
   // const product = testdata;
-
   const navigate = useNavigate();
 
   const {
@@ -154,7 +152,7 @@ function ProductDetails() {
     image,
     name,
     features,
-    id,
+    _id,
     gallery,
     description,
     others,
@@ -171,10 +169,14 @@ function ProductDetails() {
 
   const handleAddToCart = () => {
     const newCartItem = {
-      productID: id,
-      cartImage: image,
-      cartName,
-      unitPrice: price,
+      _id,
+
+      product: {
+        image,
+        name: cartName,
+        price,
+      },
+
       totalPrice: price * 1,
       quantity: 1,
     };
@@ -182,7 +184,8 @@ function ProductDetails() {
     dispatch(addItem(newCartItem));
   };
 
-  const currentQuantity = useSelector(getCurrentItemQuantityById(id));
+  console.log(useSelector((state) => state.cart));
+  const currentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
   const isInCart = currentQuantity > 0;
 
@@ -211,7 +214,7 @@ function ProductDetails() {
               add to cart{" "}
             </Button>
           ) : (
-            <UpdateCartItem currentQuantity={currentQuantity} id={id} />
+            <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
           )}
         </DescriptionContainer>
       </Container>
@@ -227,7 +230,7 @@ function ProductDetails() {
 
           <InTheBoxContainer>
             {includes?.map((item) => (
-              <InTheBox>
+              <InTheBox key={item._id}>
                 <Quantity> {item.quantity + "x"} </Quantity>
                 <Text> {item.item} </Text>
               </InTheBox>

@@ -1,6 +1,12 @@
 import { styled } from "styled-components";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import { useGetMyCart } from "../features/cart/useGetMyCart";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { setCartData } from "../features/cart/cartSlice";
+
+// import { setCartData } from "./cartSlice";
 
 const StyledImageContainer = styled.div`
   display: grid;
