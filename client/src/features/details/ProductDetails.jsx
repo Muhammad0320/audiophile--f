@@ -15,12 +15,17 @@ import { css, styled } from "styled-components";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import SmallButton from "../../ui/SmallButton";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
+import {
+  addItem,
+  getCurrentItemQuantityById,
+  getLastItemInCart,
+} from "../cart/cartSlice";
 
 import UpdateCartItem from "../../ui/UpdateCartItem";
 
 import Spinner from "../../ui/Spinner";
 import { useGetProductBySlug } from "./useProductBySlug";
+import { useCreateNewCartItemOnUser } from "../cart/useCreateNewCartItemOnUser";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -146,6 +151,8 @@ function ProductDetails() {
   // const product = testdata;
   const navigate = useNavigate();
 
+  const { createNewItem, isUpdatingCart } = useCreateNewCartItemOnUser();
+
   const {
     price,
     includes,
@@ -184,6 +191,13 @@ function ProductDetails() {
     dispatch(addItem(newCartItem));
   };
 
+  const getLatestCartITemQuantity = useSelector(getLastItemInCart);
+  const handleCreateNewCartItem = () => {
+    console.log(getLatestCartITemQuantity);
+
+    // updateCart({_id, getLatestCartITemQuantity})
+  };
+
   const currentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
   const isInCart = currentQuantity > 0;
@@ -216,7 +230,10 @@ function ProductDetails() {
             <>
               <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
 
-              <Button size="large"> Save cart update </Button>
+              <Button size="large" onClick={() => handleCreateNewCartItem()}>
+                {" "}
+                Save cart update{" "}
+              </Button>
             </>
           )}
         </DescriptionContainer>

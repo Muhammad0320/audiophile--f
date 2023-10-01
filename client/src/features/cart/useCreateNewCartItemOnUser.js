@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 export const useCreateNewCartItemOnUser = () => {
   const queryClient = useQueryClient();
 
-  const { mutate: updateCart, isLoading: isUpdatingCart } = useMutation({
+  const { mutate: createNewItem, isLoading: isUpdatingCart } = useMutation({
     mutationFn: createNewCartItemOnUser,
 
     onSuccess: () => {
@@ -19,5 +19,5 @@ export const useCreateNewCartItemOnUser = () => {
     },
   });
 
-  return { updateCart, isUpdatingCart };
+  return { createNewItem, isUpdatingCart };
 };
