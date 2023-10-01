@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { getTotalCartQuantity } from "../features/cart/cartSlice";
 import { useUser } from "../features/users/useUser";
 import Avatar from "../features/users/avatar";
+import { Text } from "../features/category/Category";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -97,7 +98,7 @@ const NavCornerContainer = styled.div`
 function Nav({ type }) {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
 
   return (
     <Modal>
@@ -136,6 +137,8 @@ function Nav({ type }) {
                   <Cart />
                 </Modal.Window>
               </>
+            ) : isLoading ? (
+              <Text type="avatar"> Loading... </Text>
             ) : (
               <>
                 {" "}

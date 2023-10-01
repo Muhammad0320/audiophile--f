@@ -63,15 +63,15 @@ const ButtonDelete = styled.button`
 `;
 
 function CartItem({ cart, page }) {
-  const { product, quantity } = cart;
+  const { product, quantity, _id } = cart;
 
   console.log(cart);
 
-  const { image, price, name, id } = product;
+  const { image, price, name } = product;
 
   const dispatch = useDispatch();
 
-  const CurrentQuantity = useSelector(getCurrentItemQuantityById(id));
+  const CurrentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
   return (
     <CartItemContainer>
@@ -88,11 +88,11 @@ function CartItem({ cart, page }) {
         <>
           <UpdateCartItem
             currentQuantity={CurrentQuantity}
-            id={id}
+            id={_id}
             type="cart"
           />
 
-          <ButtonDelete onClick={() => dispatch(deleteItem(id))}>
+          <ButtonDelete onClick={() => dispatch(deleteItem(_id))}>
             <HiXMark />
           </ButtonDelete>
         </>
