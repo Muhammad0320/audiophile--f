@@ -46,10 +46,8 @@ function App() {
       console.log("sent");
     };
 
-    return cartData();
+    cartData();
   }, [dispatch]);
-
-  console.log(useSelector((store) => store.cart));
 
   return (
     <QueryClientProvider client={queryClient}>

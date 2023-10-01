@@ -96,7 +96,18 @@ const NavCornerContainer = styled.div`
 `;
 
 function Nav({ type }) {
-  const totalQuantity = useSelector(getTotalCartQuantity);
+  const totalCartQuantity =
+    useSelector((state) =>
+      state?.cart?.reduce((acc, curr) => acc + curr?.quantity, 0)
+    ) ?? 0;
+
+  console.log(totalCartQuantity);
+
+  const carts = useSelector((state) => state.cart) || [];
+
+  console.log(carts);
+
+  // const totalQuantity = useSelector(getTotalCartQuantity)
 
   const { user, isLoading } = useUser();
 
@@ -125,10 +136,10 @@ function Nav({ type }) {
                 <Modal.Open opens="cart">
                   <HeaderIcon>
                     <SVG src={IconCart} />
-                    {totalQuantity > 0 && (
+                    {totalCartQuantity > 0 && (
                       <CartIconNotification>
                         {" "}
-                        {totalQuantity}{" "}
+                        {totalCartQuantity}{" "}
                       </CartIconNotification>
                     )}
                   </HeaderIcon>

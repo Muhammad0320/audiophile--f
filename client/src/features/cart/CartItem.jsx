@@ -65,8 +65,6 @@ const ButtonDelete = styled.button`
 function CartItem({ cart, page }) {
   const { product, quantity, _id } = cart;
 
-  console.log(cart);
-
   const { image, price, name } = product;
 
   const dispatch = useDispatch();

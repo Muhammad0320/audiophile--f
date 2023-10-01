@@ -184,7 +184,6 @@ function ProductDetails() {
     dispatch(addItem(newCartItem));
   };
 
-  console.log(useSelector((state) => state.cart));
   const currentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
   const isInCart = currentQuantity > 0;
