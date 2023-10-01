@@ -15,7 +15,7 @@ const cartSlice = createSlice({
     },
 
     addItem(state, action) {
-      state?.cart?.push(action.payload);
+      return { ...state, cart: [...state.cart, action.payload] };
     },
 
     deleteItem(state, action) {

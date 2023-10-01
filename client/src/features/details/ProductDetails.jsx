@@ -171,14 +171,14 @@ function ProductDetails() {
     const newCartItem = {
       _id,
 
+      // totalPrice: price * 1,
+      quantity: 1,
+
       product: {
         image,
         name: cartName,
         price,
       },
-
-      totalPrice: price * 1,
-      quantity: 1,
     };
 
     dispatch(addItem(newCartItem));
