@@ -26,6 +26,7 @@ import UpdateCartItem from "../../ui/UpdateCartItem";
 import Spinner from "../../ui/Spinner";
 import { useGetProductBySlug } from "./useProductBySlug";
 import { useCreateNewCartItemOnUser } from "../cart/useCreateNewCartItemOnUser";
+import { useGetMyCart } from "../cart/useGetMyCart";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -156,6 +157,7 @@ const UpdateCartButton = styled.div`
 
 function ProductDetails() {
   const { isLoading, product } = useGetProductBySlug();
+
   // const product = testdata;
   const navigate = useNavigate();
 

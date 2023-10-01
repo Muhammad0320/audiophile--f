@@ -60,13 +60,13 @@ export const {
 export const getCart = (state) => state.cart?.cart;
 
 export const getTotalCartQuantity = (state) =>
-  state?.cart?.cart?.reduce((acc, curr) => acc + curr?.quantity, 0) ?? 0;
+  state.cart?.cart?.reduce((acc, curr) => acc + curr?.quantity, 0) ?? 0;
 
 export const getTotalCartPrice = (state) =>
   state.cart?.cart?.reduce((acc, curr) => acc + curr?.totalPrice, 0);
 
-export const getCurrentItemQuantityById = (_id) => (state) =>
-  state.cart?.cart?.find((item) => item._id === _id)?.quantity ?? 0;
+export const getCurrentItemQuantityById = (id) => (state) =>
+  state.cart?.cart?.find((item) => item?.product?.id === id)?.quantity ?? 0;
 
 export const getLastItemInCart = (state) =>
   state.cart?.cart.at(-1)?.quantity ?? 0;

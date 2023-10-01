@@ -67,13 +67,7 @@ export const CartTextBold = styled.p`
 function Cart({ page }) {
   // const { carts = [], isLoading } = useGetMyCart();
 
-  const carts = useSelector((state) => state.cart) || [];
-
-  const getTotalQuantity = useSelector((state) =>
-    state?.cart?.reduce((acc, curr) => acc + curr?.quantity, 0)
-  );
-
-  console.log(getTotalQuantity);
+  const carts = useSelector(getCart);
 
   console.log(carts);
 
