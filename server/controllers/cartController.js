@@ -16,9 +16,25 @@ exports.addProductUserIds = (req, res, next) => {
   next();
 };
 
-// exports.addProductId = (req, res, next) => {
-//   if (!re) next();
-// };
+exports.checkForDuplicateProduct = catchAsync(async (req, res, next) => {
+  const isDuplicateProduct = await Cart.findOne({ product: req.body.product });
+
+  if (isDuplicateProduct) {
+    const cartUpdate = await Cart.findByIdAndUpdate(isDuplicateProduct._id, {
+      quantity: isDuplicateProduct.quantity + req.body.quantity
+    });
+
+    return res.status(200).json({
+      status: 'success',
+
+      data: {
+        cart: cartUpdate
+      }
+    });
+  }
+
+  next();
+});
 
 exports.addItemToCart = createOne(Cart);
 

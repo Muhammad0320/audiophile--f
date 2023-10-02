@@ -158,10 +158,7 @@ const UpdateCartButton = styled.div`
 function ProductDetails() {
   const { isLoading, product } = useGetProductBySlug();
 
-  // const product = testdata;
   const navigate = useNavigate();
-
-  const { createNewItem, isUpdatingCart } = useCreateNewCartItemOnUser();
 
   const {
     price,
@@ -201,10 +198,10 @@ function ProductDetails() {
     dispatch(addItem(newCartItem));
   };
 
-  const getLatestCartITemQuantity = useSelector(getLastItemInCart);
-  const handleCreateNewCartItem = () => {
-    createNewItem({ id: _id, data: { quantity: getLatestCartITemQuantity } });
-  };
+  // const getLatestCartITemQuantity = useSelector(getLastItemInCart);
+  // const handleCreateNewCartItem = () => {
+  //   createNewItem({ id: _id, data: { quantity: getLatestCartITemQuantity } });
+  // };
 
   const currentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
@@ -238,10 +235,10 @@ function ProductDetails() {
             <UpdateCartButton>
               <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
 
-              <Button size="large" onClick={() => handleCreateNewCartItem()}>
+              {/* <Button size="large" onClick={() => handleCreateNewCartItem()}>
                 {" "}
                 Save cart update{" "}
-              </Button>
+              </Button> */}
             </UpdateCartButton>
           )}
         </DescriptionContainer>
