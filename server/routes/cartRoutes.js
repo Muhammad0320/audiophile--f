@@ -6,7 +6,7 @@ const {
   getCart,
   deleteCart,
   getMyCart,
-  addTourUserIds
+  addProductUserIds
 } = require('../controllers/cartController');
 const { protect, restrictTo } = require('../controllers/authController');
 
@@ -19,7 +19,7 @@ router.route('/myCart').get(getMyCart);
 router
   .route('/')
   .get(restrictTo('admin'), getAllCarts)
-  .post(addTourUserIds, addItemToCart);
+  .post(addProductUserIds, addItemToCart);
 
 router.use(restrictTo('admin', 'user'));
 

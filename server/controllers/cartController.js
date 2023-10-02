@@ -9,12 +9,16 @@ const {
   deleteOne
 } = require('./handlerFactory');
 
-exports.addTourUserIds = (req, res, next) => {
-  if (!req.body.proudct) req.body.product = req.params.productId;
-  if (!req.body.user) req.body.user = req.user.id;
+exports.addProductUserIds = (req, res, next) => {
+  if (!req.body.product) req.body.product = req.params.productId;
+  if (!req.body.user) req.body.user = req.user._id;
 
   next();
 };
+
+// exports.addProductId = (req, res, next) => {
+//   if (!re) next();
+// };
 
 exports.addItemToCart = createOne(Cart);
 
