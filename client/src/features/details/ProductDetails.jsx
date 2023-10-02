@@ -185,7 +185,7 @@ function ProductDetails() {
     const newCartItem = {
       _id,
 
-      // totalPrice: price * 1,
+      totalPrice: price * 1,
       quantity: 1,
 
       product: {
@@ -198,14 +198,11 @@ function ProductDetails() {
     dispatch(addItem(newCartItem));
   };
 
-  // const getLatestCartITemQuantity = useSelector(getLastItemInCart);
-  // const handleCreateNewCartItem = () => {
-  //   createNewItem({ id: _id, data: { quantity: getLatestCartITemQuantity } });
-  // };
-
   const currentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
   const isInCart = currentQuantity > 0;
+
+  console.log(isInCart);
 
   if (isLoading) return <Spinner />;
 
