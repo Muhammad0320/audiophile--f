@@ -66,6 +66,7 @@ export const {
 } = cartSlice.actions;
 
 export const getCart = (state) => state.cart?.cart;
+export const getchanges = (state) => state.cart?.changes;
 
 export const getTotalCartQuantity = (state) =>
   state.cart?.cart?.reduce((acc, curr) => acc + curr?.quantity, 0) ?? 0;
