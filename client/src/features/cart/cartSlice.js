@@ -16,8 +16,15 @@ const cartSlice = createSlice({
     },
 
     addItem(state, action) {
-      state.changes.push({ type: "add", item: action.payload });
-      return { ...state, cart: [...(state.cart || []), action.payload] };
+      // state.changes?.push( )  ;
+      return {
+        ...state,
+        changes: [
+          ...(state.changes || []),
+          { type: "add", item: action.payload },
+        ],
+        cart: [...(state.cart || []), action.payload],
+      };
     },
 
     deleteItem(state, action) {
@@ -66,7 +73,8 @@ export const {
 } = cartSlice.actions;
 
 export const getCart = (state) => state.cart?.cart;
-export const getchanges = (state) => state.cart?.changes;
+
+export const getChanges = (state) => state.cart?.changes;
 
 export const getTotalCartQuantity = (state) =>
   state.cart?.cart?.reduce((acc, curr) => acc + curr?.quantity, 0) ?? 0;

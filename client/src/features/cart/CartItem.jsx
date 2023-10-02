@@ -3,7 +3,7 @@ import { Text } from "../category/Category";
 import UpdateCartItem from "../../ui/UpdateCartItem";
 import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem, getCart, getCurrentItemQuantityById } from "./cartSlice";
+import { deleteItem, getCurrentItemQuantityById } from "./cartSlice";
 import { HiXMark } from "react-icons/hi2";
 
 export const CartItemContainer = styled.li`
@@ -63,9 +63,9 @@ const ButtonDelete = styled.button`
 `;
 
 function CartItem({ cart, page }) {
-  const { product, quantity, _id } = cart;
+  const { product, quantity } = cart;
 
-  const { image, price, name } = product;
+  const { image, price, name, _id } = product;
 
   const dispatch = useDispatch();
 

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   clearCart,
   getCart,
+  getChanges,
   getTotalCartPrice,
   setCartData,
 } from "./cartSlice";
@@ -67,7 +68,10 @@ export const CartTextBold = styled.p`
 function Cart({ page }) {
   const carts = useSelector(getCart);
 
+  const changes = useSelector(getChanges);
+
   console.log(carts);
+  console.log(changes);
 
   const dispatch = useDispatch();
 
