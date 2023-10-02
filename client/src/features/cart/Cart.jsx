@@ -65,8 +65,6 @@ export const CartTextBold = styled.p`
 `;
 
 function Cart({ page }) {
-  // const { carts = [], isLoading } = useGetMyCart();
-
   const carts = useSelector(getCart);
 
   console.log(carts);
@@ -88,7 +86,6 @@ function Cart({ page }) {
       </StyledCart>
     );
 
-  // if (isLoading) return <Spinner />;
   return (
     <StyledCart>
       <Container>
