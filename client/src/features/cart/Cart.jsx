@@ -107,7 +107,7 @@ function Cart({ page }) {
 
       <CartContainer>
         {carts.map((cart) => (
-          <CartItem key={cart.productID} cart={cart} page={page} />
+          <CartItem key={cart._id} cart={cart} page={page} />
         ))}
       </CartContainer>
 

@@ -202,7 +202,7 @@ function ProductDetails() {
 
   const isInCart = currentQuantity > 0;
 
-  console.log(isInCart);
+  // console.log(isInCart);
 
   if (isLoading) return <Spinner />;
 
@@ -274,7 +274,7 @@ function ProductDetails() {
 
           return (
             <>
-              <OtherImageContainer>
+              <OtherImageContainer key={item._id}>
                 <img src={item?.image} alt=" OtherImage " />
               </OtherImageContainer>
 

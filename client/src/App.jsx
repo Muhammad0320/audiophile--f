@@ -19,7 +19,7 @@ import LoginPage from "./pages/LoginPage";
 import Account from "./features/users/Account";
 import Settings from "./features/users/Settings";
 import ReviewPage from "./pages/ReviewPage";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCartData } from "./features/cart/cartSlice";
 import { useEffect } from "react";
 import { getMyCart } from "./service/apiCart";

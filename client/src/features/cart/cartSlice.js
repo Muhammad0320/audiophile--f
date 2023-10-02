@@ -83,7 +83,7 @@ export const getTotalCartPrice = (state) =>
   state.cart?.cart?.reduce((acc, curr) => acc + curr?.totalPrice, 0);
 
 export const getCurrentItemQuantityById = (id) => (state) =>
-  state.cart?.cart?.find((item) => item?.product?.id === id)?.quantity ?? 0;
+  state.cart?.cart?.find((item) => item?.product?._id === id)?.quantity ?? 0;
 
 export const getLastItemInCart = (state) =>
   state.cart?.cart.at(-1)?.quantity ?? 0;
