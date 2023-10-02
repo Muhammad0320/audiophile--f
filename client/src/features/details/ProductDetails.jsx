@@ -192,6 +192,7 @@ function ProductDetails() {
         image,
         name: cartName,
         price,
+        _id,
       },
     };
 
@@ -270,8 +271,6 @@ function ProductDetails() {
       {product && <Heading type="others"> You may also like </Heading>}
       <OthersContainer>
         {others?.map((item) => {
-          // const currentItemID = fakeData.find((el) => el.slug === item.slug).id;
-
           return (
             <>
               <OtherImageContainer key={item._id}>
