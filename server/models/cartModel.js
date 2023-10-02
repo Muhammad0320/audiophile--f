@@ -30,7 +30,7 @@ cartSchema.pre(/^find/, function(next) {
     select: 'name price category image'
   });
 
-  this.select('-user');
+  // this.select('user');
 
   next();
 });
