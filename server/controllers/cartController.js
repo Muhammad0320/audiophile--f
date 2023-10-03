@@ -77,7 +77,7 @@ exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   const bulkOps = changes.map(change => {
     if (change.type === 'add') {
       return {
-        insertOne: change.items
+        insertOne: change.item
       };
     }
 
