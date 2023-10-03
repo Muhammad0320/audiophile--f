@@ -84,5 +84,14 @@ const sendBulkDataFromClient = catchAsync(async (req, res, next) => {
         }
       };
     }
+
+    if (change.type === 'update') {
+      return {
+        updateOne: {
+          filter: { product: change.item._id },
+          update: { $set: { quantity: change.item.quantity } }
+        }
+      };
+    }
   });
 });
