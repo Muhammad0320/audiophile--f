@@ -6,7 +6,6 @@ export const useGetMyCart = () => {
     queryKey: ["cart"],
 
     queryFn: getMyCart,
-    retry: 3,
   });
 
   return { carts, isLoading };
