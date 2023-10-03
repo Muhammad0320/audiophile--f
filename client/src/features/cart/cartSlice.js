@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// https://dev.to/opensauced/open-source-101-a-beginners-guide-to-getting-started-37fb
+
+// https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/
+
 const initialState = {
   cart: [],
   changes: [],
@@ -31,6 +35,10 @@ const cartSlice = createSlice({
       state.cart = state.cart?.filter(
         (item) => item.product._id !== action.payload
       );
+      state.changes = state?.changes.push({
+        type: "update",
+        itemId: action.payload._id,
+      });
     },
 
     addItemQuantity(state, action) {
