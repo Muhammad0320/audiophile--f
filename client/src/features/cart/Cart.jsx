@@ -20,6 +20,7 @@ import { grandTotalPrice } from "../../utils/constant";
 import { useGetMyCart } from "./useGetMyCart";
 import Spinner from "../../ui/Spinner";
 import { useEffect } from "react";
+import { useSendBulkData } from "./useSendBulkData";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -73,6 +74,8 @@ function Cart({ page }) {
   console.log(carts);
   console.log(changes);
 
+  const { sendBulkdata, isSendingBulkData } = useSendBulkData();
+
   const dispatch = useDispatch();
 
   const totalCartPrice = useSelector(getTotalCartPrice);
@@ -82,6 +85,12 @@ function Cart({ page }) {
   const shippingFee = 50;
 
   const vat = 0.2 * +totalCartPrice;
+
+  const handleSendBulk = () => {
+    sendBulkdata({ changes });
+
+    navigate("/checkout");
+  };
 
   if (!carts.length)
     return (
@@ -142,9 +151,7 @@ function Cart({ page }) {
         </>
       )}
 
-      {!page && (
-        <Button onClick={() => navigate(`/checkout`)}> checkout </Button>
-      )}
+      {/* {!page && <Button onClick={() => handleSendBulk()}> checkout </Button>} */}
     </StyledCart>
   );
 }
