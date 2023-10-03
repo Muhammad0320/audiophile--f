@@ -10,8 +10,11 @@ const {
 } = require('./handlerFactory');
 
 exports.addProductUserIds = (req, res, next) => {
-  if (!req.body.product) req.body.product = req.params.productId;
   if (!req.body.user) req.body.user = req.user._id;
+
+  if (!req.body.product) req.body.product = req.params.productId;
+
+  console.log(req.user._id);
 
   next();
 };
@@ -76,8 +79,9 @@ exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
 
   const bulkOps = changes.map(change => {
     if (change.type === 'add') {
+      console.log(change.item);
       return {
-        insertOne: change.item
+        insertOne: { document: change.item }
       };
     }
 

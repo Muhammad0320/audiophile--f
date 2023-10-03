@@ -23,7 +23,7 @@ router
   .get(restrictTo('admin'), getAllCarts)
   .post(addProductUserIds, checkForDuplicateProduct, addItemToCart);
 
-router.route('/bulkSend').post(sendBulkDataFromClient);
+router.route('/bulkSend').post(addProductUserIds, sendBulkDataFromClient);
 
 router.use(restrictTo('admin', 'user'));
 
