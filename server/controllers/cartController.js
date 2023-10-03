@@ -96,4 +96,14 @@ const sendBulkDataFromClient = catchAsync(async (req, res, next) => {
 
     return {};
   });
+
+  console.log(bulkOps);
+
+  const updatedCart = await Cart.bulkWrite(bulkOps, { ordered: true });
+
+  res.status(201).json({
+    status: 'success',
+
+    updatedCart: updatedCart
+  });
 });
