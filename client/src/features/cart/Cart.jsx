@@ -151,7 +151,7 @@ function Cart({ page }) {
         </>
       )}
 
-      {/* {!page && <Button onClick={() => handleSendBulk()}> checkout </Button>} */}
+      {!page && <Button onClick={() => handleSendBulk()}> checkout </Button>}
     </StyledCart>
   );
 }
