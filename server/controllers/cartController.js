@@ -93,5 +93,7 @@ const sendBulkDataFromClient = catchAsync(async (req, res, next) => {
         }
       };
     }
+
+    return {};
   });
 });
