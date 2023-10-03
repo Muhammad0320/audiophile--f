@@ -21,6 +21,7 @@ import { useGetMyCart } from "./useGetMyCart";
 import Spinner from "../../ui/Spinner";
 import { useEffect } from "react";
 import { useSendBulkData } from "./useSendBulkData";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -151,7 +152,22 @@ function Cart({ page }) {
         </>
       )}
 
-      {!page && <Button onClick={() => handleSendBulk()}> checkout </Button>}
+      {!page && (
+        <Button
+          onClick={() => handleSendBulk()}
+          withspinner={isSendingBulkData ? "true" : ""}
+          disabled={isSendingBulkData}
+        >
+          {isSendingBulkData ? (
+            <>
+              {" "}
+              <SpinnerMini /> <span> saving cart data ... </span>{" "}
+            </>
+          ) : (
+            <span> checkout </span>
+          )}
+        </Button>
+      )}
     </StyledCart>
   );
 }
