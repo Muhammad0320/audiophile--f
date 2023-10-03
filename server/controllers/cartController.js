@@ -67,6 +67,22 @@ exports.getMyCart = catchAsync(async (req, res, next) => {
   });
 });
 
-const sendBulkDataFromServer = catchAsync(async (req, res, next) => {
+const sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   const { changes } = req.body;
+
+  const bulkOps = changes.map(change => {
+    if (change.type === 'add') {
+      return {
+        insertOne: change.items
+      };
+    }
+
+    if (change.type === 'delete') {
+      return {
+        deleteOne: {
+          filter: { product: change.itemId }
+        }
+      };
+    }
+  });
 });
