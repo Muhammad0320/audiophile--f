@@ -23,11 +23,13 @@ const cartSlice = createSlice({
       // state.changes?.push( )  ;
       return {
         ...state,
+
+        cart: [...(state.cart || []), action.payload],
+
         changes: [
           ...(state.changes || []),
           { type: "add", item: action.payload },
         ],
-        cart: [...(state.cart || []), action.payload],
       };
     },
 
@@ -35,10 +37,11 @@ const cartSlice = createSlice({
       state.cart = state.cart?.filter(
         (item) => item.product._id !== action.payload
       );
-      state.changes = state?.changes.push({
-        type: "delete",
-        itemId: action.payload._id,
-      });
+
+      state.changes = [
+        ...(state.changes || []),
+        { type: "delete", itemid: action.payload },
+      ];
     },
 
     addItemQuantity(state, action) {
