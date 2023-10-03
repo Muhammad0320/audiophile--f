@@ -40,7 +40,7 @@ const cartSlice = createSlice({
 
       state.changes = [
         ...(state.changes || []),
-        { type: "delete", itemid: action.payload },
+        { type: "delete", itemId: action.payload },
       ];
     },
 
