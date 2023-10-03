@@ -73,9 +73,9 @@ const cartSlice = createSlice({
       state.changes = [];
     },
 
-    // clearChanges(state) {
-    //   state.changes = [];
-    // },
+    clearChanges(state) {
+      state.changes = [];
+    },
   },
 });
 
