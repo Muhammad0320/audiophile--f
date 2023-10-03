@@ -36,7 +36,7 @@ const cartSlice = createSlice({
         (item) => item.product._id !== action.payload
       );
       state.changes = state?.changes.push({
-        type: "update",
+        type: "delete",
         itemId: action.payload._id,
       });
     },
@@ -49,6 +49,8 @@ const cartSlice = createSlice({
       item.quantity++;
 
       item.totalPrice = item.quantity * item.product.price;
+
+      state.changes.push({ type: "update", item: { ...item } });
     },
 
     removeItemQuantity(state, action) {
@@ -60,12 +62,20 @@ const cartSlice = createSlice({
 
       item.totalPrice = item.quantity * item.product.price;
 
+      state.changes.push({ type: "update", item: { ...item } });
+
       if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
     },
 
     clearCart(state) {
       state.cart = [];
+
+      state.changes = [];
     },
+
+    // clearChanges(state) {
+    //   state.changes = [];
+    // },
   },
 });
 
