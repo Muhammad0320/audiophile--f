@@ -7,7 +7,8 @@ const {
   deleteCart,
   getMyCart,
   addProductUserIds,
-  checkForDuplicateProduct
+  checkForDuplicateProduct,
+  sendBulkDataFromClient
 } = require('../controllers/cartController');
 const { protect, restrictTo } = require('../controllers/authController');
 
@@ -21,6 +22,8 @@ router
   .route('/')
   .get(restrictTo('admin'), getAllCarts)
   .post(addProductUserIds, checkForDuplicateProduct, addItemToCart);
+
+router.route('/bulk-send').post(sendBulkDataFromClient);
 
 router.use(restrictTo('admin', 'user'));
 
