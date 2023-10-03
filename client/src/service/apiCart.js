@@ -13,13 +13,24 @@ export const getMyCart = async () => {
 };
 
 export const createNewCartItemOnUser = async ({ id, data }) => {
-  console.log(id, data);
-
   const res = await axios({
     method: "POST",
     url: `http://127.0.0.1:3000/api/v1/products/${id}/cart`,
     withCredentials: true,
     data,
+  });
+
+  return res.data;
+};
+
+export const sendBulkItemToCart = async ({ changes }) => {
+  const res = await axios({
+    method: "POST",
+    url: "http://127.0.0.1:3000/api/v1/carts/bulkSend",
+    withCredentials: true,
+    data: {
+      changes,
+    },
   });
 
   return res.data;
