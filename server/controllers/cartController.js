@@ -66,3 +66,7 @@ exports.getMyCart = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+const sendBulkDataFromServer = catchAsync(async (req, res, next) => {
+  const { changes } = req.body;
+});
