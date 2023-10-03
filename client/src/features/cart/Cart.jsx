@@ -22,6 +22,7 @@ import Spinner from "../../ui/Spinner";
 import { useEffect } from "react";
 import { useSendBulkData } from "./useSendBulkData";
 import SpinnerMini from "../../ui/SpinnerMini";
+import { useUser } from "../users/useUser";
 
 const StyledCart = styled.div`
   align-self: flex-start;

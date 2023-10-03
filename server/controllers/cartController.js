@@ -14,8 +14,6 @@ exports.addProductUserIds = (req, res, next) => {
 
   if (!req.body.product) req.body.product = req.params.productId;
 
-  console.log(req.user._id);
-
   next();
 };
 

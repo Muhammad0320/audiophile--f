@@ -27,6 +27,7 @@ import Spinner from "../../ui/Spinner";
 import { useGetProductBySlug } from "./useProductBySlug";
 import { useCreateNewCartItemOnUser } from "../cart/useCreateNewCartItemOnUser";
 import { useGetMyCart } from "../cart/useGetMyCart";
+import { useUser } from "../users/useUser";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -158,6 +159,8 @@ const UpdateCartButton = styled.div`
 function ProductDetails() {
   const { isLoading, product } = useGetProductBySlug();
 
+  const { user } = useUser();
+
   const navigate = useNavigate();
 
   const {
@@ -187,6 +190,8 @@ function ProductDetails() {
 
       totalPrice: price * 1,
       quantity: 1,
+
+      user: user._id,
 
       product: {
         image,
