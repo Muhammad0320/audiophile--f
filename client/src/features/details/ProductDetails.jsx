@@ -276,9 +276,8 @@ function ProductDetails() {
       </GalleryContainer>
 
       <StyledReviewCard>
-        {reviews?.map((review) => (
-          <ReviewCard reviews={review} />
-        ))}
+        {reviews.length &&
+          reviews?.map((review) => <ReviewCard reviews={review} />)}
       </StyledReviewCard>
 
       {product && <Heading type="others"> You may also like </Heading>}
