@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { Text } from "../category/Category";
 
 const StyledCard = styled.div`
   display: flex;
@@ -44,8 +45,6 @@ function ReviewCard({ reviews }) {
     user: { name, photo },
   } = reviews;
 
-  const [ratings, setRatings] = useState(rating);
-
   return (
     <StyledCard>
       <AvatarContainer>
@@ -53,6 +52,8 @@ function ReviewCard({ reviews }) {
 
         <span> {name} </span>
       </AvatarContainer>
+
+      <Text type="review"> {review} </Text>
     </StyledCard>
   );
 }

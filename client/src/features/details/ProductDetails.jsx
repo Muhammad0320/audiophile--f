@@ -151,6 +151,16 @@ const UpdateCartButton = styled.div`
   align-items: center;
 `;
 
+const StyledReviewCard = styled.div`
+  display: grid;
+
+  grid-auto-flow: column;
+
+  grid-auto-columns: 21%;
+
+  overflow-x: auto;
+`;
+
 function ProductDetails() {
   const { isLoading, product } = useGetProductBySlug();
 

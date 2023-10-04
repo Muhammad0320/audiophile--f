@@ -65,6 +65,15 @@ export const Text = styled.p`
       color: var(--color-white);
       margin-right: 2rem;
     `}
+
+  ${(props) =>
+    props.type === "review" &&
+    css`
+      color: var(--color-white);
+      margin-right: 0;
+      font-size: 1.8rem;
+      margin-right: 2rem;
+    `}
 `;
 
 export const ProductPrice = styled.p`
