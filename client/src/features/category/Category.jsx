@@ -69,7 +69,6 @@ export const Text = styled.p`
   ${(props) =>
     props.type === "review" &&
     css`
-      color: var(--color-white);
       margin-right: 0;
       font-size: 1.8rem;
       margin-right: 2rem;

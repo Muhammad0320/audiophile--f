@@ -66,7 +66,7 @@ function ReviewCard({ reviews }) {
   return (
     <StyledCard>
       <AvatarContainer>
-        <img src={photo} alt={`${name}'s avatar `} />
+        <img src={`/assets/users/${photo}`} alt={`${name}'s avatar `} />
 
         <span> {name} </span>
       </AvatarContainer>
