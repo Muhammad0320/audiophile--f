@@ -156,9 +156,9 @@ const StyledReviewCard = styled.div`
 
   grid-auto-flow: column;
 
-  grid-auto-columns: 21%;
+  grid-auto-columns: 26%;
 
-  column-gap: 3rem;
+  column-gap: 5rem;
 
   overflow-x: auto;
 `;

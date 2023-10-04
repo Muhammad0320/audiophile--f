@@ -7,16 +7,20 @@ const StyledCard = styled.div`
   display: flex;
   flex-flow: column;
   justify-content: center;
+  /* align-content: center; */
+
+  border: 1px solid red;
 
   color: var(--color-dark);
 
-  background-color: var(--color-white-1);
+  box-shadow: 0 5px 5px 3px rgba(16, 16, 16, 0.5);
+  background-color: var(--color-white-2);
 
-  padding: 2rem 2.5rem;
+  padding: 2rem 1.5rem;
+
+  margin-bottom: 3rem;
 
   border-radius: 1.2rem;
-
-  box-shadow: var(--shadow-light);
 
   row-gap: 2rem;
 `;
@@ -24,15 +28,17 @@ const StyledCard = styled.div`
 const AvatarContainer = styled.div`
   display: flex;
 
-  justify-content: center;
+  /* justify-content: fl; */
 
   column-gap: 2rem;
+
+  align-items: center;
 
   & > img {
     display: block;
 
-    height: 5rem;
-    width: 5rem;
+    height: 6rem;
+    width: 6rem;
 
     border-radius: 50%;
   }
@@ -40,7 +46,7 @@ const AvatarContainer = styled.div`
   & > span {
     text-transform: uppercase;
 
-    font-size: 2.2rem;
+    font-size: 1.5rem;
   }
 `;
 
