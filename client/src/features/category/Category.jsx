@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 export const Container = styled.div`
   display: grid;
+  padding: 2rem 1.5rem;
+
+  margin-bottom: 3rem;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 10rem;
 
