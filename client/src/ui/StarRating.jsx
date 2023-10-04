@@ -15,7 +15,7 @@ const starContainerStyle = {
 
 const StarRating = ({
   maxRating = 5,
-  color = "#6741d9",
+  color = "#d87d4a",
   size = 48,
   className = "",
   message = [],

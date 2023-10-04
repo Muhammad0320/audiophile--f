@@ -50,7 +50,7 @@ button{
   transition: background-color .2s ease ;
   border-radius: 100vw; 
   border: 1px solid var(--color-dark-2) ;
-
+  
 
   &:hover {
 
