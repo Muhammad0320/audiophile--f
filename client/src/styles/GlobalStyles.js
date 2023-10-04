@@ -65,7 +65,7 @@ button{
 
 ::-webkit-scrollbar {
   
-  width: 2rem;
+  width: 2.5rem;
 
   border-radius: 100vw; 
 
@@ -77,9 +77,11 @@ button{
 
 ::-webkit-scrollbar-track {
 
-  background-color: var(--color-white-2); 
+  background-color: var(--color-dark-2); 
 
   margin-block: 1rem;
+
+  border-radius: 100vw;
 
 
 
