@@ -77,10 +77,10 @@ export const ReviewRating = ({ rating, maxRating = 5 }) => {
 };
 
 const Star = ({
-  onClick = {},
+  onClick = null,
   full,
-  onHoverIn = {},
-  onHoverOut = {},
+  onHoverIn = null,
+  onHoverOut = null,
   size,
   color,
 }) => {
