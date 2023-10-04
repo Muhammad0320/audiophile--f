@@ -32,6 +32,12 @@ const reviewSchema = new mongoose.Schema({
   }
 });
 
+reviewSchema.pre(/^find/, function(next) {
+  this.populate({ path: 'user', select: 'name photo' });
+
+  next();
+});
+
 reviewSchema.set('toJSON', { getters: true, virtuals: true });
 reviewSchema.set('toObject', { getters: true, virtuals: true });
 
