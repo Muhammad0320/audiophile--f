@@ -21,8 +21,8 @@ import UpdateCartItem from "../../ui/UpdateCartItem";
 
 import Spinner from "../../ui/Spinner";
 import { useGetProductBySlug } from "./useProductBySlug";
-import { useGetMyCart } from "../cart/useGetMyCart";
 import { useUser } from "../users/useUser";
+import ReviewCard from "../reviews/reviewCard";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -174,6 +174,7 @@ function ProductDetails() {
     image,
     name,
     features,
+    reviews = [],
     _id,
     gallery,
     description,
@@ -210,8 +211,6 @@ function ProductDetails() {
   const currentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
   const isInCart = currentQuantity > 0;
-
-  // console.log(isInCart);
 
   if (isLoading) return <Spinner />;
 
@@ -275,6 +274,12 @@ function ProductDetails() {
         <img src={second} alt="GalleryImage 2" />
         <img src={third} alt="GalleryImage 3 " />
       </GalleryContainer>
+
+      <StyledReviewCard>
+        {reviews?.map((review) => (
+          <ReviewCard reviews={review} />
+        ))}
+      </StyledReviewCard>
 
       {product && <Heading type="others"> You may also like </Heading>}
       <OthersContainer>
