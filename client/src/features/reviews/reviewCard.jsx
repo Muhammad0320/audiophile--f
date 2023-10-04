@@ -1,6 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { Text } from "../category/Category";
+import { ReviewRating } from "../../ui/StarRating";
 
 const StyledCard = styled.div`
   position: relative;
@@ -58,7 +58,7 @@ const TimeStamp = styled.span`
 function ReviewCard({ reviews }) {
   const {
     rating,
-    ceatedAt,
+    createdAt,
     review,
     user: { name, photo },
   } = reviews;
@@ -72,6 +72,10 @@ function ReviewCard({ reviews }) {
       </AvatarContainer>
 
       <Text type="review"> {review} </Text>
+
+      <ReviewRating maxRating={5} rating={+rating} />
+
+      <TimeStamp> {createdAt} </TimeStamp>
     </StyledCard>
   );
 }
