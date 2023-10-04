@@ -156,11 +156,13 @@ const StyledReviewCard = styled.div`
 
   grid-auto-flow: column;
 
-  grid-auto-columns: 26%;
+  grid-auto-columns: 28%;
 
-  column-gap: 5rem;
+  column-gap: 4rem;
 
   overflow-x: auto;
+
+  padding-bottom: 4rem;
 `;
 
 function ProductDetails() {

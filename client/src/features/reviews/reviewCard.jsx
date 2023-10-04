@@ -4,16 +4,18 @@ import { ReviewRating } from "../../ui/StarRating";
 
 const StyledCard = styled.div`
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  /* align-content: center; */
+  align-items: center;
 
   border: 1px solid red;
 
   color: var(--color-dark);
 
-  box-shadow: 0 5px 5px 3px rgba(16, 16, 16, 0.5);
+  box-shadow: var(--box-shadow-light);
+
   background-color: var(--color-white-2);
 
   padding: 2rem 1.5rem;
@@ -28,11 +30,10 @@ const StyledCard = styled.div`
 const AvatarContainer = styled.div`
   display: flex;
 
-  /* justify-content: fl; */
+  justify-content: center;
+  align-items: center;
 
   column-gap: 2rem;
-
-  align-items: center;
 
   & > img {
     display: block;
@@ -57,8 +58,8 @@ const TimeStamp = styled.span`
 
   position: absolute;
 
-  bottom: 0;
-  right: 0;
+  bottom: 1rem;
+  right: 1rem;
 `;
 
 function ReviewCard({ reviews }) {
@@ -81,7 +82,17 @@ function ReviewCard({ reviews }) {
 
       <ReviewRating maxRating={5} rating={+rating} />
 
-      <TimeStamp> {createdAt} </TimeStamp>
+      <TimeStamp>
+        {" "}
+        {new Date(createdAt).toLocaleString("en-us", {
+          month: "long",
+
+          day: "numeric",
+          year: "2-digit",
+
+          dateStyle: "medium",
+        })}{" "}
+      </TimeStamp>
     </StyledCard>
   );
 }
