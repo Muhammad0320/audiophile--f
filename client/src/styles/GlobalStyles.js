@@ -48,9 +48,8 @@ button{
   background-color: var( --color-primary ); 
 
   transition: background-color .2s ease ;
-
   border-radius: 100vw; 
-
+  border: 1px solid var(--color-dark-2) ;
   &:hover {
 
   background-color: var( --color-primary-light ); 
@@ -67,9 +66,7 @@ button{
   
   width: 2.5rem;
 
-  border-radius: 100vw; 
 
-  margin-block: 2rem;
 
 
 }
@@ -80,7 +77,8 @@ button{
   background-color: var(--color-dark-2); 
 
   margin-block: 1rem;
-
+  
+  
   border-radius: 100vw;
 
 
