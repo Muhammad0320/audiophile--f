@@ -3,11 +3,18 @@ import styled from "styled-components";
 import { Text } from "../category/Category";
 
 const StyledCard = styled.div`
+  position: relative;
   display: flex;
   flex-flow: column;
   justify-content: center;
 
   color: var(--color-dark);
+
+  background-color: var(--color-white-1);
+
+  padding: 2rem 2.5rem;
+
+  border-radius: 1.2rem;
 
   box-shadow: var(--shadow-light);
 
@@ -35,6 +42,17 @@ const AvatarContainer = styled.div`
 
     font-size: 2.2rem;
   }
+`;
+
+const TimeStamp = styled.span`
+  color: var(--color-dark-1);
+
+  font-size: 1.2rem;
+
+  position: absolute;
+
+  bottom: 0;
+  right: 0;
 `;
 
 function ReviewCard({ reviews }) {
