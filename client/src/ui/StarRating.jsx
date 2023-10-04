@@ -64,7 +64,26 @@ const StarRating = ({
   );
 };
 
-const Star = ({ onClick, full, onHoverIn, onHoverOut, size, color }) => {
+export const ReviewRating = ({ rating, maxRating = 5 }) => {
+  return (
+    <div style={containerStyle}>
+      <div style={starContainerStyle}>
+        {Array.from({ length: maxRating }, (_, i) => {
+          <Star color="#d87d4a" full={rating >= i + 1} size={48} key={i} />;
+        })}
+      </div>
+    </div>
+  );
+};
+
+const Star = ({
+  onClick = {},
+  full,
+  onHoverIn = {},
+  onHoverOut = {},
+  size,
+  color,
+}) => {
   const starStle = {
     height: `${size}px  `,
     width: `${size}px  `,
