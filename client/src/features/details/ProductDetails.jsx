@@ -15,17 +15,12 @@ import { css, styled } from "styled-components";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import SmallButton from "../../ui/SmallButton";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addItem,
-  getCurrentItemQuantityById,
-  getLastItemInCart,
-} from "../cart/cartSlice";
+import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
 
 import UpdateCartItem from "../../ui/UpdateCartItem";
 
 import Spinner from "../../ui/Spinner";
 import { useGetProductBySlug } from "./useProductBySlug";
-import { useCreateNewCartItemOnUser } from "../cart/useCreateNewCartItemOnUser";
 import { useGetMyCart } from "../cart/useGetMyCart";
 import { useUser } from "../users/useUser";
 
@@ -186,8 +181,6 @@ function ProductDetails() {
 
   const handleAddToCart = () => {
     const newCartItem = {
-      _id,
-
       totalPrice: price * 1,
       quantity: 1,
 
