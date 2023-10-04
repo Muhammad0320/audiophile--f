@@ -1,15 +1,5 @@
 import styled from "styled-components";
 
-const StyledReviewCard = styled.div`
-  display: grid;
-
-  grid-auto-flow: column;
-
-  grid-auto-columns: 21%;
-
-  overflow-x: auto;
-`;
-
 const StyledCard = styled.div`
   display: flex;
   flex-flow: column;
@@ -45,8 +35,8 @@ const AvatarContainer = styled.div`
   }
 `;
 
-function ReviewCard({ reviews }) {
-  return <div></div>;
+function ReviewCard({ review }) {
+  return <StyledCard> </StyledCard>;
 }
 
 export default ReviewCard;
