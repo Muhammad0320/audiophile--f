@@ -44,9 +44,17 @@ function ReviewCard({ reviews }) {
     user: { name, photo },
   } = reviews;
 
-  const [ratings, setRatings] = useState(0);
+  const [ratings, setRatings] = useState(rating);
 
-  return <StyledCard> </StyledCard>;
+  return (
+    <StyledCard>
+      <AvatarContainer>
+        <img src={photo} alt={`${name}'s avatar `} />
+
+        <span> {name} </span>
+      </AvatarContainer>
+    </StyledCard>
+  );
 }
 
 export default ReviewCard;
