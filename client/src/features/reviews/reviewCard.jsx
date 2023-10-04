@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
@@ -35,7 +36,16 @@ const AvatarContainer = styled.div`
   }
 `;
 
-function ReviewCard({ review }) {
+function ReviewCard({ reviews }) {
+  const {
+    rating,
+    ceatedAt,
+    review,
+    user: { name, photo },
+  } = reviews;
+
+  const [ratings, setRatings] = useState(0);
+
   return <StyledCard> </StyledCard>;
 }
 
