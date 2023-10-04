@@ -39,5 +39,8 @@ const AvatarContainer = styled.div`
   }
 
   & > span {
+    text-transform: uppercase;
+
+    font-size: 2.2rem;
   }
 `;
