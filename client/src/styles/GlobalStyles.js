@@ -43,7 +43,47 @@ button{
   color: inherit;
 }
 
+::-webkit-scrollbar-thumb {
 
+  background-color: var( --color-primary ); 
+
+  transition: background-color .2s ease ;
+
+  border-radius: 100vw; 
+
+  &:hover {
+
+  background-color: var( --color-primary-light ); 
+
+
+  }
+
+}
+
+
+
+
+::-webkit-scrollbar {
+  
+  width: 2rem;
+
+  border-radius: 100vw; 
+
+  margin-block: 2rem;
+
+
+}
+
+
+::-webkit-scrollbar-track {
+
+  background-color: var(--color-white-2); 
+
+  margin-block: 1rem;
+
+
+
+}
 
 button {
   cursor: pointer;
@@ -51,6 +91,7 @@ button {
 
 *:disabled {
   cursor: not-allowed;
+
 }
 
 

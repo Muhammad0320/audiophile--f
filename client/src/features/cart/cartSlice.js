@@ -20,7 +20,6 @@ const cartSlice = createSlice({
     },
 
     addItem(state, action) {
-      // state.changes?.push( )  ;
       return {
         ...state,
 
