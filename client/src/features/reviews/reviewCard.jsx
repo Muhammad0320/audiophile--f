@@ -44,3 +44,9 @@ const AvatarContainer = styled.div`
     font-size: 2.2rem;
   }
 `;
+
+function ReviewCard({ reviews }) {
+  return <div></div>;
+}
+
+export default ReviewCard;
