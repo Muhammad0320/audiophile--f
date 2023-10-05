@@ -135,7 +135,10 @@ function ContainerHeroImages() {
             Upgrade to premium speakers that are <br /> phenomenally built to
             deliver truly remarkable <br /> sound.
           </FirstSpeakerText>
-          <Button variation="dark" onClick={() => navigate(`/product/${6}`)}>
+          <Button
+            variation="dark"
+            onClick={() => navigate(`/product/zx9-speaker`)}
+          >
             {" "}
             see product{" "}
           </Button>
@@ -148,7 +151,7 @@ function ContainerHeroImages() {
             <p> ZX7 speaker </p>
             <Button
               variation="transparent"
-              onClick={() => navigate(`/product/${5}`)}
+              onClick={() => navigate(`/product/zx7-speaker`)}
             >
               {" "}
               see product{" "}
@@ -167,7 +170,7 @@ function ContainerHeroImages() {
           <h4> yxi earphones </h4>
           <Button
             variation="transparent"
-            onClick={() => navigate(`/product/${1}`)}
+            onClick={() => navigate(`/product/yx1-earphones`)}
           >
             {" "}
             see product{" "}
