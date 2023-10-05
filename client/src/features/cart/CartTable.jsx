@@ -8,7 +8,7 @@ import CartTableItem from "./CartTableITem";
 const StyledCartContainer = styled.div`
   grid-column: 2 / -1;
   overflow: auto;
-  margin: 0 3rem;
+  /* margin: 0 3rem; */
 `;
 
 function CartTable() {
@@ -18,12 +18,12 @@ function CartTable() {
 
   return (
     <StyledCartContainer>
-      <Table column="0.8fr max-content 1fr 1fr 0.8fr">
+      <Table column="0.5fr 0.8fr max-content .6fr 0.4fr">
         <Table.Header>
           <div></div>
           <div>Name</div>
           <div>price </div>
-          <div>update cart</div>
+          <div>update </div>
           <div></div>
         </Table.Header>
 

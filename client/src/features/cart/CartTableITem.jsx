@@ -12,8 +12,6 @@ const Image = styled.img`
 
   height: 6rem;
   width: 6rem;
-
-  object-fit: cover;
 `;
 
 const Price = styled.span`
