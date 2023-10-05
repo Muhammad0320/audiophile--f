@@ -44,6 +44,8 @@ const Name = styled.span`
   column-gap: 1rem;
 
   font-size: 2rem;
+
+  line-height: 1;
 `;
 
 function CartTableItem({ cart }) {
@@ -60,7 +62,7 @@ function CartTableItem({ cart }) {
     <Table.Row>
       <Image src={image} />
 
-      <Name> {productName} </Name>
+      <Name> bread </Name>
 
       <Price> {formatCurrency(+price)} </Price>
 

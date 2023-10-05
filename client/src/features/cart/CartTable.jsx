@@ -18,7 +18,7 @@ function CartTable() {
 
   return (
     <StyledCartContainer>
-      <Table column="0.9fr 1fr max-content 2.2fr 1.4fr">
+      <Table column="0.8fr max-content 1fr 1fr 0.8fr">
         <Table.Header>
           <div></div>
           <div>Name</div>
@@ -32,7 +32,7 @@ function CartTable() {
         ) : (
           <Table.Body
             data={carts}
-            render={(cart) => <CartTableItem cart={cart} />}
+            render={(cart, i) => <CartTableItem key={i} cart={cart} />}
           />
         )}
       </Table>
