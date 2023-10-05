@@ -62,7 +62,7 @@ function CartTableItem({ cart }) {
     <Table.Row>
       <Image src={image} />
 
-      <Name> bread </Name>
+      <Name> {productName} </Name>
 
       <Price> {formatCurrency(+price)} </Price>
 
