@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { getCart } from "./cartSlice";
 import { formatCurrency } from "../../utils/helper";
 import UpdateCartItem from "../../ui/UpdateCartItem";
+import { HiXMark } from "react-icons/hi2";
 
 const Image = styled.img`
   display: block;
@@ -55,6 +56,8 @@ function CartTableITem({ cart }) {
       <Price> {formatCurrency(+price)} </Price>
 
       <UpdateCartItem type="cart" currentQuantity={quantity} id={_id} />
+
+      <DeleteIcon> {<HiXMark />} </DeleteIcon>
     </Table.Row>
   );
 }
