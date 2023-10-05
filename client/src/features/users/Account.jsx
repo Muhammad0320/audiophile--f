@@ -3,12 +3,14 @@ import { css, styled } from "styled-components";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh; */
+  /* width: 100vw; */
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 10rem 0;
 `;
 
 const DetailsContainer = styled.div`
