@@ -70,7 +70,12 @@ function ReviewCard({ reviews }) {
     user: { name, photo },
   } = reviews;
 
-  console.log(new Date(createdAt).toLocaleString("en-us"));
+  console.log(
+    new Date(createdAt).toLocaleString("en-us", {
+      month: "long",
+      year: "numeric",
+    })
+  );
 
   return (
     <StyledCard>
