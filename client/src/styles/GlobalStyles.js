@@ -19,15 +19,12 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow-light: 0 5px 5px 3px rgba(16, 16, 16, 0.2); 
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
 
-    --color-gradient-dark: linear-gradient( 145deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .25) )
-    --color-gradient-dark: linear-gradient( 145deg, rgba(255, 255, 255, .25), rgba(255, 255, 255, .25) )
-
+    --color-gradient-dark: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .25))
+    --color-gradient-light: linear-gradient(145deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .25))
 
 }
 
 
-
-    
 html {
   font-size: 62.5%;
 }
