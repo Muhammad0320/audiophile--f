@@ -110,7 +110,9 @@ function Header({ category, home }) {
               Experience natural, lifelike audio and exceptional <br /> build
               quality made for the passionate <br /> music enthusiast.{" "}
             </Text>
-            <Button onClick={() => navigate(`/product/${4}`)}>
+            <Button
+              onClick={() => navigate(`/product/xx99-mark-two-headphones`)}
+            >
               {" "}
               see product{" "}
             </Button>
