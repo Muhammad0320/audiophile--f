@@ -23,6 +23,7 @@ import { useDispatch } from "react-redux";
 import { setCartData } from "./features/cart/cartSlice";
 import { useEffect } from "react";
 import { getMyCart } from "./service/apiCart";
+import CartPage from "./pages/CartPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -72,6 +73,7 @@ function App() {
             <Route index element={<Navigate replace to="settings" />} />
             <Route path="settings" element={<Settings />} />
             <Route path="my-reviews" element={<ReviewPage />} />
+            <Route path="my-cart" element={<CartPage />} />
           </Route>
 
           <Route path="signup" element={<SignupPage />} />
