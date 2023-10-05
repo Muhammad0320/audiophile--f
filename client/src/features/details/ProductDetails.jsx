@@ -186,8 +186,6 @@ function ProductDetails() {
     new: isNew,
   } = product?.product || {};
 
-  console.log(reviews);
-
   const { first, second, third } = gallery || {};
 
   const { moveBack } = useMoveBack();
