@@ -82,7 +82,7 @@ function ReviewCard({ reviews }) {
 
       <ReviewRating maxRating={5} rating={+rating} />
 
-      <TimeStamp> {createdAt.toISOString().toLocaleString("en-us")} </TimeStamp>
+      <TimeStamp> {createdAt} </TimeStamp>
     </StyledCard>
   );
 }

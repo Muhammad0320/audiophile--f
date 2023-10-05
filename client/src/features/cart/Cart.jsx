@@ -5,24 +5,15 @@ import { Text } from "../category/Category";
 
 import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  clearCart,
-  getCart,
-  getChanges,
-  getTotalCartPrice,
-  setCartData,
-} from "./cartSlice";
+import { clearCart, getCart, getChanges, getTotalCartPrice } from "./cartSlice";
 import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
 import { grandTotalPrice } from "../../utils/constant";
-import { useGetMyCart } from "./useGetMyCart";
-import Spinner from "../../ui/Spinner";
-import { useEffect } from "react";
+
 import { useSendBulkData } from "./useSendBulkData";
 import SpinnerMini from "../../ui/SpinnerMini";
-import { useUser } from "../users/useUser";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -72,9 +63,6 @@ function Cart({ page }) {
   const carts = useSelector(getCart);
 
   const changes = useSelector(getChanges);
-
-  console.log(carts);
-  console.log(changes);
 
   const { sendBulkdata, isSendingBulkData } = useSendBulkData();
 
