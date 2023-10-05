@@ -41,6 +41,8 @@ reviewSchema.pre(/^find/, function(next) {
 reviewSchema.set('toJSON', { getters: true, virtuals: true });
 reviewSchema.set('toObject', { getters: true, virtuals: true });
 
+reviewSchema.index({ user: 1, product: 1 }, { unique: true });
+
 const Review = mongoose.model('Review', reviewSchema);
 
 module.exports = Review;
