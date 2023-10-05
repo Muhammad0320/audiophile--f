@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import Table from "../../ui/Table";
-import { useSelector } from "react-redux";
-import { getCart } from "./cartSlice";
+
 import { formatCurrency } from "../../utils/helper";
 import UpdateCartItem from "../../ui/UpdateCartItem";
 import { HiXMark } from "react-icons/hi2";
+import { useDispatch } from "react-redux";
+import { deleteItem } from "./cartSlice";
 
 const Image = styled.img`
   display: block;
@@ -42,6 +43,8 @@ const Name = styled.span`
 `;
 
 function CartTableITem({ cart }) {
+  const dispatch = useDispatch();
+
   const {
     quantity,
     product: { image, name, price, _id },
@@ -57,7 +60,10 @@ function CartTableITem({ cart }) {
 
       <UpdateCartItem type="cart" currentQuantity={quantity} id={_id} />
 
-      <DeleteIcon> {<HiXMark />} </DeleteIcon>
+      <DeleteIcon onClick={() => dispatch(deleteItem(_id))}>
+        {" "}
+        {<HiXMark />}{" "}
+      </DeleteIcon>
     </Table.Row>
   );
 }
