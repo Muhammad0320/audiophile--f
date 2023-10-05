@@ -243,11 +243,6 @@ function ProductDetails() {
           ) : (
             <UpdateCartButton>
               <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
-
-              {/* <Button size="large" onClick={() => handleCreateNewCartItem()}>
-                {" "}
-                Save cart update{" "}
-              </Button> */}
             </UpdateCartButton>
           )}
         </DescriptionContainer>

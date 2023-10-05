@@ -7,10 +7,9 @@ const StyledCard = styled.div`
   overflow: hidden;
   display: flex;
   flex-flow: column;
+
   justify-content: center;
   align-items: center;
-
-  border: 1px solid red;
 
   color: var(--color-dark);
 
@@ -57,6 +56,7 @@ const TimeStamp = styled.span`
   font-size: 1.2rem;
 
   position: absolute;
+  margin-top: 1rem;
 
   bottom: 1rem;
   right: 1rem;
@@ -69,6 +69,8 @@ function ReviewCard({ reviews }) {
     review,
     user: { name, photo },
   } = reviews;
+
+  console.log(new Date(createdAt).toISOString());
 
   return (
     <StyledCard>
