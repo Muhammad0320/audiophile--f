@@ -17,8 +17,8 @@ function CartTable() {
         <Table.Header>
           <div></div>
           <div>Name</div>
-          <div>Review</div>
-          <div>Rating</div>
+          <div>update cart</div>
+          <div>price </div>
           <div></div>
         </Table.Header>
 
