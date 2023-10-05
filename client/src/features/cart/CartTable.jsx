@@ -32,7 +32,7 @@ function CartTable() {
         ) : (
           <Table.Body
             data={carts}
-            render={(cart, i) => <CartTableItem key={i} cart={cart} />}
+            render={(cart, i) => <CartTableItem cart={cart} key={i} />}
           />
         )}
       </Table>
