@@ -10,8 +10,8 @@ import { deleteItem } from "./cartSlice";
 const Image = styled.img`
   display: block;
 
-  height: 5rem;
-  width: 5rem;
+  height: 6rem;
+  width: 6rem;
 
   object-fit: cover;
 `;
@@ -23,11 +23,15 @@ const Price = styled.span`
 `;
 
 const DeleteIcon = styled.span`
-  color: var(--color-dark-2);
+  color: var(--color-dark-3);
 
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 
-  transition: color 0.3s ease-in;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: color 0.3s cubic-bezier(0.82, 0.54, 0, 0.29);
 
   &:hover {
     color: var(--color-primary-light);
@@ -50,11 +54,13 @@ function CartTableItem({ cart }) {
     product: { image, name, price, _id },
   } = cart;
 
+  const productName = name.split(" ")[0];
+
   return (
     <Table.Row>
       <Image src={image} />
 
-      <Name> {name} </Name>
+      <Name> {productName} </Name>
 
       <Price> {formatCurrency(+price)} </Price>
 
