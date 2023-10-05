@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import Table from "../../ui/Table";
 import Spinner from "../../ui/Spinner";
+import { useSelector } from "react-redux";
+import { getCart } from "./cartSlice";
+import CartTableItem from "./CartTableITem";
 
 const StyledCartContainer = styled.div`
   grid-column: 2 / -1;
@@ -9,6 +12,8 @@ const StyledCartContainer = styled.div`
 `;
 
 function CartTable() {
+  const carts = useSelector(getCart);
+
   const isLoading = false;
 
   return (
@@ -17,15 +22,18 @@ function CartTable() {
         <Table.Header>
           <div></div>
           <div>Name</div>
-          <div>update cart</div>
           <div>price </div>
+          <div>update cart</div>
           <div></div>
         </Table.Header>
 
         {isLoading ? (
           <Spinner />
         ) : (
-          <Table.Body data={""} render={(review) => {}} />
+          <Table.Body
+            data={carts}
+            render={(cart) => <CartTableItem cart={cart} />}
+          />
         )}
       </Table>
     </StyledCartContainer>

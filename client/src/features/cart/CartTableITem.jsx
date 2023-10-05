@@ -42,7 +42,7 @@ const Name = styled.span`
   font-size: 2rem;
 `;
 
-function CartTableITem({ cart }) {
+function CartTableItem({ cart }) {
   const dispatch = useDispatch();
 
   const {
@@ -68,4 +68,4 @@ function CartTableITem({ cart }) {
   );
 }
 
-export default CartTableITem;
+export default CartTableItem;
