@@ -8,7 +8,7 @@ const StyledCartContainer = styled.div`
   margin: 0 3rem;
 `;
 
-function CartContainer() {
+function CartTable() {
   const isLoading = false;
 
   return (
@@ -32,4 +32,4 @@ function CartContainer() {
   );
 }
 
-export default CartContainer;
+export default CartTable;
