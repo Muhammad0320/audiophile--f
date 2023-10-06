@@ -1,3 +1,5 @@
+// https://dev.to/varbsan/a-simplified-convention-for-naming-branches-and-commits-in-git-il4
+
 import { useNavigate } from "react-router-dom";
 import {
   Container,
@@ -36,8 +38,18 @@ export const Heading = styled.h4`
   font-weight: 600;
 
   color: var(--color-dark);
+
   margin-bottom: 3rem;
+
   text-transform: uppercase;
+
+  ${(props) =>
+    props.type === "review" &&
+    css`
+      text-align: center;
+      margin-bottom: 6rem;
+      font-size: 4.5rem;
+    `}
 
   ${(props) =>
     props.type === "login" &&
@@ -158,6 +170,8 @@ const StyledReviewCard = styled.div`
 
   grid-auto-columns: 28%;
 
+  margin-bottom: 4rem;
+
   padding: 0 1rem;
 
   column-gap: 4rem;
@@ -276,6 +290,7 @@ function ProductDetails() {
         <img src={third} alt="GalleryImage 3 " />
       </GalleryContainer>
 
+      <Heading type="review"> Our customers review </Heading>
       <StyledReviewCard>
         {reviews.length &&
           reviews?.map((review) => (

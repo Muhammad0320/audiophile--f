@@ -8,6 +8,8 @@ const GlobalStyles = createGlobalStyle`
     --color-primary-light: #fbaf85;
     --color-red-light: #e5383b;
     --color-red-dark: #da1e37;
+
+    
     
     --color-dark: #000;
     --color-dark-1: #101010;
@@ -21,6 +23,11 @@ const GlobalStyles = createGlobalStyle`
     --color-gradient-dark: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .25));
     --color-gradient-dark-1: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .50));
     --color-gradient-light: linear-gradient(145deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .25));
+    --color-primary-muted: color-mix(in oklab, var(--color-primary) 80%, var(--color-white));
+    --color-primary-dark: color-mix(in oklab, var(--color-primary) 80%, var(--color-dark));
+
+    --color-primary-light-muted:  color-mix(in oklab, var(--color-primary-light) 80%, var(--color-white));
+    --color-primary-light-dark:  color-mix(in oklab, var(--color-primary-light) 80%, var(--color-white));
 
 }
 
