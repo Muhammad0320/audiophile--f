@@ -64,12 +64,12 @@ const StarRating = ({
   );
 };
 
-export const ReviewRating = ({ rating, maxRating = 5 }) => {
+export const ReviewRating = ({ rating, maxRating = 5, size = 48 }) => {
   return (
     <div style={containerStyle}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
-          <Star color="#d87d4a" full={rating >= i + 1} size={48} key={i} />
+          <Star color="#d87d4a" full={rating >= i + 1} size={size} key={i} />
         ))}
       </div>
     </div>

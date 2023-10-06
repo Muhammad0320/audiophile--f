@@ -45,7 +45,9 @@ button{
 
 ::-webkit-scrollbar-thumb {
 
-  background-color: var( --color-primary ); 
+  background: var( --color-primary ); 
+
+  background-image: var(--color-gradient-dark);
 
   transition: background-color .2s ease ;
   border-radius: 100vw; 
@@ -54,7 +56,9 @@ button{
 
   &:hover {
 
-  background-color: var( --color-primary-light ); 
+    background-color: var( --color-primary-light ); 
+  background-image: var(--color-gradient-dark);
+
 
 
   }

@@ -3,12 +3,14 @@ import { css, styled } from "styled-components";
 const variations = {
   primary: css`
     background-color: var(--color-primary);
+    background-image: var(--color-gradient-dark);
     color: var(--color-white);
     transition: background-color 0.3s;
     border: none;
 
     &:hover {
       background-color: var(--color-primary-light);
+      background-image: var(--color-gradient-dark-1);
     }
   `,
 

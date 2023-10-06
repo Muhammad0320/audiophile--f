@@ -66,7 +66,7 @@ export const Text = styled.p`
     props.type === "avatar" &&
     css`
       color: var(--color-white);
-      margin-right: 2rem;
+      margin-right: 0 auto;
     `}
 
   ${(props) =>

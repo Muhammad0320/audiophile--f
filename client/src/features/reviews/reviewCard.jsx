@@ -15,7 +15,7 @@ const StyledCard = styled.div`
 
   box-shadow: var(--box-shadow-light);
 
-  background: var(--color-white-2);
+  background: var(--color-white-1);
 
   background-image: var(--color-gradient-dark);
 
@@ -82,6 +82,12 @@ function ReviewCard({ reviews }) {
     })
   );
 
+  const time = new Date(createdAt).toLocaleString("en-us", {
+    month: "long",
+    year: "numeric",
+    day: "2-digit",
+  });
+
   return (
     <StyledCard>
       <AvatarContainer>
@@ -92,9 +98,9 @@ function ReviewCard({ reviews }) {
 
       <Text type="review"> {review} </Text>
 
-      <ReviewRating maxRating={5} rating={+rating} />
+      <ReviewRating maxRating={5} rating={+rating} size={40} />
 
-      <TimeStamp> {createdAt} </TimeStamp>
+      <TimeStamp> {time} </TimeStamp>
     </StyledCard>
   );
 }
