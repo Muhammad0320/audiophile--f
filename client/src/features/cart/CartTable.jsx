@@ -11,6 +11,15 @@ const StyledCartContainer = styled.div`
   grid-column: 2 / -1;
   overflow: auto;
   /* margin: 0 3rem; */
+
+  position: relative;
+
+  &:has(button) button {
+    position: absolute;
+
+    bottom: 2rem;
+    right: 3rem;
+  }
 `;
 
 function CartTable() {
@@ -45,11 +54,10 @@ function CartTable() {
             )}
           />
         )}
-
-        {changes.length && (
-          <Button onClick={handleClick}> Save cart item </Button>
-        )}
       </Table>
+      {changes.length && (
+        <Button onClick={handleClick}> Save and checkout </Button>
+      )}
     </StyledCartContainer>
   );
 }
