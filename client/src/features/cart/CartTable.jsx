@@ -26,7 +26,7 @@ function CartTable() {
 
   return (
     <StyledCartContainer>
-      <Table column="0.5fr 0.8fr max-content .6fr 0.4fr">
+      <Table column="0.5fr 0.8fr max-content 0.6fr 0.4fr">
         <Table.Header>
           <div></div>
           <div>Name</div>
@@ -46,7 +46,9 @@ function CartTable() {
           />
         )}
 
-        <Button onClick={handleClick}> Save cart item </Button>
+        {changes.length && (
+          <Button onClick={handleClick}> Save cart item </Button>
+        )}
       </Table>
     </StyledCartContainer>
   );
