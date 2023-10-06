@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import styled from "styled-components";
+import Button from "./Button";
 
 const TableContainer = styled.div`
   margin: 3rem 5rem;
@@ -11,6 +12,10 @@ const TableContainer = styled.div`
   font-size: 1.5rem;
 
   color: var(--color-dark);
+
+  & + button {
+    text-align: center;
+  }
 `;
 
 const CommonRow = styled.div`
@@ -72,7 +77,11 @@ const TableContext = createContext();
 function Table({ children, column }) {
   return (
     <TableContext.Provider value={{ column }}>
-      <TableContainer role="table"> {children} </TableContainer>
+      <TableContainer role="table">
+        {" "}
+        <> {children} </>{" "}
+      </TableContainer>
+      <Button> save and checkout </Button>
     </TableContext.Provider>
   );
 }
