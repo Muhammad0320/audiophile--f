@@ -2,8 +2,10 @@ import styled from "styled-components";
 import Table from "../../ui/Table";
 import Spinner from "../../ui/Spinner";
 import { useSelector } from "react-redux";
-import { getCart } from "./cartSlice";
+import { getCart, getChanges } from "./cartSlice";
 import CartTableItem from "./CartTableITem";
+import Button from "../../ui/Button";
+import { sendBulkItemToCart } from "../../service/apiCart";
 
 const StyledCartContainer = styled.div`
   grid-column: 2 / -1;
@@ -14,7 +16,13 @@ const StyledCartContainer = styled.div`
 function CartTable() {
   const carts = useSelector(getCart);
 
+  const changes = useSelector(getChanges);
+
   const isLoading = false;
+
+  const handleClick = () => {
+    sendBulkItemToCart({ changes });
+  };
 
   return (
     <StyledCartContainer>
@@ -37,6 +45,8 @@ function CartTable() {
             )}
           />
         )}
+
+        <Button onClick={handleClick}> Save cart item </Button>
       </Table>
     </StyledCartContainer>
   );
