@@ -15,7 +15,7 @@ const StyledCard = styled.div`
 
   box-shadow: var(--box-shadow-light);
 
-  background: var(--color-white-1);
+  background: var(--color-primary-light-muted);
 
   background-image: var(--color-gradient-dark);
 
