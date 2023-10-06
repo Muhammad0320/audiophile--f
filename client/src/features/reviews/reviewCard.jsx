@@ -75,7 +75,7 @@ function ReviewCard({ reviews }) {
   } = reviews;
 
   console.log(
-    "okay",
+    "alright",
     new Date(createdAt).toLocaleString("en-us", {
       month: "long",
       year: "numeric",
