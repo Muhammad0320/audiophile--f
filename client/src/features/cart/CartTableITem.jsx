@@ -56,7 +56,7 @@ function CartTableItem({ cart }) {
 
   const productName = name.split(" ")[0];
 
-  console.log("ooooh let see");
+  console.log("yeee let see");
 
   return (
     <>

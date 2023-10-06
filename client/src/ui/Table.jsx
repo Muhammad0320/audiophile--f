@@ -85,7 +85,7 @@ const TableContext = createContext();
 
 // Create parent element
 
-function Table({ children, column, cart }) {
+function Table({ children, column, changes }) {
   return (
     <TableContext.Provider value={{ column }}>
       <TableAndButtonContainer>
@@ -93,7 +93,7 @@ function Table({ children, column, cart }) {
           {" "}
           <> {children} </>{" "}
         </TableContainer>
-        <Button> save and checkout </Button>
+        {changes?.length && <Button> save and checkout </Button>}
       </TableAndButtonContainer>
     </TableContext.Provider>
   );
