@@ -15,9 +15,9 @@ const StyledCard = styled.div`
 
   box-shadow: var(--box-shadow-light);
 
-  background-color: var(--color-white-2);
+  background: var(--color-white-2);
 
-  background-image: var(--color-gradient-light);
+  background-image: var(--color-gradient-dark);
 
   padding: 2rem 1.5rem;
 
@@ -60,7 +60,6 @@ const TimeStamp = styled.span`
   font-size: 1.2rem;
 
   position: absolute;
-  padding: 1rem;
 
   bottom: 1rem;
   right: 1rem;
@@ -72,13 +71,14 @@ function ReviewCard({ reviews }) {
     createdAt,
     review,
     user: { name, photo },
-  } = reviews;
+  } = reviews || {};
 
   console.log(
     "alright",
     new Date(createdAt).toLocaleString("en-us", {
       month: "long",
       year: "numeric",
+      day: "2-digit",
     })
   );
 

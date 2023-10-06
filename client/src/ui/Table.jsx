@@ -114,7 +114,7 @@ function Table({ children, column, changes }) {
                 <SpinnerMini /> <span> saving cart... </span>{" "}
               </>
             ) : (
-              <span> Save and checkoutii </span>
+              <span> Save and checkout </span>
             )}
           </Button>
         )}
