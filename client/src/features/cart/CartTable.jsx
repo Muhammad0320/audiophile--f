@@ -28,7 +28,11 @@ function CartTable() {
 
   return (
     <StyledCartContainer>
-      <Table column="0.5fr 0.8fr max-content 0.6fr 0.4fr">
+      <Table
+        column="0.5fr 0.8fr max-content 0.6fr 0.4fr"
+        changes={changes}
+        onClick={handleClick}
+      >
         <Table.Header>
           <div></div>
           <div>Name</div>
