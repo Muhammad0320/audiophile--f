@@ -13,13 +13,6 @@ const StyledCartContainer = styled.div`
   /* margin: 0 3rem; */
 
   position: relative;
-
-  &:has(button) button {
-    position: absolute;
-
-    bottom: 2rem;
-    right: 3rem;
-  }
 `;
 
 function CartTable() {

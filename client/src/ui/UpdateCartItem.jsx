@@ -5,22 +5,22 @@ import {
   removeItemQuantity,
 } from "../features/cart/cartSlice";
 
-const Container = styled.section`
+const Container = styled.div`
   background-color: var(--color-white-2);
-  padding: 1.2rem 2rem;
-  column-gap: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.8rem;
   font-weight: 500;
   color: var(--color-dark);
+  padding: 1.2rem 2rem;
+  column-gap: 3rem;
 
   ${(props) =>
     props.type === "cart" &&
     css`
       padding: 0.8rem 1.2rem;
-      column-gap: 1.5rem;
+      column-gap: 1.2rem;
     `}
 `;
 
@@ -45,10 +45,12 @@ function UpdateCartItem({ icons, currentQuantity, id, ...otherProps }) {
 
   return (
     <Container {...otherProps}>
-      <UpdateSign onClick={() => dispatch(removeItemQuantity(id))}>
-        {" "}
-        {reduce}
-      </UpdateSign>
+      <div>
+        <UpdateSign onClick={() => dispatch(removeItemQuantity(id))}>
+          {" "}
+          {reduce}
+        </UpdateSign>
+      </div>
       <span> {currentQuantity} </span>
       <UpdateSign onClick={() => dispatch(addItemQuantity(id))}>
         {" "}

@@ -6,7 +6,6 @@ import UpdateCartItem from "../../ui/UpdateCartItem";
 import { HiXMark } from "react-icons/hi2";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "./cartSlice";
-import Button from "../../ui/Button";
 
 const Image = styled.img`
   display: block;
