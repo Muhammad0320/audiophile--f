@@ -2,9 +2,24 @@ import { createContext, useContext } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 
-const TableContainer = styled.div`
-  margin: 3rem 5rem;
+const TableAndButtonContainer = styled.div`
+  display: flex;
 
+  flex-flow: column;
+
+  row-gap: 3rem;
+
+  & > button {
+    text-align: center;
+
+    justify-self: center;
+
+    align-self: flex-end;
+  }
+  margin: 3rem 5rem;
+`;
+
+const TableContainer = styled.div`
   border: 1px solid var(--color-dark-2);
 
   background-color: var(--color-white-1);
@@ -12,10 +27,6 @@ const TableContainer = styled.div`
   font-size: 1.5rem;
 
   color: var(--color-dark);
-
-  & + button {
-    text-align: center;
-  }
 `;
 
 const CommonRow = styled.div`
@@ -74,14 +85,16 @@ const TableContext = createContext();
 
 // Create parent element
 
-function Table({ children, column }) {
+function Table({ children, column, cart }) {
   return (
     <TableContext.Provider value={{ column }}>
-      <TableContainer role="table">
-        {" "}
-        <> {children} </>{" "}
-      </TableContainer>
-      <Button> save and checkout </Button>
+      <TableAndButtonContainer>
+        <TableContainer role="table">
+          {" "}
+          <> {children} </>{" "}
+        </TableContainer>
+        <Button> save and checkout </Button>
+      </TableAndButtonContainer>
     </TableContext.Provider>
   );
 }
