@@ -75,7 +75,6 @@ function CartTableItem({ cart }) {
           {<HiXMark />}{" "}
         </DeleteIcon>
       </Table.Row>
-      <Button> Save cart Item </Button>
     </>
   );
 }
