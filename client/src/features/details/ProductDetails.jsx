@@ -276,7 +276,9 @@ function ProductDetails() {
 
       <StyledReviewCard>
         {reviews.length &&
-          reviews?.map((review) => <ReviewCard reviews={review} />)}
+          reviews?.map((review) => (
+            <ReviewCard reviews={review} key={review._id} />
+          ))}
       </StyledReviewCard>
 
       {product && <Heading type="others"> You may also like </Heading>}

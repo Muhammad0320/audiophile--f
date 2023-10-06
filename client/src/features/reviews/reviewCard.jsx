@@ -17,6 +17,8 @@ const StyledCard = styled.div`
 
   background-color: var(--color-white-2);
 
+  background-image: var(--color-gradient-light);
+
   padding: 2rem 1.5rem;
 
   margin-bottom: 3rem;
@@ -47,6 +49,8 @@ const AvatarContainer = styled.div`
     text-transform: uppercase;
 
     font-size: 1.5rem;
+
+    font-weight: 500;
   }
 `;
 
@@ -56,7 +60,7 @@ const TimeStamp = styled.span`
   font-size: 1.2rem;
 
   position: absolute;
-  margin-top: 1rem;
+  padding: 1rem;
 
   bottom: 1rem;
   right: 1rem;
@@ -71,6 +75,7 @@ function ReviewCard({ reviews }) {
   } = reviews;
 
   console.log(
+    "okay",
     new Date(createdAt).toLocaleString("en-us", {
       month: "long",
       year: "numeric",

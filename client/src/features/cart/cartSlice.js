@@ -44,15 +44,39 @@ const cartSlice = createSlice({
     },
 
     addItemQuantity(state, action) {
-      const item = state.cart?.find(
+      // Chnaged it to this to notify redux that the state.cart chnages all the time !
+
+      const itemIndex = state.cart.findIndex(
         (item) => item.product._id === action.payload
       );
 
-      item.quantity++;
+      const item = state.cart[itemIndex];
 
-      item.totalPrice = item.quantity * item.product.price;
+      const updatedItem = {
+        ...item,
 
-      state.changes.push({ type: "update", item: { ...item } });
+        quantity: item.quantity + 1,
+
+        totalPrice: item.price * item.quantity + 1,
+      };
+
+      state.cart = [
+        ...state.cart.slice(0, itemIndex),
+
+        updatedItem,
+
+        ...state.cart.slice(itemIndex + 1),
+      ];
+
+      // const item = state.cart?.find(
+      //   (item) => item.product._id === action.payload
+      // );
+
+      // item.quantity++;
+
+      // item.totalPrice = item.quantity * item.product.price;
+
+      state.changes.push({ type: "update", item: updatedItem });
     },
 
     removeItemQuantity(state, action) {

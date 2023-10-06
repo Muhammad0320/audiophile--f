@@ -56,6 +56,8 @@ function CartTableItem({ cart }) {
 
   const productName = name.split(" ")[0];
 
+  console.log("hmm let see");
+
   return (
     <Table.Row>
       <Image src={image} />
