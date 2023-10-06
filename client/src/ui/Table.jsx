@@ -1,6 +1,8 @@
 import { createContext, useContext } from "react";
 import styled from "styled-components";
 import Button from "./Button";
+import { useSendBulkData } from "../features/cart/useSendBulkData";
+import SpinnerMini from "./SpinnerMini";
 
 const TableAndButtonContainer = styled.div`
   display: flex;
@@ -86,6 +88,12 @@ const TableContext = createContext();
 // Create parent element
 
 function Table({ children, column, changes }) {
+  const { isSendingBulkData, sendBulkdata } = useSendBulkData();
+
+  const handleClick = () => {
+    sendBulkdata({ changes });
+  };
+
   return (
     <TableContext.Provider value={{ column }}>
       <TableAndButtonContainer>
@@ -93,7 +101,23 @@ function Table({ children, column, changes }) {
           {" "}
           <> {children} </>{" "}
         </TableContainer>
-        {changes?.length && <Button> save and checkout </Button>}
+
+        {changes?.length && (
+          <Button
+            disabled={isSendingBulkData}
+            withspinner={isSendingBulkData ? "true" : ""}
+            onClick={handleClick}
+          >
+            {isSendingBulkData ? (
+              <>
+                {" "}
+                <SpinnerMini /> <span> saving cart... </span>{" "}
+              </>
+            ) : (
+              <span> Save and checkoutii </span>
+            )}
+          </Button>
+        )}
       </TableAndButtonContainer>
     </TableContext.Provider>
   );

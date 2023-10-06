@@ -4,8 +4,6 @@ import Spinner from "../../ui/Spinner";
 import { useSelector } from "react-redux";
 import { getCart, getChanges } from "./cartSlice";
 import CartTableItem from "./CartTableITem";
-import Button from "../../ui/Button";
-import { sendBulkItemToCart } from "../../service/apiCart";
 
 const StyledCartContainer = styled.div`
   grid-column: 2 / -1;
@@ -22,17 +20,9 @@ function CartTable() {
 
   const isLoading = false;
 
-  const handleClick = () => {
-    sendBulkItemToCart({ changes });
-  };
-
   return (
     <StyledCartContainer>
-      <Table
-        column="0.5fr 0.8fr max-content 0.6fr 0.4fr"
-        changes={changes}
-        onClick={handleClick}
-      >
+      <Table column="0.5fr 0.8fr max-content 0.6fr 0.4fr" changes={changes}>
         <Table.Header>
           <div></div>
           <div>Name</div>
@@ -52,9 +42,6 @@ function CartTable() {
           />
         )}
       </Table>
-      {changes.length && (
-        <Button onClick={handleClick}> Save and checkout </Button>
-      )}
     </StyledCartContainer>
   );
 }
