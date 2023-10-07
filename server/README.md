@@ -39,6 +39,9 @@ The server exposes the following API endpoints:
 ### Product Endpoint
 
 - `GET /api/v1/products`: Fetches a list of all products.
+- `POST /api/v1/products`: Creates a new product - Restricted to admin only.
+
 - `GET /api/v1/products/top-5-cheap`: To get the list top cheap products.
-- `GET /api/v1/products/products-below/:price`: Fetches a list of all products.
-- `Get /api/v1/products/slug/:slug`: Get a particular product by slug
+- `GET /api/v1/products/products-below/:price`: Fetch a list of product below the price params'
+- `Get /api/v1/products/slug/:slug`: Get a particular product by slug.
+- `Get /api/v1/products/:id`: Get a particular product by id.
