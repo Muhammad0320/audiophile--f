@@ -61,3 +61,5 @@ The server exposes the following API endpoints:
 
 - `POST /api/v1/users/signup`: Creates new user and send cookie to client
 - `POST /api/v1/users/login`: Logs user in and send cookie to client
+- `POST /api/v1/users/fotgotPassword`: sends a password reset token / endoint to current to email
+- `POST /api/v1/users/passwordReset/:token`: Actual reseting of new password and current password
