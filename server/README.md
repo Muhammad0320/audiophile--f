@@ -39,5 +39,5 @@ The server exposes the following API endpoints:
 ### Product Endpoint
 
 - `GET /api/v1/products`: Fetches a list of all products.
-- `GET /api/v1/products`: Fetches a list of all products.
+- `GET /api/v1/products/top-5-cheap`: To get the list top cheap products.
 - `GET /api/v1/products`: Fetches a list of all products.

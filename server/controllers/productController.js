@@ -67,7 +67,7 @@ exports.getBestProduct = (req, res, next) => {
 };
 
 exports.getProductBelow = async (req, res) => {
-  const price = req.params.below * 1;
+  const price = req.params.price * 1;
 
   const products = await Product.find({ price: { $lte: price } });
 
