@@ -49,10 +49,14 @@ The server exposes the following API endpoints:
 - `DELETE /api/v1/products/:id`: Delete a particular product by id.
 - `GET /api/v1/products/get-product-stats`: Get a all tour statictics.
 
-### Product Endpoint on Review
+#### Product Endpoint on Review
 
 - `/api/v1/products/:productId/review`: Navigates to the reviews routes and Get all reviews with a that belogs to the product with id of productId params.
 
-### Product Endoint on Cart
+#### Product Endoint on Cart
 
 - `/api/v1/products/:productId/cart`: Navigates to the cart routes and Creates a new cart automatically with by the productId params
+
+### User Endpoint
+
+- `POST /api/v1/users/signup`: Creates new user and persist in db
