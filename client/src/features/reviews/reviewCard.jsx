@@ -17,7 +17,7 @@ const StyledCard = styled.div`
 
   background: var(--color-primary-light-muted);
 
-  background-image: var(--color-gradient-dark);
+  background-image: var(--color-gradient-muted);
 
   padding: 2rem 1.5rem;
 

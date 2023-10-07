@@ -68,10 +68,10 @@ const AuthButton = styled.a`
   text-decoration: none;
   display: grid;
   place-items: center;
-  padding: 1rem 2.5rem;
+  padding: 0.8rem 1.4rem;
   background-color: transparent;
-  border: 2px solid var(--color-white);
-  font-size: 2rem;
+  border: 1px solid var(--color-white);
+  font-size: 1.6rem;
   font-weight: 500;
   text-transform: uppercase;
   transition: background-color 0.3s ease-out;
@@ -79,12 +79,30 @@ const AuthButton = styled.a`
   &:hover {
     background-color: var(--color-primary);
     color: var(--color-white);
-
-    border: 2px solid var(--color-primary);
+    border: none;
+    background-color: var(--color-primary-muted);
+    background-image: var(--color-gradient-dark);
   }
 
   &:first-of-type {
+    border: none;
     margin-right: 2rem;
+
+    &:hover {
+    }
+  }
+
+  &:last-of-type {
+    border: none;
+    margin-right: 2rem;
+    background-color: var(--color-primary-muted);
+    background-image: var(--color-gradient-dark);
+
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
   }
 `;
 

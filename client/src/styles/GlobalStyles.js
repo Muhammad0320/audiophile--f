@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     --color-gradient-light: linear-gradient(145deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .25));
     --color-primary-muted: color-mix(in oklab, var(--color-primary) 80%, var(--color-white));
     --color-primary-dark: color-mix(in oklab, var(--color-primary) 80%, var(--color-dark));
-    --color-primary-light-muted: color-mix(in oklab, var(--color-primary-light) 40%, var(--color-white));
+    --color-primary-light-muted: color-mix(in oklab, var(--color-primary-light) 30%, var(--color-white));
     --color-primary-light-dark: color-mix(in oklab, var(--color-primary-light) 80%, var(--color-dark));
 
 
@@ -52,13 +52,12 @@ button{
 
 ::-webkit-scrollbar-thumb {
 
-  background: var( --color-primary ); 
-
+  background: var( --color-primary-muted ); 
+  
   background-image: var(--color-gradient-dark);
 
   transition: background-color .2s ease ;
   border-radius: 100vw; 
-  border: 1px solid var(--color-dark-2) ;
   
 
   &:hover {

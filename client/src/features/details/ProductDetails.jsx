@@ -43,12 +43,24 @@ export const Heading = styled.h4`
 
   text-transform: uppercase;
 
+  background-color: var(--color-primary-light-dark);
+
+  background-image: var(--color-gradient-dark);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+
   ${(props) =>
     props.type === "review" &&
     css`
       text-align: center;
       margin-bottom: 6rem;
-      font-size: 4.5rem;
+      font-size: 4rem;
+      background-color: var(--color-primary-light-dark);
+
+      background-image: var(--color-gradient-dark);
     `}
 
   ${(props) =>
@@ -170,8 +182,6 @@ const StyledReviewCard = styled.div`
 
   grid-auto-columns: 28%;
 
-  margin-bottom: 4rem;
-
   padding: 0 1rem;
 
   column-gap: 4rem;
@@ -179,6 +189,7 @@ const StyledReviewCard = styled.div`
   overflow-x: auto;
 
   padding-bottom: 4rem;
+  margin-bottom: 14rem;
 `;
 
 function ProductDetails() {
