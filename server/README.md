@@ -16,8 +16,6 @@ This is the server-side component of My E-Commerce App, a full-stack e-commerce 
 
 3. Set the following environment variables in the `.env` file:
 
-   -
-
    - `DATABASE`: The uri from you mongodb database database.
 
    - `JWT_SECRET`: Any secret text with kebeab case minimum of 32 characters database.
@@ -39,6 +37,7 @@ The server exposes the following API endpoints:
 ### Product Endpoint
 
 - `GET /api/v1/products`: Fetches a list of all products.
+  > **Note:** This endpoint is restricted to admins only. Users without administrative privileges will receive an authorization error if they attempt to access it.
 - `POST /api/v1/products`: Creates a new product - Restricted to admin only.
 
 - `GET /api/v1/products/top-5-cheap`: To get the list top cheap products.
