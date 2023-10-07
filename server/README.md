@@ -48,3 +48,7 @@ The server exposes the following API endpoints:
 - `PATCH /api/v1/products/:id`:Update a particular product by id .
 - `DELETE /api/v1/products/:id`: Delete a particular product by id.
 - `GET /api/v1/products/get-product-stats`: Get a all tour statictics.
+
+### Product Endpoint on Review
+
+- `/api/v1/products/:productId/review`: Navigates to the reviews routes and Get all reviews with a that belogs to the product with id of productId params.
