@@ -52,3 +52,7 @@ The server exposes the following API endpoints:
 ### Product Endpoint on Review
 
 - `/api/v1/products/:productId/review`: Navigates to the reviews routes and Get all reviews with a that belogs to the product with id of productId params.
+
+### Product Endoint on Cart
+
+- `/api/v1/products/:productId/cart`: Navigates to the cart routes and Creates a new cart automatically with by the productId params
