@@ -17,6 +17,7 @@ This is the server-side component of My E-Commerce App, a full-stack e-commerce 
 3. Set the following environment variables in the `.env` file:
 
    -
+
    - `DATABASE`: The uri from you mongodb database database.
 
    - `JWT_SECRET`: Any secret text with kebeab case minimum of 32 characters database.
@@ -28,3 +29,15 @@ This is the server-side component of My E-Commerce App, a full-stack e-commerce 
 ## Starting the Server
 
 To start the server locally, run the following command: `npm run start:prod`
+
+The server will be running on `http://127.0.0.1:3000`
+
+## API Documentation
+
+The server exposes the following API endpoints:
+
+### Product Endpoint
+
+- `GET /api/v1/products`: Fetches a list of all products.
+- `GET /api/v1/products`: Fetches a list of all products.
+- `GET /api/v1/products`: Fetches a list of all products.
