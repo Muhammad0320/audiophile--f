@@ -40,4 +40,5 @@ The server exposes the following API endpoints:
 
 - `GET /api/v1/products`: Fetches a list of all products.
 - `GET /api/v1/products/top-5-cheap`: To get the list top cheap products.
-- `GET /api/v1/products`: Fetches a list of all products.
+- `GET /api/v1/products/products-below/:price`: Fetches a list of all products.
+- `Get /api/v1/products/slug/:slug`: Get a particular product by slug
