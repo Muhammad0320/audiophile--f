@@ -59,4 +59,5 @@ The server exposes the following API endpoints:
 
 ### User Endpoint
 
-- `POST /api/v1/users/signup`: Creates new user and persist in db
+- `POST /api/v1/users/signup`: Creates new user and send cookie to client
+- `POST /api/v1/users/login`: Logs user in and send cookie to client
