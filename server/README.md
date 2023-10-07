@@ -47,3 +47,4 @@ The server exposes the following API endpoints:
 - `GET /api/v1/products/:id`: Get a particular product by id.
 - `PATCH /api/v1/products/:id`:Update a particular product by id .
 - `DELETE /api/v1/products/:id`: Delete a particular product by id.
+- `GET /api/v1/products/get-product-stats`: Get a all tour statictics.
