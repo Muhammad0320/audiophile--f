@@ -1,3 +1,7 @@
+// https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+
+// https://documenter.getpostman.com/view/29178674/2s9YJgTfzH
+
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
@@ -53,7 +57,7 @@ button{
 ::-webkit-scrollbar-thumb {
 
   background: var( --color-primary-muted ); 
-  
+
   background-image: var(--color-gradient-dark);
 
   transition: background-color .2s ease ;
