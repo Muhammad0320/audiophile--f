@@ -12,14 +12,16 @@
 - Changes state in the redux to add any changes that occurs in the cart for easier managaement.
 - Checkout
 - User profile management: full access to the user's profile like updating current user's data, passwords, resetting passwords for users forgot their password by actual sending of email to send token for password reset
+- Review management: user can manage all of their reviews by deleting and editing desired ones
 
 - Notification on how many total items are present in the cart
-- Only for Desktop Mode: not responsible for now !
+- Only for Desktop Mode: not responsible for now!
 
 ## Technologies Used
 
-- Frontend: React.js, React query, axios, react hot toast , Redux , HTML5, CSS3, React-hook-form, React-router, React-router-dom, Redux-toolkit, and more.
-- Deployment: vercel, Netlify , github
+- Frontend: React.js, React query, axios, React hot toast , Redux , HTML5, CSS3, React-hook-form, React-router, React-router-dom, Redux-toolkit, and more.
+-
+- Deployment: Vercel, Netlify, Github
 
 ## Installation
 
