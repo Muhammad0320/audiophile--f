@@ -8,8 +8,8 @@
 
 - Product catalog
 - Product details with images, descriptions, features, items in the box, reviews, average rating and ratings count and more...
-- Shopping cart management: adding items to cart, updating cart item, removing cart item, and clearing the entire cart.
-- Changes state in the redux to add any changes that occurs in the cart for easier managaement.
+- Shopping cart management: adding items to cart, updating cart item, removing cart item, and clearing the entire cart .
+- Changes state in the redux to add any changes that occurs in the cart for easier managaement and send all the chnanges to the server in just one netword trip for improved performance.
 - Checkout
 - User profile management: full access to the user's profile like updating current user's data, passwords, resetting passwords for users forgot their password by actual sending of email to send token for password reset
 - Review management: user can manage all of their reviews by deleting and editing desired ones
@@ -20,7 +20,7 @@
 ## Technologies Used
 
 - Frontend: React.js, React query, axios, React hot toast , Redux , HTML5, CSS3, React-hook-form, React-router, React-router-dom, Redux-toolkit, and more.
--
+
 - Deployment: Vercel, Netlify, Github
 
 ## Installation
