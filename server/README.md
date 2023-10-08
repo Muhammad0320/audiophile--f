@@ -1,6 +1,6 @@
-# My E-Commerce App - Server
+# Audiophile App - Server
 
-This is the server-side component of My E-Commerce App, a full-stack e-commerce application.
+This is the server-side component of Audiophile App, a full-stack e-commerce application.
 
 ## Installation
 
@@ -34,7 +34,7 @@ The server will be running on `http://127.0.0.1:3000`
 
 The server exposes the following API endpoints:
 
-### Product Endpoint
+### Product Endpoints
 
 - `GET /api/v1/products`: Fetches a list of all products.
   > **Note:** This endpoint is restricted to admins only. Users without administrative privileges will receive an authorization error if they attempt to access it.
@@ -56,9 +56,11 @@ The server exposes the following API endpoints:
 
 - `/api/v1/products/:productId/cart`: Navigates to the cart routes and Creates a new cart automatically with by the productId params
 
-### User Endpoint
+### User Endpoints
 
 - `POST /api/v1/users/signup`: Creates new user and send cookie to client
 - `POST /api/v1/users/login`: Logs user in and send cookie to client
 - `POST /api/v1/users/fotgotPassword`: sends a password reset token / endoint to current to email
 - `POST /api/v1/users/passwordReset/:token`: Actual reseting of new password and current password
+
+- `GET`

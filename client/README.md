@@ -25,14 +25,9 @@
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/Muhammad0320/audiophile-app.git`
-2. Navigate to the project directory: `cd ecommerce-app`
+1. Clone the repository: `git clone https://github.com/Muhammad0320/audiophile--f.git`
+2. Navigate to the server directory: `cd audiophile--f/server`
 3. Install dependencies: `npm install`
-
-## Configuration
-
-1. Create a `.env` file in the root directory based on `.env.example`.
-2. Add necessary environment variables
 
 ## Usage
 
