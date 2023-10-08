@@ -7,16 +7,18 @@
 ## Features
 
 - Product catalog
-- Product details with images, descriptions, features, in the box
-- Shopping cart management: updating numbers, removing and clearing the entire cart
+- Product details with images, descriptions, features, items in the box, reviews, average rating and ratings count and more...
+- Shopping cart management: adding items to cart, updating cart item, removing cart item, and clearing the entire cart.
+- Changes state in the redux to add any changes that occurs in the cart for easier managaement.
 - Checkout
-- User profile management
+- User profile management: full access to the user's profile like updating current user's data, passwords, resetting passwords for users forgot their password by actual sending of email to send token for password reset
+
 - Notification on how many total items are present in the cart
-- Only for large screens: not responsible for now
+- Only for Desktop Mode: not responsible for now !
 
 ## Technologies Used
 
-- Frontend: React.js, React query, axios, q , Redux , HTML5, CSS3, React-hook-form, React-router, React-router-dom, Redux-toolkit, and more.
+- Frontend: React.js, React query, axios, react hot toast , Redux , HTML5, CSS3, React-hook-form, React-router, React-router-dom, Redux-toolkit, and more.
 - Deployment: vercel, Netlify , github
 
 ## Installation
