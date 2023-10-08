@@ -2,7 +2,7 @@
 
 ## Description
 
-**A fully functional fullstack website for an e-commerce platform. This website allows users to browse and purchase products, manage their shopping carts and persisting the update in the database , complete orders, and lot more.**
+**A fully functional fullstack website for an e-commerce platform. This website allows users to browse and purchase products, add and manage reviews, manage their shopping carts and persisting the update in the database , complete orders, and lot more.**
 
 ## Features
 
