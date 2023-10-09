@@ -8,7 +8,8 @@ const {
   getProductStatistics,
   getBestProduct,
   getProductBelow,
-  getProductDetail
+  getProductDetail,
+  uploadProductImages
 } = require('../controllers/productController');
 
 const cartRouter = require('./cartRoutes');
@@ -38,7 +39,7 @@ router
 
 router
   .route('/:id')
-  .patch(protect, restrictTo('admin'), updateProduct)
+  .patch(protect, restrictTo('admin'), uploadProductImages, updateProduct)
   .get(getProduct)
   .delete(protect, restrictTo('admin'), deleteProduct);
 
