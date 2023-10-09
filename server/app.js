@@ -23,11 +23,6 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
-app.use(
-  '/assets',
-  express.static(path.join(__dirname, 'client/public/assets'))
-);
-
 app.use(cookieParser());
 
 if (process.env.NODE_ENV === 'development') {

@@ -1,5 +1,6 @@
 const sharp = require('sharp');
 const multer = require('multer');
+const path = require('path');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
@@ -51,11 +52,21 @@ exports.resizeUserImage = catchAsync(async (req, res, next) => {
 
   req.file.filename = `user-${req.user._id}-${Date.now()}.jpeg`;
 
+  const outputPath = path.join(
+    __dirname,
+    '..',
+    '..',
+    'client/public/assets/users',
+    req.file.filename
+  );
+
   await sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 85 })
-    .toFile(`Audiophile/client/public/assets/users/${req.file.filename}`);
+    .toFile(outputPath);
+
+  next();
 });
 
 const filteredObj = (body, ...allowedFields) => {
