@@ -255,7 +255,7 @@ function ProductDetails() {
       </SmallButton>
       <Container>
         <ImageContainer style={{ gridColumn: "1 / 2" }}>
-          <img src={image} alt="product" />
+          <img src={`/assets/product/${image}`} alt="product" />
         </ImageContainer>
 
         <DescriptionContainer>
@@ -298,9 +298,9 @@ function ProductDetails() {
       </FeatureBox>
 
       <GalleryContainer>
-        <img src={first} alt="GalleryImage 1" />
-        <img src={second} alt="GalleryImage 2" />
-        <img src={third} alt="GalleryImage 3 " />
+        <img src={`/assets/product/${first}`} alt="GalleryImage 1" />
+        <img src={`/assets/product/${second}`} alt="GalleryImage 2" />
+        <img src={`/assets/product/${third}`} alt="GalleryImage 3 " />
       </GalleryContainer>
 
       <Heading type="review"> Our customers review </Heading>
@@ -315,9 +315,12 @@ function ProductDetails() {
       <OthersContainer>
         {others?.map((item) => {
           return (
-            <>
-              <OtherImageContainer key={item._id}>
-                <img src={item?.image} alt=" OtherImage " />
+            <div key={item._id}>
+              <OtherImageContainer>
+                <img
+                  src={`/assets/product/${item?.image}`}
+                  alt=" OtherImage "
+                />
               </OtherImageContainer>
 
               <OtherTextBox>
@@ -327,7 +330,7 @@ function ProductDetails() {
                   see product{" "}
                 </Button>
               </OtherTextBox>
-            </>
+            </div>
           );
         })}
       </OthersContainer>
