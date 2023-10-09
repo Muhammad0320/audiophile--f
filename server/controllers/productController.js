@@ -1,3 +1,5 @@
+const path = require('path');
+
 const multer = require('multer');
 const sharp = require('sharp');
 
@@ -71,7 +73,19 @@ exports.resizeProductImages = catchAsync(async (req, res, next) => {
 
   req.body.image = `product-${req.params.id}-${Date.now()}.jpeg`;
 
-  console.log(req.files);
+  const imagePath = path.join(
+    __dirname,
+    '..',
+    '..',
+    'client/public/assets/product',
+    req.body.image
+  );
+
+  await sharp(req.files.image[0].buffer)
+    .resize(2000, 1333)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(imagePath);
 
   next();
 });
