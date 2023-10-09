@@ -15,7 +15,8 @@ const {
   deleteUser,
   getMe,
   deleteMe,
-  updateMe
+  updateMe,
+  uploadUserImage
 } = require('../controllers/userController');
 
 const router = express.Router();
@@ -35,7 +36,7 @@ router.route('/updatePassword').patch(updateCurrentUserPassword);
 
 router.route('/deleteMe').delete(deleteMe);
 
-router.route('/updateMe').patch(updateMe);
+router.route('/updateMe').patch(uploadUserImage, updateMe);
 
 router.use(restrictTo('admin'));
 
