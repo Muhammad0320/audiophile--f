@@ -1,3 +1,5 @@
+const sharp = require('sharp');
+const multer = require('multer');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
@@ -22,6 +24,26 @@ exports.getMe = catchAsync(async (req, res, next) => {
   });
 });
 
+const multerStorage = multer.memoryStorage();
+
+const multerfilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(
+      new AppError('Invalid file upload, please upload only image file', 400),
+      false
+    );
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerfilter
+});
+
+exports.uploadUserImage = upload.single('photo');
+
 const filteredObj = (body, ...allowedFields) => {
   const newObj = {};
 
@@ -42,7 +64,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     );
   }
 
-  const filteredBody = filteredObj(req.body, 'name', 'email', 'photo');
+  const filteredBody = filteredObj(req.body, 'name', 'email');
 
   const user = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,
