@@ -66,6 +66,16 @@ exports.uploadProductImages = upload.fields([
   }
 ]);
 
+exports.resizeProductImages = catchAsync(async (req, res, next) => {
+  if (!req.files) return next();
+
+  req.body.image = `product-${req.params.id}-${Date.now()}.jpeg`;
+
+  console.log(req.files);
+
+  next();
+});
+
 exports.getProductStatistics = async (req, res) => {
   const stats = await Product.aggregate([
     {
