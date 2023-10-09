@@ -1,66 +1,11 @@
-# Audiophile App - Server
+# Audiophile API Documentation
 
-This is the server-side component of Audiophile App, a full-stack e-commerce application.
+The API for Audiophile project has been thoroughly documented using Postman. You can access and explore the API documentation by following these steps:
 
-## Installation
+1. Visit the Postman API documentation page: [Link to Audiophile API Documentation](https://documenter.getpostman.com/view/29178674/2s9YJgTfzH)
 
-1. Clone the repository: `git clone https://github.com/Muhammad0320/audiophile--f.git`
-2. Navigate to the server directory: `cd audiophile--f/server`
-3. Install dependencies: `npm install`
+2. Here, you will find detailed information about the available API endpoints, request examples, and response schemas.
 
-## Configuration
+3. Use the documentation to understand how to interact with the API, including making requests and handling responses.
 
-1. Create a `.env` file in the server directory.
-
-2. Create a new project with mongodb
-
-3. Set the following environment variables in the `.env` file:
-
-   - `DATABASE`: The uri from you mongodb database database.
-
-   - `JWT_SECRET`: Any secret text with kebeab case minimum of 32 characters database.
-   - `JWT_EXPIRES_IN`: The number of days you want the user to stay logged in
-
-   - `DATABASE_PASSWORD`: The password for accessing your PostgreSQL database.
-   - `STRIPE_API_KEY`: Your Stripe API key.
-
-## Starting the Server
-
-To start the server locally, run the following command: `npm run start:prod`
-
-The server will be running on `http://127.0.0.1:3000`
-
-## API Documentation
-
-The server exposes the following API endpoints:
-
-### Product Endpoints
-
-- `GET /api/v1/products`: Fetches a list of all products.
-  > **Note:** This endpoint is restricted to admins only. Users without administrative privileges will receive an authorization error if they attempt to access it.
-- `POST /api/v1/products`: Creates a new product - Restricted to admin only.
-
-- `GET /api/v1/products/top-5-cheap`: To get the list top cheap products.
-- `GET /api/v1/products/products-below/:price`: Fetch a list of product below the price params'
-- `GET /api/v1/products/slug/:slug`: GET a particular product by slug.
-- `GET /api/v1/products/:id`: Get a particular product by id.
-- `PATCH /api/v1/products/:id`:Update a particular product by id .
-- `DELETE /api/v1/products/:id`: Delete a particular product by id.
-- `GET /api/v1/products/get-product-stats`: Get a all tour statictics.
-
-#### Product Endpoint on Review
-
-- `/api/v1/products/:productId/review`: Navigates to the reviews routes and Get all reviews with a that belogs to the product with id of productId params.
-
-#### Product Endoint on Cart
-
-- `/api/v1/products/:productId/cart`: Navigates to the cart routes and Creates a new cart automatically with by the productId params
-
-### User Endpoints
-
-- `POST /api/v1/users/signup`: Creates new user and send cookie to client
-- `POST /api/v1/users/login`: Logs user in and send cookie to client
-- `POST /api/v1/users/fotgotPassword`: sends a password reset token / endoint to current to email
-- `POST /api/v1/users/passwordReset/:token`: Actual reseting of new password and current password
-
-- `GET`
+> **Note:** This Postman documentation provides a comprehensive overview of the API and is the primary reference for API usage. If you have any questions or encounter issues, please refer to this documentation for assistance.
