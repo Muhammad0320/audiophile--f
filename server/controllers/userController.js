@@ -44,6 +44,22 @@ const upload = multer({
 
 exports.uploadUserImage = upload.single('photo');
 
+exports.resizeUserImage = catchAsync(async (req, res, next) => {
+  if (!req.file) return next();
+
+  console.log(req.files);
+
+  req.file.filename = `/client/public/assets/users/user-${
+    req.user._id
+  }-${Date.now()}.jpeg`;
+
+  await sharp(req.file.photo.buffer)
+    .resize(500, 500)
+    .toFormat('jpeg')
+    .jpeg({ quality: 85 })
+    .toFile(req.file.filename);
+});
+
 const filteredObj = (body, ...allowedFields) => {
   const newObj = {};
 
