@@ -19,11 +19,6 @@ const productSchema = new mongoose.Schema({
     enum: ['earphones', 'headphones', 'speakers', 'wired-earphones']
   },
 
-  categoryImage: {
-    type: String,
-    required: [true, 'A product must have a category image']
-  },
-
   createdAt: {
     type: Date,
     default: Date.now()

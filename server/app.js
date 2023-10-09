@@ -2,8 +2,6 @@ const express = require('express');
 
 const cookieParser = require('cookie-parser');
 
-const path = require('path');
-
 const sanitize = require('express-mongo-sanitize');
 const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
