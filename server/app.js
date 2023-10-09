@@ -2,6 +2,8 @@ const express = require('express');
 
 const cookieParser = require('cookie-parser');
 
+const path = require('path');
+
 const sanitize = require('express-mongo-sanitize');
 const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
@@ -20,6 +22,11 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
+
+app.use(
+  '/assets',
+  express.static(path.join(__dirname, 'client/public/assets'))
+);
 
 app.use(cookieParser());
 

@@ -47,17 +47,15 @@ exports.uploadUserImage = upload.single('photo');
 exports.resizeUserImage = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
 
-  console.log(req.files);
+  // console.log(req.file);
 
-  req.file.filename = `/client/public/assets/users/user-${
-    req.user._id
-  }-${Date.now()}.jpeg`;
+  req.file.filename = `user-${req.user._id}-${Date.now()}.jpeg`;
 
-  await sharp(req.file.photo.buffer)
+  await sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 85 })
-    .toFile(req.file.filename);
+    .toFile(`Audiophile/client/public/assets/users/${req.file.filename}`);
 });
 
 const filteredObj = (body, ...allowedFields) => {
