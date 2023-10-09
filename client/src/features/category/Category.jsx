@@ -95,7 +95,7 @@ function Category({ categoryData, index }) {
       <ImageContainer
         style={{ gridColumn: index % 2 === 0 ? "1 / 2" : "2 / -1" }}
       >
-        <img src={image} alt=" Product" />
+        <img src={`/assets/product/${image}`} alt=" Product" />
       </ImageContainer>
 
       <DescriptionContainer

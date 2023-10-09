@@ -315,7 +315,7 @@ function ProductDetails() {
       <OthersContainer>
         {others?.map((item) => {
           return (
-            <div key={item._id}>
+            <>
               <OtherImageContainer>
                 <img
                   src={`/assets/product/${item?.image}`}
@@ -330,7 +330,7 @@ function ProductDetails() {
                   see product{" "}
                 </Button>
               </OtherTextBox>
-            </div>
+            </>
           );
         })}
       </OthersContainer>
