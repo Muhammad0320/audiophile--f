@@ -224,7 +224,7 @@
     "ratingsQuantity": 96,
     "slug": "zx7-speaker",
     "name": "ZX7 Speaker",
-    "image": "product-",
+    "image": "product-5-preview.jpg",
     "category": "speakers",
 
     "new": false,
@@ -254,25 +254,25 @@
       }
     ],
     "gallery": {
-      "first": "product-",
-      "second": "product-",
-      "third": "product-"
+      "first": "product-5-gallery-1.jpg",
+      "second": "product-5-gallery-2.jpg",
+      "third": "product-5-gallery-3.jpg"
     },
     "others": [
       {
         "slug": "zx9-speaker",
         "name": "ZX9 Speaker",
-        "image": "product-"
+        "image": "product-6-preview.jpg"
       },
       {
         "slug": "xx99-mark-one-headphones",
         "name": "XX99 Mark I",
-        "image": "product-"
+        "image": "product-2-preview.jpg"
       },
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "product-"
+        "image": "product-1-preview.jpg"
       }
     ]
   },
@@ -281,7 +281,7 @@
     "ratingsQuantity": 107,
     "slug": "zx9-speaker",
     "name": "ZX9 Speaker",
-    "image": "product-",
+    "image": "product-6-preview.jpg",
     "category": "speakers",
 
     "new": true,
@@ -311,25 +311,25 @@
       }
     ],
     "gallery": {
-      "first": "product-",
-      "second": "product-",
-      "third": "product-"
+      "first": "product-6-gallery-1.jpg",
+      "second": "product-6-gallery-2.jpg",
+      "third": "product-6-gallery-3.jpg"
     },
     "others": [
       {
         "slug": "zx7-speaker",
         "name": "ZX7 Speaker",
-        "image": "product-"
+        "image": "product-5-preview.jpg"
       },
       {
         "slug": "xx99-mark-one-headphones",
         "name": "XX99 Mark I",
-        "image": "product-"
+        "image": "product-2-preview.jpg"
       },
       {
         "slug": "xx59-headphones",
         "name": "XX59",
-        "image": "product-"
+        "image": "product-1-preview.jpg"
       }
     ]
   }
