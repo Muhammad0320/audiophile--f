@@ -54,6 +54,18 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
+exports.uploadProductImages = upload.fields([
+  {
+    name: 'image',
+    maxCount: 1
+  },
+
+  {
+    name: 'gallery',
+    maxCount: 3
+  }
+]);
+
 exports.getProductStatistics = async (req, res) => {
   const stats = await Product.aggregate([
     {
