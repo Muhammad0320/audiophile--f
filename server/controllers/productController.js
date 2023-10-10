@@ -70,7 +70,6 @@ exports.uploadProductImages = upload.fields([
 
 exports.resizeProductImages = catchAsync(async (req, res, next) => {
   if (!req.files.image || !req.files.gallery) return next();
-
   req.body.image = `product-${req.params.id}-${Date.now()}.jpeg`;
 
   const imagePath = path.join(
@@ -88,7 +87,7 @@ exports.resizeProductImages = catchAsync(async (req, res, next) => {
     .toFile(imagePath);
 
   await Promise.all(
-    req.file.gallery.map(async (img, i) => {
+    req.files.gallery.map(async (img, i) => {
       req.body.gallery = [];
 
       const filename = `proudct-${req.params.id}-${Date.now()}-gallery-${i +
@@ -102,13 +101,13 @@ exports.resizeProductImages = catchAsync(async (req, res, next) => {
         filename
       );
 
-      const currentImage = await sharp(img.buffer)
+      await sharp(img.buffer)
         .resize(2000, 1333)
         .toFormat('jpeg')
         .jpeg({ quality: 90 })
         .toFile(filePath);
 
-      req.body.gallery.push(currentImage);
+      req.body.gallery.push(filename);
     })
   );
   next();
