@@ -43,16 +43,19 @@ export const getCurrentUserApi = async () => {
   }
 };
 
-export const updateUserData = async ({ email, name }) => {
+export const updateUserData = async ({ email, name, photo }) => {
+  const form = new FormData();
+
+  form.append("name", name);
+  form.append("email", email);
+  form.append("photo", photo);
+
   const res = await axios({
     method: "PATCH",
     url: "http://127.0.0.1:3000/api/v1/users/updateMe",
     withCredentials: true,
 
-    data: {
-      email,
-      name,
-    },
+    data: form,
   });
 
   console.log(res.data);

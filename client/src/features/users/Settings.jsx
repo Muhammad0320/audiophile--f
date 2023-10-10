@@ -49,18 +49,25 @@ const UserImage = styled.img`
 `;
 
 function Settings() {
-  const { user: { name, email, photo } = {} } = useUser();
+  const { user = {} } = useUser();
+
+  const { photo, name, email } = user;
 
   const { updateUser, isUpdating } = useUpdateUSer();
 
   const { updatePassword, isUpdatingPassowrd } = useUpdatePassword();
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: user,
+  });
 
-  const onSubmitData = ({ name, email }, e) => {
+  const onSubmitData = ({ name, email, photo }, e) => {
+    // const onSubmitData = ({ name, email }, e) => {
+    console.log(photo[0]);
+
     e.preventDefault();
 
-    updateUser({ name, email });
+    updateUser({ name, email, photo: photo[0] });
   };
 
   const onSubmitPassword = (
@@ -94,8 +101,8 @@ function Settings() {
         <FormRow account label="Email address">
           <Input
             account="true"
-            defaultValue={email}
             type="text"
+            defaultValue={email}
             {...register("email")}
           />
         </FormRow>
@@ -103,7 +110,12 @@ function Settings() {
         <FileGroup>
           <UserImage src={`/assets/users/${photo}`} />
 
-          <FileInput name="photo" id="photo" accept="image/*" />
+          <FileInput
+            name="photo"
+            id="photo"
+            accept="image/*"
+            {...register("photo")}
+          />
         </FileGroup>
 
         {isUpdating ? (

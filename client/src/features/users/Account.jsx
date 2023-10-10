@@ -36,9 +36,9 @@ const NavList = styled.ul`
 const Sidebar = styled.div`
   grid-column: 1 / 2;
 
-  background: var(--color-primary-light);
+  background: var(--color-primary-muted);
 
-  background-image: var(--color-gradient-dark-1);
+  background-image: var(--color-gradient-dark);
 
   padding: 2rem 3rem;
 `;

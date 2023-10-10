@@ -39,7 +39,7 @@ router.route('/deleteMe').delete(deleteMe);
 
 router.route('/updateMe').patch(uploadUserImage, resizeUserImage, updateMe);
 
-router.use(restrictTo('admin'));
+// router.use(restrictTo('admin'));
 
 router.route('/').get(getAllUsers);
 
