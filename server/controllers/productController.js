@@ -69,7 +69,7 @@ exports.uploadProductImages = upload.fields([
 ]);
 
 exports.resizeProductImages = catchAsync(async (req, res, next) => {
-  if (!req.files) return next();
+  if (!req.files.image || !req.files.gallery) return next();
 
   req.body.image = `product-${req.params.id}-${Date.now()}.jpeg`;
 
@@ -87,6 +87,30 @@ exports.resizeProductImages = catchAsync(async (req, res, next) => {
     .jpeg({ quality: 90 })
     .toFile(imagePath);
 
+  await Promise.all(
+    req.file.gallery.map(async (img, i) => {
+      req.body.gallery = [];
+
+      const filename = `proudct-${req.params.id}-${Date.now()}-gallery-${i +
+        1}.jpeg`;
+
+      const filePath = path.join(
+        __dirname,
+        '..',
+        '..',
+        'client/public/assets/product',
+        filename
+      );
+
+      const currentImage = await sharp(img.buffer)
+        .resize(2000, 1333)
+        .toFormat('jpeg')
+        .jpeg({ quality: 90 })
+        .toFile(filePath);
+
+      req.body.gallery.push(currentImage);
+    })
+  );
   next();
 });
 
