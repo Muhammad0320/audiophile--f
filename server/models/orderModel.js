@@ -32,3 +32,7 @@ const orderSchema = new mongoose.Schema({
     required: [true, 'Order must belog to a user']
   }
 });
+
+const Order = mongoose.model('Order', orderSchema);
+
+module.exports = Order;
