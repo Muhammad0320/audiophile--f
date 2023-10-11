@@ -29,8 +29,6 @@ const StyledContainer = styled.div`
   padding: 5rem 3rem;
 `;
 
-
-
 const StyledIcon = styled.span`
   width: 100%;
 `;
@@ -77,8 +75,6 @@ const CartOverview = styled.div`
   grid-column: 1 / 2;
 `;
 
-
-
 const OtherCartItem = styled.div`
   border-top: 1px solid var(--color-dark);
   opacity: 0.3;
@@ -104,7 +100,7 @@ function Confirmation() {
   const OtherCartItemCount = cart.length - 1;
 
   const navigate = useNavigate();
-  
+
   return (
     <StyledContainer>
       <StyledIcon>
