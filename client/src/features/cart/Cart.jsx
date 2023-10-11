@@ -79,7 +79,7 @@ function Cart({ page }) {
   const handleSendBulk = () => {
     sendBulkdata({ changes });
 
-    navigate("/checkout");
+    navigate("/my-cart");
   };
 
   if (!carts.length)

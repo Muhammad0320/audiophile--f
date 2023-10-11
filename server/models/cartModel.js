@@ -6,7 +6,7 @@ const cartSchema = new mongoose.Schema({
     default: 1
   },
 
-  totalCart: {
+  totalPrice: {
     type: Number,
     required: [true, 'A cart must have a total price']
   },

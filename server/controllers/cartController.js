@@ -51,6 +51,8 @@ exports.getMyCart = catchAsync(async (req, res, next) => {
 exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   const { changes } = req.body;
 
+  console.log(changes);
+
   if (!changes) return next();
 
   const bulkOps = changes.map(change => {
@@ -85,9 +87,8 @@ exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
     return {};
   });
 
-  console.log(bulkOps);
-
   const updatedCart = await Cart.bulkWrite(bulkOps, { ordered: true });
+  console.log(updatedCart);
 
   res.status(201).json({
     status: 'success',
