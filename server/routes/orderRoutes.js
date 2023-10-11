@@ -4,13 +4,16 @@ const {
   createOrder,
   getOrder,
   updateOrder,
-  deleteOrder
+  deleteOrder,
+  getCheckoutSesion
 } = require('../controllers/orderController');
 const { protect } = require('../controllers/authController');
 
 const router = express.Router();
 
 router.use(protect);
+
+router.get('/checkout-session', getCheckoutSesion);
 
 router
   .route('/')
