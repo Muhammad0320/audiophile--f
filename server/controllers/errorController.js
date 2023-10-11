@@ -19,6 +19,7 @@ const sendErrorProd = (err, res) => {
       status: err.status,
       message: 'Something went very wrong'
     });
+    console.log('Error 🔥', err);
   }
 };
 

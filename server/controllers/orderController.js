@@ -25,6 +25,8 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     );
   }
 
+  const cartId = currentUserCart.map(item => item._id);
+
   const checkoutItems = currentUserCart.map(item => {
     return {
       quantity: item.quantity,
@@ -40,6 +42,8 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     };
   });
 
+  const cartIdString = JSON.stringify(cartId);
+
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
 
@@ -47,13 +51,19 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     success_url: `${req.protocol}://${req.get('host')}`,
     cancel_url: `${req.protocol}://${req.get('host')}`,
     customer_email: req.user.email,
-    client_reference_id: req.params.tourId,
+    client_reference_id: cartIdString,
     line_items: checkoutItems
   });
 
+  //   console.log(session);
+
+  if (!session) {
+    console.log('okay');
+  }
+
   res.status(200).json({
     status: 'success',
-    data: 'Thank you'
+    data: session
   });
 });
 
