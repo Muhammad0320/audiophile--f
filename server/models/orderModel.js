@@ -30,6 +30,11 @@ const orderSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     required: [true, 'Order must belog to a user']
+  },
+
+  paid: {
+    type: Boolean,
+    default: true
   }
 });
 
