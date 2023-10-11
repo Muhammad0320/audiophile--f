@@ -90,12 +90,14 @@ function Category({ categoryData, index }) {
 
   const navigate = useNavigate();
 
+  const src = image.startsWith("https") ? image : `/assets/product/${image}`;
+
   return (
     <Container>
       <ImageContainer
         style={{ gridColumn: index % 2 === 0 ? "1 / 2" : "2 / -1" }}
       >
-        <img src={`/assets/product/${image}`} alt=" Product" />
+        <img src={src} alt=" Product" />
       </ImageContainer>
 
       <DescriptionContainer
