@@ -47,9 +47,11 @@ function ReviewItem({ data }) {
       ? review.slice().split(" ").slice(0, 10).join(" ") + "..."
       : review;
 
+  const src = image.startsWith("https") ? image : `/assets/product/${image}`;
+
   return (
     <Table.Row>
-      <Image src={image} />
+      <Image src={src} />
       <Name> {name} </Name>
       <Review>
         <div>{rev}</div>

@@ -247,6 +247,8 @@ function ProductDetails() {
 
   if (isLoading) return <Spinner />;
 
+  const src = image.startsWith("https") ? image : `/assets/product/${image}`;
+
   return (
     <ProductContainer>
       <SmallButton onClick={moveBack} kind="back">
@@ -255,7 +257,7 @@ function ProductDetails() {
       </SmallButton>
       <Container>
         <ImageContainer style={{ gridColumn: "1 / 2" }}>
-          <img src={`/assets/product/${image}`} alt="product" />
+          <img src={src} alt="product" />
         </ImageContainer>
 
         <DescriptionContainer>
