@@ -1,6 +1,9 @@
+const stripe = require('stripe')(process.env.stripe_secret_key);
+
 const Cart = require('../models/cartModel');
 const Order = require('../models/orderModel');
 const Product = require('../models/productModel');
+const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const {
@@ -23,20 +26,31 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     );
   }
 
-  const productIds = currentUserCart.map(el => el.product._id);
+  const checkoutItems = currentUserCart.map(item => {
+    return {
+      quantity: item.quantity,
+      price_data: {
+        currency: 'usd',
+        unit_amount: item.product.price * 100,
+        product_data: {
+          name: `${item.product.name} Tour`,
+          description: item.product.description,
+          images: [`https://www.natours.dev/img/tours/${tour.imageCover}`]
+        }
+      }
+    };
+  });
 
-  console.log(productIds, 'Okay');
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
 
-  const products = await Product.find({ _id: { $in: productIds } });
-
-  // .select(
-  //     'name',
-  //     'price',
-  //     'image',
-  //     'description'
-  //   );
-
-  console.log(products, 'My products');
+    mode: 'payment',
+    success_url: `${req.protocol}://${req.get('host')}`,
+    cancel_url: `${req.protocol}://${req.get('host')}`,
+    customer_email: req.user.email,
+    client_reference_id: req.params.tourId,
+    line_items: checkoutItems
+  });
 
   res.status(200).json({
     status: 'success',
