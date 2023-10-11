@@ -2,8 +2,7 @@ const stripe = require('stripe')(process.env.stripe_secret_key);
 
 const Cart = require('../models/cartModel');
 const Order = require('../models/orderModel');
-const Product = require('../models/productModel');
-const User = require('../models/userModel');
+
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const {
@@ -35,7 +34,7 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
         product_data: {
           name: `${item.product.name} Tour`,
           description: item.product.description,
-          images: [`https://www.natours.dev/img/tours/${tour.imageCover}`]
+          images: [item.product.image]
         }
       }
     };
