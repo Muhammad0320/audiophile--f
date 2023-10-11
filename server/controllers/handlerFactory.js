@@ -4,12 +4,12 @@ const catchAsync = require('../utils/catchAsync');
 
 exports.createOne = Modal =>
   catchAsync(async (req, res) => {
-    const newUser = await Modal.create(req.body);
+    const doc = await Modal.create(req.body);
 
     res.status(201).json({
       status: 'success',
       data: {
-        newUser
+        doc
       }
     });
   });
@@ -41,18 +41,18 @@ exports.getOne = (Modal, popOptions) =>
 
     if (popOptions) query = query.populate(popOptions);
 
-    const product = await query;
+    const doc = await query;
 
-    if (!product) {
+    if (!doc) {
       return next(
-        new AppError(`There is no product with this ID: ${req.params.id}`, 404)
+        new AppError(`There is no document with this ID: ${req.params.id}`, 404)
       );
     }
 
     res.status(200).json({
       status: 'success',
       data: {
-        product
+        doc
       }
     });
   });
@@ -70,7 +70,7 @@ exports.updateOne = Modal =>
 
     if (!updatedProduct) {
       return new AppError(
-        `There is no product with this ID: ${req.params.id}`,
+        `There is no document with this ID: ${req.params.id}`,
         404
       );
     }
@@ -78,7 +78,7 @@ exports.updateOne = Modal =>
     res.status(201).json({
       status: 'success',
       data: {
-        product: updatedProduct
+        doc: updatedProduct
       }
     });
   });
@@ -89,7 +89,7 @@ exports.deleteOne = Modal =>
 
     if (!deleteProd) {
       return new AppError(
-        `There is no product with this ID: ${req.params.id}`,
+        `There is no document with this ID: ${req.params.id}`,
         404
       );
     }

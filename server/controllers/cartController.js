@@ -17,26 +17,6 @@ exports.addProductUserIds = (req, res, next) => {
   next();
 };
 
-exports.checkForDuplicateProduct = catchAsync(async (req, res, next) => {
-  const isDuplicateProduct = await Cart.findOne({ product: req.body.product });
-
-  if (isDuplicateProduct) {
-    const cartUpdate = await Cart.findByIdAndUpdate(isDuplicateProduct._id, {
-      quantity: isDuplicateProduct.quantity + req.body.quantity
-    });
-
-    return res.status(200).json({
-      status: 'success',
-
-      data: {
-        cart: cartUpdate
-      }
-    });
-  }
-
-  next();
-});
-
 exports.addItemToCart = createOne(Cart);
 
 exports.getAllCarts = getAll(Cart);
@@ -48,7 +28,7 @@ exports.updateCart = updateOne(Cart);
 exports.deleteCart = deleteOne(Cart);
 
 exports.getMyCart = catchAsync(async (req, res, next) => {
-  const myCart = await Cart.find({ user: req.user.id });
+  const myCart = await Cart.find({ user: req.user._id });
 
   if (!myCart) {
     return next(

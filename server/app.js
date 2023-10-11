@@ -90,7 +90,7 @@ app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/carts', cartRoutes);
 app.use('/api/v1/reviews', reviewRoutes);
-app.use('/api/vi/orders', orderRoutes);
+app.use('/api/v1/orders', orderRoutes);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} route on this server `));

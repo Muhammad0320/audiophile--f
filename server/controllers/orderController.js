@@ -23,13 +23,25 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     );
   }
 
-  const productIds = currentUserCart.map(el => el.product);
+  const productIds = currentUserCart.map(el => el.product._id);
 
-  console.log(productIds);
+  console.log(productIds, 'Okay');
 
   const products = await Product.find({ _id: { $in: productIds } });
 
-  console.log(products);
+  // .select(
+  //     'name',
+  //     'price',
+  //     'image',
+  //     'description'
+  //   );
+
+  console.log(products, 'My products');
+
+  res.status(200).json({
+    status: 'success',
+    data: 'Thank you'
+  });
 });
 
 exports.createOrder = createOne(Order);
