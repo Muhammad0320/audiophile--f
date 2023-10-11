@@ -153,7 +153,7 @@ function Cart({ page }) {
               <SpinnerMini /> <span> saving cart data ... </span>{" "}
             </>
           ) : (
-            <span> checkout </span>
+            <span> Save cart </span>
           )}
         </Button>
       )}

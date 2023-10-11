@@ -51,13 +51,10 @@ exports.getMyCart = catchAsync(async (req, res, next) => {
 exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   const { changes } = req.body;
 
-  console.log(changes);
-
   if (!changes) return next();
 
   const bulkOps = changes.map(change => {
     if (change.type === 'add') {
-      console.log(change.item);
       return {
         insertOne: { document: change.item }
       };
@@ -75,7 +72,12 @@ exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
       return {
         updateOne: {
           filter: { product: change.item._id },
-          update: { $set: { quantity: change.item.quantity } }
+          update: {
+            $set: {
+              quantity: change.item.quantity,
+              totalPrice: change.item.totalPrice
+            }
+          }
         }
       };
     }
