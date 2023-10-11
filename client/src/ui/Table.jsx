@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "./Button";
 import { useSendBulkData } from "../features/cart/useSendBulkData";
 import SpinnerMini from "./SpinnerMini";
+import { useCheckoutSession } from "../features/payment/useCheckoutSession";
 
 const TableAndButtonContainer = styled.div`
   display: flex;
@@ -87,12 +88,8 @@ const TableContext = createContext();
 
 // Create parent element
 
-function Table({ children, column, changes }) {
-  const { isSendingBulkData, sendBulkdata } = useSendBulkData();
-
-  const handleClick = () => {
-    sendBulkdata({ changes });
-  };
+function Table({ children, column }) {
+  const { isLoading, checkout } = useCheckoutSession();
 
   return (
     <TableContext.Provider value={{ column }}>
@@ -102,13 +99,13 @@ function Table({ children, column, changes }) {
           <> {children} </>{" "}
         </TableContainer>
 
-        {changes?.length && (
+        {
           <Button
-            disabled={isSendingBulkData}
-            withspinner={isSendingBulkData ? "true" : ""}
-            onClick={handleClick}
+            disabled={isLoading}
+            withspinner={isLoading ? "true" : ""}
+            onClick={checkout}
           >
-            {isSendingBulkData ? (
+            {isLoading ? (
               <>
                 {" "}
                 <SpinnerMini /> <span> saving cart... </span>{" "}
@@ -117,7 +114,7 @@ function Table({ children, column, changes }) {
               <span> Save and checkout </span>
             )}
           </Button>
-        )}
+        }
       </TableAndButtonContainer>
     </TableContext.Provider>
   );
