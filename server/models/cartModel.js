@@ -6,6 +6,11 @@ const cartSchema = new mongoose.Schema({
     default: 1
   },
 
+  totalCart: {
+    type: Number,
+    required: [true, 'A cart must have a total price']
+  },
+
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
