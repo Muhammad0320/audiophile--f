@@ -25,14 +25,14 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     );
   }
 
-  const cartId = currentUserCart.map(item => item._id);
+  const cartId = currentUserCart.map(item => item.product._id);
 
   const checkoutItems = currentUserCart.map(item => {
     return {
       quantity: item.quantity,
       price_data: {
         currency: 'usd',
-        unit_amount: item.product.price * 100,
+        unit_amount: item.totalPrice * 100,
         product_data: {
           name: `${item.product.name} Tour`,
           description: item.product.description,
@@ -48,8 +48,8 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     payment_method_types: ['card'],
 
     mode: 'payment',
-    success_url: `${req.protocol}://${req.get('host')}`,
-    cancel_url: `${req.protocol}://${req.get('host')}`,
+    success_url: `${req.protocol}://127.0.0.1:5173/?user=${req.user._id}&data=${currentUserCart}`,
+    cancel_url: `${req.protocol}://127.0.0.1:5173`,
     customer_email: req.user.email,
     client_reference_id: cartIdString,
     line_items: checkoutItems
@@ -57,14 +57,26 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
 
   //   console.log(session);
 
-  if (!session) {
-    console.log('okay');
-  }
-
   res.status(200).json({
     status: 'success',
     session
   });
+});
+
+exports.createOrderOnSession = catchAsync(async (req, res, next) => {
+  const { user, data } = req.query;
+
+  const products = data.map(item => {
+    return {
+      productId: item.product._id,
+      quantity: item.quantity,
+      price: item.totalPrice
+    };
+  });
+
+  await Order.create({ user, products });
+
+  res.redirect(req.originalUrl.split('?')[0]);
 });
 
 exports.createOrder = createOne(Order);
