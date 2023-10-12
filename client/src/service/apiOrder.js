@@ -16,3 +16,17 @@ export const getCheckoutSesionApi = async () => {
     sessionId: session.data.session.id,
   });
 };
+
+export const createOrderApi = async ({ user, product }) => {
+  const res = await axios({
+    method: "POST",
+    url: "http://127.0.0.1:3000/api/v1/orders/create-order",
+    withCredentials: true,
+    data: {
+      user,
+      product,
+    },
+  });
+
+  return res.data;
+};
