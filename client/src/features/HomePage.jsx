@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import CategoryBox from "../ui/CategoryBox";
 import ContainerContent from "../ui/ContainerContent";
 import ContainerHero from "../ui/ContainerHero";
@@ -7,6 +8,12 @@ import Footer from "../ui/Footer";
 import Header from "../ui/Header";
 
 function HomePage() {
+  const [searchParams] = useSearchParams();
+
+  const status = searchParams.get("data");
+
+  console.log(status);
+
   return (
     <ContainerLayout>
       <Header home={true} />
