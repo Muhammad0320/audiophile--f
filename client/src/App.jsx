@@ -42,7 +42,6 @@ function App() {
     if (carts.length) {
       dispatch(setCartData(carts));
     }
-    console.log("sent");
   }, [dispatch]);
 
   useEffect(() => {
@@ -64,8 +63,6 @@ function App() {
 
   //   cartData();
   // }, [dispatch]);
-
-  console.log("app.js");
 
   return (
     <QueryClientProvider client={queryClient}>

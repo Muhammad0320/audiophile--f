@@ -46,14 +46,19 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
 
   const currentUserCartStr = JSON.stringify(currentUserCart);
 
+  const successUrl = `${req.protocol}://127.0.0.1:5173/home/?session_data=${currentUserCartStr}`;
+
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
 
     mode: 'payment',
-    success_url: `${req.protocol}://127.0.0.1:5173/?user=${req.user._id}&data=${currentUserCartStr}`,
+    success_url: successUrl,
     cancel_url: `${req.protocol}://127.0.0.1:5173`,
     customer_email: req.user.email,
-    client_reference_id: cartIdString,
+    client_reference_id: req.user._id, // pass user id here
+    metadata: {
+      cartData: cartIdString // pass cart data here
+    },
     line_items: checkoutItems
   });
 
@@ -66,13 +71,13 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
 });
 
 exports.createOrderOnSession = catchAsync(async (req, res, next) => {
-  const { user, data } = req.body;
+  const { sessionId } = req.body;
 
-  if (!user || !data) return next();
+  console.log(sessionId);
 
-  console.log(user, data);
+  // const cartData = JSON.parse(data);
 
-  // const products = data.map(item => {
+  // const products = cartData.map(item => {
   //   return {
   //     productId: item.product._id,
   //     quantity: item.quantity,

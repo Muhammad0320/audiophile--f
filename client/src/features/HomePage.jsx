@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import CategoryBox from "../ui/CategoryBox";
 import ContainerContent from "../ui/ContainerContent";
 import ContainerHero from "../ui/ContainerHero";
@@ -17,20 +17,33 @@ function HomePage() {
 
   const [searchParams] = useSearchParams();
 
-  useEffectOnce(() => {
-    const data = searchParams.get("data");
-    const user = searchParams.get("user");
-    if (data && user) {
-      createOrder({ user, data });
-    }
-  });
-
-  // useEffect(() => {
+  // useEffectOnce(() => {
   //   const data = searchParams.get("data");
-
   //   const user = searchParams.get("user");
   //   if (data && user) {
   //     createOrder({ user, data });
+  //   }
+  // });
+  // const user = searchParams.get("user");
+
+  const location = useLocation();
+
+  console.log(location);
+
+  const urlParams = new URLSearchParams(location.search);
+
+  const sessionId = urlParams.get("session_data");
+
+  console.log(sessionId);
+
+  const data = searchParams.get("session_data");
+
+  console.log(data); // i saw null
+  // useEffect(() => {
+
+  //   if (data) {
+  //     console.log(data);
+  //     createOrder({ sessionId: data });
   //   }
   // }, []);
 

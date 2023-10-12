@@ -80,11 +80,11 @@ app.use(helmet());
 //   })
 // );
 
-// app.use((req, res, next) => {
-//   console.log(req.cookies);
+app.use('/', (req, res, next) => {
+  console.log(req.query);
 
-//   next();
-// });
+  next();
+});
 
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/users', userRoutes);

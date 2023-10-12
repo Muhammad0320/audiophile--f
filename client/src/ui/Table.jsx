@@ -103,15 +103,15 @@ function Table({ children, column }) {
           <Button
             disabled={isLoading}
             withspinner={isLoading ? "true" : ""}
-            onClick={checkout}
+            onClick={() => checkout()}
           >
             {isLoading ? (
               <>
                 {" "}
-                <SpinnerMini /> <span> saving cart... </span>{" "}
+                <SpinnerMini /> <span> checking out... </span>{" "}
               </>
             ) : (
-              <span> Save and checkout </span>
+              <span> checkout </span>
             )}
           </Button>
         }

@@ -51,8 +51,6 @@ exports.getMyCart = catchAsync(async (req, res, next) => {
 exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   const { changes } = req.body;
 
-  console.log(changes);
-
   if (!changes) return next();
 
   const bulkOps = changes.map(change => {

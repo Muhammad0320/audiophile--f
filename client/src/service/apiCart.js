@@ -6,8 +6,6 @@ export const getMyCart = async () => {
       withCredentials: true,
     });
 
-    console.log("get my cart");
-
     return res?.data?.data?.cart || [];
   } catch (error) {
     console.log(error.response.data.message);
