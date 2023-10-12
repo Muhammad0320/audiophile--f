@@ -1,14 +1,19 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { createOrderApi } from "../../service/apiOrder";
 
 export function useCreateOrder() {
+  const queryClient = useQueryClient();
+
   const { mutate: createOrder, isLoading } = useMutation({
     mutationFn: createOrderApi,
 
     onSuccess: () => {
       toast.success("Your order is successfully placed");
+
+      // queryClient
     },
+    // retry: '',
 
     onError: () => {
       toast.error(

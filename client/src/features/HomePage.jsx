@@ -6,13 +6,33 @@ import ContainerHeroImages from "../ui/ContainerHeroImages";
 import ContainerLayout from "../ui/ContainerLayout";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
+import useCreateOrder from "./payment/useCreateOrder";
+import { useEffect } from "react";
+import { useEffectOnce } from "../hooks/useeffectOnce";
 
 function HomePage() {
+  const { createOrder } = useCreateOrder();
+
+  // ?data=my-data&user=888888
+
   const [searchParams] = useSearchParams();
 
-  const status = searchParams.get("data");
+  useEffectOnce(() => {
+    const data = searchParams.get("data");
+    const user = searchParams.get("user");
+    if (data && user) {
+      createOrder({ user, data });
+    }
+  });
 
-  console.log(status);
+  // useEffect(() => {
+  //   const data = searchParams.get("data");
+
+  //   const user = searchParams.get("user");
+  //   if (data && user) {
+  //     createOrder({ user, data });
+  //   }
+  // }, []);
 
   return (
     <ContainerLayout>

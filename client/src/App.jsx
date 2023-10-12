@@ -21,9 +21,10 @@ import Settings from "./features/users/Settings";
 import ReviewPage from "./pages/ReviewPage";
 import { useDispatch } from "react-redux";
 import { setCartData } from "./features/cart/cartSlice";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getMyCart } from "./service/apiCart";
 import CartPage from "./pages/CartPage";
+import HomePage from "./features/HomePage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,19 +37,35 @@ const queryClient = new QueryClient({
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const cartData = async () => {
-      const carts = await getMyCart();
-
-      if (carts.length) {
-        dispatch(setCartData(carts));
-      }
-
-      console.log("sent");
-    };
-
-    cartData();
+  const cartData = useCallback(async () => {
+    const carts = await getMyCart();
+    if (carts.length) {
+      dispatch(setCartData(carts));
+    }
+    console.log("sent");
   }, [dispatch]);
+
+  useEffect(() => {
+    cartData();
+  }, []);
+
+  // useEffect(() => {
+  //   const cartData = async () => {
+  //     const carts = await getMyCart();
+
+  //     console.log(carts);
+
+  //     if (carts.length) {
+  //       dispatch(setCartData(carts));
+  //     }
+
+  //     console.log("sent");
+  //   };
+
+  //   cartData();
+  // }, [dispatch]);
+
+  console.log("app.js");
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -59,7 +76,7 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="home" />} />
-            <Route path="home" element={<Home />} />
+            <Route path="home" element={<HomePage />} />
             <Route path="headphones" element={<Headphone />} />
             <Route path="earphones" element={<Earphone />} />
             <Route path="speakers" element={<Speakers />} />

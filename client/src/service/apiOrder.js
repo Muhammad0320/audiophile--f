@@ -17,7 +17,7 @@ export const getCheckoutSesionApi = async () => {
   });
 };
 
-export const createOrderApi = async ({ user, product }) => {
+export const createOrderApi = async ({ user, data }) => {
   const res = await axios({
     method: "POST",
     url: "http://127.0.0.1:3000/api/v1/orders/create-order",
@@ -27,6 +27,8 @@ export const createOrderApi = async ({ user, product }) => {
       data,
     },
   });
+
+  console.log("data sent");
 
   return res.data;
 };
