@@ -80,12 +80,6 @@ app.use(helmet());
 //   })
 // );
 
-app.use('/', (req, res, next) => {
-  console.log(req.query);
-
-  next();
-});
-
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/carts', cartRoutes);

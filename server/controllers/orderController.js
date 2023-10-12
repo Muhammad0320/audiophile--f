@@ -71,21 +71,21 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
 });
 
 exports.createOrderOnSession = catchAsync(async (req, res, next) => {
-  const { sessionId } = req.body;
+  const user = req.user._id;
 
-  console.log(sessionId);
+  const cartData = JSON.parse(req.body.product);
 
-  // const cartData = JSON.parse(data);
+  const products = cartData.map(item => {
+    return {
+      productId: item.product._id,
+      quantity: item.quantity,
+      price: item.totalPrice
+    };
+  });
 
-  // const products = cartData.map(item => {
-  //   return {
-  //     productId: item.product._id,
-  //     quantity: item.quantity,
-  //     price: item.totalPrice
-  //   };
-  // });
+  console.log(products);
 
-  // await Order.create({ user, products });
+  await Order.create({ user, products });
 
   // res.redirect(req.originalUrl.split('?')[0]);
 

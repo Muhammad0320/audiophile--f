@@ -34,8 +34,6 @@ const queryClient = new QueryClient({
   },
 });
 
-// I've successfully integrated stripe payment in my app but I sent a parameter with the success_url in my app's backend with node js and when I checked the parameter with my react app the value was `null`. I was successfully redirected to my success_url and when i checked the event data for my stripe project of stripe website the data and the parameter was present with the value I expected but I just can't access it from the frontend, please I really need help.
-
 function App() {
   const dispatch = useDispatch();
 
