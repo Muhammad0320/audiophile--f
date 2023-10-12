@@ -44,11 +44,13 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
 
   const cartIdString = JSON.stringify(cartId);
 
+  const currentUserCartStr = JSON.stringify(currentUserCart);
+
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
 
     mode: 'payment',
-    success_url: `${req.protocol}://127.0.0.1:5173/?user=${req.user._id}&data=${currentUserCart}`,
+    success_url: `${req.protocol}://127.0.0.1:5173/?user=${req.user._id}&data=${currentUserCartStr}`,
     cancel_url: `${req.protocol}://127.0.0.1:5173`,
     customer_email: req.user.email,
     client_reference_id: cartIdString,
@@ -64,19 +66,28 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
 });
 
 exports.createOrderOnSession = catchAsync(async (req, res, next) => {
-  const { user, data } = req.query;
+  const { user, data } = req.body;
 
-  const products = data.map(item => {
-    return {
-      productId: item.product._id,
-      quantity: item.quantity,
-      price: item.totalPrice
-    };
+  if (!user || !data) return next();
+
+  console.log(user, data);
+
+  // const products = data.map(item => {
+  //   return {
+  //     productId: item.product._id,
+  //     quantity: item.quantity,
+  //     price: item.totalPrice
+  //   };
+  // });
+
+  // await Order.create({ user, products });
+
+  // res.redirect(req.originalUrl.split('?')[0]);
+
+  res.status(201).json({
+    status: 'success',
+    data: 'Order created successfully'
   });
-
-  await Order.create({ user, products });
-
-  res.redirect(req.originalUrl.split('?')[0]);
 });
 
 exports.createOrder = createOne(Order);
