@@ -41,13 +41,9 @@ function App() {
     const cartData = async () => {
       const carts = await getMyCart();
 
-      console.log(carts);
-
       if (carts.length) {
         dispatch(setCartData(carts));
       }
-
-      console.log("sent");
     };
 
     cartData();

@@ -7,7 +7,6 @@ import ContainerLayout from "../ui/ContainerLayout";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
 import useCreateOrder from "./payment/useCreateOrder";
-import { useEffect } from "react";
 import { useEffectOnce } from "../hooks/useeffectOnce";
 
 function HomePage() {
