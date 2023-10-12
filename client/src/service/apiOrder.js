@@ -24,7 +24,7 @@ export const createOrderApi = async ({ user, product }) => {
     withCredentials: true,
     data: {
       user,
-      product,
+      data,
     },
   });
 
