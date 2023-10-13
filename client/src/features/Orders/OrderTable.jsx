@@ -1,5 +1,6 @@
 import Spinner from "../../ui/Spinner";
 import Table from "../../ui/Table";
+import OrderTableItem from "./OrderTableItem";
 import { useGetCurrentUserOrder } from "./useGetCurrentUserOrder";
 
 function OrderTable() {
@@ -19,7 +20,10 @@ function OrderTable() {
         <div>Action</div>
       </Table.Header>
 
-      <Table.Body data={myOrder} />
+      <Table.Body
+        data={myOrder}
+        render={(order) => <OrderTableItem order={order} />}
+      />
     </Table>
   );
 }
