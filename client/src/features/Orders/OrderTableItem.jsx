@@ -13,6 +13,8 @@ const ID = styled.span`
 const NoProducts = styled.span`
   font-size: var(--font-small);
   font-weight: 500;
+
+  text-align: center;
 `;
 
 const ProductInfo = styled.span`
@@ -21,6 +23,7 @@ const ProductInfo = styled.span`
 
 const Status = styled.span`
   font-size: var(--font-small);
+  text-align: center;
 
   ${(props) =>
     props.status === "paid" &&
