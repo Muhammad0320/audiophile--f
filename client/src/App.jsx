@@ -24,6 +24,7 @@ import { setCartData } from "./features/cart/cartSlice";
 import { useEffect } from "react";
 import { getMyCart } from "./service/apiCart";
 import CartPage from "./pages/CartPage";
+import OrderTable from "./features/Orders/OrderTable";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -72,6 +73,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
             <Route path="my-reviews" element={<ReviewPage />} />
             <Route path="my-cart" element={<CartPage />} />
+            <Route path="my-order" element={<OrderTable />} />
           </Route>
 
           <Route path="signup" element={<SignupPage />} />
