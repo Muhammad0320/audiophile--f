@@ -1,6 +1,8 @@
 import { css, styled } from "styled-components";
 import Button from "../../ui/Button";
 import { useNavigate } from "react-router-dom";
+import SmallButton from "../../ui/SmallButton";
+import { useMoveBack } from "../../hooks/useMoveBack";
 
 export const Container = styled.div`
   display: grid;
@@ -90,31 +92,36 @@ function Category({ categoryData, index }) {
 
   const navigate = useNavigate();
 
+  const moveback = useMoveBack();
+
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
 
   return (
-    <Container>
-      <ImageContainer
-        style={{ gridColumn: index % 2 === 0 ? "1 / 2" : "2 / -1" }}
-      >
-        <img src={src} alt=" Product" />
-      </ImageContainer>
+    <>
+      <SmallButton onClick={moveback}> Go back </SmallButton>
+      <Container>
+        <ImageContainer
+          style={{ gridColumn: index % 2 === 0 ? "1 / 2" : "2 / -1" }}
+        >
+          <img src={src} alt=" Product" />
+        </ImageContainer>
 
-      <DescriptionContainer
-        style={{
-          gridColumn: index % 2 === 0 ? "2 / -1" : "1 / 2",
-          gridRow: "1 / 2",
-        }}
-      >
-        {isNew && <NewProduct> New product </NewProduct>}
-        <ProductName> {name} </ProductName>
-        <Text> {description} </Text>
-        <Button onClick={() => navigate(`/product/${slug}`)}>
-          {" "}
-          See product{" "}
-        </Button>
-      </DescriptionContainer>
-    </Container>
+        <DescriptionContainer
+          style={{
+            gridColumn: index % 2 === 0 ? "2 / -1" : "1 / 2",
+            gridRow: "1 / 2",
+          }}
+        >
+          {isNew && <NewProduct> New product </NewProduct>}
+          <ProductName> {name} </ProductName>
+          <Text> {description} </Text>
+          <Button onClick={() => navigate(`/product/${slug}`)}>
+            {" "}
+            See product{" "}
+          </Button>
+        </DescriptionContainer>
+      </Container>
+    </>
   );
 }
 

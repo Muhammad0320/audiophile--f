@@ -17,22 +17,32 @@ const GlobalStyles = createGlobalStyle`
     --color-dark-1: #101010;
     --color-dark-2:  rgba(0, 0, 0, 0.2);
     --color-dark-3:  rgba(0, 0, 0, 0.8);
+
+
     --color-white: #fff ;
     --color-white-1: #fafafa;
     --color-white-2: #f1f1f1 ;
-    --box-shadow-light: 0 5px 5px 3px rgba(16, 16, 16, 0.2); 
-    --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
+
     --color-gradient-dark: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .25));
     --color-gradient-dark-1: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .50));
     --color-gradient-light: linear-gradient(145deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .25));
 
-     --color-white-vivid:   color-mix(in oklab, var(--color-primary-light) 15%, var(--color-white));
-
+     --color-white-vivid:   color-mix(in oklab, var(--color-primary-light) 10%, var(--color-white));
     --color-primary-muted: color-mix(in oklab, var(--color-primary) 80%, var(--color-white));
-
     --color-primary-dark: color-mix(in oklab, var(--color-primary) 80%, var(--color-dark));
     --color-primary-light-muted: color-mix(in oklab, var(--color-primary-light) 30%, var(--color-white));
     --color-primary-light-dark: color-mix(in oklab, var(--color-primary-light) 80%, var(--color-dark));
+
+
+    --box-shadow-light: 0 5px 5px 3px rgba(16, 16, 16, 0.2); 
+    --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
+
+
+    --font-huge: 5rem;
+    --font-medium: 3.5rem;
+    --font-small: 2.5rem;
+    --fomt-tiny: 1.8rem;
+
 
 
 }

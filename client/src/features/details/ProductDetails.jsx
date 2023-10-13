@@ -16,6 +16,8 @@ import { formatCurrency } from "../../utils/helper";
 import Button from "../../ui/Button";
 import { css, styled } from "styled-components";
 
+import { HiArrowLeft, HiChevronLeft } from "react-icons/hi2";
+
 import { useMoveBack } from "../../hooks/useMoveBack";
 import SmallButton from "../../ui/SmallButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -217,7 +219,7 @@ function ProductDetails() {
 
   const { first, second, third } = gallery || {};
 
-  const { moveBack } = useMoveBack();
+  const moveback = useMoveBack();
 
   const dispatch = useDispatch();
 
@@ -251,7 +253,7 @@ function ProductDetails() {
 
   return (
     <ProductContainer>
-      <SmallButton onClick={moveBack} kind="back">
+      <SmallButton onClick={moveback} kind="back">
         {" "}
         Go Back{" "}
       </SmallButton>
