@@ -1,9 +1,8 @@
 import styled, { css } from "styled-components";
 import Table from "../../ui/Table";
-import OrderNameQuantity from "./OrderNameQuantity";
 
 import { format } from "date-fns";
-import { HiXMark } from "react-icons/hi2";
+import { HiEye } from "react-icons/hi2";
 import { formatCurrency } from "../../utils/helper";
 
 const ID = styled.span`
@@ -38,8 +37,24 @@ const Status = styled.span`
     `}
 `;
 
+const Icon = styled.span`
+  color: var(--color-dark);
+  font-size: var(--font-medium);
+  text-align: center;
+
+  transition: color 0.2;
+
+  &:hover {
+    color: var(--color-primary-muted);
+  }
+`;
+
 function OrderTableItem({ order }) {
   const { _id, createdAt, products, paid } = order;
+
+  const data = products
+    .map((item) => `${item.quantity}X- ${item.productId.name}`)
+    .join(" with ");
 
   const id = _id.slice(-6, -1);
 
@@ -60,14 +75,7 @@ function OrderTableItem({ order }) {
 
       <NoProducts> {totalCartQuantity} </NoProducts>
 
-      <ProductInfo>
-        {products.map((item) => (
-          <OrderNameQuantity
-            name={item.productId.name}
-            quantity={item.quantity}
-          />
-        ))}
-      </ProductInfo>
+      <ProductInfo>{data}</ProductInfo>
 
       <Status status={"paid"}> {status} </Status>
 
@@ -75,10 +83,10 @@ function OrderTableItem({ order }) {
 
       <div> {createdDate} </div>
 
-      <div>
+      <Icon>
         {" "}
-        <HiXMark />{" "}
-      </div>
+        <HiEye />{" "}
+      </Icon>
     </Table.Row>
   );
 }

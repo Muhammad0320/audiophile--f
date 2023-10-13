@@ -4,10 +4,13 @@ const QuantityStyle = styled.span`
   color: var(--color-primary-light);
 `;
 
-function OrderNameQuantity({ name, quantity }) {
+function OrderNameQuantity({ data }) {
+  const item = data.split("-");
+
   return (
     <>
-      <QuantityStyle> {quantity}X </QuantityStyle> {name} {", "}
+      {" "}
+      <QuantityStyle> {item}X </QuantityStyle> {item}{" "}
     </>
   );
 }
