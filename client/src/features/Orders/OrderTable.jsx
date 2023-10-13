@@ -6,12 +6,10 @@ import { useGetCurrentUserOrder } from "./useGetCurrentUserOrder";
 function OrderTable() {
   const { myOrder, isLoading } = useGetCurrentUserOrder();
 
-  console.log(myOrder);
-
   if (isLoading) return <Spinner />;
 
   return (
-    <Table column=".4fr .3fr 1.2fr .4fr .5fr .4fr .3fr" role="table">
+    <Table column="0.4fr 0.3fr 1.2fr 0.4fr 0.5fr 0.4fr 0.3fr" role="table">
       <Table.Header>
         <div> Order ID </div>
         <div> No of product </div>

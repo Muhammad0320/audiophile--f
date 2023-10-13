@@ -43,7 +43,6 @@ const CommonRow = styled.div`
 
   grid-template-columns: ${(props) => props.column};
   align-items: center;
-  /* text-align: center; */
   transition: none;
 
   column-gap: 2.5rem;
@@ -74,6 +73,10 @@ const Body = styled.div`
 
 const Row = styled(CommonRow)`
   padding: 0.8rem 1.2rem;
+
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   color: var(--color-dark-3);
 

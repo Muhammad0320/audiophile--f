@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-const TextContainer = styled.div`
-  position: relative;
-  margin-inline: 0 auto;
+const QuantityStyle = styled.span`
+  color: var(--color-primary-light);
 `;
 
 function OrderNameQuantity({ name, quantity }) {
   return (
-    <TextContainer>
-      {quantity} X {name}
-    </TextContainer>
+    <>
+      <QuantityStyle> {quantity}X </QuantityStyle> {name} {", "}
+    </>
   );
 }
 
