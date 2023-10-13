@@ -11,6 +11,7 @@ import PayOnDelivery from "./PayOnDelivery";
 import Button from "../../ui/Button";
 import Modal from "../../ui/Modal";
 import Confirmation from "../../ui/Confirmation";
+import { useCheckoutSession } from "../payment/useCheckoutSession";
 
 const RadioButtonsContainer = styled.div`
   display: flex;
@@ -21,6 +22,14 @@ const RadioButtonsContainer = styled.div`
 
 function PaymentDetails() {
   const [checked, setIsChecked] = useState("");
+
+  const { checkout, isLoading } = useCheckoutSession();
+
+  const handleCheckout = () => {
+    if (!isLoading) {
+      checkout();
+    }
+  };
 
   const handleChange = (e) => {
     setIsChecked(e.target.value);
@@ -59,7 +68,7 @@ function PaymentDetails() {
           </RadioButtonsContainer>
         </FormRow>
 
-        {checked === "e-money" && (
+        {/* {checked === "e-money" && (
           <>
             <FormRow
               label="e-Money Number"
@@ -98,7 +107,7 @@ function PaymentDetails() {
               />
             </FormRow>
           </>
-        )}
+        )} */}
 
         {checked === "cash" && (
           <FormRow position="both">
@@ -116,8 +125,8 @@ function PaymentDetails() {
 
         {checked === "cash" && (
           <FormRow position="right">
-            <Modal.Open opens="checkout">
-              <Button> Continue & pay </Button>
+            <Modal.Open opens="checkout" checkout={handleCheckout}>
+              <Button> Continue & Accept </Button>
             </Modal.Open>
           </FormRow>
         )}
