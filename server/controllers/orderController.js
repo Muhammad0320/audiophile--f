@@ -55,10 +55,8 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     success_url: successUrl,
     cancel_url: `${req.protocol}://127.0.0.1:5173`,
     customer_email: req.user.email,
-    client_reference_id: req.user._id, // pass user id here
-    metadata: {
-      cartData: cartIdString // pass cart data here
-    },
+    client_reference_id: req.user._id,
+
     line_items: checkoutItems
   });
 
@@ -92,6 +90,28 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     data: 'Order created successfully'
+  });
+});
+
+exports.getMyOrders = catchAsync(async (req, res, next) => {
+  const user = req.user._id;
+
+  const order = await Order.find({ user });
+
+  if (!order.length)
+    return next(
+      new AppError(
+        'You do not have any item in your order, start by checking out your cart item',
+        404
+      )
+    );
+
+  res.status(200).json({
+    status: 'success',
+    length: order.length,
+    data: {
+      order
+    }
   });
 });
 

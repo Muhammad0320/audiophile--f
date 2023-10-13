@@ -28,7 +28,7 @@ function PaymentDetails() {
     if (!isLoading) {
       console.log("Odeh stripe");
 
-      // checkout();
+      checkout();
     }
   };
 

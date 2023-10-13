@@ -56,25 +56,21 @@ function CartTableItem({ cart }) {
 
   const productName = name.split(" ")[0];
 
-  console.log("ahh let see");
-
   return (
-    <>
-      <Table.Row>
-        <Image src={image} />
+    <Table.Row>
+      <Image src={image} />
 
-        <Name> {productName} </Name>
+      <Name> {productName} </Name>
 
-        <Price> {formatCurrency(+price)} </Price>
+      <Price> {formatCurrency(+price)} </Price>
 
-        <UpdateCartItem type="cart" currentQuantity={quantity} id={_id} />
+      <UpdateCartItem type="cart" currentQuantity={quantity} id={_id} />
 
-        <DeleteIcon onClick={() => dispatch(deleteItem(_id))}>
-          {" "}
-          {<HiXMark />}{" "}
-        </DeleteIcon>
-      </Table.Row>
-    </>
+      <DeleteIcon onClick={() => dispatch(deleteItem(_id))}>
+        {" "}
+        {<HiXMark />}{" "}
+      </DeleteIcon>
+    </Table.Row>
   );
 }
 
