@@ -13,7 +13,6 @@ export function useCreateOrder() {
       toast.success("Your order is successfully placed");
       navigate("/");
     },
-    // retry: '',
 
     onError: () => {
       toast.error(

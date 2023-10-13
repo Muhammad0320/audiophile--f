@@ -5,15 +5,12 @@ import { Text } from "../category/Category";
 
 import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, getCart, getChanges, getTotalCartPrice } from "./cartSlice";
+import { clearCart, getCart, getTotalCartPrice } from "./cartSlice";
 import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
 import { grandTotalPrice } from "../../utils/constant";
-
-import { useSendBulkData } from "./useSendBulkData";
-import SpinnerMini from "../../ui/SpinnerMini";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -62,10 +59,6 @@ export const CartTextBold = styled.p`
 function Cart({ page }) {
   const carts = useSelector(getCart);
 
-  const changes = useSelector(getChanges);
-
-  const { sendBulkdata, isSendingBulkData } = useSendBulkData();
-
   const dispatch = useDispatch();
 
   const totalCartPrice = useSelector(getTotalCartPrice);
@@ -75,12 +68,6 @@ function Cart({ page }) {
   const shippingFee = 50;
 
   const vat = 0.2 * +totalCartPrice;
-
-  const handleSendBulk = () => {
-    sendBulkdata({ changes });
-
-    navigate("/my-cart");
-  };
 
   if (!carts.length)
     return (
@@ -142,20 +129,7 @@ function Cart({ page }) {
       )}
 
       {!page && (
-        <Button
-          onClick={() => handleSendBulk()}
-          withspinner={isSendingBulkData ? "true" : ""}
-          disabled={isSendingBulkData}
-        >
-          {isSendingBulkData ? (
-            <>
-              {" "}
-              <SpinnerMini /> <span> saving cart data ... </span>{" "}
-            </>
-          ) : (
-            <span> Save cart </span>
-          )}
-        </Button>
+        <Button onClick={() => navigate("/my-cart")}> Go to cart </Button>
       )}
     </StyledCart>
   );

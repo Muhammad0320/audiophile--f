@@ -91,6 +91,12 @@ const TableContext = createContext();
 function Table({ children, column }) {
   const { isLoading, checkout } = useCheckoutSession();
 
+  const handleCheckout = () => {
+    if (!isLoading) {
+      checkout();
+    }
+  };
+
   return (
     <TableContext.Provider value={{ column }}>
       <TableAndButtonContainer>

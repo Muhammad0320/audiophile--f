@@ -83,11 +83,7 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
     };
   });
 
-  console.log(products);
-
   await Order.create({ user, products });
-
-  // res.redirect(req.originalUrl.split('?')[0]);
 
   res.status(201).json({
     status: 'success',
