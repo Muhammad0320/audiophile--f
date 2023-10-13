@@ -4,6 +4,9 @@ import Button from "./Button";
 import { useSendBulkData } from "../features/cart/useSendBulkData";
 import SpinnerMini from "./SpinnerMini";
 import { useCheckoutSession } from "../features/payment/useCheckoutSession";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getChanges } from "../features/cart/cartSlice";
 
 const TableAndButtonContainer = styled.div`
   display: flex;
@@ -89,12 +92,16 @@ const TableContext = createContext();
 // Create parent element
 
 function Table({ children, column }) {
-  const { isLoading, checkout } = useCheckoutSession();
+  const { sendBulkdata, isSendingBulkData } = useSendBulkData();
 
-  const handleCheckout = () => {
-    if (!isLoading) {
-      checkout();
-    }
+  const changes = useSelector(getChanges);
+
+  const navigate = useNavigate();
+
+  const handleSendBulk = () => {
+    navigate("/checkout");
+
+    sendBulkdata({ changes });
   };
 
   return (
@@ -107,17 +114,17 @@ function Table({ children, column }) {
 
         {
           <Button
-            disabled={isLoading}
-            withspinner={isLoading ? "true" : ""}
-            onClick={() => checkout()}
+            onClick={() => handleSendBulk()}
+            withspinner={isSendingBulkData ? "true" : ""}
+            disabled={isSendingBulkData}
           >
-            {isLoading ? (
+            {isSendingBulkData ? (
               <>
                 {" "}
-                <SpinnerMini /> <span> checking out... </span>{" "}
+                <SpinnerMini /> <span> saving cart data ... </span>{" "}
               </>
             ) : (
-              <span> checkout </span>
+              <span> Save cart </span>
             )}
           </Button>
         }
