@@ -101,14 +101,6 @@ exports.getMyOrders = catchAsync(async (req, res, next) => {
     select: 'name'
   });
 
-  if (!order.length)
-    return next(
-      new AppError(
-        'You do not have any item in your order, start by checking out your cart item',
-        404
-      )
-    );
-
   res.status(200).json({
     status: 'success',
     length: order.length,
