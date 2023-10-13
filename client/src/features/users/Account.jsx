@@ -3,8 +3,6 @@ import { css, styled } from "styled-components";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
-  /* height: 100vh; */
-  /* width: 100vw; */
 
   display: flex;
   justify-content: center;
@@ -21,6 +19,10 @@ const DetailsContainer = styled.div`
 
   background-color: var(--color-white-1);
   box-shadow: var(--box-shadow-dark);
+`;
+
+const OutletContainer = styled.div`
+  grid-column: 2 / -1;
 `;
 
 const NavList = styled.ul`
@@ -95,7 +97,9 @@ function Account() {
             <NavItem to="/my-order"> My order </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
-        <Outlet />
+        <OutletContainer>
+          <Outlet />
+        </OutletContainer>
       </DetailsContainer>
     </PageContainer>
   );

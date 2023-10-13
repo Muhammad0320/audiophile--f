@@ -4,9 +4,10 @@ import OrderNameQuantity from "./OrderNameQuantity";
 
 import { format } from "date-fns";
 import { HiXMark } from "react-icons/hi2";
+import { formatCurrency } from "../../utils/helper";
 
 const ID = styled.span`
-  font-size: var(--font-small);
+  font-size: var(--font-tiny);
 `;
 
 const NoProducts = styled.span`
@@ -37,6 +38,8 @@ const Status = styled.span`
 function OrderTableItem({ order }) {
   const { _id, createdAt, products, paid } = order;
 
+  const id = _id.slice(-6, -1);
+
   const totalOrderPrice = products.reduce((acc, sum) => acc + sum.price, 0);
 
   const totalCartQuantity = products.reduce(
@@ -50,7 +53,7 @@ function OrderTableItem({ order }) {
 
   return (
     <Table.Row>
-      <ID> #{_id} </ID>
+      <ID> #{id} </ID>
 
       <NoProducts> {totalCartQuantity} </NoProducts>
 
@@ -63,9 +66,9 @@ function OrderTableItem({ order }) {
         ))}
       </ProductInfo>
 
-      <div> {status} </div>
+      <Status status={"paid"}> {status} </Status>
 
-      <div> {totalOrderPrice} </div>
+      <div> {formatCurrency(totalOrderPrice)} </div>
 
       <div> {createdDate} </div>
 

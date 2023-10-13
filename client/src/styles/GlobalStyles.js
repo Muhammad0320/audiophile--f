@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
     --color-red-light: #e5383b;
     --color-red-dark: #da1e37;
 
-    --color-green: '#31cb00';
+    --color-green: #31cb00;
     
     --color-dark: #000;
     --color-dark-1: #101010;
@@ -42,10 +42,10 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
 
 
-    --font-huge: 5rem;
-    --font-medium: 3.5rem;
-    --font-small: 2.5rem;
-    --font-tiny: 1.8rem;
+    --font-huge: 4.5rem;
+    --font-medium: 3rem;
+    --font-small: 2rem;
+    --font-tiny: 1.5rem;
 
 
 

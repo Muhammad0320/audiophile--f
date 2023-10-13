@@ -35,9 +35,11 @@ export const createOrderApi = async ({ product }) => {
 };
 
 export const getMyOrderApi = async () => {
-  const res = await axios.get("http://127.0.0:3000/api/v1/orders/my-order", {
+  const res = await axios.get("http://127.0.0.1:3000/api/v1/orders/my-order", {
     withCredentials: true,
   });
 
-  return res.data;
+  console.log(res.data);
+
+  return res.data.data.order;
 };

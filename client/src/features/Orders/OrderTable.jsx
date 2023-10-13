@@ -6,6 +6,8 @@ import { useGetCurrentUserOrder } from "./useGetCurrentUserOrder";
 function OrderTable() {
   const { myOrder, isLoading } = useGetCurrentUserOrder();
 
+  console.log(myOrder);
+
   if (isLoading) return <Spinner />;
 
   return (

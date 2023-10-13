@@ -32,10 +32,15 @@ const TableContainer = styled.div`
   font-size: 1.5rem;
 
   color: var(--color-dark);
+
+  position: relative;
+
+  margin-inline: auto;
 `;
 
 const CommonRow = styled.div`
   display: grid;
+
   grid-template-columns: ${(props) => props.column};
   align-items: center;
   /* text-align: center; */
