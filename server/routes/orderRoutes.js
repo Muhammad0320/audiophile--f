@@ -19,7 +19,7 @@ router.get('/checkout-session', getCheckoutSesion);
 
 router.post('/create-order', createOrderOnSession);
 
-// router.route('/my-order').get(getMyOrders);
+router.route('/my-order').get(getMyOrders);
 
 router
   .route('/')
