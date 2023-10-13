@@ -16,8 +16,10 @@ function OrderTable() {
         <div> Status </div>
         <div> Total </div>
         <div> Date </div>
-        <div>Actio</div>
+        <div>Action</div>
       </Table.Header>
+
+      <Table.Body data={myOrder} />
     </Table>
   );
 }

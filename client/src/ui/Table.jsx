@@ -70,6 +70,10 @@ const Body = styled.div`
 const Row = styled(CommonRow)`
   padding: 0.8rem 1.2rem;
 
+  color: var(--color-dark-3);
+
+  font-size: var(--font-small);
+
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-dark-2);
   }

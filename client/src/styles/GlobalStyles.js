@@ -10,8 +10,12 @@ const GlobalStyles = createGlobalStyle`
 
     --color-primary: #d87d4a;
     --color-primary-light: #fbaf85;
+
+
     --color-red-light: #e5383b;
     --color-red-dark: #da1e37;
+
+    --color-green: '#31cb00';
     
     --color-dark: #000;
     --color-dark-1: #101010;
@@ -41,7 +45,7 @@ const GlobalStyles = createGlobalStyle`
     --font-huge: 5rem;
     --font-medium: 3.5rem;
     --font-small: 2.5rem;
-    --fomt-tiny: 1.8rem;
+    --font-tiny: 1.8rem;
 
 
 
