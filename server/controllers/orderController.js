@@ -83,7 +83,11 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
     };
   });
 
-  await Order.create({ user, products });
+  const newOrder = await Order.create({ user, products });
+
+  if (newOrder) {
+    await Cart.find({ user }).deleteMany();
+  }
 
   res.status(201).json({
     status: 'success',
