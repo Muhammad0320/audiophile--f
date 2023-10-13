@@ -309,7 +309,7 @@ function ProductDetails() {
       <StyledReviewCard>
         {reviews.length &&
           reviews?.map((review) => (
-            <ReviewCard reviews={review} key={review._id} />
+            <ReviewCard reviews={review} key={review.id} />
           ))}
       </StyledReviewCard>
 

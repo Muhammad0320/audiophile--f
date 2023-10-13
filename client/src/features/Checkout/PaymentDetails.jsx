@@ -21,8 +21,8 @@ const RadioButtonsContainer = styled.div`
 `;
 
 function PaymentDetails() {
-  const { checkout, isLoading } = useCheckoutSession();
   const [checked, setIsChecked] = useState("");
+  const { checkout, isLoading } = useCheckoutSession();
 
   const handleCheckout = () => {
     if (!isLoading) {

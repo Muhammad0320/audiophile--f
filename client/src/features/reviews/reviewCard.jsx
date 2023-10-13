@@ -8,6 +8,7 @@ const StyledCard = styled.div`
   display: flex;
   flex-flow: column;
 
+  row-gap: 2rem;
   justify-content: center;
   align-items: center;
 
@@ -15,17 +16,15 @@ const StyledCard = styled.div`
 
   box-shadow: var(--box-shadow-light);
 
-  background: var(--color-primary-light-muted);
+  background: var(--color-white-vivid);
 
-  background-image: var(--color-gradient-muted);
+  background-image: var(--color-gradient-light);
 
   padding: 2rem 1.5rem;
 
   margin-bottom: 3rem;
 
   border-radius: 1.2rem;
-
-  row-gap: 2rem;
 `;
 
 const AvatarContainer = styled.div`
@@ -73,15 +72,6 @@ function ReviewCard({ reviews }) {
     user: { name, photo },
   } = reviews || {};
 
-  console.log(
-    "alright",
-    new Date(createdAt).toLocaleString("en-us", {
-      month: "long",
-      year: "numeric",
-      day: "2-digit",
-    })
-  );
-
   const time = new Date(createdAt).toLocaleString("en-us", {
     month: "long",
     year: "numeric",
@@ -99,7 +89,6 @@ function ReviewCard({ reviews }) {
       <Text type="review"> {review} </Text>
 
       <ReviewRating maxRating={5} rating={+rating} size={40} />
-
       <TimeStamp> {time} </TimeStamp>
     </StyledCard>
   );
