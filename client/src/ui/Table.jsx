@@ -120,7 +120,7 @@ function Table({ children, column }) {
           <> {children} </>{" "}
         </TableContainer>
 
-        {
+        {changes.length && (
           <Button
             onClick={() => handleSendBulk()}
             withspinner={isSendingBulkData ? "true" : ""}
@@ -135,7 +135,7 @@ function Table({ children, column }) {
               <span> Save cart </span>
             )}
           </Button>
-        }
+        )}
       </TableAndButtonContainer>
     </TableContext.Provider>
   );

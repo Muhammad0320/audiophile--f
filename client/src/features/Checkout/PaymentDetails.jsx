@@ -125,9 +125,11 @@ function PaymentDetails() {
 
         {checked === "cash" && (
           <FormRow position="right">
-            <Modal.Open opens="checkout" checkout={handleCheckout}>
-              <Button> Continue & Accept </Button>
-            </Modal.Open>
+            {!isLoading && (
+              <Modal.Open opens="checkout" checkout={handleCheckout}>
+                <Button> Continue & Accept </Button>
+              </Modal.Open>
+            )}
           </FormRow>
         )}
 
