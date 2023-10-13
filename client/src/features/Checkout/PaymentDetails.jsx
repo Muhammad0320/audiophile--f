@@ -54,9 +54,9 @@ function PaymentDetails() {
         <FormRow position="right">
           <RadioButtonsContainer>
             <RadioButton
-              value="e-money"
-              checked={checked === "e-money"}
-              label="e-money"
+              value="card"
+              checked={checked === "card"}
+              label="Pay with card"
               onChange={handleChange}
             />
             <RadioButton
@@ -68,10 +68,10 @@ function PaymentDetails() {
           </RadioButtonsContainer>
         </FormRow>
 
-        {/* {checked === "e-money" && (
+        {/* {checked === "card" && (
           <>
             <FormRow
-              label="e-Money Number"
+              label="card Number"
               position="left"
               error={errors?.money?.message}
             >
@@ -83,14 +83,14 @@ function PaymentDetails() {
 
                   maxLength: {
                     value: 9,
-                    message: "e-money Number should be at most 9",
+                    message: "card Number should be at most 9",
                   },
                 })}
               />
             </FormRow>
 
             <FormRow
-              label="e-Money PIN"
+              label="card PIN"
               error={errors?.pin?.message}
               position="right"
             >
@@ -101,7 +101,7 @@ function PaymentDetails() {
                   required: "This field is required",
                   maxLength: {
                     value: 4,
-                    message: "e-money pin should be at most 4",
+                    message: "card pin should be at most 4",
                   },
                 })}
               />
@@ -115,7 +115,7 @@ function PaymentDetails() {
           </FormRow>
         )}
 
-        {checked === "e-money" && (
+        {checked === "card" && (
           <FormRow position="right">
             <Modal.Open opens="checkout">
               <Button> Continue & pay </Button>
