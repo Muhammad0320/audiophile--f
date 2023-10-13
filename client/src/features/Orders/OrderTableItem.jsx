@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import Table from "../../ui/Table";
+import OrderNameQuantity from "./OrderNameQuantity";
 
 const ID = styled.span`
   font-size: var(--font-small);
@@ -48,7 +49,14 @@ function OrderTableItem({ order }) {
 
       <NoProducts> {totalCartQuantity} </NoProducts>
 
-      <ProductInfo> </ProductInfo>
+      <ProductInfo>
+        {products.map((item) => (
+          <OrderNameQuantity
+            name={item.productId.name}
+            quantity={item.quantity}
+          />
+        ))}
+      </ProductInfo>
 
       <div> {status} </div>
     </Table.Row>
