@@ -2,6 +2,9 @@ import styled, { css } from "styled-components";
 import Table from "../../ui/Table";
 import OrderNameQuantity from "./OrderNameQuantity";
 
+import { format } from "date-fns";
+import { HiXMark } from "react-icons/hi2";
+
 const ID = styled.span`
   font-size: var(--font-small);
 `;
@@ -43,6 +46,8 @@ function OrderTableItem({ order }) {
 
   const status = paid ? "paid" : "cancel";
 
+  const createdDate = format(new Date(createdAt), "dd/MM/yyyy");
+
   return (
     <Table.Row>
       <ID> #{_id} </ID>
@@ -59,6 +64,15 @@ function OrderTableItem({ order }) {
       </ProductInfo>
 
       <div> {status} </div>
+
+      <div> {totalOrderPrice} </div>
+
+      <div> {createdDate} </div>
+
+      <div>
+        {" "}
+        <HiXMark />{" "}
+      </div>
     </Table.Row>
   );
 }
