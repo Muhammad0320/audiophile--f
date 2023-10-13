@@ -69,13 +69,13 @@ const cartSlice = createSlice({
       if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
     },
 
-    clearCart(state) {
-      state.cart = [];
-
+    clearChanges(state) {
       state.changes = [];
     },
 
-    clearChanges(state) {
+    clearCart(state) {
+      state.cart = [];
+
       state.changes = [];
     },
   },

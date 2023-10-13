@@ -3,10 +3,9 @@ import styled from "styled-components";
 import Button from "./Button";
 import { useSendBulkData } from "../features/cart/useSendBulkData";
 import SpinnerMini from "./SpinnerMini";
-import { useCheckoutSession } from "../features/payment/useCheckoutSession";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { getChanges } from "../features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearChanges, getChanges } from "../features/cart/cartSlice";
 
 const TableAndButtonContainer = styled.div`
   display: flex;
@@ -96,12 +95,21 @@ function Table({ children, column }) {
 
   const changes = useSelector(getChanges);
 
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const handleSendBulk = () => {
     navigate("/checkout");
 
-    sendBulkdata({ changes });
+    sendBulkdata(
+      { changes },
+      {
+        onSuccess: () => {
+          dispatch(clearChanges);
+        },
+      }
+    );
   };
 
   return (
