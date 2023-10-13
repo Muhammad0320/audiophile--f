@@ -96,7 +96,10 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
 exports.getMyOrders = catchAsync(async (req, res, next) => {
   const user = req.user._id;
 
-  const order = await Order.find({ user });
+  const order = await Order.find({ user }).populate({
+    path: 'products.productId',
+    select: 'name'
+  });
 
   if (!order.length)
     return next(
