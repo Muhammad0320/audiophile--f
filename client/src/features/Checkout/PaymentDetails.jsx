@@ -21,13 +21,14 @@ const RadioButtonsContainer = styled.div`
 `;
 
 function PaymentDetails() {
-  const [checked, setIsChecked] = useState("");
-
   const { checkout, isLoading } = useCheckoutSession();
+  const [checked, setIsChecked] = useState("");
 
   const handleCheckout = () => {
     if (!isLoading) {
-      checkout();
+      console.log("Odeh stripe");
+
+      // checkout();
     }
   };
 
@@ -117,7 +118,7 @@ function PaymentDetails() {
 
         {checked === "card" && (
           <FormRow position="right">
-            <Modal.Open opens="checkout">
+            <Modal.Open opens="checkout" checkout={handleCheckout}>
               <Button> Continue & pay </Button>
             </Modal.Open>
           </FormRow>
@@ -126,7 +127,7 @@ function PaymentDetails() {
         {checked === "cash" && (
           <FormRow position="right">
             {!isLoading && (
-              <Modal.Open opens="checkout" checkout={handleCheckout}>
+              <Modal.Open opens="checkout">
                 <Button> Continue & Accept </Button>
               </Modal.Open>
             )}

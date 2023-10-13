@@ -17,8 +17,6 @@ function HomePage() {
   useEffectOnce(() => {
     const data = searchParams.get("session_data");
 
-    console.log(data);
-
     if (data) {
       console.log(data);
       createOrder({ product: data });

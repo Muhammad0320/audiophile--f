@@ -50,7 +50,7 @@ app.use(function(req, res, next) {
 
 app.use(
   cors({
-    origin: 'http://127.0.0.1:5173',
+    origin: ['http://127.0.0.1:5173'],
     methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD', 'PATCH', 'DELETE'],
     credentials: true
   })
