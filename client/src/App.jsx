@@ -21,10 +21,9 @@ import Settings from "./features/users/Settings";
 import ReviewPage from "./pages/ReviewPage";
 import { useDispatch } from "react-redux";
 import { setCartData } from "./features/cart/cartSlice";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getMyCart } from "./service/apiCart";
 import CartPage from "./pages/CartPage";
-import HomePage from "./features/HomePage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -58,7 +57,7 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="home" />} />
-            <Route path="home" element={<HomePage />} />
+            <Route path="home" element={<Home />} />
             <Route path="headphones" element={<Headphone />} />
             <Route path="earphones" element={<Earphone />} />
             <Route path="speakers" element={<Speakers />} />
