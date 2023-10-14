@@ -17,7 +17,6 @@ const Input = styled.input`
   ${(props) =>
     props.account === "true" &&
     css`
-      width: 80%;
       font-size: 1.8rem;
       margin-bottom: 2rem;
     `}

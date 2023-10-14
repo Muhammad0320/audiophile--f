@@ -10,6 +10,7 @@ import SpinnerMini from "../../ui/SpinnerMini";
 import FileInput from "../../ui/FileInput";
 import { useUpdatePassword } from "./useUpdatePassword";
 import Spinner from "../../ui/Spinner";
+import { useEffect } from "react";
 
 const InfoDetails = styled.div`
   padding: 5rem 6rem;
@@ -52,21 +53,24 @@ const UserImage = styled.img`
 function Settings() {
   const { user, isLoading } = useUser();
 
-  const { photo, ...otherUserProperty } = user;
+  const { photo, name, email } = user;
 
   const { updateUser, isUpdating } = useUpdateUSer();
 
   const { updatePassword, isUpdatingPassowrd } = useUpdatePassword();
 
-  const { register, handleSubmit, reset } = useForm({
-    defaultValues: otherUserProperty,
-  });
+  const { register, handleSubmit, reset, setValue } = useForm();
+
+  useEffect(() => {
+    if (user) {
+      setValue("name", name || "");
+      setValue("email", email || "");
+    }
+  }, [name, email, setValue, user]);
 
   if (isLoading) return <Spinner />;
 
   const onSubmitData = ({ name, email, photo }, e) => {
-    // const onSubmitData = ({ name, email }, e) => {
-
     console.log(name, email);
 
     e.preventDefault();
@@ -94,6 +98,7 @@ function Settings() {
         <FormRow account label="Name">
           <Input
             account="true"
+            disabled={isUpdating}
             type="text"
             id="name"
             {...register("name", {
@@ -106,6 +111,7 @@ function Settings() {
           <Input
             account="true"
             id="email"
+            disabled={isUpdating}
             {...register("email", {
               required: "This field is required",
             })}
@@ -117,6 +123,7 @@ function Settings() {
 
           <FileInput
             name="photo"
+            disabled={isUpdating}
             id="photo"
             accept="image/*"
             {...register("photo")}
@@ -137,6 +144,7 @@ function Settings() {
         <FormRow account label="Current password">
           <Input
             type="password"
+            disabled={isUpdatingPassowrd}
             placeholder="••••••••"
             account="true"
             {...register("currentPassword")}
@@ -146,6 +154,7 @@ function Settings() {
         <FormRow account label="Password">
           <Input
             type="password"
+            disabled={isUpdatingPassowrd}
             placeholder="••••••••"
             account="true"
             {...register("password")}
@@ -156,6 +165,7 @@ function Settings() {
           <Input
             type="password"
             placeholder="••••••••"
+            disabled={isUpdatingPassowrd}
             account="true"
             {...register("passwordConfirm")}
           />

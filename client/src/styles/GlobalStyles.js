@@ -131,6 +131,7 @@ button {
 
 *:disabled {
   cursor: not-allowed;
+  background-color: var()(--color-primary-light-dark) ;
 
 }
 
