@@ -7,7 +7,7 @@ import { IconLogo } from "../ui/Icons";
 import OtherAuthmethod from "../ui/OtherAuthmethod";
 
 const PageContainer = styled.div`
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   display: grid;
   justify-content: center;
