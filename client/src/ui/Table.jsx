@@ -25,7 +25,7 @@ const TableAndButtonContainer = styled.div`
 `;
 
 const TableContainer = styled.div`
-  border: 1px solid var(--color-dark-2);
+  border: 1px solid var(--color-white-vivid);
 
   background-color: var(--color-white-1);
 
@@ -48,11 +48,10 @@ const CommonRow = styled.div`
 
 const Header = styled(CommonRow)`
   padding: 1.2rem 2rem;
-  text-transform: uppercase;
-  font-size: var(--font-tiny);
-  background-color: var(--color-white-2);
+  font-size: var(--font-small);
+  background-color: var(--color-white-1);
   font-weight: 600;
-  border-bottom: 1px solid var(--color-dark-2);
+  border-bottom: 1px solid var(--color-white-2);
 `;
 
 const Footer = styled.footer`
@@ -70,7 +69,7 @@ const Body = styled.div`
 `;
 
 const Row = styled(CommonRow)`
-  padding: 0.8rem 1.2rem;
+  padding: 0.8rem var(--padding-tiny);
 
   white-space: normal;
   overflow: hidden;
@@ -81,7 +80,7 @@ const Row = styled(CommonRow)`
   font-size: var(--font-small);
 
   &:not(:last-child) {
-    border-bottom: 1px solid var(--color-dark-2);
+    border-bottom: 1px solid var(--color-white-2);
   }
 `;
 
