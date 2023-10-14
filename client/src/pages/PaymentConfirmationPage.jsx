@@ -1,20 +1,24 @@
+import styled from "styled-components";
 import Confirmation from "../ui/Confirmation";
 import ContainerContent from "../ui/ContainerContent";
 
 import ContainerLayout from "../ui/ContainerLayout";
-import Footer from "../ui/Footer";
-import Header from "../ui/Header";
+
+const Container = styled.div`
+  background-color: var(--color-white-vivid);
+  margin-block: var(--margin-medium);
+  border-radius: 2rem;
+  padding: var(--padding-small) 10rem;
+`;
 
 function PaymentConfirmationPage() {
   return (
     <ContainerLayout>
-      <Header />
-
       <ContainerContent>
-        <Confirmation />
+        <>
+          <Confirmation />
+        </>
       </ContainerContent>
-
-      <Footer />
     </ContainerLayout>
   );
 }

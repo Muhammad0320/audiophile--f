@@ -25,6 +25,7 @@ import { useEffect } from "react";
 import { getMyCart } from "./service/apiCart";
 import CartPage from "./pages/CartPage";
 import OrderTable from "./features/Orders/OrderTable";
+import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -63,6 +64,8 @@ function App() {
             <Route path="earphones" element={<Earphone />} />
             <Route path="speakers" element={<Speakers />} />
             <Route path="checkout" element={<CheckoutPage />} />
+            <Route path="success" element={<PaymentConfirmationPage />} />
+
             <Route path="product/:slug" element={<Details />} />
 
             {/* <Route path="product/:productID" element={<Details />} /> */}

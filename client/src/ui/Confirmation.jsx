@@ -24,9 +24,12 @@ const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   align-items: flex-start;
-  background-color: var(--color-white);
+  background-color: var(--color-white-vivid);
+  border-radius: 2rem;
   border-radius: 1.5rem;
   padding: 5rem 3rem;
+
+  box-shadow: var(--box-shadow-dark);
 `;
 
 const StyledIcon = styled.span`
@@ -35,7 +38,7 @@ const StyledIcon = styled.span`
 
 const ConfirmationText = styled.h2`
   font-weight: 600;
-  font-size: 3.5rem;
+  font-size: var(--font-medium);
   text-transform: uppercase;
   color: var(--color-dark);
 `;
@@ -93,9 +96,15 @@ const TextTotal = styled.span`
 function Confirmation() {
   const cart = useSelector(getCart);
 
+  console.log(cart);
+
   const totalCartPrice = useSelector(getTotalCartPrice);
 
-  const { cartImage, unitPrice, cartName, quantity } = cart.at(0);
+  const {
+    product: { name, image },
+    quantity,
+    totalPrice,
+  } = cart?.at(0);
 
   const OtherCartItemCount = cart.length - 1;
 
@@ -106,22 +115,19 @@ function Confirmation() {
       <StyledIcon>
         <SVG src={IconConfirmation} />
       </StyledIcon>
-
       <ConfirmationText>
         Thank you <br /> for your order
       </ConfirmationText>
-
       <Text> You will receive an email confirmation shortly </Text>
-
       <CartOverviewContainer>
         <CartOverview>
           <CartItemContainer>
             <CartItemImageContainer>
-              <img src={cartImage} alt="Cart overviewImage" />
+              <img src={image} alt="Cart overviewImage" />
             </CartItemImageContainer>
             <CartItemDescription>
-              <CartItemName> {cartName} </CartItemName>
-              <Text> {formatCurrency(unitPrice)} </Text>
+              <CartItemName> {name} </CartItemName>
+              <Text> {formatCurrency(totalPrice)} </Text>
             </CartItemDescription>
 
             <CartText>{"X" + quantity} </CartText>
@@ -145,7 +151,6 @@ function Confirmation() {
           </CartTextBold>
         </CartPriceOverview>
       </CartOverviewContainer>
-
       <Button onClick={() => navigate("/home")}> Back to Home </Button>
     </StyledContainer>
   );

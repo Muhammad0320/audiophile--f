@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
     --color-gradient-dark: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .25));
     --color-gradient-dark-1: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .50));
     --color-gradient-light: linear-gradient(145deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .25));
-      
+
      --color-white-vivid:   color-mix(in oklab, var(--color-primary-light) 10%, var(--color-white));
     --color-primary-muted: color-mix(in oklab, var(--color-primary) 80%, var(--color-white));
     --color-primary-dark: color-mix(in oklab, var(--color-primary) 80%, var(--color-dark));
@@ -48,8 +48,19 @@ const GlobalStyles = createGlobalStyle`
     --font-tiny: 1.5rem;
 
 
+   
+    --padding-huge: 10rem;
+    --padding-medium: 7rem;
+    --padding-small: 4rem;
+    --padding-tiny: 2rem;
 
-}
+    --margin-huge: 15rem;
+    --margin-medium: 10rem;
+    --margin-small: 7rem;
+    --margin-very-small: 4rem;
+    --margin-tiny: 2rem;
+
+} 
 
 
 html {
