@@ -34,8 +34,6 @@ const StyledContainer = styled.div`
   overflow: hidden;
   padding: 5rem 3rem;
   box-shadow: var(--box-shadow-dark);
-
-  width: ;
 `;
 
 const StyledIcon = styled.span`

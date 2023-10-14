@@ -47,7 +47,7 @@ const GlobalStyles = createGlobalStyle`
     --font-small: 2rem;
     --font-tiny: 1.5rem;
 
-
+  
    
     --padding-huge: 10rem;
     --padding-medium: 7rem;
