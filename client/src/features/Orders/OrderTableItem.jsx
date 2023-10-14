@@ -38,10 +38,11 @@ const Status = styled.span`
 `;
 
 const Icon = styled.span`
-  color: var(--color-dark);
+  color: var(--color-dark-2);
   font-size: var(--font-medium);
-  text-align: center;
 
+  text-align: center;
+  cursor: pointer;
   transition: color 0.2;
 
   &:hover {

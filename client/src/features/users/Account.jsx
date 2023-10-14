@@ -1,5 +1,6 @@
+import { HiCog6Tooth, HiShoppingCart, HiTruck } from "react-icons/hi2";
 import { NavLink, Outlet } from "react-router-dom";
-import { css, styled } from "styled-components";
+import { styled } from "styled-components";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
@@ -47,18 +48,15 @@ const Sidebar = styled.div`
 
 const NavItem = styled(NavLink)`
   display: flex;
-  font-size: 2rem;
   padding: 1rem;
   justify-content: center;
-  align-content: center;
+  gap: 1rem;
+  align-items: center;
+  font-size: var(--font-small);
   text-transform: uppercase;
   position: relative;
-  transition: translate 0.3s;
-  cursor: pointer;
 
-  &:hover {
-    translate: 1rem 0.5rem;
-  }
+  cursor: pointer;
 
   &::before {
     content: "";
@@ -67,20 +65,19 @@ const NavItem = styled(NavLink)`
     width: 4px;
     position: absolute;
     transform: scaleY(0);
-    background-color: var(--color-white);
     left: -8rem;
     top: 0;
-    transition: transform 0.2s;
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
   }
 
-  &.active,
-  &.active:link,
-  &.active:visited,
+  &.active::before,
   &:hover::before {
+    /* translate: 1rem 0.3rem; */
+    background-color: var(-color-white-vivid);
+    width: 100%;
     transform: scaleY(1);
   }
-
-  ${(props) => props.active === "true" && css``}
 `;
 
 function Account() {
@@ -91,10 +88,32 @@ function Account() {
           {" "}
           <NavList>
             {" "}
-            <NavItem to="/settings"> settings </NavItem>{" "}
-            <NavItem to="/my-cart"> My Cart </NavItem>{" "}
-            <NavItem to="/my-reviews"> My Reviews </NavItem>{" "}
-            <NavItem to="/my-order"> My order </NavItem>{" "}
+            <NavItem to="/settings">
+              {" "}
+              <span> {<HiCog6Tooth />} </span>
+              <span> My settings </span>{" "}
+            </NavItem>{" "}
+            <NavItem to="/my-cart">
+              <span>
+                {" "}
+                <HiShoppingCart />
+              </span>
+
+              <span> My cart </span>
+            </NavItem>{" "}
+            <NavItem to="/my-reviews">
+              <span> </span>
+
+              <span> My Reviews </span>
+            </NavItem>{" "}
+            <NavItem to="/my-order">
+              <span>
+                {" "}
+                <HiTruck />{" "}
+              </span>
+
+              <span> My order </span>
+            </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
         <OutletContainer>
