@@ -58,6 +58,10 @@ const Open = ({ children, opens }) => {
     open(() => opens);
   };
 
+  if (opens === "success") {
+    open(() => opens);
+  }
+
   return cloneElement(children, { onClick: () => handleClick() });
 };
 
