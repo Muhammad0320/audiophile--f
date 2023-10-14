@@ -11,6 +11,7 @@ import ShippingInfo from "./ShippingInfo";
 import { useSelector } from "react-redux";
 import { getCart } from "../cart/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const StyledCheckoutForm = styled.div`
   background-color: var(--color-white);
@@ -26,6 +27,7 @@ function CheckoutContent() {
 
   const navigate = useNavigate();
 
+  const [formStep, setFormStep] = useState(1);
   if (!cart.length) return navigate(`/home`);
 
   return (
@@ -35,9 +37,9 @@ function CheckoutContent() {
       <ContainerContent>
         <Checkout>
           <StyledCheckoutForm>
-            <BillingDetails />
-            <ShippingInfo />
-            <PaymentDetails />
+            <BillingDetails step={formStep} setStep={setFormStep} />
+            <ShippingInfo step={formStep} setStep={setFormStep} />
+            <PaymentDetails step={formStep} setStep={setFormStep} />
           </StyledCheckoutForm>
 
           <Cart page="checkout" />
