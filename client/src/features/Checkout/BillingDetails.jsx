@@ -5,6 +5,7 @@ import InputTypeHeader from "../../ui/InputTypeHeader";
 import Form from "../../ui/Form";
 import { styled } from "styled-components";
 import Button from "../../ui/Button";
+import { handleFormStep } from "./handleFormStep";
 
 const FormHeader = styled.div`
   font-size: 3.5rem;
@@ -14,14 +15,12 @@ const FormHeader = styled.div`
   color: var(--color-dark);
 `;
 
-function BillingDetails() {
+function BillingDetails({ step, setStep }) {
   const { register, reset, formState, handleSubmit } = useForm();
 
   const { errors } = formState;
 
-  const onSubmit = () => {
-    reset();
-  };
+  const onSubmit = handleFormStep(reset, step, setStep);
 
   return (
     <>
@@ -31,6 +30,7 @@ function BillingDetails() {
         <FormRow label="Name" position="left" error={errors?.name?.message}>
           <Input
             id="email"
+            disabled={step !== 1}
             type="text"
             placeholder="John Doe"
             {...register("name", { required: "This field is required" })}
@@ -41,6 +41,7 @@ function BillingDetails() {
           <Input
             id="email"
             type="email"
+            disabled={step !== 1}
             placeholder="example@gmail.com"
             {...register("email", {
               required: "This field is required",
@@ -54,12 +55,14 @@ function BillingDetails() {
 
         <FormRow
           label="Phone Number"
+          disabled={step !== 1}
           position="left"
           error={errors?.phone?.message}
         >
           <Input
             id="phone"
             placeholder="+123 4567 8912 34"
+            disabled={step !== 1}
             error={errors?.phone?.message}
             {...register("phone", {
               required: "This field is required",
@@ -73,7 +76,7 @@ function BillingDetails() {
         </FormRow>
 
         <FormRow position="left">
-          <Button> Next </Button>
+          <Button disabled={step !== 1}> Next </Button>
         </FormRow>
       </Form>
     </>
