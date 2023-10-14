@@ -15,7 +15,7 @@ function ReviewTable() {
 
   return (
     <ReviewContainer>
-      <Table column="0.9fr 1fr 2fr 1.2fr 1.4fr">
+      <Table column="1fr 1fr 2.3fr 1.2fr 1.4fr">
         <Table.Header>
           <div></div>
           <div>Name</div>

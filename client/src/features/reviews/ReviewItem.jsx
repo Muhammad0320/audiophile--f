@@ -7,6 +7,7 @@ import Modal from "../../ui/Modal";
 import DeleteConfirm from "../../ui/DeleteConfirm";
 import { useDeleteReview } from "./useDeleteReview";
 import EditReviewForm from "../../ui/EditReviewForm";
+import { ReviewRating } from "../../ui/StarRating";
 
 const Image = styled.img`
   display: inline-block;
@@ -65,7 +66,11 @@ function ReviewItem({ data }) {
         )}
       </Review>
 
-      <span> {rating} </span>
+      <span>
+        {" "}
+        <ReviewRating maxRating={5} rating={+rating} size={20} />
+      </span>
+
       <Modal>
         <div>
           <Menu>

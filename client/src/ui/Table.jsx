@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearChanges, getChanges } from "../features/cart/cartSlice";
 
+// https://dev.to/devland/clean-code-principles-for-javascript-and-typescript-developers-3kdn
+
 const TableAndButtonContainer = styled.div`
   display: flex;
 
@@ -40,10 +42,11 @@ const CommonRow = styled.div`
   display: grid;
 
   grid-template-columns: ${(props) => props.column};
+
   align-items: center;
   transition: none;
-
-  column-gap: 2.5rem;
+  overflow: auto;
+  column-gap: 2rem;
 `;
 
 const Header = styled(CommonRow)`
@@ -52,6 +55,8 @@ const Header = styled(CommonRow)`
   background-color: var(--color-white-1);
   font-weight: 600;
   border-bottom: 1px solid var(--color-white-2);
+
+  hyphens: auto;
 `;
 
 const Footer = styled.footer`
@@ -70,10 +75,6 @@ const Body = styled.div`
 
 const Row = styled(CommonRow)`
   padding: 0.8rem var(--padding-tiny);
-
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
 
   color: var(--color-dark-3);
 

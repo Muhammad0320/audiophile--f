@@ -24,6 +24,8 @@ const Status = styled.span`
   font-size: var(--font-small);
   text-align: center;
 
+  font-size: var(--font-small);
+
   ${(props) =>
     props.status === "paid" &&
     css`
@@ -80,9 +82,12 @@ function OrderTableItem({ order }) {
 
       <Status status={"paid"}> {status} </Status>
 
-      <div> {formatCurrency(totalOrderPrice)} </div>
+      <div style={{ fontSize: "var(--font-tiny)" }}>
+        {" "}
+        {formatCurrency(totalOrderPrice)}{" "}
+      </div>
 
-      <div> {createdDate} </div>
+      <div style={{ fontSize: "var(--font-tiny)" }}> {createdDate} </div>
 
       <Icon>
         {" "}

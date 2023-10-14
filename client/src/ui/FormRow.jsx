@@ -22,11 +22,6 @@ const StyledFormRow = styled.div`
     css`
       grid-column: 1 / -1;
     `}
-
-    &:has(button) button {
-    align-self: flex-end;
-    justify-self: flex-start;
-  }
 `;
 
 const LabelContainer = styled.div`

@@ -9,21 +9,28 @@ function OrderTable() {
   if (isLoading) return <Spinner />;
 
   return (
-    <Table column="0.4fr 0.3fr 1.2fr 0.4fr 0.5fr 0.4fr 0.3fr" role="table">
+    <Table
+      column="minmax(0, 0.4fr) minmax(0, 0.4fr) minmax(0, 1.2fr) minmax(0, 0.4fr) minmax(0, 0.5fr) minmax(0, 0.5fr) minmax(0, 0.2fr);"
+      role="table"
+    >
       <Table.Header>
         <div> Order ID </div>
-        <div> No of product </div>
+        <div> No. product </div>
         <div> Product info </div>
         <div> Status </div>
         <div> Total </div>
         <div> Date </div>
-        <div>Action</div>
+        <div></div>
       </Table.Header>
 
-      <Table.Body
-        data={myOrder}
-        render={(order) => <OrderTableItem order={order} />}
-      />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <Table.Body
+          data={myOrder}
+          render={(order) => <OrderTableItem order={order} key={order._id} />}
+        />
+      )}
     </Table>
   );
 }
