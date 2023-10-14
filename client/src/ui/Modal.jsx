@@ -18,6 +18,7 @@ const StyledModalConfirm = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 40%;
   background-color: var(--color-white);
   border-radius: 1.5rem;
   box-shadow: var(--bos-shadow-light);

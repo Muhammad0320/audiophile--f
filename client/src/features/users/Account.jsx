@@ -6,9 +6,6 @@ import { styled } from "styled-components";
 const PageContainer = styled.div`
   background-color: var(--color-white);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 10rem 0;
 `;
 
