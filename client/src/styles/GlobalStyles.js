@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
     --color-dark-2:  rgba(0, 0, 0, 0.2);
     --color-dark-3:  rgba(0, 0, 0, 0.8);
 
-
+    
     --color-white: #fff ;
     --color-white-1: #fafafa;
     --color-white-2: #f1f1f1 ;
@@ -31,7 +31,7 @@ const GlobalStyles = createGlobalStyle`
     --color-gradient-dark-1: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .50));
     --color-gradient-light: linear-gradient(145deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .25));
 
-     --color-white-vivid:   color-mix(in oklab, var(--color-primary-light) 10%, var(--color-white));
+     --color-white-vivid: color-mix(in oklab, var(--color-primary-light) 10%, var(--color-white));
     --color-primary-muted: color-mix(in oklab, var(--color-primary) 80%, var(--color-white));
     --color-primary-dark: color-mix(in oklab, var(--color-primary) 80%, var(--color-dark));
     --color-primary-light-muted: color-mix(in oklab, var(--color-primary-light) 30%, var(--color-white));
@@ -47,7 +47,7 @@ const GlobalStyles = createGlobalStyle`
     --font-small: 2rem;
     --font-tiny: 1.5rem;
 
-  
+
    
     --padding-huge: 10rem;
     --padding-medium: 7rem;

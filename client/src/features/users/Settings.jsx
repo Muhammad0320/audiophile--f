@@ -9,6 +9,7 @@ import { useUpdateUSer } from "./useUpdateUser";
 import SpinnerMini from "../../ui/SpinnerMini";
 import FileInput from "../../ui/FileInput";
 import { useUpdatePassword } from "./useUpdatePassword";
+import Spinner from "../../ui/Spinner";
 
 const InfoDetails = styled.div`
   padding: 5rem 6rem;
@@ -49,21 +50,24 @@ const UserImage = styled.img`
 `;
 
 function Settings() {
-  const { user = {} } = useUser();
+  const { user = {}, isLoading } = useUser();
 
-  const { photo, name, email } = user;
+  const { photo, ...otherUserProperty } = user;
 
   const { updateUser, isUpdating } = useUpdateUSer();
 
   const { updatePassword, isUpdatingPassowrd } = useUpdatePassword();
 
   const { register, handleSubmit, reset } = useForm({
-    defaultValues: user,
+    defaultValues: otherUserProperty,
   });
+
+  if (isLoading) return <Spinner />;
 
   const onSubmitData = ({ name, email, photo }, e) => {
     // const onSubmitData = ({ name, email }, e) => {
-    console.log(photo[0]);
+
+    console.log(name, email);
 
     e.preventDefault();
 
@@ -91,7 +95,7 @@ function Settings() {
           <Input
             account="true"
             type="text"
-            defaultValue={name}
+            id="name"
             {...register("name", {
               required: "This field is required",
             })}
@@ -102,7 +106,8 @@ function Settings() {
           <Input
             account="true"
             type="text"
-            defaultValue={email}
+            id="email"
+            defaultValue={""}
             {...register("email")}
           />
         </FormRow>
