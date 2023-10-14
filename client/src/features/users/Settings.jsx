@@ -46,7 +46,6 @@ const UserImage = styled.img`
   height: 5rem;
   border-radius: 50%;
 `;
-
 function Settings() {
   const { user = {}, isLoading } = useUser();
 

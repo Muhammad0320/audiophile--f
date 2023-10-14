@@ -36,7 +36,7 @@ function PaymentDetails({ step }) {
   return (
     <Modal>
       <InputTypeHeader> payment details </InputTypeHeader>
-      <Form as="div">
+      <Form>
         <FormRow label="payment method" position="left">
           <Input type="hidden" />
         </FormRow>
@@ -45,7 +45,7 @@ function PaymentDetails({ step }) {
           <RadioButtonsContainer>
             <RadioButton
               value="card"
-              disabled={step !== 3}
+              // disabled={step !== 3}
               checked={checked === "card"}
               label="Pay with card"
               onChange={handleChange}
@@ -54,7 +54,7 @@ function PaymentDetails({ step }) {
               value="cash"
               checked={checked === "cash"}
               label="Cash on Delivery"
-              disabled={step !== 3}
+              // disabled={step !== 3}
               onChange={handleChange}
             />
           </RadioButtonsContainer>
@@ -74,15 +74,13 @@ function PaymentDetails({ step }) {
 
         {checked === "cash" && (
           <FormRow position="right">
-            {
-              <Modal.Open opens="checkout">
-                <Button> Continue & Accept </Button>
-              </Modal.Open>
-            }
+            <Modal.Open opens="confirmation">
+              <Button> Continue & Accept </Button>
+            </Modal.Open>
           </FormRow>
         )}
 
-        <Modal.Window name="checkout" page="confirm">
+        <Modal.Window name="confirmation" page="confirm">
           <Confirmation />
         </Modal.Window>
       </Form>

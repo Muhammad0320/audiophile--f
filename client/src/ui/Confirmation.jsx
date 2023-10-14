@@ -16,9 +16,7 @@ import { CartTextBold } from "../features/cart/Cart";
 import { grandTotalPrice } from "../utils/constant";
 import { formatCurrency } from "../utils/helper";
 import Button from "./Button";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import useCreateOrder from "../features/payment/useCreateOrder";
-import { useEffectOnce } from "../hooks/useeffectOnce";
+import { useNavigate } from "react-router-dom";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -98,28 +96,27 @@ const TextTotal = styled.span`
 `;
 
 function Confirmation() {
-  const { createOrder } = useCreateOrder();
-
-  const [searchParams] = useSearchParams();
-
-  const data = searchParams.get("session_data");
-  useEffectOnce(() => {
-    if (data) {
-      createOrder({ product: data });
-    }
-  });
-
   const cart = useSelector(getCart) || [];
 
   console.log(cart);
 
   const totalCartPrice = useSelector(getTotalCartPrice);
 
-  const {
-    product: { name, image },
-    quantity,
-    totalPrice,
-  } = cart?.at(0);
+  let name, quantity, totalPrice, image;
+
+  if (cart.length) {
+    const {
+      product: { name: prodName, image: prodImage },
+      quantity: prodQuantity,
+      totalPrice: productTotalPrice,
+    } = cart?.at(0);
+
+    name = prodName;
+    image = prodImage;
+    quantity = prodQuantity;
+
+    totalPrice = productTotalPrice;
+  }
 
   const OtherCartItemCount = cart.length - 1;
 

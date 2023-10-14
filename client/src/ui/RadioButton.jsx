@@ -19,7 +19,7 @@ const StyledRadioButton = styled.span`
   border: 2px solid var(--color-dark-2);
 
   ${(props) =>
-    props.isChecked === "checked" &&
+    props.ischecked === "checked" &&
     css`
       border: 2px solid var(--color-primary);
     `}
@@ -50,7 +50,7 @@ const RadioLabelContainer = styled.label`
 
 function RadioButton({ label, checked, onChange, value, disabled }) {
   return (
-    <RadioLabelContainer isChecked={checked ? "checked" : ""}>
+    <RadioLabelContainer ischecked={checked ? "checked" : ""}>
       <RadioInput
         checked={checked}
         onChange={onChange}

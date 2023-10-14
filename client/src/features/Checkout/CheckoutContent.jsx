@@ -42,7 +42,7 @@ function CheckoutContent() {
             <PaymentDetails step={formStep} setStep={setFormStep} />
           </StyledCheckoutForm>
 
-          <Cart page="checkout" />
+          <Cart page="summary" />
         </Checkout>
       </ContainerContent>
 
