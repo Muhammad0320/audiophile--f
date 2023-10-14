@@ -50,7 +50,7 @@ const UserImage = styled.img`
 `;
 
 function Settings() {
-  const { user = {}, isLoading } = useUser();
+  const { user, isLoading } = useUser();
 
   const { photo, ...otherUserProperty } = user;
 
@@ -105,10 +105,10 @@ function Settings() {
         <FormRow account label="Email address">
           <Input
             account="true"
-            type="text"
             id="email"
-            defaultValue={""}
-            {...register("email")}
+            {...register("email", {
+              required: "This field is required",
+            })}
           />
         </FormRow>
 
