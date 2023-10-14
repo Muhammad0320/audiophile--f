@@ -16,7 +16,9 @@ import { CartTextBold } from "../features/cart/Cart";
 import { grandTotalPrice } from "../utils/constant";
 import { formatCurrency } from "../utils/helper";
 import Button from "./Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import useCreateOrder from "../features/payment/useCreateOrder";
+import { useEffectOnce } from "../hooks/useeffectOnce";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -98,6 +100,17 @@ const TextTotal = styled.span`
 `;
 
 function Confirmation() {
+  const { createOrder } = useCreateOrder();
+
+  const [searchParams] = useSearchParams();
+
+  const data = searchParams.get("session_data");
+  useEffectOnce(() => {
+    if (data) {
+      createOrder({ product: data });
+    }
+  });
+
   const cart = useSelector(getCart) || [];
 
   console.log(cart);
