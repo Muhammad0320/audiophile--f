@@ -11,7 +11,7 @@ import PayOnDelivery from "./PayOnDelivery";
 import Button from "../../ui/Button";
 import Modal from "../../ui/Modal";
 import Confirmation from "../../ui/Confirmation";
-import { useCheckoutSession } from "../payment/useCheckoutSession";
+import { getCheckoutSesionApi } from "../../service/apiOrder";
 
 const RadioButtonsContainer = styled.div`
   display: flex;
@@ -22,32 +22,21 @@ const RadioButtonsContainer = styled.div`
 
 function PaymentDetails() {
   const [checked, setIsChecked] = useState("");
-  const { checkout, isLoading } = useCheckoutSession();
 
-  const handleCheckout = () => {
-    if (!isLoading) {
-      console.log("Odeh stripe");
+  const handleCheckout = async (e) => {
+    e.preventDefault();
 
-      checkout();
-    }
+    await getCheckoutSesionApi();
   };
 
   const handleChange = (e) => {
     setIsChecked(e.target.value);
   };
 
-  const { register, formState, handleSubmit, reset } = useForm();
-
-  const { errors } = formState;
-
-  const onSubmit = () => {
-    reset();
-  };
-
   return (
     <Modal>
       <InputTypeHeader> payment details </InputTypeHeader>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form as="div">
         <FormRow label="payment method" position="left">
           <Input type="hidden" />
         </FormRow>
@@ -69,47 +58,6 @@ function PaymentDetails() {
           </RadioButtonsContainer>
         </FormRow>
 
-        {/* {checked === "card" && (
-          <>
-            <FormRow
-              label="card Number"
-              position="left"
-              error={errors?.money?.message}
-            >
-              <Input
-                placeholder="729027474"
-                error={errors?.money?.message}
-                {...register("money", {
-                  required: "This field is required",
-
-                  maxLength: {
-                    value: 9,
-                    message: "card Number should be at most 9",
-                  },
-                })}
-              />
-            </FormRow>
-
-            <FormRow
-              label="card PIN"
-              error={errors?.pin?.message}
-              position="right"
-            >
-              <Input
-                placeholder="4967"
-                error={errors?.pin?.message}
-                {...register("pin", {
-                  required: "This field is required",
-                  maxLength: {
-                    value: 4,
-                    message: "card pin should be at most 4",
-                  },
-                })}
-              />
-            </FormRow>
-          </>
-        )} */}
-
         {checked === "cash" && (
           <FormRow position="both">
             <PayOnDelivery />
@@ -118,19 +66,17 @@ function PaymentDetails() {
 
         {checked === "card" && (
           <FormRow position="right">
-            <Modal.Open opens="checkout" checkout={handleCheckout}>
-              <Button> Continue & pay </Button>
-            </Modal.Open>
+            <Button onClick={handleCheckout}> Continue & pay </Button>
           </FormRow>
         )}
 
         {checked === "cash" && (
           <FormRow position="right">
-            {!isLoading && (
+            {
               <Modal.Open opens="checkout">
                 <Button> Continue & Accept </Button>
               </Modal.Open>
-            )}
+            }
           </FormRow>
         )}
 

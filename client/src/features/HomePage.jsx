@@ -17,8 +17,13 @@ function HomePage() {
   useEffectOnce(() => {
     const data = searchParams.get("session_data");
 
+    console.log(data);
+
+    // const orderData = `[${data}]`;
+
+    // console.log()
+
     if (data) {
-      console.log(data);
       createOrder({ product: data });
     }
   });

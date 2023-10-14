@@ -34,8 +34,6 @@ const TableContainer = styled.div`
   color: var(--color-dark);
 
   position: relative;
-
-  margin-inline: auto;
 `;
 
 const CommonRow = styled.div`

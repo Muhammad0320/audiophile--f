@@ -46,21 +46,19 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
 
   const currentUserCartStr = JSON.stringify(currentUserCart);
 
-  const successUrl = `${req.protocol}://127.0.0.1:5173/home/?session_data=${currentUserCartStr}`;
+  const encodedCartData = encodeURIComponent(currentUserCartStr);
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
 
     mode: 'payment',
-    success_url: successUrl,
-    cancel_url: `${req.protocol}://127.0.0.1:5173`,
+    success_url: `${req.protocol}://127.0.0.1:5173/home?session_data=${encodedCartData}`,
+    cancel_url: `${req.protocol}://127.0.0.1:5173/home`,
     customer_email: req.user.email,
     client_reference_id: req.user._id,
 
     line_items: checkoutItems
   });
-
-  //   console.log(session);
 
   res.status(200).json({
     status: 'success',

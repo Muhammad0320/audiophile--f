@@ -1,4 +1,5 @@
 const Cart = require('../models/cartModel');
+const Product = require('../models/productModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const {
@@ -53,8 +54,6 @@ exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
 
   if (!changes) return next();
 
-  console.log(changes);
-
   const bulkOps = changes.map(change => {
     if (change.type === 'add') {
       return {
@@ -88,6 +87,8 @@ exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   });
 
   const updatedCart = await Cart.bulkWrite(bulkOps, { ordered: true });
+
+  console.log(updatedCart);
 
   res.status(201).json({
     status: 'success',

@@ -18,6 +18,8 @@ function CartTable() {
 
   const changes = useSelector(getChanges);
 
+  console.log(changes);
+
   const isLoading = false;
 
   return (

@@ -16,8 +16,7 @@ const PageContainer = styled.div`
 const DetailsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* grid-template-rows: none; */
-  /* width: 80%; */
+
   grid-auto-rows: auto;
   grid-auto-flow: column;
   margin: 0 8rem;
@@ -45,21 +44,19 @@ const Sidebar = styled.div`
   background: var(--color-primary-muted);
 
   background-image: var(--color-gradient-dark);
-
   padding: 2rem 3rem;
 `;
 
 const NavItem = styled(NavLink)`
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   padding: 1rem;
   justify-content: center;
   gap: 1.5rem;
   align-items: center;
   font-size: var(--font-small);
   text-transform: uppercase;
-
-  /* flex-flow: column; */
   cursor: pointer;
 
   &::before {
@@ -73,15 +70,14 @@ const NavItem = styled(NavLink)`
 
     left: -8rem;
     top: 0;
-    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
-      background-color 0.1s translate 0.2s;
+    transition: transform 0.2s, translate 0.2s;
   }
 
-  /* &.active::before, */
+  &.active::before,
   &:hover::before {
     translate: 1rem 0.3rem;
-    background-color: var(--color-white-vivid);
-    width: 100%;
+    /* background-color: var(--color-white-vivid); */
+    /* width: 100%; */
     transform: scaleY(1);
   }
 `;
@@ -101,10 +97,7 @@ function Account() {
               <span> My settings </span>{" "}
             </NavItem>{" "}
             <NavItem to="/my-cart">
-              <span>
-                {" "}
-                <HiShoppingCart />
-              </span>
+              <span> {<HiShoppingCart />}</span>
 
               <span> My cart </span>
             </NavItem>{" "}

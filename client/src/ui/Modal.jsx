@@ -2,7 +2,6 @@ import { cloneElement, createContext, useContext, useState } from "react";
 import { styled } from "styled-components";
 import { useClickOutside } from "../hooks/useClickOutside";
 import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
 
 const StyledModal = styled.div`
   border-radius: 1rem;
@@ -52,18 +51,10 @@ function Modal({ children }) {
   );
 }
 
-const Open = ({ children, opens, checkout }) => {
-  const navigate = useNavigate();
-
+const Open = ({ children, opens }) => {
   const { open } = useContext(ModalContext);
 
   const handleClick = () => {
-    if (checkout) {
-      navigate("/home");
-
-      checkout();
-    }
-
     open(() => opens);
   };
 

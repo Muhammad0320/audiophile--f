@@ -9,16 +9,20 @@ const stripePromise = loadStripe(
 );
 
 export const getCheckoutSesionApi = async () => {
-  const stripe = await stripePromise;
+  try {
+    const stripe = await stripePromise;
 
-  const session = await axios.get(
-    "http://127.0.0.1:3000/api/v1/orders/checkout-session",
-    { withCredentials: true }
-  );
+    const session = await axios.get(
+      "http://127.0.0.1:3000/api/v1/orders/checkout-session",
+      { withCredentials: true }
+    );
 
-  await stripe.redirectToCheckout({
-    sessionId: session.data.session.id,
-  });
+    await stripe.redirectToCheckout({
+      sessionId: session.data.session.id,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const createOrderApi = async ({ product }) => {
