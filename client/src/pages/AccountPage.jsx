@@ -11,7 +11,9 @@ function AccountPage() {
       <Header category="Account" />
 
       <ContainerContent>
-        <Account OutLet={<Outlet />} />
+        <Account>
+          <Outlet />
+        </Account>
       </ContainerContent>
 
       <Footer />

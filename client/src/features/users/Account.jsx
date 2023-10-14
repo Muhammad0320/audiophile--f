@@ -81,7 +81,7 @@ const NavItem = styled(NavLink)`
   }
 `;
 
-function Account({ Outlet }) {
+function Account({ children }) {
   return (
     <PageContainer>
       <DetailsContainer>
@@ -118,7 +118,7 @@ function Account({ Outlet }) {
             </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
-        <OutletContainer>{Outlet}</OutletContainer>
+        <OutletContainer>{children}</OutletContainer>
       </DetailsContainer>
     </PageContainer>
   );
