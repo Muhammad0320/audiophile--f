@@ -53,6 +53,7 @@ const GlobalStyles = createGlobalStyle`
     --padding-medium: 7rem;
     --padding-small: 4rem;
     --padding-tiny: 2rem;
+    --padding-tiny-2: 1.5rem;
 
     --margin-huge: 15rem;
     --margin-medium: 10rem;

@@ -5,19 +5,20 @@ import ContainerContent from "../ui/ContainerContent";
 import ContainerLayout from "../ui/ContainerLayout";
 
 const Container = styled.div`
-  background-color: var(--color-white-vivid);
-  margin-block: var(--margin-medium);
-  border-radius: 2rem;
-  padding: var(--padding-small) 10rem;
+  /* background-color: var(--color-white-vivid); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 `;
 
 function PaymentConfirmationPage() {
   return (
     <ContainerLayout>
       <ContainerContent>
-        <>
+        <Container>
           <Confirmation />
-        </>
+        </Container>
       </ContainerContent>
     </ContainerLayout>
   );

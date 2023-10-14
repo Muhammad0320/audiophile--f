@@ -22,14 +22,18 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 70%;
+  width: 70%;
   align-items: center;
   align-items: flex-start;
   background-color: var(--color-white-vivid);
   border-radius: 2rem;
   border-radius: 1.5rem;
+  overflow: hidden;
   padding: 5rem 3rem;
-
   box-shadow: var(--box-shadow-dark);
+
+  width: ;
 `;
 
 const StyledIcon = styled.span`
@@ -54,7 +58,7 @@ const CartOverviewContainer = styled.div`
   border-radius: 1.5rem;
 
   & + button {
-    margin-top: 3.5rem;
+    margin-top: var(--margin-very-small);
     padding: 1.7rem;
     align-self: stretch;
     text-align: center;
@@ -68,13 +72,13 @@ const CartPriceOverview = styled.div`
   flex-direction: column;
   justify-content: center;
   row-gap: 1.5rem;
-  padding: 2.5rem;
+  padding: var(--padding-tiny);
   background-color: var(--color-dark-1);
 `;
 
 const CartOverview = styled.div`
   background-color: var(--color-white-2);
-  padding: 2.5rem;
+  padding: var(--padding-tiny);
   grid-column: 1 / 2;
 `;
 
@@ -94,7 +98,7 @@ const TextTotal = styled.span`
 `;
 
 function Confirmation() {
-  const cart = useSelector(getCart);
+  const cart = useSelector(getCart) || [];
 
   console.log(cart);
 
