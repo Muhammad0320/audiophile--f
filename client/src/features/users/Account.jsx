@@ -1,6 +1,6 @@
 import { BiSolidCommentDetail } from "react-icons/bi";
 import { HiCog6Tooth, HiShoppingCart, HiTruck } from "react-icons/hi2";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 
 const PageContainer = styled.div`
@@ -9,7 +9,6 @@ const PageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 10rem 0;
 `;
 
@@ -19,7 +18,6 @@ const DetailsContainer = styled.div`
 
   grid-auto-rows: auto;
   grid-auto-flow: column;
-  margin: 0 8rem;
 
   background-color: var(--color-white-1);
   box-shadow: var(--box-shadow-dark);
@@ -37,6 +35,7 @@ const NavList = styled.ul`
   justify-content: flex-start;
   align-items: flex-start;
   row-gap: 4rem;
+  padding-left: 0;
 `;
 
 const Sidebar = styled.div`
@@ -44,14 +43,14 @@ const Sidebar = styled.div`
   background: var(--color-primary-muted);
 
   background-image: var(--color-gradient-dark);
-  padding: 2rem 3rem;
+  /* padding: 2rem 3rem; */
 `;
 
 const NavItem = styled(NavLink)`
   position: relative;
+  padding: var(--padding-tiny) var(--padding-small);
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
   justify-content: center;
   gap: 1.5rem;
   align-items: center;
@@ -68,7 +67,7 @@ const NavItem = styled(NavLink)`
     transform: scaleY(0);
     background-color: var(--color-white-vivid);
 
-    left: -8rem;
+    left: -1rem;
     top: 0;
     transition: transform 0.2s, translate 0.2s;
   }
@@ -82,7 +81,7 @@ const NavItem = styled(NavLink)`
   }
 `;
 
-function Account() {
+function Account({ Outlet }) {
   return (
     <PageContainer>
       <DetailsContainer>
@@ -119,9 +118,7 @@ function Account() {
             </NavItem>{" "}
           </NavList>{" "}
         </Sidebar>
-        <OutletContainer>
-          <Outlet />
-        </OutletContainer>
+        <OutletContainer>{Outlet}</OutletContainer>
       </DetailsContainer>
     </PageContainer>
   );

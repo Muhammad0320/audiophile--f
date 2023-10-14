@@ -26,6 +26,7 @@ import { getMyCart } from "./service/apiCart";
 import CartPage from "./pages/CartPage";
 import OrderTable from "./features/Orders/OrderTable";
 import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
+import AccountPage from "./pages/AccountPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -71,7 +72,7 @@ function App() {
             {/* <Route path="product/:productID" element={<Details />} /> */}
           </Route>
 
-          <Route element={<Account />}>
+          <Route element={<AccountPage />}>
             <Route index element={<Navigate replace to="settings" />} />
             <Route path="settings" element={<Settings />} />
             <Route path="my-reviews" element={<ReviewPage />} />

@@ -11,7 +11,7 @@ const StyledHeader = styled.div`
 `;
 
 const StyledHeaderContent = styled.div`
-  min-height: 25dvh;
+  min-height: 20dvh;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin: 2rem 0;
 

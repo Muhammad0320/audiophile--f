@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Account from "../features/users/Account";
 import ContainerContent from "../ui/ContainerContent";
 import ContainerLayout from "../ui/ContainerLayout";
@@ -10,7 +11,7 @@ function AccountPage() {
       <Header category="Account" />
 
       <ContainerContent>
-        <Account />
+        <Account OutLet={<Outlet />} />
       </ContainerContent>
 
       <Footer />
