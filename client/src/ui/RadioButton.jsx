@@ -48,10 +48,15 @@ const RadioLabelContainer = styled.label`
   width: 100%;
 `;
 
-function RadioButton({ label, checked, onChange, value }) {
+function RadioButton({ label, checked, onChange, value, disabled }) {
   return (
     <RadioLabelContainer isChecked={checked ? "checked" : ""}>
-      <RadioInput checked={checked} onChange={onChange} value={value} />
+      <RadioInput
+        checked={checked}
+        onChange={onChange}
+        disabled={disabled}
+        value={value}
+      />
       <StyledRadioButton />
 
       {label}
