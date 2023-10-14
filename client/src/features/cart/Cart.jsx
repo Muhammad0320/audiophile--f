@@ -26,6 +26,8 @@ const StyledCart = styled.div`
 
   padding: 2.5rem;
 
+  box-shadow: var(--box-shadow-light);
+
   &:has(button) {
     justify-self: flex-end;
   }

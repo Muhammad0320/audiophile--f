@@ -17,6 +17,8 @@ const StyledCheckoutForm = styled.div`
   padding: 3rem 5rem;
   border-radius: 1.5rem;
   width: 70%;
+
+  box-shadow: var(--box-shadow-light);
 `;
 
 function CheckoutContent() {
