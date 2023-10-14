@@ -4,15 +4,14 @@ import Input from "../../ui/Input";
 import InputTypeHeader from "../../ui/InputTypeHeader";
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
+import { handleFormStep } from "./handleFormStep";
 
-function ShippingInfo() {
+function ShippingInfo({ step, setStep }) {
   const { register, handleSubmit, reset, formState } = useForm();
 
   const { errors } = formState;
 
-  const onSubmit = () => {
-    reset();
-  };
+  const onSubmit = handleFormStep(reset, step, setStep);
 
   return (
     <>
@@ -26,6 +25,7 @@ function ShippingInfo() {
           <Input
             id="address"
             type="text"
+            disabled={step !== 2}
             placeholder="1137 williams avenue"
             {...register("address", { required: "This field is required" })}
           />
@@ -37,6 +37,7 @@ function ShippingInfo() {
             error={errors?.zip?.message}
             type="text"
             placeholder="420101"
+            disabled={step !== 2}
             {...register("zip", {
               required: "This field is required",
               pattern: {
@@ -50,6 +51,7 @@ function ShippingInfo() {
         <FormRow label="City" position="right" error={errors?.city?.message}>
           <Input
             id="city"
+            disabled={step !== 2}
             placeholder="Meddina"
             error={errors?.city?.message}
             {...register("city", {
@@ -65,6 +67,7 @@ function ShippingInfo() {
         >
           <Input
             id="country"
+            disabled={step !== 2}
             placeholder="Kuwait"
             error={errors?.country?.message}
             {...register("country", {
@@ -73,7 +76,7 @@ function ShippingInfo() {
           />
 
           <FormRow position="right">
-            <Button> Continue </Button>
+            <Button disabled={step !== 2}> Continue </Button>
           </FormRow>
         </FormRow>
       </Form>
