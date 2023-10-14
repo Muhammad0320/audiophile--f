@@ -1,5 +1,21 @@
+import Account from "../features/users/Account";
+import ContainerContent from "../ui/ContainerContent";
+import ContainerLayout from "../ui/ContainerLayout";
+import Footer from "../ui/Footer";
+import Header from "../ui/Header";
+
 function AccountPage() {
-  return <div></div>;
+  return (
+    <ContainerLayout>
+      <Header category="Account" />
+
+      <ContainerContent>
+        <Account />
+      </ContainerContent>
+
+      <Footer />
+    </ContainerLayout>
+  );
 }
 
 export default AccountPage;
