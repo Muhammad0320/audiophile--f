@@ -13,17 +13,14 @@ import Spinner from "../../ui/Spinner";
 import { useEffect } from "react";
 
 const InfoDetails = styled.div`
-  padding: 5rem 6rem;
+  padding: var(--padding-medium-2) var(--padding-medium);
   grid-column: 2 / -1;
   overflow: auto;
-
+  /* width: 70%; */
   display: flex;
   justify-content: center;
-  /* width: 90%; */
 
   flex-flow: column;
-
-  /* row-gap: 5rem; */
 
   &:has(form) form:first-of-type {
     border-bottom: 2px solid var(--color-dark-2);
@@ -51,7 +48,7 @@ const UserImage = styled.img`
 `;
 
 function Settings() {
-  const { user, isLoading } = useUser();
+  const { user = {}, isLoading } = useUser();
 
   const { photo, name, email } = user;
 
