@@ -20,7 +20,7 @@ const RadioButtonsContainer = styled.div`
   margin-bottom: 3rem;
 `;
 
-function PaymentDetails() {
+function PaymentDetails({ step }) {
   const [checked, setIsChecked] = useState("");
 
   const handleCheckout = async (e) => {
@@ -45,6 +45,7 @@ function PaymentDetails() {
           <RadioButtonsContainer>
             <RadioButton
               value="card"
+              disabled={step !== 3}
               checked={checked === "card"}
               label="Pay with card"
               onChange={handleChange}
@@ -53,6 +54,7 @@ function PaymentDetails() {
               value="cash"
               checked={checked === "cash"}
               label="Cash on Delivery"
+              disabled={step !== 3}
               onChange={handleChange}
             />
           </RadioButtonsContainer>
