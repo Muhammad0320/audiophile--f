@@ -36,7 +36,7 @@ const FeatureBox = styled.div`
 `;
 
 export const Heading = styled.h4`
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 600;
 
   color: var(--color-dark);
@@ -136,14 +136,19 @@ const GalleryContainer = styled.div`
 `;
 
 const ProductContainer = styled.div`
-  margin: 15rem 0;
+  margin: var(--margin-huge) 0;
 `;
 
 const OthersContainer = styled.div`
   display: grid;
   grid-template-rows: 1fr max-content;
-  column-gap: 3rem;
   color: var(--color-dark);
+`;
+
+const OtherItemContainer = styled.div`
+  display: flex;
+  margin-top: var(--margin-very-small);
+  column-gap: var(--margin-very-small);
 `;
 
 const OtherImageContainer = styled.div`
@@ -280,7 +285,7 @@ function ProductDetails() {
       </Container>
 
       <FeatureBox>
-        <div style={{ flexBasis: "70%" }}>
+        <div style={{ flexBasis: "60%" }}>
           <Heading> Features </Heading>
           <Text> {features} </Text>
         </div>
@@ -314,10 +319,10 @@ function ProductDetails() {
       </StyledReviewCard>
 
       {product && <Heading type="others"> You may also like </Heading>}
-      <OthersContainer>
+      <OtherItemContainer>
         {others?.map((item) => {
           return (
-            <>
+            <OthersContainer key={item._id}>
               <OtherImageContainer>
                 <img
                   src={`/assets/product/${item?.image}`}
@@ -332,10 +337,10 @@ function ProductDetails() {
                   see product{" "}
                 </Button>
               </OtherTextBox>
-            </>
+            </OthersContainer>
           );
         })}
-      </OthersContainer>
+      </OtherItemContainer>
     </ProductContainer>
   );
 }
