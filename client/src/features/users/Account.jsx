@@ -6,17 +6,18 @@ import { styled } from "styled-components";
 const PageContainer = styled.div`
   background-color: var(--color-white);
 
+  z-index: -5;
   padding: 10rem 0;
 `;
 
 const DetailsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
   grid-auto-rows: auto;
   grid-auto-flow: column;
 
   background-color: var(--color-white-1);
+
   box-shadow: var(--box-shadow-dark);
 `;
 
@@ -33,6 +34,20 @@ const NavList = styled.ul`
   align-items: flex-start;
   row-gap: 4rem;
   padding-left: 0;
+  margin-top: var(--margin-small);
+
+  &:has(a) a {
+    color: var(--color-white);
+    position: relative;
+
+    transition: color 0.2s 0.1s;
+
+    &.active,
+    &:hover {
+      z-index: 10000;
+      color: var(--color-primary-muted);
+    }
+  }
 `;
 
 const Sidebar = styled.div`
@@ -40,14 +55,14 @@ const Sidebar = styled.div`
   background: var(--color-primary-muted);
 
   background-image: var(--color-gradient-dark);
-  /* padding: 2rem 3rem; */
+  position: relative;
 `;
 
 const NavItem = styled(NavLink)`
   position: relative;
+  width: 100%;
   padding: var(--padding-tiny) var(--padding-small);
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
   align-items: center;
@@ -66,15 +81,18 @@ const NavItem = styled(NavLink)`
 
     left: -1rem;
     top: 0;
-    transition: transform 0.2s, translate 0.2s;
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
   }
 
   &.active::before,
   &:hover::before {
     translate: 1rem 0.3rem;
-    /* background-color: var(--color-white-vivid); */
-    /* width: 100%; */
+    background-color: var(--color-white-vivid);
+    width: 100%;
+
     transform: scaleY(1);
+    z-index: -1;
   }
 `;
 
