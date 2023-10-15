@@ -62,7 +62,7 @@ export const Text = styled.p`
   color: var(--color-dark-1);
   margin-right: 8rem;
   opacity: 0.7;
-  font-size: 2rem;
+  font-size: var(--font-small);
 
   ${(props) =>
     props.type === "avatar" &&
@@ -75,8 +75,8 @@ export const Text = styled.p`
     props.type === "review" &&
     css`
       margin-right: 0;
-      font-size: 1.8rem;
-      margin-right: 2rem;
+      /* font-size: 1.8rem; */
+      margin-inline: var(--margin-tiny-2);
     `}
 `;
 
