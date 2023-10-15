@@ -67,8 +67,6 @@ function App() {
             <Route path="checkout" element={<CheckoutPage />} />
             <Route path="success" element={<PaymentConfirmationPage />} />
             <Route path="product/:slug" element={<Details />} />
-
-            {/* <Route path="product/:productID" element={<Details />} /> */}
           </Route>
 
           <Route

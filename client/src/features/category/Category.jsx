@@ -13,7 +13,7 @@ export const Container = styled.div`
   column-gap: 10rem;
 
   &:not(:last-child) {
-    margin-bottom: 16rem;
+    margin-bottom: var(--margin-huge);
   }
 `;
 
