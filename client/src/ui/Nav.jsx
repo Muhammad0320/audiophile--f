@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 import SVG from "react-inlinesvg";
 import { NavLink, useLocation } from "react-router-dom";
-import { IconCart, IconLogo } from "./Icons";
+import { IconLogo } from "./Icons";
 import Modal from "./Modal";
 import Cart from "../features/cart/Cart";
 import { useSelector } from "react-redux";
@@ -10,6 +10,11 @@ import { getTotalCartQuantity } from "../features/cart/cartSlice";
 import { useUser } from "../features/users/useUser";
 import Avatar from "../features/users/avatar";
 import { Text } from "../features/category/Category";
+import { useLogout } from "../features/users/useLogout";
+import {
+  HiArrowRightOnRectangle,
+  HiOutlineShoppingCart,
+} from "react-icons/hi2";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -41,9 +46,15 @@ const NavItem = styled(NavLink)`
 
 const HeaderIcon = styled(NavLink)`
   cursor: pointer;
-
+  font-size: var(--font-medium-2);
   & > svg {
-    fill: var(--color-white);
+    color: var(--color-white);
+
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary-muted);
+    }
   }
 
   position: relative;
@@ -110,13 +121,15 @@ const NavCornerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 1rem;
+  column-gap: var(--font-tiny);
 `;
 
 function Nav({ type }) {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
   const { user, isLoading } = useUser();
+
+  const { logout, isLoggingOut } = useLogout();
 
   const location = useLocation();
 
@@ -125,7 +138,7 @@ function Nav({ type }) {
       {type === "header" && (
         <StyledNav>
           <HeaderIcon to="/home">
-            <SVG src={IconLogo} />
+            <SVG fill="white" src={IconLogo} />
           </HeaderIcon>
           <NavList>
             <NavItem to="/home">Home</NavItem>
@@ -145,7 +158,7 @@ function Nav({ type }) {
                 {location.pathname !== "/checkout" && (
                   <Modal.Open opens="cart">
                     <HeaderIcon>
-                      <SVG src={IconCart} />
+                      <HiOutlineShoppingCart />
                       {totalQuantity > 0 && (
                         <CartIconNotification>
                           {" "}
@@ -159,6 +172,10 @@ function Nav({ type }) {
                 <Modal.Window name="cart">
                   <Cart />
                 </Modal.Window>
+
+                <HeaderIcon>
+                  <HiArrowRightOnRectangle />
+                </HeaderIcon>
               </>
             ) : isLoading ? (
               <Text type="avatar"> Loading... </Text>

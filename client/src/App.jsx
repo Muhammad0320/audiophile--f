@@ -7,7 +7,6 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 
 import AppLayout from "./ui/AppLayout";
-import Home from "./pages/Home";
 import Headphone from "./pages/Headphone";
 import Earphone from "./pages/Earphone";
 import Speakers from "./pages/Speakers";
@@ -16,7 +15,6 @@ import Details from "./pages/Details";
 import CheckoutPage from "./pages/CheckoutPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import Account from "./features/users/Account";
 import Settings from "./features/users/Settings";
 import ReviewPage from "./pages/ReviewPage";
 import { useDispatch } from "react-redux";
@@ -27,6 +25,7 @@ import CartPage from "./pages/CartPage";
 import OrderTable from "./features/Orders/OrderTable";
 import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
 import AccountPage from "./pages/AccountPage";
+import HomePage from "./pages/HomePage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -60,7 +59,7 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="home" />} />
-            <Route path="home" element={<Home />} />
+            <Route path="home" element={<HomePage />} />
             <Route path="headphones" element={<Headphone />} />
             <Route path="earphones" element={<Earphone />} />
             <Route path="speakers" element={<Speakers />} />

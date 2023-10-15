@@ -6,11 +6,17 @@ const StyledAvatar = styled(NavLink)`
   display: flex;
   justify-content: center;
   cursor: pointer;
-  margin-right: 2rem;
+  margin-right: var(--font-tiny);
   align-items: center;
   color: var(--color-white);
-  font-size: 1.5rem;
+  font-size: var(--font-tiny);
   text-transform: uppercase;
+
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary-muted);
+  }
 `;
 
 const ImageContainer = styled.img`
