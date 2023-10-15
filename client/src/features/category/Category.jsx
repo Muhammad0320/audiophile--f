@@ -74,8 +74,6 @@ export const Text = styled.p`
   ${(props) =>
     props.type === "review" &&
     css`
-      margin-right: 0;
-      /* font-size: 1.8rem; */
       margin-inline: var(--margin-tiny-2);
     `}
 `;

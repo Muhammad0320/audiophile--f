@@ -254,6 +254,10 @@ function ProductDetails() {
 
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
 
+  const feat = features.split("\n");
+
+  console.log(feat);
+
   return (
     <ProductContainer>
       <SmallButton onClick={moveback} kind="back">

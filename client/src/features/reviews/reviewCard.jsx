@@ -4,7 +4,6 @@ import { ReviewRating } from "../../ui/StarRating";
 
 const StyledCard = styled.div`
   position: relative;
-  /* overflow: hidden; */
   display: flex;
   flex-flow: column;
   height: 90%;
