@@ -6,13 +6,12 @@ import { styled } from "styled-components";
 const PageContainer = styled.div`
   background-color: var(--color-white);
 
-  z-index: -5;
   padding: 10rem 0;
 `;
 
 const DetailsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: auto;
   grid-auto-flow: column;
 
@@ -34,13 +33,13 @@ const NavList = styled.ul`
   align-items: flex-start;
   row-gap: 4rem;
   padding-left: 0;
-  margin-top: var(--margin-small);
+  margin-top: var(--margin-very-small);
 
   &:has(a) a {
     color: var(--color-white);
     position: relative;
 
-    transition: color 0.2s 0.1s;
+    transition: color 0.2s 0.2s;
 
     &.active,
     &:hover {
@@ -60,12 +59,12 @@ const Sidebar = styled.div`
 
 const NavItem = styled(NavLink)`
   position: relative;
-  width: 100%;
+  width: 80%;
   padding: var(--padding-tiny) var(--padding-small);
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
   align-items: center;
+  gap: 1.5rem;
   font-size: var(--font-small);
   text-transform: uppercase;
   cursor: pointer;
