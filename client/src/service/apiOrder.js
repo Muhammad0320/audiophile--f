@@ -3,6 +3,7 @@
 import axios from "axios";
 
 import { loadStripe } from "@stripe/stripe-js";
+import { SERVER_ROOT_URL } from "../utils/constant";
 
 const stripePromise = loadStripe(
   "pk_test_51Nzip2JNj9gLI0ylAhOBBa0IHTNj2vg4S4ZMA92roceGfNLyhoaYbGyJt1PtXoEP6lpV9KJBeea3KDtov6iK6paP00fvmoVVeY"
@@ -13,7 +14,7 @@ export const getCheckoutSesionApi = async () => {
     const stripe = await stripePromise;
 
     const session = await axios.get(
-      "http://127.0.0.1:3000/api/v1/orders/checkout-session",
+      `${SERVER_ROOT_URL}/orders/checkout-session`,
       { withCredentials: true }
     );
 
@@ -28,7 +29,7 @@ export const getCheckoutSesionApi = async () => {
 export const createOrderApi = async ({ product }) => {
   const res = await axios({
     method: "POST",
-    url: "http://127.0.0.1:3000/api/v1/orders/create-order",
+    url: `${SERVER_ROOT_URL}/orders/create-order`,
     withCredentials: true,
     data: {
       product,
@@ -39,11 +40,9 @@ export const createOrderApi = async ({ product }) => {
 };
 
 export const getMyOrderApi = async () => {
-  const res = await axios.get("http://127.0.0.1:3000/api/v1/orders/my-order", {
+  const res = await axios.get(`${SERVER_ROOT_URL}/orders/my-order`, {
     withCredentials: true,
   });
-
-  console.log(res.data);
 
   return res.data.data.order;
 };
