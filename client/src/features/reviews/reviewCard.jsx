@@ -4,10 +4,11 @@ import { ReviewRating } from "../../ui/StarRating";
 
 const StyledCard = styled.div`
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-flow: column;
-
+  height: 90%;
+  width: 85%;
   row-gap: 2rem;
   justify-content: center;
   align-items: center;

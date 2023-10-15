@@ -4,7 +4,7 @@ const StyledContainerHero = styled.div`
   display: grid;
   margin-bottom: 15rem;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 8rem;
+  grid-gap: var(--margin-medium);
 `;
 
 const Image = styled.img`
@@ -33,7 +33,7 @@ const TextHeader = styled.h3`
 `;
 
 const Text = styled.p`
-  font-size: 2.2rem;
+  font-size: var(--font-medium-2);
   color: var(--color-dark-1);
   padding-right: 3rem;
   opacity: 0.6;
