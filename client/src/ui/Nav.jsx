@@ -15,6 +15,7 @@ import {
   HiArrowRightOnRectangle,
   HiOutlineShoppingCart,
 } from "react-icons/hi2";
+import SpinnerMini from "./SpinnerMini";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -173,9 +174,13 @@ function Nav({ type }) {
                   <Cart />
                 </Modal.Window>
 
-                <HeaderIcon>
-                  <HiArrowRightOnRectangle />
-                </HeaderIcon>
+                {isLoggingOut ? (
+                  <SpinnerMini />
+                ) : (
+                  <HeaderIcon as="a" onClick={logout}>
+                    <HiArrowRightOnRectangle />
+                  </HeaderIcon>
+                )}
               </>
             ) : isLoading ? (
               <Text type="avatar"> Loading... </Text>
