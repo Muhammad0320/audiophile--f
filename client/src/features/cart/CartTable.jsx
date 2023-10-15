@@ -19,14 +19,6 @@ function CartTable() {
   return (
     <StyledCartContainer>
       <Table column="0.3fr 0.8fr max-content 0.6fr 0.4fr" changes={changes}>
-        {/* <Table.Header>
-          <div></div>
-          <div>Name</div>
-          <div>price </div>
-          <div>update </div>
-          <div></div>
-        </Table.Header> */}
-
         <Table.Body
           data={carts}
           render={(cart) => (
