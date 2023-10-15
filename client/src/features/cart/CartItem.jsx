@@ -87,11 +87,7 @@ function CartItem({ cart, page }) {
 
       {!page && (
         <>
-          <UpdateCartItem
-            currentQuantity={CurrentQuantity}
-            id={_id}
-            type="cart"
-          />
+          <UpdateCartItem currentQuantity={CurrentQuantity} id={_id} />
 
           <ButtonDelete onClick={() => dispatch(deleteItem(_id))}>
             <HiXMark />

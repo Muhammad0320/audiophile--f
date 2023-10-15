@@ -19,7 +19,7 @@ const Container = styled.div`
   ${(props) =>
     props.type === "cart" &&
     css`
-      width: 60%;
+      width: 50%;
       padding: var(--padding-tiny-3) var(--padding-tiny);
       margin-left: var(--margin-tiny-2);
     `}

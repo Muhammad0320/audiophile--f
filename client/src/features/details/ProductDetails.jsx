@@ -256,8 +256,6 @@ function ProductDetails() {
 
   const productFeature = features.split("\n");
 
-  // console.log(feat);
-
   return (
     <ProductContainer>
       <SmallButton onClick={moveback} kind="back">

@@ -8,8 +8,6 @@ const StyledCartContainer = styled.div`
   position: relative;
 
   height: 100%;
-
-  border: 1px solid red;
 `;
 
 function CartTable() {
