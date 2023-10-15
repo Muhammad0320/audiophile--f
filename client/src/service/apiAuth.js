@@ -1,9 +1,10 @@
 import axios from "axios";
+import { SERVER_ROOT_URL } from "../utils/constant";
 
 export const signupApi = async ({ name, email, password, passwordConfirm }) => {
   const res = await axios({
     method: "POST",
-    url: "http://127.0.0.1:3000/api/v1/users/signup",
+    url: `${SERVER_ROOT_URL}/users/signup`,
     withCredentials: true,
     data: {
       name,
@@ -19,7 +20,7 @@ export const signupApi = async ({ name, email, password, passwordConfirm }) => {
 export const loginApi = async ({ email, password }) => {
   const res = await axios({
     method: "POST",
-    url: "http://127.0.0.1:3000/api/v1/users/login",
+    url: `${SERVER_ROOT_URL}/users/login`,
     withCredentials: true,
     data: {
       email,
@@ -34,7 +35,7 @@ export const loginApi = async ({ email, password }) => {
 export const logoutApi = async () => {
   const res = await axios({
     method: "POST",
-    url: "http://127.0.0.1:3000/api/v1/users/logout",
+    url: `${SERVER_ROOT_URL}/users/logout`,
     withCredentials: true,
   });
 
@@ -43,7 +44,7 @@ export const logoutApi = async () => {
 
 export const getCurrentUserApi = async () => {
   try {
-    const res = await axios.get("http://127.0.0.1:3000/api/v1/users/me", {
+    const res = await axios.get(`${SERVER_ROOT_URL}/users/me`, {
       withCredentials: true,
     });
 
@@ -62,7 +63,7 @@ export const updateUserData = async ({ email, name, photo }) => {
 
   const res = await axios({
     method: "PATCH",
-    url: "http://127.0.0.1:3000/api/v1/users/updateMe",
+    url: `${SERVER_ROOT_URL}/users/updateMe`,
     withCredentials: true,
 
     data: form,
@@ -78,7 +79,7 @@ export const updateUserPassword = async ({
 }) => {
   const res = await axios({
     method: "PATCH",
-    url: "http://127.0.0.1:3000/api/v1/users/updatePassword",
+    url: `${SERVER_ROOT_URL}/users/updatePassword`,
     withCredentials: true,
     data: {
       currentPassword,
