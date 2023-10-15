@@ -96,7 +96,7 @@ const TextTotal = styled.span`
 `;
 
 function Confirmation() {
-  const cart = useSelector(getCart) || [];
+  const cart = useSelector(getCart);
 
   console.log(cart);
 
@@ -138,18 +138,18 @@ function Confirmation() {
               <img src={image} alt="Cart overviewImage" />
             </CartItemImageContainer>
             <CartItemDescription>
-              <CartItemName> {name} </CartItemName>
+              <CartItemName> {name || `loading...`} </CartItemName>
               <Text> {formatCurrency(totalPrice)} </Text>
             </CartItemDescription>
 
-            <CartText>{"X" + quantity} </CartText>
+            <CartText>{"X" + quantity || `loading...`} </CartText>
           </CartItemContainer>
 
           <OtherCartItem>
             <Text>
               {OtherCartItemCount > 0
                 ? `and ${OtherCartItemCount} other item(s)`
-                : "and no other item "}
+                : "and no other item " || `loading...`}
             </Text>
           </OtherCartItem>
         </CartOverview>
@@ -159,7 +159,8 @@ function Confirmation() {
 
           <CartTextBold page="checkout">
             {" "}
-            {formatCurrency(grandTotalPrice(+totalCartPrice))}{" "}
+            {formatCurrency(grandTotalPrice(+totalCartPrice)) ||
+              `loading...`}{" "}
           </CartTextBold>
         </CartPriceOverview>
       </CartOverviewContainer>

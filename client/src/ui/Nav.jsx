@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 import SVG from "react-inlinesvg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { IconCart, IconLogo } from "./Icons";
 import Modal from "./Modal";
 import Cart from "../features/cart/Cart";
@@ -118,6 +118,8 @@ function Nav({ type }) {
 
   const { user, isLoading } = useUser();
 
+  const location = useLocation();
+
   return (
     <Modal>
       {type === "header" && (
@@ -140,17 +142,20 @@ function Nav({ type }) {
               <>
                 <Avatar user={user} />
 
-                <Modal.Open opens="cart">
-                  <HeaderIcon>
-                    <SVG src={IconCart} />
-                    {totalQuantity > 0 && (
-                      <CartIconNotification>
-                        {" "}
-                        {totalQuantity}{" "}
-                      </CartIconNotification>
-                    )}
-                  </HeaderIcon>
-                </Modal.Open>
+                {location.pathname !== "/checkout" && (
+                  <Modal.Open opens="cart">
+                    <HeaderIcon>
+                      <SVG src={IconCart} />
+                      {totalQuantity > 0 && (
+                        <CartIconNotification>
+                          {" "}
+                          {totalQuantity}{" "}
+                        </CartIconNotification>
+                      )}
+                    </HeaderIcon>
+                  </Modal.Open>
+                )}
+
                 <Modal.Window name="cart">
                   <Cart />
                 </Modal.Window>
