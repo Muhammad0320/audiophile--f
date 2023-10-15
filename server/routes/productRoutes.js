@@ -17,7 +17,11 @@ const cartRouter = require('./cartRoutes');
 
 const reviewRouter = require('./reviewRoutes');
 
-const { protect, restrictTo } = require('../controllers/authController');
+const {
+  protect,
+  restrictTo,
+  verifyToken
+} = require('../controllers/authController');
 
 const router = express.Router();
 
@@ -35,19 +39,21 @@ router.use('/:productId/review', reviewRouter);
 
 router
   .route('/')
-  .post(protect, restrictTo('admin'), createNewProduct)
+  .post(verifyToken, protect, restrictTo('admin'), createNewProduct)
   .get(getAllProducts);
 
 router
   .route('/:id')
   .patch(
+    verifyToken,
     protect,
+
     restrictTo('admin'),
     uploadProductImages,
     resizeProductImages,
     updateProduct
   )
   .get(getProduct)
-  .delete(protect, restrictTo('admin'), deleteProduct);
+  .delete(verifyToken, protect, restrictTo('admin'), deleteProduct);
 
 module.exports = router;
