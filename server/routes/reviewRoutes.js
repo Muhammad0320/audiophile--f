@@ -9,11 +9,15 @@ const {
   getReviewsOnProduct,
   getReviewOnUser
 } = require('../controllers/reviewController');
-const { protect, restrictTo } = require('../controllers/authController');
+const {
+  protect,
+  restrictTo,
+  verifyToken
+} = require('../controllers/authController');
 
 const router = express.Router({ mergeParams: true });
 
-router.use(protect);
+router.use(verifyToken, protect);
 
 router.route('/my-reviews').get(getReviewOnUser);
 
