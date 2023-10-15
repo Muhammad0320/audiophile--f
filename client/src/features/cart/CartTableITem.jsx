@@ -10,8 +10,8 @@ import { deleteItem } from "./cartSlice";
 const Image = styled.img`
   display: block;
 
-  height: 6rem;
-  width: 6rem;
+  height: 10rem;
+  width: 10rem;
 `;
 
 const Price = styled.span`
@@ -29,6 +29,8 @@ const DeleteIcon = styled.span`
 
   cursor: pointer;
 
+  line-height: 1;
+  margin-left: auto;
   transition: color 0.3s cubic-bezier(0.82, 0.54, 0, 0.29);
 
   &:hover {

@@ -1,12 +1,10 @@
 import axios from "axios";
+import { SERVER_ROOT_URL } from "../utils/constant";
 
 export const getCurrentUserReview = async () => {
-  const res = await axios.get(
-    "http://127.0.0.1:3000/api/v1/reviews/my-reviews",
-    {
-      withCredentials: true,
-    }
-  );
+  const res = await axios.get(`${SERVER_ROOT_URL}/reviews/my-reviews`, {
+    withCredentials: true,
+  });
 
   return res.data.data.reviews;
 };
@@ -14,7 +12,7 @@ export const getCurrentUserReview = async () => {
 export const deleteReviewApi = async ({ id }) => {
   const res = await axios({
     method: "DELETE",
-    url: `http://127.0.0.1:3000/api/v1/reviews/${id}`,
+    url: `${SERVER_ROOT_URL}/reviews/${id}`,
 
     withCredentials: true,
   });
@@ -25,7 +23,7 @@ export const deleteReviewApi = async ({ id }) => {
 export const updateReviewApi = async ({ id, data }) => {
   const res = await axios({
     method: "PATCH",
-    url: `http://127.0.0.1:3000/api/v1/reviews/${id}`,
+    url: `${SERVER_ROOT_URL}/reviews/${id}`,
     data,
     withCredentials: true,
   });

@@ -13,14 +13,14 @@ const Container = styled.div`
   font-size: 1.8rem;
   font-weight: 500;
   color: var(--color-dark);
-  padding: 1.2rem 2rem;
+  padding: var(--padding-tiny-2) var(--padding-small);
   column-gap: 3rem;
 
   ${(props) =>
     props.type === "cart" &&
     css`
-      padding: 0.8rem 1.2rem;
-      column-gap: 1.2rem;
+      padding: var(--padding-tiny-3) var(--padding-tiny);
+      column-gap: var(--padding-tiny-2);
     `}
 `;
 

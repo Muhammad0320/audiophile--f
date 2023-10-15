@@ -85,7 +85,7 @@ function Cart({ page }) {
         </CartTextBold>
 
         {!page && (
-          <SmallButton onClick={() => dispatch(clearCart())}>
+          <SmallButton onClick={() => dispatch(clearCart())} type="cart">
             {" "}
             Remove All{" "}
           </SmallButton>

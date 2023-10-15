@@ -25,6 +25,7 @@ export const CartText = styled.span`
 export const CartItemDescription = styled.div`
   display: flex;
   flex-flow: column;
+  margin-left: 1rem;
 `;
 
 export const CartItemName = styled.p`
@@ -38,14 +39,14 @@ export const CartItemImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30%;
-  width: 30%;
+  height: 20%;
+  width: 20%;
 
   ${(props) =>
     props.page === "checkout" &&
     css`
-      height: 25%;
-      width: 25%;
+      height: 15%;
+      width: 15%;
     `}
 `;
 
@@ -56,6 +57,8 @@ const ButtonDelete = styled.button`
   border: none;
   background-color: transparent;
   transition: color 0.3s;
+
+  margin-left: auto;
 
   &:hover {
     color: var(--color-primary);

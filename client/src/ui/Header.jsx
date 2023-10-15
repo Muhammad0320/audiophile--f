@@ -76,7 +76,7 @@ const ProductName = styled.h1`
 `;
 
 const Text = styled.p`
-  font-size: 1.4rem;
+  font-size: var(--font-small);
   color: var(--color-white-2);
   letter-spacing: 1px;
   opacity: 0.6;

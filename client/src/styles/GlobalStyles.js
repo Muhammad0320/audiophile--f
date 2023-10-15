@@ -46,13 +46,15 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
 
 
-    --font-huge: 4.5rem;
+    
+    --font-huge: 5.5rem;
+    --font-big: 4.5rem;
     --font-medium: 3rem;
     --font-medium-2: 2.5rem;
     --font-small: 2rem;
     --font-tiny: 1.5rem;
 
-
+  
     --padding-huge: 10rem;
     --padding-medium: 7rem;
     --padding-medium-2: 5rem;
@@ -60,6 +62,7 @@ const GlobalStyles = createGlobalStyle`
     --padding-small: 3rem;
     --padding-tiny: 2rem;
     --padding-tiny-2: 1.5rem;
+    --padding-tiny-3: 1.2rem;
 
     --margin-huge: 15rem;
     --margin-medium: 10rem;

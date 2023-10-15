@@ -27,11 +27,18 @@ const Button = styled.button`
   }
 `;
 
-function SmallButton({ children, onClick }) {
+function SmallButton({ children, onClick, type }) {
   return (
     <Button onClick={onClick}>
       {" "}
-      <HiChevronLeft /> {children}
+      {type ? (
+        <span> {children} </span>
+      ) : (
+        <>
+          {" "}
+          <HiChevronLeft /> <span> {children} </span>{" "}
+        </>
+      )}
     </Button>
   );
 }

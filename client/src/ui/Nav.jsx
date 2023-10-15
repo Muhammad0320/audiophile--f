@@ -26,15 +26,16 @@ const StyledNav = styled.nav`
 
 const NavList = styled.ul`
   display: flex;
-  column-gap: 2rem;
+  column-gap: var(--margin-very-small);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  /* font-size: var(--font-medium-2); */
+  padding-left: 0;
 `;
 
 const NavItem = styled(NavLink)`
   color: var(--color-white-2);
-  font-size: 1.3rem;
+  font-size: var(--font-tiny);
 
   &:hover {
     color: var(--color-primary);
@@ -47,7 +48,7 @@ const NavItem = styled(NavLink)`
 
 const HeaderIcon = styled(NavLink)`
   cursor: pointer;
-  font-size: var(--font-medium-2);
+  font-size: var(--font-medium);
   & > svg {
     color: var(--color-white);
 
@@ -69,9 +70,9 @@ const CartIconNotification = styled.span`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -1rem;
+  top: -5px;
   right: -1rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   background-color: var(--color-white);
   color: rgba(0, 0, 0, 0.7);
 `;

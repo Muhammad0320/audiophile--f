@@ -59,7 +59,7 @@ const Sidebar = styled.div`
 
 const NavItem = styled(NavLink)`
   position: relative;
-  width: 80%;
+  width: 85%;
   padding: var(--padding-tiny) var(--padding-small);
   display: flex;
   justify-content: center;
