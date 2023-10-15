@@ -7,6 +7,7 @@ const crypto = require('crypto');
 const { promisify } = require('util');
 
 const sendMail = require('../utils/email');
+const RevokedToken = require('../models/revokedTokenModel');
 
 const signJwt = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -76,6 +77,28 @@ exports.login = catchAsync(async (req, res, next) => {
   // Send jwt to the client
 
   sendJwt(res, user, req);
+});
+
+exports.logout = catchAsync(async (req, res, next) => {
+  let token;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    token = req.headers.authorization.split(' ')[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
+  }
+
+  // Add fresh token to the revoked ones
+
+  await RevokedToken.create({ token });
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Logged out successfully'
+  });
 });
 
 exports.protect = catchAsync(async (req, res, next) => {
