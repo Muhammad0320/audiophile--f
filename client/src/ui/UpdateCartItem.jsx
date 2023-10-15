@@ -11,16 +11,16 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 1.8rem;
+  width: 60%;
   font-weight: 500;
   color: var(--color-dark);
   padding: var(--padding-tiny-2) var(--padding-small);
-  column-gap: 3rem;
 
   ${(props) =>
     props.type === "cart" &&
     css`
       padding: var(--padding-tiny-3) var(--padding-tiny);
-      column-gap: var(--padding-tiny-2);
+      margin-left: var(--margin-tiny-2);
     `}
 `;
 

@@ -5,10 +5,11 @@ import { getCart, getChanges } from "./cartSlice";
 import CartTableItem from "./CartTableITem";
 
 const StyledCartContainer = styled.div`
-  grid-column: 2 / -1;
-  overflow: auto;
-
   position: relative;
+
+  height: 100%;
+
+  border: 1px solid red;
 `;
 
 function CartTable() {

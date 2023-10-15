@@ -14,14 +14,14 @@ const DetailsContainer = styled.div`
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: auto;
   grid-auto-flow: column;
-
   background-color: var(--color-white-1);
-
   box-shadow: var(--box-shadow-dark);
 `;
 
 const OutletContainer = styled.div`
   grid-column: 2 / -1;
+
+  /* height: 120%; */
 `;
 
 const NavList = styled.ul`

@@ -6,6 +6,7 @@ import UpdateCartItem from "../../ui/UpdateCartItem";
 import { HiXMark } from "react-icons/hi2";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "./cartSlice";
+import Button from "../../ui/Button";
 
 const Image = styled.img`
   display: block;
@@ -59,20 +60,22 @@ function CartTableItem({ cart }) {
   const productName = name.split(" ")[0];
 
   return (
-    <Table.Row>
-      <Image src={image} />
+    <>
+      <Table.Row>
+        <Image src={image} />
 
-      <Name> {productName} </Name>
+        <Name> {productName} </Name>
 
-      <Price> {formatCurrency(+price)} </Price>
+        <Price> {formatCurrency(+price)} </Price>
 
-      <UpdateCartItem type="cart" currentQuantity={quantity} id={_id} />
+        <UpdateCartItem type="cart" currentQuantity={quantity} id={_id} />
 
-      <DeleteIcon onClick={() => dispatch(deleteItem(_id))}>
-        {" "}
-        {<HiXMark />}{" "}
-      </DeleteIcon>
-    </Table.Row>
+        <DeleteIcon onClick={() => dispatch(deleteItem(_id))}>
+          {" "}
+          {<HiXMark />}{" "}
+        </DeleteIcon>
+      </Table.Row>
+    </>
   );
 }
 

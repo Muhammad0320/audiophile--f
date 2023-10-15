@@ -69,6 +69,8 @@ const GlobalStyles = createGlobalStyle`
     --margin-small: 7rem;
     --margin-very-small: 4rem;
     --margin-tiny: 2rem;
+    --margin-tiny-2: 1.5rem;
+
 
 } 
 

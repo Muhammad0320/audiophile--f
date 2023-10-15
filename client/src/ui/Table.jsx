@@ -45,7 +45,6 @@ const CommonRow = styled.div`
 
   align-items: center;
   transition: none;
-  overflow: auto;
   column-gap: 2rem;
 `;
 
@@ -100,10 +99,8 @@ const TableContext = createContext();
 
 // Create parent element
 
-function Table({ children, column }) {
+function Table({ children, column, changes = [] }) {
   const { sendBulkdata, isSendingBulkData } = useSendBulkData();
-
-  const changes = useSelector(getChanges);
 
   const dispatch = useDispatch();
 
