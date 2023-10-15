@@ -7,7 +7,8 @@ const {
   updateCurrentUserPassword,
   protect,
   restrictTo,
-  logout
+  logout,
+  verifyToken
 } = require('../controllers/authController');
 const {
   getAllUsers,
@@ -31,7 +32,7 @@ router.route('/forgotPassword').post(forgotPassword);
 
 router.route('/passwordReset/:token').patch(resetPassword);
 
-router.use(protect);
+router.use(verifyToken, protect);
 
 router.route('/logout').post(logout);
 
@@ -42,7 +43,7 @@ router.route('/deleteMe').delete(deleteMe);
 
 router.route('/updateMe').patch(uploadUserImage, resizeUserImage, updateMe);
 
-// router.use(restrictTo('admin'));
+router.use(restrictTo('admin'));
 
 router.route('/').get(getAllUsers);
 
