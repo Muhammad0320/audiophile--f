@@ -254,9 +254,9 @@ function ProductDetails() {
 
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
 
-  const feat = features.split("\n");
+  const productFeature = features.split("\n");
 
-  console.log(feat);
+  // console.log(feat);
 
   return (
     <ProductContainer>
@@ -291,7 +291,10 @@ function ProductDetails() {
       <FeatureBox>
         <div style={{ flexBasis: "60%" }}>
           <Heading> Features </Heading>
-          <Text> {features} </Text>
+
+          {productFeature.map((feat) => (
+            <Text> {feat} </Text>
+          ))}
         </div>
 
         <div>
