@@ -8,9 +8,9 @@ import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import PayOnDelivery from "./PayOnDelivery";
 import Button from "../../ui/Button";
-import Modal from "../../ui/Modal";
-import Confirmation from "../../ui/Confirmation";
+
 import { getCheckoutSesionApi } from "../../service/apiOrder";
+import { useNavigate } from "react-router-dom";
 
 const RadioButtonsContainer = styled.div`
   display: flex;
@@ -32,8 +32,10 @@ function PaymentDetails({ step }) {
     setIsChecked(e.target.value);
   };
 
+  const navigate = useNavigate();
+
   return (
-    <Modal>
+    <>
       <InputTypeHeader> payment details </InputTypeHeader>
       <Form>
         <FormRow label="payment method" position="left">
@@ -53,7 +55,7 @@ function PaymentDetails({ step }) {
               value="cash"
               checked={checked === "cash"}
               label="Cash on Delivery"
-              // disabled={step !== 3}
+              disabled={step !== 3}
               onChange={handleChange}
             />
           </RadioButtonsContainer>
@@ -73,17 +75,14 @@ function PaymentDetails({ step }) {
 
         {checked === "cash" && (
           <FormRow position="right">
-            <Modal.Open opens="confirmation">
-              <Button> Continue & Accept </Button>
-            </Modal.Open>
+            <Button onClick={() => navigate("/success")}>
+              {" "}
+              Continue & Accept{" "}
+            </Button>
           </FormRow>
         )}
-
-        <Modal.Window name="confirmation" page="confirm">
-          <Confirmation />
-        </Modal.Window>
       </Form>
-    </Modal>
+    </>
   );
 }
 
