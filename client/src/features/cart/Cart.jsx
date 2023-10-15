@@ -3,14 +3,13 @@ import SmallButton from "../../ui/SmallButton";
 
 import { Text } from "../category/Category";
 
-import { formatCurrency } from "../../utils/helper";
+import { formatCurrency, grandTotalPrice } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, getCart, getTotalCartPrice } from "./cartSlice";
 import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
-import { grandTotalPrice } from "../../utils/constant";
 
 const StyledCart = styled.div`
   align-self: flex-start;

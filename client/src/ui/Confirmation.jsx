@@ -17,8 +17,7 @@ import {
 import { IconConfirmation } from "./Icons";
 import { Text } from "../features/category/Category";
 import { CartTextBold } from "../features/cart/Cart";
-import { grandTotalPrice } from "../utils/constant";
-import { formatCurrency } from "../utils/helper";
+import { formatCurrency, grandTotalPrice } from "../utils/helper";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 

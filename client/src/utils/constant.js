@@ -1,7 +1,5 @@
-export const grandTotalPrice = (totalCartPrice) => {
-  const shippingFee = 50;
+export const SHIPPING_FEE = 50;
 
-  const vat = 0.2 * +totalCartPrice;
+export const VAT = 0.15;
 
-  return vat + +totalCartPrice + shippingFee;
-};
+export const SERVER_ROOT_URL = "http://api/127.0.0.1:3000/api/v1/";
