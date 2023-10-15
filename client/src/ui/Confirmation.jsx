@@ -1,6 +1,10 @@
 import { styled } from "styled-components";
-import { useSelector } from "react-redux";
-import { getCart, getTotalCartPrice } from "../features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  clearCart,
+  getCart,
+  getTotalCartPrice,
+} from "../features/cart/cartSlice";
 import SVG from "react-inlinesvg";
 
 import {
@@ -98,7 +102,7 @@ const TextTotal = styled.span`
 function Confirmation() {
   const cart = useSelector(getCart);
 
-  console.log(cart);
+  const dispatch = useDispatch();
 
   const totalCartPrice = useSelector(getTotalCartPrice);
 
@@ -121,6 +125,12 @@ function Confirmation() {
   const OtherCartItemCount = cart.length - 1;
 
   const navigate = useNavigate();
+
+  const handleClickHome = () => {
+    dispatch(clearCart());
+
+    navigate("/home");
+  };
 
   return (
     <StyledContainer>
@@ -164,7 +174,7 @@ function Confirmation() {
           </CartTextBold>
         </CartPriceOverview>
       </CartOverviewContainer>
-      <Button onClick={() => navigate("/home")}> Back to Home </Button>
+      <Button onClick={() => handleClickHome()}> Back to Home </Button>
     </StyledContainer>
   );
 }
