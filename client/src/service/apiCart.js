@@ -1,8 +1,9 @@
 import axios from "axios";
+import { SERVER_ROOT_URL } from "../utils/constant";
 // https://dev.to/github20k/7-open-source-projects-you-should-contribute-to-in-2023-1nph
 export const getMyCart = async () => {
   try {
-    const res = await axios.get("http://127.0.0.1:3000/api/v1/carts/myCart", {
+    const res = await axios.get(`${SERVER_ROOT_URL}/carts/myCart`, {
       withCredentials: true,
     });
 
@@ -15,7 +16,7 @@ export const getMyCart = async () => {
 export const createNewCartItemOnUser = async ({ id, data }) => {
   const res = await axios({
     method: "POST",
-    url: `http://127.0.0.1:3000/api/v1/products/${id}/cart`,
+    url: `${SERVER_ROOT_URL}/products/${id}/cart`,
     withCredentials: true,
     data,
   });
@@ -26,7 +27,7 @@ export const createNewCartItemOnUser = async ({ id, data }) => {
 export const sendBulkItemToCart = async ({ changes }) => {
   const res = await axios({
     method: "POST",
-    url: "http://127.0.0.1:3000/api/v1/carts/bulkSend",
+    url: `${SERVER_ROOT_URL}/carts/bulkSend`,
     withCredentials: true,
     data: {
       changes,
