@@ -7,3 +7,7 @@ const revokedTokenSchema = new mongoose.Schema({
     unique: true
   }
 });
+
+const RevokedToken = mongoose.model('RevokedToken', revokedTokenSchema);
+
+module.exports = RevokedToken;
