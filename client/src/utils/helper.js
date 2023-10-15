@@ -1,3 +1,5 @@
+import { VAT, SHIPPING_FEE } from "./constant";
+
 export function formatCurrency(value) {
   return new Intl.NumberFormat("en", {
     style: "currency",
@@ -6,9 +8,7 @@ export function formatCurrency(value) {
 }
 
 export const grandTotalPrice = (totalCartPrice) => {
-  const shippingFee = 50;
+  const vat = VAT * +totalCartPrice;
 
-  const vat = 0.2 * +totalCartPrice;
-
-  return vat + +totalCartPrice + shippingFee;
+  return vat + +totalCartPrice + SHIPPING_FEE;
 };
