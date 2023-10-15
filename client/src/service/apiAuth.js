@@ -31,6 +31,16 @@ export const loginApi = async ({ email, password }) => {
   return res.data;
 };
 
+export const logoutApi = async () => {
+  const res = await axios({
+    method: "POST",
+    url: "http://127.0.0.1:3000/api/v1/users/logout",
+    withCredentials: true,
+  });
+
+  return res.data;
+};
+
 export const getCurrentUserApi = async () => {
   try {
     const res = await axios.get("http://127.0.0.1:3000/api/v1/users/me", {
@@ -57,8 +67,6 @@ export const updateUserData = async ({ email, name, photo }) => {
 
     data: form,
   });
-
-  console.log(res.data);
 
   return res.data;
 };
