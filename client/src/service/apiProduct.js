@@ -1,8 +1,9 @@
 import axios from "axios";
+import { SERVER_ROOT_URL } from "../utils/constant";
 
 export const getAllProducts = async () => {
   try {
-    const res = await axios.get(`http://127.0.0.1:3000/api/v1/products`);
+    const res = await axios.get(`${SERVER_ROOT_URL}/products`);
 
     return res.data.data.data;
   } catch (error) {
@@ -13,7 +14,7 @@ export const getAllProducts = async () => {
 export const getProductsByCategory = async (category) => {
   try {
     const res = await axios.get(
-      `http://127.0.0.1:3000/api/v1/products?category=${category}`
+      `${SERVER_ROOT_URL}/products?category=${category}`
     );
 
     return res.data.data.data;
@@ -24,9 +25,7 @@ export const getProductsByCategory = async (category) => {
 
 export const getProductBySlug = async (slug) => {
   try {
-    const res = await axios.get(
-      `http://127.0.0.1:3000/api/v1/products/slug/${slug}`
-    );
+    const res = await axios.get(`${SERVER_ROOT_URL}/products/slug/${slug}`);
 
     return res.data.data;
   } catch (error) {
@@ -36,7 +35,7 @@ export const getProductBySlug = async (slug) => {
 
 export const getProductById = async (id) => {
   try {
-    const res = await axios.get(`http://127.0.0.1:3000/api/v1/products/${id}`);
+    const res = await axios.get(`${SERVER_ROOT_URL}/products/${id}`);
 
     return res.data.data;
   } catch (error) {
