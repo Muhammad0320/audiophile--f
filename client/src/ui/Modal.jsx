@@ -63,8 +63,6 @@ const Window = ({ children, name, page }) => {
 
   const { ref } = useClickOutside(close);
 
-  console.log(openModal, name);
-
   if (openModal !== name) return null;
 
   return createPortal(

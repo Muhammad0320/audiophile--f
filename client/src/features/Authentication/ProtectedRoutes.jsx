@@ -1,10 +1,12 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useUser } from "../users/useUser";
 
-function ProtectedRoutes() {
+function ProtectedRoutes({ children }) {
   const { user } = useUser();
 
-  return user ? <Outlet /> : <Navigate to="/login" replace />;
+  console.log(user);
+
+  return user ? children : <Navigate to="/login" replace />;
 }
 
 export default ProtectedRoutes;
