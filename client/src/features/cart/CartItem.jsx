@@ -72,6 +72,8 @@ function CartItem({ cart, page }) {
 
   const dispatch = useDispatch();
 
+  const cartName = name.split(" ")[0];
+
   const CurrentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
   return (
@@ -81,7 +83,7 @@ function CartItem({ cart, page }) {
       </CartItemImageContainer>
 
       <CartItemDescription>
-        <CartItemName>{name}</CartItemName>
+        <CartItemName>{cartName}</CartItemName>
         <Text> {formatCurrency(price)} </Text>
       </CartItemDescription>
 

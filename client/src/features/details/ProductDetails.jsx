@@ -290,8 +290,8 @@ function ProductDetails() {
         <div style={{ flexBasis: "60%" }}>
           <Heading> Features </Heading>
 
-          {productFeature.map((feat) => (
-            <Text> {feat} </Text>
+          {productFeature.map((feat, i) => (
+            <Text key={i}> {feat} </Text>
           ))}
         </div>
 
