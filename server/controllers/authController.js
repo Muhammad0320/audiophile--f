@@ -15,6 +15,21 @@ const signJwt = id => {
   });
 };
 
+const getToken = req => {
+  let token;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    token = req.headers.authorization.split(' ')[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
+  }
+
+  return token;
+};
+
 const sendJwt = (res, user, req) => {
   const token = signJwt(user._id);
 
@@ -80,16 +95,7 @@ exports.login = catchAsync(async (req, res, next) => {
 });
 
 exports.logout = catchAsync(async (req, res, next) => {
-  let token;
-
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
-  ) {
-    token = req.headers.authorization.split(' ')[1];
-  } else if (req.cookies.jwt) {
-    token = req.cookies.jwt;
-  }
+  const token = getToken(req);
 
   // Add fresh token to the revoked ones
 
@@ -101,23 +107,32 @@ exports.logout = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.protect = catchAsync(async (req, res, next) => {
-  let token;
+exports.verifyToken = catchAsync(async (req, res, next) => {
+  const token = getToken(req);
 
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
-  ) {
-    token = req.headers.authorization.split(' ')[1];
-  } else if (req.cookies.jwt) {
-    token = req.cookies.jwt;
-  }
+  // Checks if there is a token
 
   if (!token) {
     return next(
-      new AppError('You are not logged in! Log in to gain access', 400)
+      new AppError('You are not logged in! Login to gain access', 401)
     );
   }
+
+  // Checks if the curent user's token is revoked
+
+  const checkRevokedToken = await RevokedToken.findOne({ token });
+
+  if (checkRevokedToken) {
+    return next(new AppError('Invalid token! Login again to gain access', 401));
+  }
+
+  next();
+});
+
+exports.protect = catchAsync(async (req, res, next) => {
+  const token = getToken(req);
+
+  // Extract a unique id from the jwt
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
@@ -128,6 +143,8 @@ exports.protect = catchAsync(async (req, res, next) => {
       new AppError('The user belonging to this token no longer exists', 404)
     );
   }
+
+  // Checkes if user changed password after the token is issued
 
   if (!currentUser.passwordChagedAfter(decoded.iat)) {
     return next(new AppError('You recently changed your password', 400));
