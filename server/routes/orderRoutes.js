@@ -9,11 +9,11 @@ const {
   createOrderOnSession,
   getMyOrders
 } = require('../controllers/orderController');
-const { protect } = require('../controllers/authController');
+const { protect, verifyToken } = require('../controllers/authController');
 
 const router = express.Router();
 
-router.use(protect);
+router.use(verifyToken, protect);
 
 router.get('/checkout-session', getCheckoutSesion);
 
