@@ -27,7 +27,7 @@ import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
 import AccountPage from "./pages/AccountPage";
 import HomePage from "./pages/HomePage";
 import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
-import ViewPortProvider from "./features/context/ViewPort";
+import { ViewPortProvider } from "./features/context/ViewPort";
 
 const queryClient = new QueryClient({
   defaultOptions: {

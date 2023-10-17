@@ -48,13 +48,13 @@ const GlobalStyles = createGlobalStyle`
 
 
     
-    --font-huge: clamp(3.5rem, 4.5rem, 5.5rem);
+    --font-huge: clamp(3.5rem, 4rem, 5.5rem);
     --font-big: 4.5rem;
     --font-medium: 3rem;
     --font-medium-2: 2.5rem;
     --font-small: 2rem;
     --font-tiny: 1.5rem;
-    --font-tiny-2: 1.2rem;
+    --font-tiny-2: 1.2rem;  
 
 
     --padding-huge: 10rem;

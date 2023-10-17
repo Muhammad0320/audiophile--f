@@ -17,7 +17,7 @@ import {
 } from "react-icons/hi2";
 import SpinnerMini from "./SpinnerMini";
 import { useContext } from "react";
-import ViewPortProvider from "../features/context/ViewPort";
+import { ViewPortProvider } from "../features/context/ViewPort";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -185,13 +185,15 @@ function Nav({ type }) {
 
   const location = useLocation();
 
-  const { viewportWidth } = useContext(ViewPortProvider);
+  const viewportWidth = useContext(ViewPortProvider);
+
+  console.log(viewportWidth);
 
   return (
     <Modal>
       {type === "header" && (
         <StyledNav>
-          {viewportWidth <= <HamburgerIcon />}
+          {viewportWidth <= 920 && <HamburgerIcon />}
 
           <HeaderIcon to="/home">
             <SVG fill="white" src={IconLogo} />

@@ -4,7 +4,7 @@ import Button from "./Button";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import ViewPortProvider from "../features/context/ViewPort";
+import { ViewPortProvider } from "../features/context/ViewPort";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
@@ -106,12 +106,13 @@ const ProductName = styled.h1`
 
 const Text = styled.p`
   font-size: clamp(var(--font-tiny-2), var(--font-tiny), var(--font-small));
-  margin-inline: 30dvh;
   color: var(--color-white-3);
   letter-spacing: 1px;
   line-height: 1.6;
+  margin-inline-end: 10dvh;
 
   @media (max-width: 920px) {
+    margin-inline: 30dvh;
     text-align: center;
   }
 `;
@@ -119,7 +120,9 @@ const Text = styled.p`
 function Header({ category, home }) {
   const navigate = useNavigate();
 
-  const { viewportWidth } = useContext(ViewPortProvider);
+  const viewportWidth = useContext(ViewPortProvider);
+
+  console.log(viewportWidth);
 
   return (
     <StyledHeader>
