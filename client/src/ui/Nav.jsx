@@ -16,8 +16,7 @@ import {
   HiOutlineShoppingCart,
 } from "react-icons/hi2";
 import SpinnerMini from "./SpinnerMini";
-import { useContext } from "react";
-import { ViewPortProvider } from "../features/context/ViewPort";
+import { useViewport } from "../features/context/ViewPort";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -185,7 +184,7 @@ function Nav({ type }) {
 
   const location = useLocation();
 
-  const { viewportWidth } = useContext(ViewPortProvider);
+  const { viewportWidth } = useViewport();
 
   return (
     <Modal>

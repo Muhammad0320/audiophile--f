@@ -3,8 +3,7 @@ import { css, styled } from "styled-components";
 import Button from "./Button";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { ViewPortProvider } from "../features/context/ViewPort";
+import { useViewport } from "../features/context/ViewPort";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
@@ -120,7 +119,7 @@ const Text = styled.p`
 function Header({ category, home }) {
   const navigate = useNavigate();
 
-  const { viewportWidth } = useContext(ViewPortProvider);
+  const { viewportWidth } = useViewport();
 
   console.log(viewportWidth);
 
