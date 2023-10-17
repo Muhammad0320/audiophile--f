@@ -78,30 +78,6 @@ const GlobalStyles = createGlobalStyle`
 
 } 
 
-@mixin respond($breakpoint){ 
-    
-  @if $breakpoint == phone {
-  @media only screen and (max-width: 37.5em) { @content }  
-    
-  }
-   
-  @if $breakpoint == tab-port {
-    @media only screen and (max-width: 56.25em) { @content }
-    
-}
-
-    
-
-  @if $breakpoint == tab-land {
-  @media only screen and (max-width: 75em) { @content }
-    
-  }
-
-  @if $breakpoint == large-screen {
-    @media only screen and (max-width: 112.5em) { @content }
-      
-    }
-}
 
 html {
   font-size: 62.5%;
