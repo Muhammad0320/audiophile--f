@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ViewPortContext = createContext();
 
@@ -16,9 +16,18 @@ export function ViewPortProvider({ children }) {
   console.log(viewportWidth);
 
   return (
-    <ViewPortContext.Provider value={{ viewportWidth, setViewportWidth }}>
+    <ViewPortContext.Provider value={{ viewportWidth }}>
       {" "}
       {children}{" "}
     </ViewPortContext.Provider>
   );
 }
+
+export const useViewport = () => {
+  const context = useContext(ViewPortContext);
+
+  if (!context)
+    throw new Error("Viewport context was used outside viewport provider");
+
+  return context;
+};
