@@ -167,7 +167,7 @@ const HamburgerIcon = styled(NavLink)`
   &::before,
   &::after {
     height: 2px;
-    width: 3rem;
+    width: ${() => clampBuilder(400, 920, 2, 3)};
     background-color: var(--color-white);
     display: inline-block;
   }
@@ -193,11 +193,7 @@ const LeftNavContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: clamp(
-    var(--margin-tiny-3),
-    var(--margin-tiny-2),
-    var(--margin-tiny)
-  );
+  column-gap: ${() => clampBuilder(400, 920, 1, 2)};
 `;
 
 const NavCornerContainer = styled.div`
@@ -228,7 +224,7 @@ function Nav({ type }) {
             </HamburgerContainer>
 
             <HeaderIcon to="/home">
-              <SVG fill="white" src={IconLogo} />
+              <SVG fill="white" src={IconLogo} width={142} />
             </HeaderIcon>
           </LeftNavContainer>
 

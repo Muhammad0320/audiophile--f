@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledContainerHero = styled.div`
   display: grid;
@@ -21,7 +22,7 @@ const TextGroup = styled.div`
 
 const TextHeader = styled.h3`
   grid-column: 1 / 2;
-  font-size: 4.5rem;
+  font-size: ${() => clampBuilder(350, 1200, 1.8, 4)};
   text-transform: uppercase;
   font-weight: 600;
   color: var(--color-dark);
@@ -33,9 +34,9 @@ const TextHeader = styled.h3`
 `;
 
 const Text = styled.p`
-  font-size: var(--font-medium-2);
+  font-size: ${() => clampBuilder(350, 1200, 1, 2.5)};
   color: var(--color-dark-1);
-  padding-right: 3rem;
+  padding-right: ${() => clampBuilder(350, 1200, 1.3, 3)};
   opacity: 0.6;
 `;
 

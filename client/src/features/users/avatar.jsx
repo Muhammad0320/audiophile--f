@@ -4,7 +4,7 @@ import { clampBuilder } from "../../styles/clampFunction";
 import { useViewport } from "../context/ViewPort";
 
 const StyledAvatar = styled(NavLink)`
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -27,10 +27,15 @@ const ImageContainer = styled.img`
   width: 4rem;
   border-radius: 50%;
   box-sizing: content-box;
-  transition: border 0.3s ease-in;
+  transition: border 0.2s ease-in;
 
   &:hover {
-    border: 2px solid var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+
+  @media (max-width: 400) {
+    height: 3rem;
+    width: 3rem;
   }
 `;
 

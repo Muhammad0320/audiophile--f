@@ -7,7 +7,6 @@ import { useViewport } from "../features/context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
 
 const StyledHeader = styled.div`
-  max-width: 100%;
   grid-column: 1 / -1;
   padding: ${() => clampBuilder(400, 1200, 1.2, 2)};
   ${() => clampBuilder(400, 1200, 0.1, 12)};

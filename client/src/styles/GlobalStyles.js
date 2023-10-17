@@ -82,6 +82,7 @@ const GlobalStyles = createGlobalStyle`
 
 html {
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
@@ -93,6 +94,7 @@ body {
   
   line-height: 1.5;
   font-size: 1.5rem;
+  box-sizing: inherit;
 }
 
 input,
