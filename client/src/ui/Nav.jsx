@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 import SVG from "react-inlinesvg";
 import { NavLink, useLocation } from "react-router-dom";
@@ -52,6 +52,7 @@ const NavItem = styled(NavLink)`
 
 const HeaderIcon = styled(NavLink)`
   cursor: pointer;
+  line-height: 1;
   font-size: clamp(var(--font-small), var(--font-medium-2), var(--font-medium));
   & > svg {
     color: var(--color-white);
@@ -134,18 +135,40 @@ const HamburgerContainer = styled.button`
     var(--padding-tiny-2),
     var(--padding-tiny)
   );
+
+  translate: 0 -5px;
+
+  &:hover > *::before {
+    top: -1rem;
+  }
+
+  &:hover > *::after {
+    top: 1rem;
+  }
+
+  ${(props) =>
+    props.clicked === "true" &&
+    css`
+      & > :first-child {
+        background-color: transparent;
+      }
+
+      & > :first-child::before {
+        transform: rotate(125deg);
+        top: 0;
+      }
+
+      & > :first-child::after {
+        transform: rotate(-125deg);
+        top: 0;
+      }
+    `}
 `;
 
 const HamburgerIcon = styled(NavLink)`
-  margin-right: clamp(
-    var(--margin-tiny-3),
-    var(--margin-tiny-2),
-    var(--margin-tiny)
-  );
+  align-self: self-start;
 
   position: relative;
-
-  margin-top: 3.5rem;
   &,
   &::before,
   &::after {

@@ -7,7 +7,7 @@ import { useViewport } from "../features/context/ViewPort";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
-  padding: 2rem clamp(0px, var(--padding-medium-2), var(--padding-huge));
+  padding: 2rem clamp(2px, var(--padding-medium-2), var(--padding-huge));
   background-color: var(--color-dark);
 `;
 
@@ -90,14 +90,10 @@ const ProductType = styled.p`
 
   font-weight: 100;
   text-transform: uppercase;
-
-  /* @media (max-width: 70em) {
-    letter-spacing: 5px;
-  } */
 `;
 
 const ProductName = styled.h1`
-  font-size: var(--font-huge);
+  font-size: clamp(2.5rem, 4rem, 5.5rem);
   font-weight: 600;
   margin: 0;
   text-transform: uppercase;
