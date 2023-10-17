@@ -124,15 +124,19 @@ const AuthButton = styled.a`
   }
 `;
 
-const HamburgerIcon = styled(NavLink)`
-  background-color: var(--color-white);
+const HamburgerContainer = styled.button`
+  outline: transparent;
+  background: transparent;
+  border: none;
 
   padding: clamp(
     var(--padding-tiny-3),
     var(--padding-tiny-2),
     var(--padding-tiny)
   );
+`;
 
+const HamburgerIcon = styled(NavLink)`
   margin-right: clamp(
     var(--margin-tiny-3),
     var(--margin-tiny-2),
@@ -147,7 +151,7 @@ const HamburgerIcon = styled(NavLink)`
   &::after {
     height: 2px;
     width: 3rem;
-    background-color: var(--color-dark-3);
+    background-color: var(--color-white);
     display: inline-block;
   }
 
@@ -166,6 +170,17 @@ const HamburgerIcon = styled(NavLink)`
   &::before {
     top: -0.8rem;
   }
+`;
+
+const LeftNavContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: clamp(
+    var(--margin-tiny-3),
+    var(--margin-tiny-2),
+    var(--margin-tiny)
+  );
 `;
 
 const NavCornerContainer = styled.div`
@@ -190,11 +205,15 @@ function Nav({ type }) {
     <Modal>
       {type === "header" && (
         <StyledNav>
-          {viewportWidth <= 920 && <HamburgerIcon />}
+          <LeftNavContainer>
+            <HamburgerContainer>
+              {viewportWidth <= 920 && <HamburgerIcon />}
+            </HamburgerContainer>
 
-          <HeaderIcon to="/home">
-            <SVG fill="white" src={IconLogo} />
-          </HeaderIcon>
+            <HeaderIcon to="/home">
+              <SVG fill="white" src={IconLogo} />
+            </HeaderIcon>
+          </LeftNavContainer>
 
           {viewportWidth >= 920 && (
             <NavList>
