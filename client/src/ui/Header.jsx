@@ -39,7 +39,9 @@ const StyledHeaderContent = styled.div`
 `;
 
 const StyledHeaderText = styled.div`
-  --margin-tiny-3: 1rem;
+  --margin-tiny-3: 0rem;
+  --margin-tiny-2: 1.2rem;
+  --margin-tiny: 1.5rem;
   grid-row: 1 / 2;
   grid-column: 1 / 2;
   z-index: 20;
@@ -50,9 +52,9 @@ const StyledHeaderText = styled.div`
   flex-direction: column;
 
   row-gap: clamp(
-    var(--margin-tiny),
+    var(--margin-tiny-3),
     var(--margin-tiny-2),
-    var(--margin-tiny-3)
+    var(--margin-tiny)
   );
 
   justify-content: center;
@@ -84,6 +86,7 @@ const ProductType = styled.p`
     var(--margin-tiny),
     var(--margin-very-small)
   );
+
   font-weight: 100;
   text-transform: uppercase;
 
@@ -159,7 +162,7 @@ function Header({ category, home }) {
               src="/assets/home/mobile/image-header.jpg"
               alt="Mobile view"
             />
-          ) : viewportWidth <= 900 ? (
+          ) : viewportWidth <= 920 ? (
             <Image
               src="/assets/home/tablet/image-header.jpg"
               alt="Tablet view"
