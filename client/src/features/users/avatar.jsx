@@ -6,10 +6,10 @@ const StyledAvatar = styled(NavLink)`
   display: flex;
   justify-content: center;
   cursor: pointer;
-  margin-right: var(--font-tiny);
+  margin-right: clamp(1rem, var(--margin-tiny-3), var(--margin-tiny-2));
   align-items: center;
   color: var(--color-white);
-  font-size: var(--font-tiny);
+  font-size: clamp(1rem, var(--font-tiny-2), var(--font-tiny));
   text-transform: uppercase;
 
   transition: color 0.2s ease;

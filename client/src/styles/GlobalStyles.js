@@ -48,7 +48,7 @@ const GlobalStyles = createGlobalStyle`
 
 
     
-    --font-huge: clamp(4rem, 5rem, 5.5rem);
+    --font-huge: clamp(3.5rem, 4.5rem, 5.5rem);
     --font-big: 4.5rem;
     --font-medium: 3rem;
     --font-medium-2: 2.5rem;
@@ -73,6 +73,7 @@ const GlobalStyles = createGlobalStyle`
     --margin-very-small: 4rem;
     --margin-tiny: 2rem;
     --margin-tiny-2: 1.5rem;
+    --margin-tiny-3: 1.2rem;
 
 
 } 

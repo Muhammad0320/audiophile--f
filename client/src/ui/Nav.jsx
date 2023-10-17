@@ -26,7 +26,11 @@ const StyledNav = styled.nav`
 
 const NavList = styled.ul`
   display: flex;
-  column-gap: clamp(var(--margin-tiny-2), va(), var(--margin-very-small));
+  column-gap: clamp(
+    var(--margin-tiny-2),
+    var(--margin-tiny),
+    var(--margin-very-small)
+  );
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding-left: 0;
@@ -47,7 +51,7 @@ const NavItem = styled(NavLink)`
 
 const HeaderIcon = styled(NavLink)`
   cursor: pointer;
-  font-size: var(--font-medium);
+  font-size: clamp(var(--font-small), var(--font-medium-2), var(--font-medium));
   & > svg {
     color: var(--color-white);
 
@@ -63,15 +67,16 @@ const HeaderIcon = styled(NavLink)`
 
 const CartIconNotification = styled.span`
   display: flex;
-  width: 2rem;
-  height: 2rem;
+  width: clamp(1.3rem, 1.7rem, 2rem);
+  height: clamp(1.3rem, 1.7rem, 2rem);
   border-radius: 50%;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: -5px;
   right: -1rem;
-  font-size: 1.3rem;
+  font-size: clamp(1rem, var(--font-tiny-2), var(--font-tiny));
+
   background-color: var(--color-white);
   color: rgba(0, 0, 0, 0.7);
 `;

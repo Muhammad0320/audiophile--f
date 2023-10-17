@@ -9,8 +9,6 @@ const StyledHeader = styled.div`
   grid-column: 1 / -1;
   padding: 2rem clamp(0px, var(--padding-medium-2), var(--padding-huge));
   background-color: var(--color-dark);
-  /* padding-block: 2rem; */
-  /* padding: 2rem clamp(0rem, 5rem, 10rem); */
 `;
 
 const StyledHeaderContent = styled.div`
@@ -54,13 +52,13 @@ const StyledHeaderText = styled.div`
   justify-content: center;
   align-items: start;
 
-  @media (max-width: 70em) {
+  /* @media (max-width: 70em) {
     grid-column: 1 / 1;
 
     row-gap: 0px;
     align-items: center;
     padding-left: 0px;
-  }
+  } */
 `;
 
 const Image = styled.img`
@@ -79,9 +77,9 @@ const ProductType = styled.p`
   font-weight: 100;
   text-transform: uppercase;
 
-  @media (max-width: 70em) {
+  /* @media (max-width: 70em) {
     letter-spacing: 5px;
-  }
+  } */
 `;
 
 const ProductName = styled.h1`
