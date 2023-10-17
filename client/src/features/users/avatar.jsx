@@ -1,15 +1,17 @@
 import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
+import { clampBuilder } from "../../styles/clampFunction";
+import { useViewport } from "../context/ViewPort";
 
 const StyledAvatar = styled(NavLink)`
   position: relative;
   display: flex;
   justify-content: center;
   cursor: pointer;
-  margin-right: clamp(1rem, var(--margin-tiny-3), var(--margin-tiny-2));
+  margin-right: ${() => clampBuilder(400, 1200, 0.8, 1.5)};
   align-items: center;
   color: var(--color-white);
-  font-size: clamp(1rem, var(--font-tiny-2), var(--font-tiny));
+  font-size: ${() => clampBuilder(700, 1200, 1, 1.5)};
   text-transform: uppercase;
 
   transition: color 0.2s ease;
@@ -38,10 +40,13 @@ function Avatar({ user }) {
 
   const firstname = name?.split(" ")[0];
 
+  const { viewportWidth } = useViewport();
+
   return (
     <StyledAvatar to="/settings">
       <ImageContainer src={`/assets/users/${photo}`} alt="user-avatar" />
-      <span> {firstname} </span>
+
+      {viewportWidth >= 700 && <span> {firstname} </span>}
     </StyledAvatar>
   );
 }

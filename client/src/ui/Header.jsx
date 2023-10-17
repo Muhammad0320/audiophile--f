@@ -8,7 +8,7 @@ import { clampBuilder } from "../styles/clampFunction";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
-  padding: 2rem clamp(2px, var(--padding-medium-2), var(--padding-huge));
+  padding: 2rem ${() => clampBuilder(400, 1200, 0.1, 10)};
   background-color: var(--color-dark);
 `;
 
@@ -40,9 +40,6 @@ const StyledHeaderContent = styled.div`
 `;
 
 const StyledHeaderText = styled.div`
-  --margin-tiny-3: 1rem;
-  --margin-tiny-2: 1.2rem;
-  --margin-tiny: 1.5rem;
   grid-row: 1 / 2;
   grid-column: 1 / 2;
   z-index: 20;
@@ -52,11 +49,7 @@ const StyledHeaderText = styled.div`
   display: flex;
   flex-direction: column;
 
-  row-gap: clamp(
-    var(--margin-tiny-3),
-    var(--margin-tiny-2),
-    var(--margin-tiny)
-  );
+  row-gap: ${() => clampBuilder(400, 1200, 1, 1.5)};
 
   justify-content: center;
   align-items: start;
@@ -81,34 +74,31 @@ const Image = styled.img`
 const ProductType = styled.p`
   letter-spacing: 1rem;
 
-  font-size: 1.4rem;
+  font-size: ${() => clampBuilder(400, 1200, 1, 1.5)};
   color: var(--color-white-3);
-  margin-right: clamp(
-    var(--margin-tiny-2),
-    var(--margin-tiny),
-    var(--margin-very-small)
-  );
+  margin-right: 2rem;
 
   font-weight: 100;
   text-transform: uppercase;
 `;
 
 const ProductName = styled.h1`
-  font-size: ${(props) => clampBuilder(400, 1200, 3.5, 5.5)};
+  font-size: ${(props) => clampBuilder(400, 1200, 3, 5.5)};
   font-weight: 600;
   margin: 0;
   text-transform: uppercase;
 `;
 
 const Text = styled.p`
-  font-size: clamp(var(--font-tiny-2), var(--font-tiny), var(--font-small));
+  font-size: ${(props) => clampBuilder(400, 1200, 1.2, 2)};
   color: var(--color-white-3);
   letter-spacing: 1px;
   line-height: 1.6;
   margin-inline-end: 10dvh;
 
   @media (max-width: 920px) {
-    /* margin-inline: 30dvh; */
+    margin-inline-end: 0;
+    margin-inline: ${() => clampBuilder(400, 920, 6, 15)};
     text-align: center;
   }
 `;

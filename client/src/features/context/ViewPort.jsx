@@ -13,8 +13,6 @@ export function ViewPortProvider({ children }) {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
-  console.log(viewportWidth);
-
   return (
     <ViewPortContext.Provider value={{ viewportWidth }}>
       {" "}
