@@ -7,6 +7,7 @@ import { useViewport } from "../features/context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
 
 const StyledHeader = styled.div`
+  max-width: 100%;
   grid-column: 1 / -1;
   padding: ${() => clampBuilder(400, 1200, 1.2, 2)};
   ${() => clampBuilder(400, 1200, 0.1, 12)};
@@ -84,14 +85,14 @@ const ProductType = styled.p`
 `;
 
 const ProductName = styled.h1`
-  font-size: ${(props) => clampBuilder(400, 1200, 3, 5.5)};
+  font-size: ${() => clampBuilder(400, 1200, 3, 5.5)};
   font-weight: 600;
   margin: 0;
   text-transform: uppercase;
 `;
 
 const Text = styled.p`
-  font-size: ${(props) => clampBuilder(400, 1200, 1.2, 2)};
+  font-size: ${() => clampBuilder(400, 1200, 1.2, 2)};
   color: var(--color-white-3);
   letter-spacing: 1px;
   line-height: 1.6;

@@ -17,21 +17,19 @@ import {
 } from "react-icons/hi2";
 import SpinnerMini from "./SpinnerMini";
 import { useViewport } from "../features/context/ViewPort";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-dark);
+  max-width: 100%;
 `;
 
 const NavList = styled.ul`
   display: flex;
-  column-gap: clamp(
-    var(--margin-tiny-2),
-    var(--margin-tiny),
-    var(--margin-very-small)
-  );
+  column-gap: ${() => clampBuilder(400, 1200, 1.4, 5)};
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding-left: 0;
@@ -39,7 +37,7 @@ const NavList = styled.ul`
 
 const NavItem = styled(NavLink)`
   color: var(--color-white-2);
-  font-size: clamp(1rem, var(--font-tiny-2), var(--font-tiny));
+  font-size: ${() => clampBuilder(400, 1200, 1, 1.5)};
 
   &:hover {
     color: var(--color-primary);
@@ -80,7 +78,7 @@ const CartIconNotification = styled.span`
   font-size: clamp(1rem, var(--font-tiny-2), var(--font-tiny));
 
   background-color: var(--color-white);
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--color-dark-3);
 `;
 
 const AuthButton = styled.a`
@@ -130,11 +128,7 @@ const HamburgerContainer = styled.button`
   background: transparent;
   border: none;
 
-  padding: clamp(
-    var(--padding-tiny-3),
-    var(--padding-tiny-2),
-    var(--padding-tiny)
-  );
+  padding: ${() => clampBuilder(700, 1200, 1.2, 2)};
 
   translate: 0 -5px;
 

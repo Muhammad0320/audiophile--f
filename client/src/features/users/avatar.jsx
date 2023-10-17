@@ -25,7 +25,6 @@ const ImageContainer = styled.img`
   display: block;
   height: 4rem;
   width: 4rem;
-  margin-right: 1rem;
   border-radius: 50%;
   box-sizing: content-box;
   transition: border 0.3s ease-in;
