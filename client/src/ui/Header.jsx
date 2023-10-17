@@ -120,7 +120,7 @@ const Text = styled.p`
 function Header({ category, home }) {
   const navigate = useNavigate();
 
-  const viewportWidth = useContext(ViewPortProvider);
+  const { viewportWidth } = useContext(ViewPortProvider);
 
   console.log(viewportWidth);
 

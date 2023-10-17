@@ -185,9 +185,7 @@ function Nav({ type }) {
 
   const location = useLocation();
 
-  const viewportWidth = useContext(ViewPortProvider);
-
-  console.log(viewportWidth);
+  const { viewportWidth } = useContext(ViewPortProvider);
 
   return (
     <Modal>
