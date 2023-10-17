@@ -39,6 +39,7 @@ const StyledHeaderContent = styled.div`
 `;
 
 const StyledHeaderText = styled.div`
+  --margin-tiny-3: 1rem;
   grid-row: 1 / 2;
   grid-column: 1 / 2;
   z-index: 20;
@@ -48,7 +49,12 @@ const StyledHeaderText = styled.div`
   display: flex;
   flex-direction: column;
 
-  row-gap: 2rem;
+  row-gap: clamp(
+    var(--margin-tiny),
+    var(--margin-tiny-2),
+    var(--margin-tiny-3)
+  );
+
   justify-content: center;
   align-items: start;
 
@@ -73,7 +79,11 @@ const ProductType = styled.p`
 
   font-size: 1.4rem;
   color: var(--color-white-3);
-
+  margin-right: clamp(
+    var(--margin-tiny-2),
+    var(--margin-tiny),
+    var(--margin-very-small)
+  );
   font-weight: 100;
   text-transform: uppercase;
 
@@ -133,8 +143,8 @@ function Header({ category, home }) {
             </ProductName>
             <Text>
               {" "}
-              Experience natural, lifelike audio and exceptional <br /> build
-              quality made for the passionate <br /> music enthusiast.{" "}
+              Experience natural, lifelike audio and exceptional build quality
+              made for the passionate music enthusiast.{" "}
             </Text>
             <Button
               onClick={() => navigate(`/product/xx99-mark-two-headphones`)}
