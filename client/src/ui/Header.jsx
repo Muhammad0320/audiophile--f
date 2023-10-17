@@ -93,7 +93,7 @@ const ProductType = styled.p`
 `;
 
 const ProductName = styled.h1`
-  font-size: clamp(2.5rem, 4rem, 5.5rem);
+  font-size: clamp(2.5rem, 6vh, 5.5rem);
   font-weight: 600;
   margin: 0;
   text-transform: uppercase;
@@ -107,7 +107,7 @@ const Text = styled.p`
   margin-inline-end: 10dvh;
 
   @media (max-width: 920px) {
-    margin-inline: 30dvh;
+    /* margin-inline: 30dvh; */
     text-align: center;
   }
 `;
