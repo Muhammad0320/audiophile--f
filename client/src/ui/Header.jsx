@@ -4,6 +4,7 @@ import Button from "./Button";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
 import { useViewport } from "../features/context/ViewPort";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
@@ -93,7 +94,7 @@ const ProductType = styled.p`
 `;
 
 const ProductName = styled.h1`
-  font-size: clamp(2.5rem, 6vh, 5.5rem);
+  font-size: ${(props) => clampBuilder(400, 1200, 3.5, 5.5)};
   font-weight: 600;
   margin: 0;
   text-transform: uppercase;
@@ -151,7 +152,7 @@ function Header({ category, home }) {
             </Button>
           </StyledHeaderText>
 
-          {viewportWidth <= 500 ? (
+          {viewportWidth <= 400 ? (
             <Image
               src="/assets/home/mobile/image-header.jpg"
               alt="Mobile view"
