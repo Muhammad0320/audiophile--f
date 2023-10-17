@@ -3,7 +3,8 @@ import { css, styled } from "styled-components";
 import Button from "./Button";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import ViewPortProvider from "../features/context/ViewPort";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
@@ -118,17 +119,7 @@ const Text = styled.p`
 function Header({ category, home }) {
   const navigate = useNavigate();
 
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleWindowResize = () => setViewportWidth(window.innerWidth);
-    window.addEventListener("resize", handleWindowResize);
-
-    // Cleanup function
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []); // Empty dependency array ensures effect only runs once on mount and cleanup on unmount
-
-  // Rest of the component...
+  const { viewportWidth } = useContext(ViewPortProvider);
 
   return (
     <StyledHeader>
