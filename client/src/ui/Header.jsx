@@ -169,12 +169,6 @@ function Header({ category, home }) {
               alt="Desktop view"
             />
           )}
-
-          {/* 
-          <Image
-            src="/assets/home/desktop/image-hero.jpg"
-            srcSet="/assets/home/mobile/image-header.jpg 750w, /assets/home/tablet/image-header.jpg 1536w,  /assets/home/desktop/image-hero.jpg 2880w"
-          /> */}
         </StyledHeaderContent>
       )}
     </StyledHeader>

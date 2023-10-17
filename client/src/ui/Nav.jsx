@@ -16,6 +16,8 @@ import {
   HiOutlineShoppingCart,
 } from "react-icons/hi2";
 import SpinnerMini from "./SpinnerMini";
+import { useContext } from "react";
+import ViewPortProvider from "../features/context/ViewPort";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -173,6 +175,8 @@ function Nav({ type }) {
 
   const location = useLocation();
 
+  const { viewportWidth } = useContext(ViewPortProvider);
+
   return (
     <Modal>
       {type === "header" && (
@@ -180,15 +184,18 @@ function Nav({ type }) {
           <HeaderIcon to="/home">
             <SVG fill="white" src={IconLogo} />
           </HeaderIcon>
-          <NavList>
-            <NavItem to="/home">Home</NavItem>
 
-            <NavItem to="/headphones">Headphones</NavItem>
+          {viewportWidth >= 920 && (
+            <NavList>
+              <NavItem to="/home">Home</NavItem>
 
-            <NavItem to="/speakers">speakers</NavItem>
+              <NavItem to="/headphones">Headphones</NavItem>
 
-            <NavItem to="/earphones">earphones</NavItem>
-          </NavList>
+              <NavItem to="/speakers">speakers</NavItem>
+
+              <NavItem to="/earphones">earphones</NavItem>
+            </NavList>
+          )}
 
           <NavCornerContainer>
             {user ? (
