@@ -57,6 +57,7 @@ const GlobalStyles = createGlobalStyle`
     --font-tiny-2: 1.2rem;  
 
 
+
     --padding-huge: 10rem;
     --padding-medium: 7rem;
     --padding-medium-2: 5rem;
@@ -65,7 +66,7 @@ const GlobalStyles = createGlobalStyle`
     --padding-tiny: 2rem;
     --padding-tiny-2: 1.5rem;
     --padding-tiny-3: 1.2rem;
-       
+
     --margin-large: 20rem;
     --margin-huge: 15rem;
     --margin-medium: 10rem;
@@ -84,9 +85,12 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: 'Manrope', sans-serif;
   color: var(--color-white);
-  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: 100dvw;
+  
   line-height: 1.5;
   font-size: 1.5rem;
 }
