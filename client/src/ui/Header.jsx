@@ -3,11 +3,14 @@ import { css, styled } from "styled-components";
 import Button from "./Button";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
-  padding: 2rem 10rem;
+  padding: 2rem clamp(0px, var(--padding-medium-2), var(--padding-huge));
   background-color: var(--color-dark);
+  /* padding-block: 2rem; */
+  /* padding: 2rem clamp(0rem, 5rem, 10rem); */
 `;
 
 const StyledHeaderContent = styled.div`
@@ -50,6 +53,14 @@ const StyledHeaderText = styled.div`
   row-gap: 2rem;
   justify-content: center;
   align-items: start;
+
+  @media (max-width: 70em) {
+    grid-column: 1 / 1;
+
+    row-gap: 0px;
+    align-items: center;
+    padding-left: 0px;
+  }
 `;
 
 const Image = styled.img`
@@ -61,30 +72,47 @@ const Image = styled.img`
 
 const ProductType = styled.p`
   letter-spacing: 1rem;
-  opacity: 0.5;
+
   font-size: 1.4rem;
-  color: var(--color-white-2);
+  color: var(--color-white-3);
+
   font-weight: 100;
   text-transform: uppercase;
+
+  @media (max-width: 70em) {
+    letter-spacing: 5px;
+  }
 `;
 
 const ProductName = styled.h1`
-  font-size: 6rem;
+  font-size: var(--font-huge);
   font-weight: 600;
   margin: 0;
   text-transform: uppercase;
 `;
 
 const Text = styled.p`
-  font-size: var(--font-small);
-  color: var(--color-white-2);
+  font-size: clamp(var(--font-tiny-2), var(--font-tiny), var(--font-small));
+
+  color: var(--color-white-3);
   letter-spacing: 1px;
-  opacity: 0.6;
   line-height: 1.6;
 `;
 
 function Header({ category, home }) {
   const navigate = useNavigate();
+
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleWindowResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+
+    // Cleanup function
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []); // Empty dependency array ensures effect only runs once on mount and cleanup on unmount
+
+  // Rest of the component...
 
   return (
     <StyledHeader>
@@ -117,7 +145,29 @@ function Header({ category, home }) {
               see product{" "}
             </Button>
           </StyledHeaderText>
-          <Image src="/assets/home/desktop/image-hero.jpg" />
+
+          {viewportWidth <= 500 ? (
+            <Image
+              src="/assets/home/mobile/image-header.jpg"
+              alt="Mobile view"
+            />
+          ) : viewportWidth <= 900 ? (
+            <Image
+              src="/assets/home/tablet/image-header.jpg"
+              alt="Tablet view"
+            />
+          ) : (
+            <Image
+              src="/assets/home/desktop/image-hero.jpg"
+              alt="Desktop view"
+            />
+          )}
+
+          {/* 
+          <Image
+            src="/assets/home/desktop/image-hero.jpg"
+            srcSet="/assets/home/mobile/image-header.jpg 750w, /assets/home/tablet/image-header.jpg 1536w,  /assets/home/desktop/image-hero.jpg 2880w"
+          /> */}
         </StyledHeaderContent>
       )}
     </StyledHeader>

@@ -28,6 +28,7 @@ const GlobalStyles = createGlobalStyle`
     --color-white: #fff ;
     --color-white-1: #fafafa;
     --color-white-2: #f1f1f1 ;
+    --color-white-3: rgba(255, 255, 255, .4);
 
 
     --color-gradient-dark: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .25));
@@ -47,23 +48,24 @@ const GlobalStyles = createGlobalStyle`
 
 
     
-    --font-huge: 5.5rem;
+    --font-huge: clamp(4rem, 5rem, 5.5rem);
     --font-big: 4.5rem;
     --font-medium: 3rem;
     --font-medium-2: 2.5rem;
     --font-small: 2rem;
     --font-tiny: 1.5rem;
+    --font-tiny-2: 1.2rem;
 
 
     --padding-huge: 10rem;
     --padding-medium: 7rem;
     --padding-medium-2: 5rem;
-    
+
     --padding-small: 3rem;
     --padding-tiny: 2rem;
     --padding-tiny-2: 1.5rem;
     --padding-tiny-3: 1.2rem;
-
+       
     --margin-large: 20rem;
     --margin-huge: 15rem;
     --margin-medium: 10rem;
@@ -75,6 +77,30 @@ const GlobalStyles = createGlobalStyle`
 
 } 
 
+@mixin respond($breakpoint){ 
+    
+  @if $breakpoint == phone {
+  @media only screen and (max-width: 37.5em) { @content }  
+    
+  }
+   
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) { @content }
+    
+}
+
+    
+
+  @if $breakpoint == tab-land {
+  @media only screen and (max-width: 75em) { @content }
+    
+  }
+
+  @if $breakpoint == large-screen {
+    @media only screen and (max-width: 112.5em) { @content }
+      
+    }
+}
 
 html {
   font-size: 62.5%;

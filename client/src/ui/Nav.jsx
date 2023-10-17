@@ -26,16 +26,15 @@ const StyledNav = styled.nav`
 
 const NavList = styled.ul`
   display: flex;
-  column-gap: var(--margin-very-small);
+  column-gap: clamp(var(--margin-tiny-2), va(), var(--margin-very-small));
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  /* font-size: var(--font-medium-2); */
   padding-left: 0;
 `;
 
 const NavItem = styled(NavLink)`
   color: var(--color-white-2);
-  font-size: var(--font-tiny);
+  font-size: clamp(1rem, var(--font-tiny-2), var(--font-tiny));
 
   &:hover {
     color: var(--color-primary);
