@@ -27,6 +27,7 @@ import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
 import AccountPage from "./pages/AccountPage";
 import HomePage from "./pages/HomePage";
 import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
+import ViewPortProvider from "./features/context/ViewPort";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -54,63 +55,64 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
+      <ViewPortProvider>
+        <GlobalStyles />
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="home" />} />
+              <Route path="home" element={<HomePage />} />
+              <Route path="headphones" element={<Headphone />} />
+              <Route path="earphones" element={<Earphone />} />
+              <Route path="speakers" element={<Speakers />} />
+              <Route path="checkout" element={<CheckoutPage />} />
+              <Route path="success" element={<PaymentConfirmationPage />} />
+              <Route path="product/:slug" element={<Details />} />
+            </Route>
 
-      <GlobalStyles />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route index element={<Navigate replace to="home" />} />
-            <Route path="home" element={<HomePage />} />
-            <Route path="headphones" element={<Headphone />} />
-            <Route path="earphones" element={<Earphone />} />
-            <Route path="speakers" element={<Speakers />} />
-            <Route path="checkout" element={<CheckoutPage />} />
-            <Route path="success" element={<PaymentConfirmationPage />} />
-            <Route path="product/:slug" element={<Details />} />
-          </Route>
+            <Route
+              element={
+                <ProtectedRoutes>
+                  {" "}
+                  <AccountPage />{" "}
+                </ProtectedRoutes>
+              }
+            >
+              <Route index element={<Navigate replace to="settings" />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="my-reviews" element={<ReviewPage />} />
+              <Route path="my-cart" element={<CartPage />} />
+              <Route path="my-order" element={<OrderTable />} />
+            </Route>
 
-          <Route
-            element={
-              <ProtectedRoutes>
-                {" "}
-                <AccountPage />{" "}
-              </ProtectedRoutes>
-            }
-          >
-            <Route index element={<Navigate replace to="settings" />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="my-reviews" element={<ReviewPage />} />
-            <Route path="my-cart" element={<CartPage />} />
-            <Route path="my-order" element={<OrderTable />} />
-          </Route>
+            <Route path="signup" element={<SignupPage />} />
+            <Route path="login" element={<LoginPage />} />
+          </Routes>
 
-          <Route path="signup" element={<SignupPage />} />
-          <Route path="login" element={<LoginPage />} />
-        </Routes>
+          <Toaster
+            position="top-center"
+            gutter={13}
+            containerStyle={{ margin: "8px" }}
+            toastOptions={{
+              error: {
+                duration: 5000,
+              },
 
-        <Toaster
-          position="top-center"
-          gutter={13}
-          containerStyle={{ margin: "8px" }}
-          toastOptions={{
-            error: {
-              duration: 5000,
-            },
+              success: {
+                duration: 3000,
+              },
 
-            success: {
-              duration: 3000,
-            },
-
-            style: {
-              padding: "16px 24px",
-              fontSize: "16px",
-              backgroundColor: "var(--color-white-1)",
-              color: "var(--color-dark-1)",
-              maxWidth: "500px",
-            },
-          }}
-        />
-      </BrowserRouter>
+              style: {
+                padding: "16px 24px",
+                fontSize: "16px",
+                backgroundColor: "var(--color-white-1)",
+                color: "var(--color-dark-1)",
+                maxWidth: "500px",
+              },
+            }}
+          />
+        </BrowserRouter>
+      </ViewPortProvider>
     </QueryClientProvider>
   );
 }
