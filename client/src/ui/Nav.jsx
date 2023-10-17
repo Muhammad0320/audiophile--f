@@ -123,6 +123,40 @@ const AuthButton = styled.a`
   }
 `;
 
+const HamburgerIcon = styled(NavLink)`
+  background-color: var(--color-white);
+
+  padding: var(--padding-tiny);
+
+  position: relative;
+
+  margin-top: 3.5rem;
+  &,
+  &::before,
+  &::after {
+    height: 2px;
+    width: 3rem;
+    background-color: var(--color-dark-3);
+    display: inline-block;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.2s;
+  }
+
+  &::after {
+    top: 0.8rem;
+  }
+
+  &::before {
+    top: -0.8rem;
+  }
+`;
+
 const NavCornerContainer = styled.div`
   display: flex;
   justify-content: center;
