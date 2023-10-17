@@ -128,7 +128,17 @@ const AuthButton = styled.a`
 const HamburgerIcon = styled(NavLink)`
   background-color: var(--color-white);
 
-  padding: var(--padding-tiny);
+  padding: clamp(
+    var(--padding-tiny-3),
+    var(--padding-tiny-2),
+    var(--padding-tiny)
+  );
+
+  margin-right: clamp(
+    var(--margin-tiny-3),
+    var(--margin-tiny-2),
+    var(--margin-tiny)
+  );
 
   position: relative;
 
@@ -181,6 +191,8 @@ function Nav({ type }) {
     <Modal>
       {type === "header" && (
         <StyledNav>
+          {viewportWidth <= <HamburgerIcon />}
+
           <HeaderIcon to="/home">
             <SVG fill="white" src={IconLogo} />
           </HeaderIcon>
