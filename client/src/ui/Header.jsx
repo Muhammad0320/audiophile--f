@@ -108,8 +108,6 @@ function Header({ category, home }) {
 
   const { viewportWidth } = useViewport();
 
-  console.log(viewportWidth);
-
   return (
     <StyledHeader>
       <Nav type="header" />
