@@ -10,18 +10,29 @@ export const Container = styled.div`
   padding: 2rem 1.5rem;
 
   margin-bottom: 3rem;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 10rem;
+
+  /* grid-template-columns: repeat(minmax(10rem, 1fr), minmax(10rem, 1fr)); */
+
+  grid-template-columns: repeat(2, 50%);
+
+  column-gap: ${() => clampBuilder(920, 1200, 7, 10)};
 
   &:not(:last-child) {
     margin-bottom: ${() => clampBuilder(350, 1200, 10, 15)};
+  }
+
+  @media (max-width: 920px) {
+    grid-template-columns: none;
+    row-gap: ${() => clampBuilder(320, 920, 2.5, 4)};
+    grid-template-rows: repeat(2, 1fr);
   }
 `;
 
 export const ImageContainer = styled.div`
   background-color: var(--color-white-2);
-  height: 100%;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +64,6 @@ export const NewProduct = styled.div`
 export const ProductName = styled.p`
   color: var(--color-dark);
   font-size: 4.5rem;
-  margin-right: 30rem;
   line-height: 1.3;
   font-weight: 500;
   margin-bottom: -1rem;
