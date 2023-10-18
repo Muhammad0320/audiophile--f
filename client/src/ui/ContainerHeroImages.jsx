@@ -119,8 +119,11 @@ const ThirdTextGroup = styled.div`
   background-color: var(--color-white-2);
   padding: ${() => clampBuilder(400, 1200, 3, 8)};
   ${() => clampBuilder(400, 1200, 4, 10)};
-  & > button {
-    align-self: flex-start;
+
+  & > p {
+    justify-content: flex-start;
+
+    align-items: center;
   }
 `;
 
@@ -162,14 +165,16 @@ function ContainerHeroImages() {
       <SecondImage>
         <SecondImageGroup>
           <SecondImageTextGroup>
-            <p> ZX7 speaker </p>
-            <Button
-              variation="transparent"
-              onClick={() => navigate(`/product/zx7-speaker`)}
-            >
-              {" "}
-              see product{" "}
-            </Button>
+            <p>
+              <span> ZX7 speaker </span>
+              <Button
+                variation="transparent"
+                onClick={() => navigate(`/product/zx7-speaker`)}
+              >
+                {" "}
+                see product{" "}
+              </Button>
+            </p>
           </SecondImageTextGroup>
         </SecondImageGroup>
       </SecondImage>
