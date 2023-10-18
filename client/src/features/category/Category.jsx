@@ -45,7 +45,7 @@ export const ImageContainer = styled.div`
     object-fit: cover;
 
     & > img {
-      width: 60%;
+      width: 45%;
     }
   }
 `;
@@ -65,9 +65,10 @@ export const DescriptionContainer = styled.div`
   }
 
   @media (max-width: 920px) {
+    margin-inline-end: 0;
     grid-row: 2 / -1;
     align-items: center;
-    padding-inline: ${() => clampBuilder(350, 920, 4, 6)};
+    padding-inline: ${() => clampBuilder(350, 920, 6, 10)};
 
     & > button {
       align-self: center;
@@ -76,11 +77,15 @@ export const DescriptionContainer = styled.div`
 `;
 
 export const NewProduct = styled.div`
-  letter-spacing: 1rem;
-  font-size: 1.4rem;
+  letter-spacing: ${() => clampBuilder(350, 1200, 0.5, 1)};
+  font-size: ${() => clampBuilder(350, 1200, 1, 1.4)};
   text-transform: uppercase;
   margin-bottom: -4rem;
   color: var(--color-primary);
+
+  @media (max-width: 920px) {
+    text-align: center;
+  }
 `;
 
 export const ProductName = styled.p`
@@ -93,13 +98,14 @@ export const ProductName = styled.p`
   @media (max-width: 920px) {
     text-align: center;
     padding-inline: ${() => clampBuilder(350, 920, 5, 8)};
+    margin-block: 0;
   }
 `;
 
 export const Text = styled.p`
   color: var(--color-dark-1);
   opacity: 0.7;
-  font-size: var(--font-small);
+  font-size: ${() => clampBuilder(350, 920, 1.2, 2)};
 
   ${(props) =>
     props.type === "avatar" &&
