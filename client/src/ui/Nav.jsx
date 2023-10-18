@@ -24,7 +24,12 @@ const StyledNav = styled.nav`
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-dark);
-  max-width: 100%;
+
+  @media (max-width: 920px) {
+    align-items: flex-start;
+    flex-flow: column;
+    row-gap: 2rem;
+  }
 `;
 
 const NavList = styled.ul`
@@ -33,6 +38,10 @@ const NavList = styled.ul`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding-left: 0;
+
+  @media (max-width: 920px) {
+    column-gap: ${() => clampBuilder(350, 1200, 1.8, 3)};
+  }
 `;
 
 const NavItem = styled(NavLink)`
@@ -45,6 +54,10 @@ const NavItem = styled(NavLink)`
 
   &.active {
     color: var(--color-primary);
+  }
+
+  @media (max-width: 920px) {
+    font-size: ${() => clampBuilder(350, 920, 0.8, 1.2)};
   }
 `;
 
@@ -285,10 +298,11 @@ function Nav({ type }) {
       )}
 
       {type === "footer" && (
-        <StyledNav>
+        <StyledNav type="footer">
           <HeaderIcon to="/home">
             <SVG src={IconLogo} fill="white" />
           </HeaderIcon>
+
           <NavList>
             <NavItem to="/home">Home</NavItem>
 
