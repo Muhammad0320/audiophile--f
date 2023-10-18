@@ -10,13 +10,19 @@ const StyledFooter = styled.div`
   grid-column: 1 / -1;
 
   background-color: var(--color-dark);
-  padding: 2rem ${() => clampBuilder(920, 1200, 6, 10)};
+  padding: 2rem ${() => clampBuilder(350, 1200, 5, 12)} 5rem;
 `;
 
 const FooterText = styled.div`
   color: var(--color-white-3);
   font-weight: 400;
-  font-size: ${() => clampBuilder(920, 1200, 1, 1.6)};
+  font-size: ${() => clampBuilder(920, 1200, 1.2, 1.6)};
+  @media (max-width: 920px) {
+    width: 100%;
+    font-size: ${() => clampBuilder(350, 920, 1, 1.3)};
+
+    flex: 1;
+  }
 
   & > p:first-of-type {
     margin-bottom: 6rem;
@@ -31,7 +37,12 @@ const FooterContent = styled.div`
 const IconList = styled.div`
   align-self: center;
   display: flex;
-  column-gap: 2rem;
+  column-gap: ${() => clampBuilder(920, 1200, 1.3, 2)};
+
+  @media (max-width: 920px) {
+    align-self: flex-end;
+    column-gap: 2rem;
+  }
 `;
 
 const IconItem = styled(NavLink)`
@@ -54,12 +65,12 @@ function Footer() {
           <p>
             {" "}
             Audiophile is an all in one stop to fulfill your audio needs. We're
-            a small team <br /> of music lovers and sound specialists who are
-            devoted to helping you get <br /> the most out of personal audio.
-            Come and visit our demo facility - we’re open 7 <br /> days a week.{" "}
+            a small team of music lovers and sound specialists who are devoted
+            to helping you get the most out of personal audio. Come and visit
+            our demo facility - we’re open 7 days a week.{" "}
           </p>
 
-          <p> Copyright 2023. All Rights Reserved </p>
+          <span> Copyright 2023. All Rights Reserved </span>
         </FooterText>
 
         <IconList>
