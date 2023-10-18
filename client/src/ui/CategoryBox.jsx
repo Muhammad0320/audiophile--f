@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import ButtonCategory from "./ButtonCategory";
 import { useNavigate } from "react-router-dom";
+import { useViewport } from "../features/context/ViewPort";
 
 const Box = styled.ul`
   display: flex;
@@ -35,6 +36,8 @@ const Image = styled.img`
 
 function CategoryBox() {
   const navigate = useNavigate();
+
+  const { viewportWidth } = useViewport();
 
   return (
     <Box>
