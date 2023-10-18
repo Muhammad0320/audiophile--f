@@ -18,8 +18,8 @@ const FirstImageGroup = styled.div`
   grid-template-columns: repeat(2, 1fr);
   background-image: url("/assets/home/desktop/pattern-circles.svg");
   background-size: 80%;
-  background-position: ${() => clampBuilder(320, 1200, -10, -14)} 10%;
-
+  background-position: ${() => clampBuilder(320, 1200, -10, -30)} 10%;
+  height: 60rem;
   background-repeat: no-repeat;
   border-radius: 1rem;
   overflow: hidden;
@@ -27,17 +27,15 @@ const FirstImageGroup = styled.div`
 
   @media (max-width: 920px) {
     grid-template-columns: none;
-    background-position: 50% ${() => clampBuilder(300, 920, -18, -30)};
-    background-size: 105%;
+    background-position: 50% ${() => clampBuilder(300, 920, -20, -35)};
+    background-size: 110%;
 
     grid-template-rows: repeat(2, 1fr);
   }
 
-  /* @media (max-width: 420px) {
-
-
-
-  } */
+  @media (max-width: 920px) {
+    background-size: 100%;
+  }
 `;
 
 const FirstImage = styled.img`
@@ -49,7 +47,7 @@ const FirstImage = styled.img`
   @media (max-width: 920px) {
     align-self: center;
     justify-self: center;
-    width: 35%;
+    width: 30%;
   }
 
   @media (max-width: 420px) {
@@ -59,23 +57,34 @@ const FirstImage = styled.img`
 
 const FirstImageText = styled.div`
   align-self: flex-start;
-  justify-self: center;
   display: flex;
+  justify-self: center;
   justify-content: center;
   flex-direction: column;
-  row-gap: ${() => clampBuilder(920, 1200, 2, 4)};
-
+  row-gap: ${() => clampBuilder(920, 1200, 1.8, 2.5)};
   & > button {
     align-self: flex-start;
+  }
+
+  @media (max-width: 920px) {
+    align-self: center;
+    text-align: center;
+
+    margin-inline: ${() => clampBuilder(300, 720, 8, 15)};
+
+    & > button {
+      align-self: center;
+      margin-bottom: ${() => clampBuilder(320, 920, 2, 3)};
+    }
   }
 `;
 
 const FirstSpeakerName = styled.h2`
-  font-size: ${() => clampBuilder(320, 1200, 3.5, 6)};
+  font-size: ${() => clampBuilder(320, 1200, 2.5, 6)};
   font-weight: 500;
   line-height: 1;
   color: var(--color-white);
-  margin-block-end: 0;
+  margin-block: ${() => clampBuilder(320, 920, 1.5, 3)} 0;
   text-transform: uppercase;
 `;
 
