@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import ButtonCategory from "./ButtonCategory";
 import { useNavigate } from "react-router-dom";
-import { useViewport } from "../features/context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
 
 const Box = styled.ul`
@@ -10,11 +9,12 @@ const Box = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   max-width: 100%;
   padding: 0;
-  column-gap: ${() => clampBuilder(420, 1200, 1.5, 3)};
+  column-gap: ${() => clampBuilder(500, 1200, 1.5, 3)};
 
-  & > * {
-    box-sizing: border-box;
-    min-width: 0;
+  @media (max-width: 500px) {
+    grid-template-columns: none;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: ${() => clampBuilder(100, 500, 13, 18)};
   }
 `;
 
@@ -31,13 +31,18 @@ const CategoryItem = styled.li`
   background-color: var(--color-white-2);
   text-align: center;
   text-transform: uppercase;
-  padding: 2rem;
+  padding: ${() => clampBuilder(500, 1200, 1.8, 3)};
 `;
 
 const Image = styled.img`
   display: block;
-  margin-bottom: ${() => clampBuilder(300, 1200, -10, -15)};
-  translate: 0 -35%;
+  margin-bottom: ${() => clampBuilder(500, 1200, -8, -12)};
+  translate: 0 -40%;
+
+  @media (max-width: 500px) {
+    width: 80%;
+    margin-bottom: ${() => clampBuilder(100, 500, -10, -15)};
+  }
 `;
 
 function CategoryBox() {
