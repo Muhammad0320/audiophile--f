@@ -1,4 +1,5 @@
 import { css, styled } from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledContainerLayout = styled.div`
   display: grid;
@@ -8,10 +9,16 @@ const StyledContainerLayout = styled.div`
     css`
       background-color: var(--color-white-2);
     `}
-  grid-template-columns: minmax(8rem, 1fr) 80dvw minmax(8rem, 1fr);
+  grid-template-columns: 
 
-  @media (max-width: 700px) {
-    max-width: 100%;
+
+    minmax( 8rem, 1fr) 80dvw minmax( 8rem, 1fr);
+
+  @media (max-width: 920px) {
+    grid-template-columns: minmax(${() => clampBuilder(320, 1200, 1, 4)}, 1fr) 95dvw minmax(
+        ${() => clampBuilder(320, 1200, 1, 4)},
+        1fr
+      );
   }
 `;
 

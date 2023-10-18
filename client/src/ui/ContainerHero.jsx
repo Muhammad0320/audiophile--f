@@ -3,14 +3,14 @@ import { clampBuilder } from "../styles/clampFunction";
 
 const StyledContainerHero = styled.div`
   display: grid;
-  margin-bottom: ${() => clampBuilder(320, 1200, 10, 15)};
+  margin-bottom: ${() => clampBuilder(920, 1200, 10, 15)};
   grid-template-columns: repeat(2, 1fr);
   grid-gap: var(--margin-medium);
 
-  @media (max-width: 920) {
+  @media (max-width: 920px) {
     display: flex;
-    flex-direction: column;
-    row-gap: ${() => clampBuilder(320, 920, 5, 10)};
+    flex-direction: column-reverse;
+    row-gap: ${() => clampBuilder(320, 920, 4, 8)};
   }
 `;
 
@@ -18,6 +18,10 @@ const Image = styled.img`
   grid-column: 2 / -1;
   display: block;
   width: 100%;
+
+  @media (max-width: 920px) {
+    aspect-ratio: 16 / 9;
+  }
 `;
 
 const TextGroup = styled.div`
@@ -27,7 +31,7 @@ const TextGroup = styled.div`
 
   row-gap: ${() => clampBuilder(320, 920, 2, 4)};
 
-  @media (max-width: 920) {
+  @media (max-width: 920px) {
     margin-inline: ${() => clampBuilder(320, 920, 1.5, 5)};
   }
 `;
