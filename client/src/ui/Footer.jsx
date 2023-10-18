@@ -16,16 +16,20 @@ const StyledFooter = styled.div`
 const FooterText = styled.div`
   color: var(--color-white-3);
   font-weight: 400;
-  font-size: ${() => clampBuilder(920, 1200, 1.2, 1.6)};
+  font-size: ${() => clampBuilder(920, 1200, 1.3, 1.7)};
+  @media (max-width: 920px) {
+    font-size: ${() => clampBuilder(350, 920, 1, 1.3)};
+  }
+`;
+
+const FooterParagraph = styled.p`
+  width: 55%;
+
+  font-size: ${() => clampBuilder(920, 1200, 1.3, 1.6)};
+
   @media (max-width: 920px) {
     width: 100%;
-    font-size: ${() => clampBuilder(350, 920, 1, 1.3)};
-
-    flex: 1;
-  }
-
-  & > p:first-of-type {
-    margin-bottom: 6rem;
+    font-size: ${() => clampBuilder(350, 920, 1.1, 1.3)};
   }
 `;
 
@@ -38,11 +42,6 @@ const IconList = styled.div`
   align-self: center;
   display: flex;
   column-gap: ${() => clampBuilder(920, 1200, 1.3, 2)};
-
-  @media (max-width: 920px) {
-    align-self: flex-end;
-    column-gap: 2rem;
-  }
 `;
 
 const IconItem = styled(NavLink)`
@@ -61,15 +60,15 @@ function Footer() {
       <Nav type="footer" />
 
       <FooterContent>
-        <FooterText>
-          <p>
-            {" "}
-            Audiophile is an all in one stop to fulfill your audio needs. We're
-            a small team of music lovers and sound specialists who are devoted
-            to helping you get the most out of personal audio. Come and visit
-            our demo facility - we’re open 7 days a week.{" "}
-          </p>
+        <FooterParagraph>
+          {" "}
+          Audiophile is an all in one stop to fulfill your audio needs. We're a
+          small team of music lovers and sound specialists who are devoted to
+          helping you get the most out of personal audio. Come and visit our
+          demo facility - we’re open 7 days a week.{" "}
+        </FooterParagraph>
 
+        <FooterText>
           <span> Copyright 2023. All Rights Reserved </span>
         </FooterText>
 
