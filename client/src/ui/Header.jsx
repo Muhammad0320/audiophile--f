@@ -14,7 +14,8 @@ const StyledHeader = styled.div`
 `;
 
 const StyledHeaderContent = styled.div`
-  min-height: 22dvh;
+  min-height: 20dvh;
+  letter-spacing: ${() => clampBuilder(350, 1200, 0.4, 0.8)};
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin: 2rem 0;
 
