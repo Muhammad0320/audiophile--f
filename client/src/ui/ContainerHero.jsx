@@ -17,6 +17,7 @@ const StyledContainerHero = styled.div`
 
 const Image = styled.img`
   grid-column: 2 / -1;
+  align-self: center;
   display: block;
   width: 100%;
 `;
@@ -36,8 +37,9 @@ const TextGroup = styled.div`
 
 const TextHeader = styled.h3`
   grid-column: 1 / 2;
-  font-size: ${() => clampBuilder(350, 1200, 3, 4.5)};
+  font-size: ${() => clampBuilder(350, 1200, 2.8, 4)};
   text-transform: uppercase;
+  margin-inline: ${() => clampBuilder(920, 1200, 2.5, 3.5)};
   font-weight: 600;
   color: var(--color-dark);
   margin-bottom: -2px;
@@ -48,7 +50,7 @@ const TextHeader = styled.h3`
 `;
 
 const Text = styled.p`
-  font-size: ${() => clampBuilder(350, 1200, 1.3, 3)};
+  font-size: ${() => clampBuilder(350, 1200, 1.2, 2.2)};
 
   padding-right: ${() => clampBuilder(920, 1200, 1.6, 3)};
 
@@ -67,7 +69,7 @@ function ContainerHero() {
       <TextGroup>
         <TextHeader>
           {" "}
-          Bringing you the <br /> <span>best</span> audio gear{" "}
+          Bringing you the <span>best</span> audio gear{" "}
         </TextHeader>
         <Text>
           {" "}

@@ -67,8 +67,8 @@ const HeaderIcon = styled(NavLink)`
 
 const CartIconNotification = styled.span`
   display: flex;
-  width: clamp(1.3rem, 1.7rem, 2rem);
-  height: clamp(1.3rem, 1.7rem, 2rem);
+  width: ${() => clampBuilder(350, 1200, 1.3, 2)};
+  height: ${() => clampBuilder(350, 1200, 1.3, 2)};
   border-radius: 50%;
   justify-content: center;
   align-items: center;

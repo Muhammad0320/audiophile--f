@@ -4,19 +4,19 @@ import Nav from "./Nav";
 
 import SVG from "react-inlinesvg";
 import { IconFacebook, IconInstagram, IconX } from "./Icons";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledFooter = styled.div`
   grid-column: 1 / -1;
 
   background-color: var(--color-dark);
-  padding: 2rem 12rem;
+  padding: 2rem ${() => clampBuilder(920, 1200, 6, 10)};
 `;
 
 const FooterText = styled.div`
-  color: var(--color-white-2);
-  opacity: 0.5;
+  color: var(--color-white-3);
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: ${() => clampBuilder(920, 1200, 1, 1.6)};
 
   & > p:first-of-type {
     margin-bottom: 6rem;
