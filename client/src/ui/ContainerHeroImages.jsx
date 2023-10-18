@@ -72,24 +72,28 @@ const SecondImage = styled.div`
     background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 420px) {
     background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
   }
 `;
 
-const SecondImageGroup = styled.div`
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  padding: 12rem;
-`;
-
 const SecondImageTextGroup = styled.div`
   grid-column: 1 / 2;
+  flex: 1;
   display: flex;
+  height: 100%;
   flex-direction: column;
+  justify-content: center;
   color: var(--color-dark);
-  /* row-gap: 1rem; */
-  font-size: 2.7rem;
+  padding-inline: ${() => clampBuilder(320, 1200, 3, 10)};
+  font-weight: 600;
+  text-transform: uppercase;
+  row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
+  font-size: ${() => clampBuilder(320, 1200, 2.5, 4)};
+
+  & > button {
+    align-self: flex-start;
+  }
 `;
 
 const ThirdImageGroup = styled.div`
@@ -98,7 +102,7 @@ const ThirdImageGroup = styled.div`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
 
-  @media (max-width: 400px) {
+  @media (max-width: 420px) {
     display: flex;
     flex-direction: column;
 
@@ -124,12 +128,15 @@ const ThirdTextGroup = styled.div`
   justify-content: center;
 
   align-items: flex-start;
-  font-size: 2.2rem;
+  font-size: ${() => clampBuilder(300, 1200, 1.5, 2.3)};
   text-transform: uppercase;
   border-radius: 1rem;
   background-color: var(--color-white-2);
-  padding-inline: ${() => clampBuilder(300, 1200, 1.5, 3.5)};
-  ${() => clampBuilder(300, 1200, 2.5, 5.5)};
+  padding-inline: ${() => clampBuilder(300, 1200, 2.5, 4.5)};
+
+  @media (max-width: 420px) {
+    padding-block: ${() => clampBuilder(300, 420, 3, 5)};
+  }
 
   & > h4 {
     margin-block: 1rem;
@@ -137,6 +144,8 @@ const ThirdTextGroup = styled.div`
 
   & > button {
     justify-self: flex-start;
+
+    font-size: 1rem;
   }
 `;
 
@@ -148,7 +157,7 @@ function ContainerHeroImages() {
   return (
     <StyledImageContainer>
       <FirstImageGroup>
-        {viewportWidth <= 400 ? (
+        {viewportWidth <= 420 ? (
           <FirstImage src="/assets/home/mobile/image-speaker-zx9.jpg" />
         ) : viewportWidth <= 920 ? (
           <FirstImage src="/assets/home/tablet/image-speaker-zx9.jpg" />
@@ -176,22 +185,20 @@ function ContainerHeroImages() {
       </FirstImageGroup>
 
       <SecondImage>
-        <SecondImageGroup>
-          <SecondImageTextGroup>
-            <span> ZX7 speaker </span>
-            <Button
-              variation="transparent"
-              onClick={() => navigate(`/product/zx7-speaker`)}
-            >
-              {" "}
-              see product{" "}
-            </Button>
-          </SecondImageTextGroup>
-        </SecondImageGroup>
+        <SecondImageTextGroup>
+          <span> ZX7 speaker </span>
+          <Button
+            variation="transparent"
+            onClick={() => navigate(`/product/zx7-speaker`)}
+          >
+            {" "}
+            see product{" "}
+          </Button>
+        </SecondImageTextGroup>
       </SecondImage>
 
       <ThirdImageGroup>
-        {viewportWidth <= 400 ? (
+        {viewportWidth <= 420 ? (
           <ThirdImage src="/assets/home/mobile/image-earphones-yx1.jpg" />
         ) : viewportWidth <= 920 ? (
           <ThirdImage src="/assets/home/tablet/image-earphones-yx1.jpg" />
