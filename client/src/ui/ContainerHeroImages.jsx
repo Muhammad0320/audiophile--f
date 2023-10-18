@@ -14,32 +14,43 @@ const StyledImageContainer = styled.div`
 
 const FirstImageGroup = styled.div`
   background-color: var(--color-primary);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   background-image: url("/assets/home/desktop/pattern-circles.svg");
   background-size: 80%;
-  background-position: -15rem 10%;
-  padding: 10rem 10rem 0 20rem;
+  background-position: ${() => clampBuilder(320, 1200, -10, -14)} 10%;
+
   background-repeat: no-repeat;
   border-radius: 1rem;
   overflow: hidden;
-  column-gap: 15rem;
+  column-gap: ${() => clampBuilder(320, 1200, 6, 12)};
+
+  @media (max-width: 920px) {
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  /* @media (max-width: 420px) {
+
+
+
+  } */
 `;
 
 const FirstImage = styled.img`
-  display: block;
-  align-self: flex-end;
-  width: 40%;
-  translate: 0 3rem;
-  /* width: 100%; */
+  align-self: self-end;
+  justify-self: self-end;
+  translate: 0 ${() => clampBuilder(320, 1200, 1.5, 2)};
+  width: 70%;
 `;
 
 const FirstImageText = styled.div`
   align-self: flex-start;
-
+  justify-self: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: ${() => clampBuilder(920, 1200, 1.5, 3)};
 
   & > button {
     align-self: flex-start;
@@ -47,17 +58,15 @@ const FirstImageText = styled.div`
 `;
 
 const FirstSpeakerName = styled.h2`
-  font-size: 6rem;
+  font-size: ${() => clampBuilder(320, 1200, 3.5, 6)};
   font-weight: 500;
   line-height: 1;
-  margin-bottom: -1rem;
   color: var(--color-white);
   text-transform: uppercase;
 `;
 
 const FirstSpeakerText = styled.p`
-  font-size: 2rem;
-  line-height: 1.7;
+  font-size: ${() => clampBuilder(320, 1200, 1, 2)};
   color: var(--color-white-2);
 `;
 
