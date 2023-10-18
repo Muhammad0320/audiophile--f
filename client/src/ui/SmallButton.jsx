@@ -1,12 +1,13 @@
 import { HiChevronLeft } from "react-icons/hi2";
 import { css, styled } from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const Button = styled.button`
   border: none;
   color: var(--color-dark);
   opacity: 0.7;
   background-color: transparent;
-  font-size: 1.5rem;
+  font-size: ${() => clampBuilder(350, 1200, 1, 1.5)};
 
   display: flex;
   justify-content: center;
