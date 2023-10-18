@@ -27,8 +27,7 @@ const CategoryItem = styled.li`
   font-weight: 600;
   border-radius: 1rem;
   color: var(--color-dark);
-  width: ${() => clampBuilder(420, 1200, 30, 35)};
-  height: ${() => clampBuilder(420, 1200, 20, 25)};
+
   background-color: var(--color-white-2);
   text-align: center;
   text-transform: uppercase;
@@ -37,15 +36,12 @@ const CategoryItem = styled.li`
 
 const Image = styled.img`
   display: block;
-  width: 80%;
-  /* margin-bottom: -15rem; */
+  margin-bottom: ${() => clampBuilder(300, 1200, -10, -15)};
   translate: 0 -35%;
 `;
 
 function CategoryBox() {
   const navigate = useNavigate();
-
-  const { viewportWidth } = useViewport();
 
   return (
     <Box>
@@ -63,22 +59,10 @@ function CategoryBox() {
       </CategoryItem>
 
       <CategoryItem>
-        {viewportWidth <= 400 ? (
-          <Image
-            src="/assets/shared/mobile/image-category-thumbnail-soeakers.png"
-            alt="category Headphone mobile"
-          />
-        ) : viewportWidth <= 920 ? (
-          <Image
-            src="/assets/shared/tablet/image-category-thumbnail-soeakers.png"
-            alt="category Headphone tablet"
-          />
-        ) : (
-          <Image
-            src="/assets/shared/desktop/image-category-thumbnail-soeakers.png"
-            alt="category Headphone desktop"
-          />
-        )}
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
+          alt="category speaker desktop"
+        />
         <p> speakers </p>
         <ButtonCategory onClick={() => navigate("/speakers")}>
           {" "}
@@ -87,22 +71,10 @@ function CategoryBox() {
       </CategoryItem>
 
       <CategoryItem>
-        {viewportWidth <= 400 ? (
-          <Image
-            src="/assets/shared/mobile/image-category-thumbnail-earphones.png"
-            alt="category Headphone mobile"
-          />
-        ) : viewportWidth <= 920 ? (
-          <Image
-            src="/assets/shared/tablet/image-category-thumbnail-earphones.png"
-            alt="category Headphone tablet"
-          />
-        ) : (
-          <Image
-            src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
-            alt="category Headphone desktop"
-          />
-        )}
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
+          alt="category Headphone desktop"
+        />
         <p> earphones </p>
         <ButtonCategory onClick={() => navigate("/earphones")}>
           {" "}

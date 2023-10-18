@@ -82,7 +82,6 @@ const GlobalStyles = createGlobalStyle`
 
 html {
   font-size: 62.5%;
-  box-sizing: border-box;
 }
 
 body {
@@ -91,10 +90,10 @@ body {
   color: var(--color-white);
   min-height: 100dvh;
   max-width: 100dvw;
-    
+
   line-height: 1.5;
   font-size: 1.5rem;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 input,
