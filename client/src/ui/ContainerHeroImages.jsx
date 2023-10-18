@@ -97,6 +97,13 @@ const ThirdImageGroup = styled.div`
   align-items: stretch;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
+
+  @media (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 2rem;
+  }
 `;
 
 const ThirdImage = styled.img`
@@ -108,22 +115,28 @@ const ThirdImage = styled.img`
 
 const ThirdTextGroup = styled.div`
   flex: 1;
+
   display: flex;
   flex-direction: column;
-  column-gap: ${() => clampBuilder(400, 1200, 0.8, 1.5)};
+  column-gap: ${() => clampBuilder(400, 1200, 1.8, 2.5)};
   color: var(--color-dark);
 
+  justify-content: center;
+
+  align-items: flex-start;
   font-size: 2.2rem;
   text-transform: uppercase;
   border-radius: 1rem;
   background-color: var(--color-white-2);
-  padding-inline: ${() => clampBuilder(400, 1200, 1.5, 3.5)};
-  ${() => clampBuilder(400, 1200, 2.5, 5.5)};
+  padding-inline: ${() => clampBuilder(300, 1200, 1.5, 3.5)};
+  ${() => clampBuilder(300, 1200, 2.5, 5.5)};
 
-  & > p {
-    justify-content: flex-start;
+  & > h4 {
+    margin-block: 1rem;
+  }
 
-    align-items: center;
+  & > button {
+    justify-self: flex-start;
   }
 `;
 
@@ -165,16 +178,14 @@ function ContainerHeroImages() {
       <SecondImage>
         <SecondImageGroup>
           <SecondImageTextGroup>
-            <p>
-              <span> ZX7 speaker </span>
-              <Button
-                variation="transparent"
-                onClick={() => navigate(`/product/zx7-speaker`)}
-              >
-                {" "}
-                see product{" "}
-              </Button>
-            </p>
+            <span> ZX7 speaker </span>
+            <Button
+              variation="transparent"
+              onClick={() => navigate(`/product/zx7-speaker`)}
+            >
+              {" "}
+              see product{" "}
+            </Button>
           </SecondImageTextGroup>
         </SecondImageGroup>
       </SecondImage>
