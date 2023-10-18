@@ -47,6 +47,12 @@ export const ImageContainer = styled.div`
     & > img {
       width: 45%;
       box-shadow: var(--box-shadow-light);
+
+      transition: scale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      &:hover {
+        scale: 1.1;
+      }
     }
   }
 `;
