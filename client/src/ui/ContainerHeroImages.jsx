@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { useViewport } from "../features/context/ViewPort";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledImageContainer = styled.div`
   display: grid;
@@ -66,6 +67,14 @@ const SecondImage = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 1rem;
+
+  @media (max-width: 920px) {
+    background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
+  }
+
+  @media (max-width: 400px) {
+    background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
+  }
 `;
 
 const SecondImageGroup = styled.div`
@@ -101,14 +110,15 @@ const ThirdTextGroup = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  column-gap: 1.5rem;
+  column-gap: ${() => clampBuilder(400, 1200, 0.8, 1.5)};
   color: var(--color-dark);
 
   font-size: 2.2rem;
   text-transform: uppercase;
   border-radius: 1rem;
   background-color: var(--color-white-2);
-  padding: 8rem 10rem;
+  padding: ${() => clampBuilder(400, 1200, 3, 8)};
+  ${() => clampBuilder(400, 1200, 4, 10)};
   & > button {
     align-self: flex-start;
   }
@@ -123,14 +133,12 @@ function ContainerHeroImages() {
     <StyledImageContainer>
       <FirstImageGroup>
         {viewportWidth <= 400 ? (
-          <FirstImage src="/assets/shared/mobile/image-speaker-zx9.jpg" />
+          <FirstImage src="/assets/home/mobile/image-speaker-zx9.jpg" />
         ) : viewportWidth <= 920 ? (
-          <FirstImage src="/assets/shared/tablet/image-speaker-zx9.jpg" />
+          <FirstImage src="/assets/home/tablet/image-speaker-zx9.jpg" />
         ) : (
-          <FirstImage src="/assets/shared/desktop/image-speaker-zx9.jpg" />
+          <FirstImage src="/assets/home/desktop/image-speaker-zx9.jpg" />
         )}
-
-        <FirstImage src="/assets/home/desktop/image-speaker-zx9.png" />
 
         <FirstImageText>
           <FirstSpeakerName>
@@ -167,10 +175,13 @@ function ContainerHeroImages() {
       </SecondImage>
 
       <ThirdImageGroup>
-        <ThirdImage
-          src="/assets/home/desktop/image-earphones-yx1.jpg"
-          alt="earphone image"
-        />
+        {viewportWidth <= 400 ? (
+          <ThirdImage src="/assets/home/mobile/image-earphones-yx1.jpg" />
+        ) : viewportWidth <= 920 ? (
+          <ThirdImage src="/assets/home/tablet/image-earphones-yx1.jpg" />
+        ) : (
+          <ThirdImage src="/assets/home/desktop/image-earphones-yx1.jpg" />
+        )}
 
         <ThirdTextGroup>
           <h4> yxi earphones </h4>
