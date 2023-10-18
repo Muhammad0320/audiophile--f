@@ -158,11 +158,11 @@ function ContainerHeroImages() {
     <StyledImageContainer>
       <FirstImageGroup>
         {viewportWidth <= 420 ? (
-          <FirstImage src="/assets/home/mobile/image-speaker-zx9.jpg" />
+          <FirstImage src="/assets/home/mobile/image-speaker-zx9.png" />
         ) : viewportWidth <= 920 ? (
-          <FirstImage src="/assets/home/tablet/image-speaker-zx9.jpg" />
+          <FirstImage src="/assets/home/tablet/image-speaker-zx9.png" />
         ) : (
-          <FirstImage src="/assets/home/desktop/image-speaker-zx9.jpg" />
+          <FirstImage src="/assets/home/desktop/image-speaker-zx9.png" />
         )}
 
         <FirstImageText>
