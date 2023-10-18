@@ -14,7 +14,7 @@ const StyledHeader = styled.div`
 `;
 
 const StyledHeaderContent = styled.div`
-  min-height: 20dvh;
+  min-height: 22dvh;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin: 2rem 0;
 
@@ -22,7 +22,7 @@ const StyledHeaderContent = styled.div`
     props.content === "category" &&
     css`
       text-align: center;
-      font-size: 3.5rem;
+      font-size: ${() => clampBuilder(350, 1200, 2, 3.5)};
       text-transform: uppercase;
       font-weight: 500;
       display: flex;
@@ -73,9 +73,9 @@ const Image = styled.img`
 `;
 
 const ProductType = styled.p`
-  letter-spacing: 1rem;
+  letter-spacing: ${() => clampBuilder(350, 1200, 0.3, 1)};
 
-  font-size: ${() => clampBuilder(350, 1200, 0.5, 1.5)};
+  font-size: ${() => clampBuilder(350, 1200, 0.8, 1.5)};
   color: var(--color-white-3);
   margin-right: 2rem;
 
