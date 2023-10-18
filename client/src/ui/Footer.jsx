@@ -24,9 +24,9 @@ const FooterText = styled.div`
 
 const FooterParagraph = styled.p`
   width: 55%;
-
+  justify-self: stretch;
   font-size: ${() => clampBuilder(920, 1200, 1.3, 1.6)};
-
+  color: var(--color-white-3);
   @media (max-width: 920px) {
     width: 100%;
     font-size: ${() => clampBuilder(350, 920, 1.1, 1.3)};
@@ -59,15 +59,14 @@ function Footer() {
     <StyledFooter>
       <Nav type="footer" />
 
+      <FooterParagraph>
+        {" "}
+        Audiophile is an all in one stop to fulfill your audio needs. We're a
+        small team of music lovers and sound specialists who are devoted to
+        helping you get the most out of personal audio. Come and visit our demo
+        facility - we’re open 7 days a week.{" "}
+      </FooterParagraph>
       <FooterContent>
-        <FooterParagraph>
-          {" "}
-          Audiophile is an all in one stop to fulfill your audio needs. We're a
-          small team of music lovers and sound specialists who are devoted to
-          helping you get the most out of personal audio. Come and visit our
-          demo facility - we’re open 7 days a week.{" "}
-        </FooterParagraph>
-
         <FooterText>
           <span> Copyright 2023. All Rights Reserved </span>
         </FooterText>
