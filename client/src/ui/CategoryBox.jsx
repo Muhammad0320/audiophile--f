@@ -9,14 +9,14 @@ const Box = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
-  column-gap: ${() => clampBuilder(300, 1200, 2, 3.5)};
+  column-gap: ${() => clampBuilder(420, 1200, 1.5, 3)};
 `;
 
 const CategoryItem = styled.li`
-  display: grid;
-  grid-template-rows: repeat(3, min-content);
-  align-items: end;
-  justify-items: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-items: flex-end;
   font-size: ${() => clampBuilder(300, 1200, 1, 1.5)};
   font-weight: 600;
   border-radius: 1rem;
