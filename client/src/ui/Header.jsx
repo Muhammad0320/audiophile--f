@@ -75,7 +75,7 @@ const Image = styled.img`
 const ProductType = styled.p`
   letter-spacing: 1rem;
 
-  font-size: ${() => clampBuilder(400, 1200, 1, 1.5)};
+  font-size: ${() => clampBuilder(350, 1200, 0.5, 1.5)};
   color: var(--color-white-3);
   margin-right: 2rem;
 
