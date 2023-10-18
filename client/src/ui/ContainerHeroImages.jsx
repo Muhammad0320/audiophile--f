@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import { useViewport } from "../features/context/ViewPort";
 
 const StyledImageContainer = styled.div`
   display: grid;
@@ -116,9 +117,19 @@ const ThirdTextGroup = styled.div`
 function ContainerHeroImages() {
   const navigate = useNavigate();
 
+  const { viewportWidth } = useViewport();
+
   return (
     <StyledImageContainer>
       <FirstImageGroup>
+        {viewportWidth <= 400 ? (
+          <FirstImage src="/assets/shared/mobile/image-speaker-zx9.jpg" />
+        ) : viewportWidth <= 920 ? (
+          <FirstImage src="/assets/shared/tablet/image-speaker-zx9.jpg" />
+        ) : (
+          <FirstImage src="/assets/shared/desktop/image-speaker-zx9.jpg" />
+        )}
+
         <FirstImage src="/assets/home/desktop/image-speaker-zx9.png" />
 
         <FirstImageText>
