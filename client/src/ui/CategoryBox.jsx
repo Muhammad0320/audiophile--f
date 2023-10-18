@@ -2,35 +2,43 @@ import { styled } from "styled-components";
 import ButtonCategory from "./ButtonCategory";
 import { useNavigate } from "react-router-dom";
 import { useViewport } from "../features/context/ViewPort";
+import { clampBuilder } from "../styles/clampFunction";
 
 const Box = styled.ul`
-  display: flex;
   margin: 20rem 0;
-  justify-content: space-between;
-  column-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  column-gap: ${() => clampBuilder(300, 1200, 2, 3.5)};
 `;
 
 const CategoryItem = styled.li`
   display: grid;
   grid-template-rows: repeat(3, min-content);
-  align-content: center;
+  align-items: end;
   justify-items: center;
-  font-size: 1.4rem;
+  font-size: ${() => clampBuilder(300, 1200, 1, 1.5)};
   font-weight: 600;
   border-radius: 1rem;
   color: var(--color-dark);
-  width: 35rem;
-  height: 26rem;
+  /* width: 35rem;
+  height: 26rem; */
   background-color: var(--color-white-2);
   text-align: center;
   text-transform: uppercase;
   padding: 2rem;
 `;
 
+const CategoryItemCard = styled.div`
+  display: grid;
+
+  grid-template-rows: 1.5fr, 1fr;
+`;
+
 const Image = styled.img`
   display: block;
   width: 100%;
-  margin-bottom: -15rem;
+  /* margin-bottom: -15rem; */
   translate: 0 -35%;
 `;
 
@@ -42,10 +50,23 @@ function CategoryBox() {
   return (
     <Box>
       <CategoryItem>
-        <Image
-          src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
-          alt="category Headphone"
-        />
+        {viewportWidth <= 400 ? (
+          <Image
+            src="/assets/shared/mobile/image-category-thumbnail-headphones.png"
+            alt="category Headphone mobile"
+          />
+        ) : viewportWidth <= 920 ? (
+          <Image
+            src="/assets/shared/tablet/image-category-thumbnail-headphones.png"
+            alt="category Headphone tablet"
+          />
+        ) : (
+          <Image
+            src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
+            alt="category Headphone desktop"
+          />
+        )}
+
         <p> headphones </p>
         <ButtonCategory onClick={() => navigate("/headphones")}>
           {" "}
