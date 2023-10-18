@@ -29,7 +29,7 @@ const StyledNav = styled.nav`
 
 const NavList = styled.ul`
   display: flex;
-  column-gap: ${() => clampBuilder(400, 1200, 1.4, 5)};
+  column-gap: ${() => clampBuilder(920, 1200, 1.4, 5)};
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding-left: 0;
@@ -37,7 +37,7 @@ const NavList = styled.ul`
 
 const NavItem = styled(NavLink)`
   color: var(--color-white-2);
-  font-size: ${() => clampBuilder(400, 1200, 1, 1.5)};
+  font-size: ${() => clampBuilder(920, 1200, 1, 1.5)};
 
   &:hover {
     color: var(--color-primary);
@@ -75,7 +75,7 @@ const CartIconNotification = styled.span`
   position: absolute;
   top: -5px;
   right: -1rem;
-  font-size: clamp(1rem, var(--font-tiny-2), var(--font-tiny));
+  font-size: ${() => clampBuilder(350, 1200, 1, 1.5)};
 
   background-color: var(--color-white);
   color: var(--color-dark-3);

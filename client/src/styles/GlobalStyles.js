@@ -47,7 +47,6 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
 
 
-    
     --font-huge: clamp(3.5rem, 4rem, 5.5rem);
     --font-big: 4.5rem;
     --font-medium: 3rem;
@@ -140,8 +139,6 @@ button{
   
   
   border-radius: 100vw;
-
-
 
 }
 
