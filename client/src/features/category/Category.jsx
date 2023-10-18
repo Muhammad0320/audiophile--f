@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import { useNavigate } from "react-router-dom";
 import SmallButton from "../../ui/SmallButton";
 import { useMoveBack } from "../../hooks/useMoveBack";
+import { clampBuilder } from "../../styles/clampFunction";
 
 export const Container = styled.div`
   display: grid;
@@ -13,7 +14,7 @@ export const Container = styled.div`
   column-gap: 10rem;
 
   &:not(:last-child) {
-    margin-bottom: var(--margin-huge);
+    margin-bottom: ${() => clampBuilder(350, 1200, 10, 15)};
   }
 `;
 
