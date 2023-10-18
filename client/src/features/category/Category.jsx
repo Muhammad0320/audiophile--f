@@ -35,6 +35,10 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 920px) {
+    grid-row: 1 / 2;
+  }
 `;
 
 export const DescriptionContainer = styled.div`
@@ -49,6 +53,12 @@ export const DescriptionContainer = styled.div`
 
   & > section {
     align-self: flex-start;
+  }
+
+  @media (max-width: 920px) {
+    grid-row: 2 / -1;
+    align-items: center;
+    padding-inline: ${() => clampBuilder(350, 920, 3, 5)};
   }
 `;
 
