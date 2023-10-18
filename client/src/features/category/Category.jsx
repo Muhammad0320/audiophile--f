@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SmallButton from "../../ui/SmallButton";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { clampBuilder } from "../../styles/clampFunction";
+import { useViewport } from "../context/ViewPort";
 
 export const Container = styled.div`
   display: grid;
@@ -38,6 +39,14 @@ export const ImageContainer = styled.div`
 
   @media (max-width: 920px) {
     grid-row: 1 / 2;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    & > img {
+      width: 60%;
+    }
   }
 `;
 
@@ -58,7 +67,11 @@ export const DescriptionContainer = styled.div`
   @media (max-width: 920px) {
     grid-row: 2 / -1;
     align-items: center;
-    padding-inline: ${() => clampBuilder(350, 920, 3, 5)};
+    padding-inline: ${() => clampBuilder(350, 920, 4, 6)};
+
+    & > button {
+      align-self: center;
+    }
   }
 `;
 
@@ -76,6 +89,11 @@ export const ProductName = styled.p`
   line-height: 1.3;
   font-weight: 500;
   margin-bottom: -1rem;
+
+  @media (max-width: 920px) {
+    text-align: center;
+    padding-inline: ${() => clampBuilder(350, 920, 5, 8)};
+  }
 `;
 
 export const Text = styled.p`
@@ -95,6 +113,12 @@ export const Text = styled.p`
     css`
       margin-inline: var(--margin-tiny-2);
     `}
+
+
+    
+  @media (max-width: 920px) {
+    text-align: center;
+  }
 `;
 
 export const ProductPrice = styled.p`
@@ -113,6 +137,8 @@ function Category({ categoryData, index }) {
 
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
 
+  const { viewportWidth } = useViewport();
+
   return (
     <>
       <SmallButton onClick={moveback}> Go back </SmallButton>
@@ -126,7 +152,7 @@ function Category({ categoryData, index }) {
         <DescriptionContainer
           style={{
             gridColumn: index % 2 === 0 ? "2 / -1" : "1 / 2",
-            gridRow: "1 / 2",
+            gridRow: viewportWidth <= 920 ? "2 / -1" : "1 / 2",
           }}
         >
           {isNew && <NewProduct> New product </NewProduct>}
