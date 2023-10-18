@@ -11,8 +11,6 @@ export const Container = styled.div`
 
   margin-bottom: 3rem;
 
-  /* grid-template-columns: repeat(minmax(10rem, 1fr), minmax(10rem, 1fr)); */
-
   grid-template-columns: repeat(2, 50%);
 
   column-gap: ${() => clampBuilder(920, 1200, 7, 10)};
@@ -23,8 +21,9 @@ export const Container = styled.div`
 
   @media (max-width: 920px) {
     grid-template-columns: none;
+
+    grid-template-rows: repeat(2, 50%);
     row-gap: ${() => clampBuilder(320, 920, 2.5, 4)};
-    grid-template-rows: repeat(2, 1fr);
   }
 `;
 
@@ -43,7 +42,7 @@ export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-
+  margin-inline-end: ${() => clampBuilder(920, 1200, 5, 10)};
   & > button {
     align-self: flex-start;
   }
@@ -71,7 +70,6 @@ export const ProductName = styled.p`
 
 export const Text = styled.p`
   color: var(--color-dark-1);
-  margin-right: 8rem;
   opacity: 0.7;
   font-size: var(--font-small);
 
