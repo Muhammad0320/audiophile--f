@@ -3,9 +3,15 @@ import { clampBuilder } from "../styles/clampFunction";
 
 const StyledContainerHero = styled.div`
   display: grid;
-  margin-bottom: 15rem;
+  margin-bottom: ${() => clampBuilder(320, 1200, 10, 15)};
   grid-template-columns: repeat(2, 1fr);
   grid-gap: var(--margin-medium);
+
+  @media (max-width: 920) {
+    display: flex;
+    flex-direction: column;
+    row-gap: ${() => clampBuilder(320, 920, 5, 10)};
+  }
 `;
 
 const Image = styled.img`
@@ -18,11 +24,17 @@ const TextGroup = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  row-gap: ${() => clampBuilder(320, 920, 2, 4)};
+
+  @media (max-width: 920) {
+    margin-inline: ${() => clampBuilder(320, 920, 1.5, 5)};
+  }
 `;
 
 const TextHeader = styled.h3`
   grid-column: 1 / 2;
-  font-size: ${() => clampBuilder(350, 1200, 1.8, 4)};
+  font-size: ${() => clampBuilder(350, 1200, 2.5, 4)};
   text-transform: uppercase;
   font-weight: 600;
   color: var(--color-dark);
@@ -34,7 +46,7 @@ const TextHeader = styled.h3`
 `;
 
 const Text = styled.p`
-  font-size: ${() => clampBuilder(350, 1200, 1, 2.5)};
+  font-size: ${() => clampBuilder(350, 1200, 2, 3)};
   color: var(--color-dark-1);
   padding-right: ${() => clampBuilder(350, 1200, 1.3, 3)};
   opacity: 0.6;
