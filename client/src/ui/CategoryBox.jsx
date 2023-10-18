@@ -8,8 +8,14 @@ const Box = styled.ul`
   margin: 20rem 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
+  max-width: 100%;
+  padding: 0;
   column-gap: ${() => clampBuilder(420, 1200, 1.5, 3)};
+
+  & > * {
+    box-sizing: border-box;
+    min-width: 0;
+  }
 `;
 
 const CategoryItem = styled.li`
@@ -21,23 +27,17 @@ const CategoryItem = styled.li`
   font-weight: 600;
   border-radius: 1rem;
   color: var(--color-dark);
-  /* width: 35rem;
-  height: 26rem; */
+  width: ${() => clampBuilder(420, 1200, 30, 35)};
+  height: ${() => clampBuilder(420, 1200, 20, 25)};
   background-color: var(--color-white-2);
   text-align: center;
   text-transform: uppercase;
   padding: 2rem;
 `;
 
-const CategoryItemCard = styled.div`
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 1.5fr, 1fr;
-`;
-
 const Image = styled.img`
   display: block;
-  width: 100%;
+  width: 80%;
   /* margin-bottom: -15rem; */
   translate: 0 -35%;
 `;
@@ -50,82 +50,64 @@ function CategoryBox() {
   return (
     <Box>
       <CategoryItem>
-        <CategoryItemCard>
-          {viewportWidth <= 400 ? (
-            <Image
-              src="/assets/shared/mobile/image-category-thumbnail-headphones.png"
-              alt="category Headphone mobile"
-            />
-          ) : viewportWidth <= 920 ? (
-            <Image
-              src="/assets/shared/tablet/image-category-thumbnail-headphones.png"
-              alt="category Headphone tablet"
-            />
-          ) : (
-            <Image
-              src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
-              alt="category Headphone desktop"
-            />
-          )}
+        <Image
+          src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
+          alt="category Headphone desktop"
+        />
 
-          <p> headphones </p>
-          <ButtonCategory onClick={() => navigate("/headphones")}>
-            {" "}
-            Shop{" "}
-          </ButtonCategory>
-        </CategoryItemCard>
+        <p> headphones </p>
+        <ButtonCategory onClick={() => navigate("/headphones")}>
+          {" "}
+          Shop{" "}
+        </ButtonCategory>
       </CategoryItem>
 
       <CategoryItem>
-        <CategoryItemCard>
-          {viewportWidth <= 400 ? (
-            <Image
-              src="/assets/shared/mobile/image-category-thumbnail-soeakers.png"
-              alt="category Headphone mobile"
-            />
-          ) : viewportWidth <= 920 ? (
-            <Image
-              src="/assets/shared/tablet/image-category-thumbnail-soeakers.png"
-              alt="category Headphone tablet"
-            />
-          ) : (
-            <Image
-              src="/assets/shared/desktop/image-category-thumbnail-soeakers.png"
-              alt="category Headphone desktop"
-            />
-          )}
-          <p> speakers </p>
-          <ButtonCategory onClick={() => navigate("/speakers")}>
-            {" "}
-            Shop{" "}
-          </ButtonCategory>
-        </CategoryItemCard>
+        {viewportWidth <= 400 ? (
+          <Image
+            src="/assets/shared/mobile/image-category-thumbnail-soeakers.png"
+            alt="category Headphone mobile"
+          />
+        ) : viewportWidth <= 920 ? (
+          <Image
+            src="/assets/shared/tablet/image-category-thumbnail-soeakers.png"
+            alt="category Headphone tablet"
+          />
+        ) : (
+          <Image
+            src="/assets/shared/desktop/image-category-thumbnail-soeakers.png"
+            alt="category Headphone desktop"
+          />
+        )}
+        <p> speakers </p>
+        <ButtonCategory onClick={() => navigate("/speakers")}>
+          {" "}
+          Shop{" "}
+        </ButtonCategory>
       </CategoryItem>
 
       <CategoryItem>
-        <CategoryItemCard>
-          {viewportWidth <= 400 ? (
-            <Image
-              src="/assets/shared/mobile/image-category-thumbnail-earphones.png"
-              alt="category Headphone mobile"
-            />
-          ) : viewportWidth <= 920 ? (
-            <Image
-              src="/assets/shared/tablet/image-category-thumbnail-earphones.png"
-              alt="category Headphone tablet"
-            />
-          ) : (
-            <Image
-              src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
-              alt="category Headphone desktop"
-            />
-          )}
-          <p> earphones </p>
-          <ButtonCategory onClick={() => navigate("/earphones")}>
-            {" "}
-            Shop{" "}
-          </ButtonCategory>
-        </CategoryItemCard>
+        {viewportWidth <= 400 ? (
+          <Image
+            src="/assets/shared/mobile/image-category-thumbnail-earphones.png"
+            alt="category Headphone mobile"
+          />
+        ) : viewportWidth <= 920 ? (
+          <Image
+            src="/assets/shared/tablet/image-category-thumbnail-earphones.png"
+            alt="category Headphone tablet"
+          />
+        ) : (
+          <Image
+            src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
+            alt="category Headphone desktop"
+          />
+        )}
+        <p> earphones </p>
+        <ButtonCategory onClick={() => navigate("/earphones")}>
+          {" "}
+          Shop{" "}
+        </ButtonCategory>
       </CategoryItem>
     </Box>
   );
