@@ -43,6 +43,12 @@ const FooterContent = styled.div`
   justify-content: space-between;
 
   align-items: flex-end;
+
+  @media (max-width: 420px) {
+    flex-flow: column;
+
+    row-gap: 1.3rem;
+  }
 `;
 
 const IconList = styled.div`
