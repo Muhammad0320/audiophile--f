@@ -27,6 +27,9 @@ const FirstImageGroup = styled.div`
 
   @media (max-width: 920px) {
     grid-template-columns: none;
+    background-position: 50% ${() => clampBuilder(300, 920, -18, -30)};
+    background-size: 105%;
+
     grid-template-rows: repeat(2, 1fr);
   }
 
@@ -42,6 +45,16 @@ const FirstImage = styled.img`
   justify-self: self-end;
   translate: 0 ${() => clampBuilder(320, 1200, 1.5, 2)};
   width: 70%;
+
+  @media (max-width: 920px) {
+    align-self: center;
+    justify-self: center;
+    width: 35%;
+  }
+
+  @media (max-width: 420px) {
+    width: 50%;
+  }
 `;
 
 const FirstImageText = styled.div`
@@ -50,7 +63,7 @@ const FirstImageText = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  row-gap: ${() => clampBuilder(920, 1200, 1.5, 3)};
+  row-gap: ${() => clampBuilder(920, 1200, 2, 4)};
 
   & > button {
     align-self: flex-start;
@@ -62,6 +75,7 @@ const FirstSpeakerName = styled.h2`
   font-weight: 500;
   line-height: 1;
   color: var(--color-white);
+  margin-block-end: 0;
   text-transform: uppercase;
 `;
 
@@ -99,7 +113,6 @@ const SecondImageTextGroup = styled.div`
   text-transform: uppercase;
   row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
   font-size: ${() => clampBuilder(320, 1200, 2.5, 4)};
-
   & > button {
     align-self: flex-start;
   }
@@ -180,8 +193,8 @@ function ContainerHeroImages() {
             zx9 <br /> speaker{" "}
           </FirstSpeakerName>
           <FirstSpeakerText>
-            Upgrade to premium speakers that are <br /> phenomenally built to
-            deliver truly remarkable <br /> sound.
+            Upgrade to premium speakers that are phenomenally built to deliver
+            truly remarkable sound.
           </FirstSpeakerText>
           <Button
             variation="dark"
