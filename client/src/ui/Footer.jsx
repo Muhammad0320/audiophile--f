@@ -24,6 +24,7 @@ const FooterText = styled.div`
 
 const FooterParagraph = styled.p`
   width: 55%;
+  margin-top: ${() => clampBuilder(350, 1200, 1.5, 2.5)};
   justify-self: stretch;
   font-size: ${() => clampBuilder(920, 1200, 1.4, 1.6)};
   color: var(--color-white-3);

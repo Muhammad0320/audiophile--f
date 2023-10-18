@@ -287,7 +287,7 @@ function Nav({ type }) {
       {type === "footer" && (
         <StyledNav>
           <HeaderIcon to="/home">
-            <SVG src={IconLogo} />
+            <SVG src={IconLogo} fill="white" />
           </HeaderIcon>
           <NavList>
             <NavItem to="/home">Home</NavItem>

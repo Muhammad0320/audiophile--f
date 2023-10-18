@@ -37,9 +37,9 @@ const TextGroup = styled.div`
 
 const TextHeader = styled.h3`
   grid-column: 1 / 2;
-  font-size: ${() => clampBuilder(350, 1200, 2.8, 4)};
+  font-size: ${() => clampBuilder(350, 1200, 2.2, 3.5)};
   text-transform: uppercase;
-  margin-inline: ${() => clampBuilder(920, 1200, 2.5, 3.5)};
+  margin-inline-end: ${() => clampBuilder(920, 1200, 2, 3)};
   font-weight: 600;
   color: var(--color-dark);
   margin-bottom: -2px;
@@ -50,7 +50,7 @@ const TextHeader = styled.h3`
 `;
 
 const Text = styled.p`
-  font-size: ${() => clampBuilder(350, 1200, 1.2, 2.2)};
+  font-size: ${() => clampBuilder(350, 1200, 1, 2)};
 
   padding-right: ${() => clampBuilder(920, 1200, 1.6, 3)};
 
