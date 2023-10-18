@@ -10,7 +10,7 @@ const StyledFooter = styled.div`
   grid-column: 1 / -1;
 
   background-color: var(--color-dark);
-  padding: 2rem ${() => clampBuilder(350, 1200, 5, 12)} 5rem;
+  padding: 2rem ${() => clampBuilder(350, 1200, 3, 7)} 5rem;
 `;
 
 const FooterText = styled.div`
@@ -29,7 +29,7 @@ const FooterParagraph = styled.p`
   font-size: ${() => clampBuilder(920, 1200, 1.4, 1.6)};
   color: var(--color-white-3);
 
-  margin-bottom: ${() => clampBuilder(350, 1200, 2, 4)};
+  margin-bottom: ${() => clampBuilder(350, 1200, 3, 4)};
 
   @media (max-width: 920px) {
     width: 100%;
@@ -46,8 +46,8 @@ const FooterContent = styled.div`
 
   @media (max-width: 420px) {
     flex-flow: column;
-
-    row-gap: 1.3rem;
+    align-items: center;
+    row-gap: 3rem;
   }
 `;
 

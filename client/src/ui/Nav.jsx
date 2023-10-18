@@ -30,17 +30,27 @@ const StyledNav = styled.nav`
     flex-flow: column;
     row-gap: 2rem;
   }
+
+  @media (max-width: 420px) {
+    align-items: center;
+  }
 `;
 
 const NavList = styled.ul`
   display: flex;
-  column-gap: ${() => clampBuilder(920, 1200, 1.4, 5)};
+  column-gap: ${() => clampBuilder(430, 1200, 1.4, 5)};
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding-left: 0;
 
   @media (max-width: 920px) {
     column-gap: ${() => clampBuilder(350, 1200, 1.8, 3)};
+  }
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+    row-gap: 1.2rem;
+    align-items: center;
   }
 `;
 
@@ -57,7 +67,7 @@ const NavItem = styled(NavLink)`
   }
 
   @media (max-width: 920px) {
-    font-size: ${() => clampBuilder(350, 920, 0.8, 1.2)};
+    font-size: ${() => clampBuilder(350, 920, 1, 1.4)};
   }
 `;
 
@@ -298,7 +308,7 @@ function Nav({ type }) {
       )}
 
       {type === "footer" && (
-        <StyledNav type="footer">
+        <StyledNav>
           <HeaderIcon to="/home">
             <SVG src={IconLogo} fill="white" />
           </HeaderIcon>
