@@ -117,8 +117,8 @@ const ThirdTextGroup = styled.div`
   text-transform: uppercase;
   border-radius: 1rem;
   background-color: var(--color-white-2);
-  padding: ${() => clampBuilder(400, 1200, 3, 8)};
-  ${() => clampBuilder(400, 1200, 4, 10)};
+  padding-inline: ${() => clampBuilder(400, 1200, 1.5, 3.5)};
+  ${() => clampBuilder(400, 1200, 2.5, 5.5)};
 
   & > p {
     justify-content: flex-start;
