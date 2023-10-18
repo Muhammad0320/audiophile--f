@@ -17,7 +17,7 @@ export const Container = styled.div`
   column-gap: ${() => clampBuilder(920, 1200, 7, 10)};
 
   &:not(:last-child) {
-    margin-bottom: ${() => clampBuilder(350, 1200, 10, 15)};
+    margin-bottom: ${() => clampBuilder(350, 1200, 6, 12)};
   }
 
   @media (max-width: 920px) {
@@ -39,13 +39,14 @@ export const ImageContainer = styled.div`
 
   @media (max-width: 920px) {
     grid-row: 1 / 2;
-
-    width: 100%;
-    height: 100%;
+    margin-inline: auto;
+    width: 90%;
+    height: 90%;
     object-fit: cover;
 
     & > img {
       width: 45%;
+      box-shadow: var(--box-shadow-light);
     }
   }
 `;
@@ -80,7 +81,7 @@ export const NewProduct = styled.div`
   letter-spacing: ${() => clampBuilder(350, 1200, 0.5, 1)};
   font-size: ${() => clampBuilder(350, 1200, 1, 1.4)};
   text-transform: uppercase;
-  margin-bottom: -4rem;
+  /* margin-bottom: -4rem; */
   color: var(--color-primary);
 
   @media (max-width: 920px) {
@@ -90,7 +91,7 @@ export const NewProduct = styled.div`
 
 export const ProductName = styled.p`
   color: var(--color-dark);
-  font-size: 4.5rem;
+  font-size: ${() => clampBuilder(350, 1200, 3.0, 4.5)};
   line-height: 1.3;
   font-weight: 500;
   margin-bottom: -1rem;
