@@ -25,15 +25,19 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   background-color: var(--color-dark);
 
-  @media (max-width: 920px) {
-    align-items: flex-start;
-    flex-flow: column;
-    row-gap: 2rem;
-  }
+  ${(props) =>
+    props.type === "footer" &&
+    css`
+      @media (max-width: 920px) {
+        align-items: flex-start;
+        flex-flow: column;
+        row-gap: 2rem;
+      }
 
-  @media (max-width: 420px) {
-    align-items: center;
-  }
+      @media (max-width: 420px) {
+        align-items: center;
+      }
+    `}
 `;
 
 const NavList = styled.ul`
@@ -308,7 +312,7 @@ function Nav({ type }) {
       )}
 
       {type === "footer" && (
-        <StyledNav>
+        <StyledNav type="footer">
           <HeaderIcon to="/home">
             <SVG src={IconLogo} fill="white" />
           </HeaderIcon>
