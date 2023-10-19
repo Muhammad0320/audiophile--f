@@ -4,8 +4,9 @@ import Button from "./Button";
 import { useSendBulkData } from "../features/cart/useSendBulkData";
 import SpinnerMini from "./SpinnerMini";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { clearChanges, getChanges } from "../features/cart/cartSlice";
+import { useDispatch } from "react-redux";
+import { clearChanges } from "../features/cart/cartSlice";
+import { clampBuilder } from "../styles/clampFunction";
 
 // https://dev.to/devland/clean-code-principles-for-javascript-and-typescript-developers-3kdn
 
@@ -14,7 +15,7 @@ const TableAndButtonContainer = styled.div`
 
   flex-flow: column;
 
-  row-gap: 3rem;
+  row-gap: ${() => clampBuilder(320, 1200, 1.5, 3.5)};
 
   & > button {
     text-align: center;
@@ -23,7 +24,8 @@ const TableAndButtonContainer = styled.div`
 
     align-self: flex-end;
   }
-  margin: 3rem 5rem;
+  margin: ${() => clampBuilder(320, 1200, 1.6, 3)};
+  ${() => clampBuilder(320, 1200, 2, 5)};
 `;
 
 const TableContainer = styled.div`
@@ -31,7 +33,7 @@ const TableContainer = styled.div`
 
   background-color: var(--color-white-1);
 
-  font-size: 1.5rem;
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
 
   color: var(--color-dark);
 
@@ -45,11 +47,12 @@ const CommonRow = styled.div`
 
   align-items: center;
   transition: none;
-  column-gap: 2rem;
+  column-gap: ${() => clampBuilder(320, 1200, 1.7, 2)};
 `;
 
 const Header = styled(CommonRow)`
-  padding: 1.2rem 2rem;
+  padding: ${() => clampBuilder(320, 1200, 1, 1.5)}
+    ${() => clampBuilder(320, 1200, 1.2, 2)};
   font-size: var(--font-small);
   background-color: var(--color-white-1);
   font-weight: 600;
@@ -60,7 +63,8 @@ const Header = styled(CommonRow)`
 
 const Footer = styled.footer`
   display: flex;
-  padding: 1.2rem 2rem;
+  padding: ${() => clampBuilder(320, 1200, 1, 1.5)}
+    ${() => clampBuilder(320, 1200, 1.3, 2)};
   align-items: center;
 
   &:not(:has(*)) {
@@ -85,12 +89,12 @@ const Row = styled(CommonRow)`
 `;
 
 const Empty = styled.div`
-  font-size: 1.7rem;
+  font-size: ${() => clampBuilder(320, 1200, 1.3, 2.5)};
   color: currentColor;
 
   text-align: center;
 
-  padding: 4rem 0;
+  padding: ${() => clampBuilder(320, 1200, 1.9, 4)} 0;
 `;
 
 // Create context
