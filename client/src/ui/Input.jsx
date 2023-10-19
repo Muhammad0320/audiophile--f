@@ -14,7 +14,6 @@ const Input = styled.input`
   &::-webkit-input-placeholder {
     color: var(--color-dark-3);
     opacity: 0.7;
-
     font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
   }
 

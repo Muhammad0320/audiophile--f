@@ -14,11 +14,15 @@ const PageContainer = styled.div`
 
 const DetailsContainer = styled.div`
   display: grid;
-  grid-template-columns: ${() => clampBuilder(320, 920, 4, 9)} 1fr;
   grid-auto-rows: auto;
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-flow: column;
   background-color: var(--color-white-1);
   box-shadow: var(--box-shadow-dark);
+
+  @media (max-width: 920px) {
+    grid-template-columns: ${() => clampBuilder(320, 1200, 1.3, 3)};
+  }
 `;
 
 const OutletContainer = styled.div`
@@ -72,7 +76,7 @@ const NavItem = styled(NavLink)`
   justify-content: center;
   align-items: center;
   gap: ${() => clampBuilder(320, 1200, 1, 1.5)};
-  font-size: ${() => clampBuilder(320, 1200, 1.3, 3)};
+  font-size: ${() => clampBuilder(920, 1200, 1.3, 3)};
   text-transform: uppercase;
   cursor: pointer;
 

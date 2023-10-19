@@ -15,7 +15,7 @@ import { clampBuilder } from "../../styles/clampFunction";
 
 const InfoDetails = styled.div`
   padding: ${() => clampBuilder(320, 1200, 3, 5)};
-  ${() => clampBuilder(320, 1200, 4.5, 7)};
+  ${() => clampBuilder(320, 1200, 4, 7)};
   grid-column: 2 / -1;
   overflow: auto;
 
