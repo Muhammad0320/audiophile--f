@@ -274,7 +274,7 @@ const StyledReviewCard = styled.div`
   margin-bottom: ${() => clampBuilder(320, 1200, 2.8, 5.5)};
 
   @media (max-width: 920px) {
-    grid-auto-columns: 47%;
+    grid-auto-columns: 37%;
   }
 
   @media (max-width: 500px) {

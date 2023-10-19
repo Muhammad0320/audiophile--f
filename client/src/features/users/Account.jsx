@@ -2,11 +2,12 @@ import { BiSolidCommentDetail } from "react-icons/bi";
 import { HiCog6Tooth, HiShoppingCart, HiTruck } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
 
-  padding: 10rem 0;
+  padding: ${() => clampBuilder(320, 1200, 5, 10)} 0;
 `;
 
 const DetailsContainer = styled.div`
