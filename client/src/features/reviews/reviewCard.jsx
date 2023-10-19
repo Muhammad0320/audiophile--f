@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Text } from "../category/Category";
 import { ReviewRating } from "../../ui/StarRating";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const StyledCard = styled.div`
   position: relative;
@@ -12,7 +13,11 @@ const StyledCard = styled.div`
   justify-content: center;
   align-items: center;
 
+  scroll-snap-align: start;
+
   color: var(--color-dark);
+
+  overflow: hidden;
 
   box-shadow: var(--box-shadow-light);
 
@@ -20,11 +25,16 @@ const StyledCard = styled.div`
 
   background-image: var(--color-gradient-light);
 
-  padding: 2rem 1.5rem;
+  padding: ${() => clampBuilder(320, 1200, 1, 2)};
+  ${() => clampBuilder(320, 1200, 0.8, 1.5)};
 
-  margin-bottom: 3rem;
+  margin-bottom: ${() => clampBuilder(320, 1200, 1, 3)};
 
   border-radius: 1.2rem;
+
+  @media (max-width: 920px) {
+    height: 65%;
+  }
 `;
 
 const AvatarContainer = styled.div`
@@ -33,13 +43,13 @@ const AvatarContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  column-gap: 2rem;
+  column-gap: ${() => clampBuilder(320, 1200, 1.1, 2)};
 
   & > img {
     display: block;
 
-    height: 6rem;
-    width: 6rem;
+    height: ${() => clampBuilder(320, 1200, 3, 6)};
+    width: ${() => clampBuilder(320, 1200, 3, 6)};
 
     border-radius: 50%;
   }
@@ -56,7 +66,7 @@ const AvatarContainer = styled.div`
 const TimeStamp = styled.span`
   color: var(--color-dark-1);
 
-  font-size: 1.2rem;
+  font-size: ${() => clampBuilder(320, 1200, 0.7, 1.2)};
 
   position: absolute;
 

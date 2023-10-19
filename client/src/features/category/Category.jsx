@@ -122,7 +122,7 @@ export const Text = styled.p`
   ${(props) =>
     props.type === "review" &&
     css`
-      margin-inline: var(--margin-tiny-2);
+      margin-inline: ${() => clampBuilder(320, 1200, 1, 2)};
     `}
 
 

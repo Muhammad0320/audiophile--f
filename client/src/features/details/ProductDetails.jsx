@@ -266,6 +266,8 @@ const StyledReviewCard = styled.div`
 
   overflow-x: auto;
 
+  scroll-snap-type: x mandatory;
+
   padding-bottom: ${() => clampBuilder(320, 1200, 2.5, 4)};
   margin-bottom: ${() => clampBuilder(320, 1200, 2.8, 5.5)};
 `;
