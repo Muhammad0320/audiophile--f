@@ -19,14 +19,16 @@ const DetailsContainer = styled.div`
   box-shadow: var(--box-shadow-dark);
 
   @media (max-width: 920px) {
-    grid-template-columns: none;
-
-    grid-template-rows: ${() => clampBuilder(320, 920, 3.5, 7)};
+    grid-template-columns: 1fr;
   }
 `;
 
 const OutletContainer = styled.div`
   grid-column: 2 / -1;
+
+  @media (max-width: 920px) {
+    grid-column: 1 / -1;
+  }
 `;
 
 const NavList = styled.ul`
@@ -60,6 +62,10 @@ const Sidebar = styled.div`
 
   background-image: var(--color-gradient-dark);
   position: relative;
+
+  @media (max-width: 920px) {
+    display: none;
+  }
 `;
 
 const NavItem = styled(NavLink)`
