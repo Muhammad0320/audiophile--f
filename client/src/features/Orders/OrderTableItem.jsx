@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { HiEye } from "react-icons/hi2";
 import { formatCurrency } from "../../utils/helper";
 import { clampBuilder } from "../../styles/clampFunction";
+import { useViewport } from "../../context/ViewPort";
 
 const ID = styled.span`
   font-size: ${() => clampBuilder(650, 1200, 1, 1.5)};
@@ -54,6 +55,21 @@ const Status = styled.span`
     `}
 `;
 
+const PriceContainer = styled.div`
+  display: flex;
+  flex-flow: column;
+
+  row-gap: ${() => clampBuilder(320, 650, 0.3, 0.8)};
+
+  & > span:first-child {
+    font-size: ${() => clampBuilder(320, 650, 1, 1.2)};
+  }
+
+  & > span:nth-child(2) {
+    font-size: ${() => clampBuilder(320, 650, 0.7, 1)};
+  }
+`;
+
 const Icon = styled.span`
   color: var(--color-dark-2);
   font-size: ${() => clampBuilder(320, 1200, 1.4, 3)};
@@ -87,25 +103,44 @@ function OrderTableItem({ order }) {
 
   const createdDate = format(new Date(createdAt), "dd/MM/yyyy");
 
+  const { viewportWidth } = useViewport();
+
   return (
     <Table.Row>
       <ID> #{id} </ID>
 
-      <NoProducts> {totalCartQuantity} </NoProducts>
-
-      <ProductInfo>{data}</ProductInfo>
+      {viewportWidth <= 650 ? (
+        <p>
+          <span> {totalCartQuantity} </span> --{" "}
+          <ProductInfo>{data}</ProductInfo>
+        </p>
+      ) : (
+        <>
+          <NoProducts> {totalCartQuantity} </NoProducts>
+          <ProductInfo> {data} </ProductInfo>
+        </>
+      )}
 
       <Status status={"paid"}> {status} </Status>
+      {viewportWidth <= 650 ? (
+        <PriceContainer>
+          <div> {formatCurrency(totalOrderPrice)} </div>
 
-      <div style={{ fontSize: `${clampBuilder(320, 1200, 1, 1.8)}` }}>
-        {" "}
-        {formatCurrency(totalOrderPrice)}{" "}
-      </div>
+          <div> {createdDate} </div>
+        </PriceContainer>
+      ) : (
+        <>
+          <div style={{ fontSize: `${clampBuilder(650, 1200, 1.2, 2)}` }}>
+            {" "}
+            {formatCurrency(totalOrderPrice)}{" "}
+          </div>
 
-      <div style={{ fontSize: `${clampBuilder(320, 1200, 1, 1.8)}` }}>
-        {" "}
-        {createdDate}{" "}
-      </div>
+          <div style={{ fontSize: `${clampBuilder(650, 1200, 1.2, 2)}` }}>
+            {" "}
+            {createdDate}{" "}
+          </div>
+        </>
+      )}
 
       <Icon>
         {" "}
