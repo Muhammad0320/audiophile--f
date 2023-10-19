@@ -39,7 +39,6 @@ export const ImageContainer = styled.div`
 
   @media (max-width: 920px) {
     grid-row: 1 / 2;
-    margin-inline: auto;
     width: 90%;
     height: 90%;
     object-fit: cover;

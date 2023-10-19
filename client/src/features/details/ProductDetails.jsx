@@ -27,6 +27,7 @@ import Spinner from "../../ui/Spinner";
 import { useGetProductBySlug } from "./useProductBySlug";
 import { useUser } from "../users/useUser";
 import ReviewCard from "../reviews/reviewCard";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -136,7 +137,7 @@ const GalleryContainer = styled.div`
 `;
 
 const ProductContainer = styled.div`
-  margin: var(--margin-huge) 0;
+  margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
 `;
 
 const OthersContainer = styled.div`
