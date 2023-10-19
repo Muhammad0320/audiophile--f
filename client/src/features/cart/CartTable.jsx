@@ -3,6 +3,8 @@ import Table from "../../ui/Table";
 import { useSelector } from "react-redux";
 import { getCart, getChanges } from "./cartSlice";
 import CartTableItem from "./CartTableITem";
+import { useViewport } from "../../context/ViewPort";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const StyledCartContainer = styled.div`
   position: relative;
@@ -15,9 +17,19 @@ function CartTable() {
 
   const changes = useSelector(getChanges);
 
+  const { viewPortWidth } = useViewport();
+
+  const otherColumnValue =
+    viewPortWidth >= 680
+      ? " 0.8fr max-content 0.6fr 0.4fr "
+      : " 0.9fr 0.4fr 0.4";
+
   return (
     <StyledCartContainer>
-      <Table column="0.3fr 0.8fr max-content 0.6fr 0.4fr" changes={changes}>
+      <Table
+        column={`${clampBuilder(320, 1200, 4, 8)} ${otherColumnValue}`}
+        changes={changes}
+      >
         <Table.Body
           data={carts}
           render={(cart) => (

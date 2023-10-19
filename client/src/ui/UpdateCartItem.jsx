@@ -21,7 +21,7 @@ const Container = styled.div`
   ${(props) =>
     props.type === "cart" &&
     css`
-      width: 50%;
+      width: ${() => clampBuilder(320, 1200, 4.5, 6)};
       padding: ${() => clampBuilder(320, 1200, 0.8, 1.2)}
         ${() => clampBuilder(320, 1200, 1, 1.5)};
       margin-left: var(--margin-tiny-2);
