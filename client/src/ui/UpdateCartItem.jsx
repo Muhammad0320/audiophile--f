@@ -9,10 +9,10 @@ import { clampBuilder } from "../styles/clampFunction";
 const Container = styled.div`
   background-color: var(--color-white-2);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
-  width: 15%;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 1.5)};
+  width: 90%;
   font-weight: 500;
   color: var(--color-dark);
   padding: var(--padding-tiny-2) var(--padding-small);

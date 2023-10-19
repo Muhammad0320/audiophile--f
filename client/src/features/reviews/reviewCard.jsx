@@ -26,8 +26,8 @@ const StyledCard = styled.div`
 
   background-image: var(--color-gradient-light);
 
-  padding: ${() => clampBuilder(320, 1200, 1, 2)};
-  ${() => clampBuilder(320, 1200, 0.8, 1.5)};
+  padding: ${() => clampBuilder(320, 1200, 1.3, 2)};
+  ${() => clampBuilder(320, 1200, 1, 1.5)};
 
   margin-bottom: ${() => clampBuilder(320, 1200, 1, 3)};
 

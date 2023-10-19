@@ -245,7 +245,7 @@ const UpdateCartButton = styled.div`
   place-items: center;
 
   @media (max-width: 920px) {
-    width: 20%;
+    width: 30%;
   }
 
   @media (max-width: 420px) {
@@ -350,7 +350,7 @@ function ProductDetails() {
           {isNew && <NewProduct> new product </NewProduct>}
 
           <ProductName> {name} </ProductName>
-          <Text> {description} </Text>
+          <Text type="product"> {description} </Text>
           <ProductPrice> {formatCurrency(price)} </ProductPrice>
           {!isInCart ? (
             <Button size="large" onClick={() => handleAddToCart()}>

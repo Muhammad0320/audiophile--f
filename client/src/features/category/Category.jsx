@@ -112,28 +112,31 @@ export const Text = styled.p`
   color: var(--color-dark-3);
   font-size: ${() => clampBuilder(350, 920, 1.2, 2)};
 
+  @media (max-width: 920px) {
+    ${(props) =>
+      props.type === "product" &&
+      css`
+        text-align: center;
+        font-size: ${() => clampBuilder(320, 920, 1.2, 2)};
+      `}
+  }
+
   ${(props) =>
     props.type === "avatar" &&
     css`
       color: var(--color-white);
-      margin-right: 0 auto;
+      margin-right: auto;
     `}
 
   ${(props) =>
     props.type === "review" &&
     css`
-      align-self: stretch;
+      align-self: flex-start;
       text-align: justify;
       margin-block: auto;
-
+      line-height: 1.4;
       font-size: ${() => clampBuilder(320, 920, 1, 1.4)};
     `}
-
-
-    
-  @media (max-width: 920px) {
-    text-align: center;
-  }
 `;
 
 export const ProductPrice = styled.p`
