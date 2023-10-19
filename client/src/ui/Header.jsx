@@ -3,8 +3,8 @@ import { css, styled } from "styled-components";
 import Button from "./Button";
 import Nav from "./Nav";
 import { useNavigate } from "react-router-dom";
-import { useViewport } from "../features/context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
+import { useViewport } from "../context/ViewPort";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;

@@ -51,6 +51,12 @@ export const HamburgerIcon = styled(NavLink)`
     display: inline-block;
   }
 
+  ${(props) =>
+    props.color === "black" &&
+    css`
+      background-color: var(--color-dark-3);
+    `}
+
   &::before,
   &::after {
     content: "";

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
 
-import useViewport from "../../context/ViewPort";
+import { useViewport } from "../../context/ViewPort";
 import { HamburgerContainer, HamburgerIcon } from "../../ui/HamburgerIcon";
 
 const PageContainer = styled.div`
@@ -116,7 +116,7 @@ function Account({ children }) {
 
         {viewportWidth <= 920 ? (
           <HamburgerContainer>
-            <HamburgerIcon />
+            <HamburgerIcon color="black" />
           </HamburgerContainer>
         ) : (
           <Sidebar>

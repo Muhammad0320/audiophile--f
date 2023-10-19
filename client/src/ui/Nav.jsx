@@ -16,9 +16,10 @@ import {
   HiOutlineShoppingCart,
 } from "react-icons/hi2";
 import SpinnerMini from "./SpinnerMini";
-import { useViewport } from "../features/context/ViewPort";
+
 import { clampBuilder } from "../styles/clampFunction";
 import { HamburgerContainer, HamburgerIcon } from "./HamburgerIcon";
+import { useViewport } from "../context/ViewPort";
 
 const StyledNav = styled.nav`
   display: flex;
