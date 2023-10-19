@@ -18,6 +18,7 @@ import {
 import SpinnerMini from "./SpinnerMini";
 import { useViewport } from "../features/context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
+import { HamburgerContainer, HamburgerIcon } from "./HamburgerIcon";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -147,72 +148,6 @@ const AuthButton = styled.a`
     &:hover {
       background-color: var(--color-primary-dark);
     }
-  }
-`;
-
-const HamburgerContainer = styled.button`
-  outline: transparent;
-  background: transparent;
-  border: none;
-
-  padding: ${() => clampBuilder(700, 1200, 1.2, 2)};
-
-  translate: 0 -5px;
-
-  &:hover > *::before {
-    top: -1rem;
-  }
-
-  &:hover > *::after {
-    top: 1rem;
-  }
-
-  ${(props) =>
-    props.clicked === "true" &&
-    css`
-      & > :first-child {
-        background-color: transparent;
-      }
-
-      & > :first-child::before {
-        transform: rotate(125deg);
-        top: 0;
-      }
-
-      & > :first-child::after {
-        transform: rotate(-125deg);
-        top: 0;
-      }
-    `}
-`;
-
-const HamburgerIcon = styled(NavLink)`
-  align-self: self-start;
-
-  position: relative;
-  &,
-  &::before,
-  &::after {
-    height: 2px;
-    width: ${() => clampBuilder(400, 920, 2, 3)};
-    background-color: var(--color-white);
-    display: inline-block;
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    transition: all 0.2s;
-  }
-
-  &::after {
-    top: 0.8rem;
-  }
-
-  &::before {
-    top: -0.8rem;
   }
 `;
 
