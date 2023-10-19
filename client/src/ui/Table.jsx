@@ -51,8 +51,8 @@ const CommonRow = styled.div`
 `;
 
 const Header = styled(CommonRow)`
-  padding: ${() => clampBuilder(320, 1200, 1, 1.5)}
-    ${() => clampBuilder(320, 1200, 1.2, 2)};
+  padding: ${() => clampBuilder(320, 1200, 1, 1.5)};
+  ${() => clampBuilder(320, 1200, 1.2, 2)};
   font-size: var(--font-small);
   background-color: var(--color-white-1);
   font-weight: 600;
@@ -63,8 +63,8 @@ const Header = styled(CommonRow)`
 
 const Footer = styled.footer`
   display: flex;
-  padding: ${() => clampBuilder(320, 1200, 1, 1.5)}
-    ${() => clampBuilder(320, 1200, 1.3, 2)};
+  padding: ${() => clampBuilder(320, 1200, 1, 1.5)};
+  ${() => clampBuilder(320, 1200, 1.3, 2)};
   align-items: center;
 
   &:not(:has(*)) {
