@@ -126,7 +126,8 @@ const CollapesdSidebarLink = styled(NavLink)`
 
   &:hover,
   &.active {
-    color: var(--color-primary-light-dark);
+    color: var(--color-primary-light-muted);
+    opacity: 0.7;
   }
 `;
 

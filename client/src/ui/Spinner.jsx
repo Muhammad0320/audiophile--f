@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const rotate = keyframes`
   to {
@@ -9,7 +10,7 @@ const rotate = keyframes`
 const Spinner = styled.div`
   margin: 4.8rem auto;
 
-  width: 6.4rem;
+  width: ${() => clampBuilder(320, 1200, 2.5, 6.5)};
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(farthest-side, var(--color-primary) 94%, #0000)
