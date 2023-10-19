@@ -34,6 +34,14 @@ const FeatureBox = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   margin: ${() => clampBuilder(320, 1200, 7, 15)} 0;
+
+  @media (max-width: 920px) {
+    flex-flow: column;
+
+    row-gap: ${() => clampBuilder(320, 920, 1.4, 3)};
+
+    margin-inline-end: ${() => clampBuilder(320, 920, 2.5, 6)};
+  }
 `;
 
 export const Heading = styled.h4`
@@ -72,7 +80,7 @@ export const Heading = styled.h4`
       font-weight: 700;
     `}
 
-  ${(props) =>
+    ${(props) =>
     props.type === "others" &&
     css`
       text-align: center;
@@ -86,9 +94,21 @@ const InTheBox = styled.div`
   align-items: center;
 `;
 
+const IntheBoxAndHeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+`;
+
 const InTheBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 920px) {
+    align-self: flex-end;
+  }
+
   /* row-gap: ${() => clampBuilder(320, 1200, 0.8, 2)}; */
 `;
 
@@ -174,9 +194,13 @@ const OtherTextBox = styled.div`
 `;
 
 const FeatureText = styled.p`
-  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
+  font-size: ${() => clampBuilder(920, 1200, 1.2, 2)};
 
   color: var(--color-dark-3);
+
+  @media (max-width: 920px) {
+    font-size: ${() => clampBuilder(350, 920, 1.3, 2)};
+  }
 `;
 
 const UpdateCartButton = styled.div`
@@ -300,7 +324,7 @@ function ProductDetails() {
           ))}
         </div>
 
-        <div>
+        <IntheBoxAndHeaderContainer>
           <Heading> in the box </Heading>
 
           <InTheBoxContainer>
@@ -311,7 +335,7 @@ function ProductDetails() {
               </InTheBox>
             ))}
           </InTheBoxContainer>
-        </div>
+        </IntheBoxAndHeaderContainer>
       </FeatureBox>
 
       <GalleryContainer>
