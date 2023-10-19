@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
 
+import useViewport from "../context/ViewPort";
+
 const PageContainer = styled.div`
   background-color: var(--color-white);
 
@@ -62,10 +64,6 @@ const Sidebar = styled.div`
 
   background-image: var(--color-gradient-dark);
   position: relative;
-
-  @media (max-width: 920px) {
-    display: none;
-  }
 `;
 
 const NavItem = styled(NavLink)`
@@ -108,10 +106,15 @@ const NavItem = styled(NavLink)`
 `;
 
 function Account({ children }) {
+  const { viewportWidth } = useViewport();
+
   return (
     <PageContainer>
       <DetailsContainer>
         <BiSolidCommentDetail />
+
+        {}
+
         <Sidebar>
           {" "}
           <NavList>
