@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
 
-import useViewport from "../context/ViewPort";
+import useViewport from "../../context/ViewPort";
+import { HamburgerContainer, HamburgerIcon } from "../../ui/HamburgerIcon";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
@@ -113,40 +114,45 @@ function Account({ children }) {
       <DetailsContainer>
         <BiSolidCommentDetail />
 
-        {}
-
-        <Sidebar>
-          {" "}
-          <NavList>
+        {viewportWidth <= 920 ? (
+          <HamburgerContainer>
+            <HamburgerIcon />
+          </HamburgerContainer>
+        ) : (
+          <Sidebar>
             {" "}
-            <NavItem to="/settings">
+            <NavList>
               {" "}
-              <span> {<HiCog6Tooth />} </span>
-              <span> My settings </span>{" "}
-            </NavItem>{" "}
-            <NavItem to="/my-cart">
-              <span> {<HiShoppingCart />}</span>
-
-              <span> My cart </span>
-            </NavItem>{" "}
-            <NavItem to="/my-reviews">
-              <span>
+              <NavItem to="/settings">
                 {" "}
-                <BiSolidCommentDetail />{" "}
-              </span>
+                <span> {<HiCog6Tooth />} </span>
+                <span> My settings </span>{" "}
+              </NavItem>{" "}
+              <NavItem to="/my-cart">
+                <span> {<HiShoppingCart />}</span>
 
-              <span> My review </span>
-            </NavItem>{" "}
-            <NavItem to="/my-order">
-              <span>
-                {" "}
-                <HiTruck />{" "}
-              </span>
+                <span> My cart </span>
+              </NavItem>{" "}
+              <NavItem to="/my-reviews">
+                <span>
+                  {" "}
+                  <BiSolidCommentDetail />{" "}
+                </span>
 
-              <span> My order </span>
-            </NavItem>{" "}
-          </NavList>{" "}
-        </Sidebar>
+                <span> My review </span>
+              </NavItem>{" "}
+              <NavItem to="/my-order">
+                <span>
+                  {" "}
+                  <HiTruck />{" "}
+                </span>
+
+                <span> My order </span>
+              </NavItem>{" "}
+            </NavList>{" "}
+          </Sidebar>
+        )}
+
         <OutletContainer>{children}</OutletContainer>
       </DetailsContainer>
     </PageContainer>
