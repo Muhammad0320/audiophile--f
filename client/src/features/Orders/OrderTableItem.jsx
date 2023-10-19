@@ -39,7 +39,7 @@ const Status = styled.span`
   text-align: center;
 
   @media (max-width: 650px) {
-    font-size: ${() => clampBuilder(650, 1200, 0.7, 1.2)};
+    font-size: ${() => clampBuilder(650, 1200, 1, 1.2)};
   }
 
   ${(props) =>
@@ -58,15 +58,18 @@ const Status = styled.span`
 const PriceContainer = styled.div`
   display: flex;
   flex-flow: column;
+  align-items: center;
 
-  row-gap: ${() => clampBuilder(320, 650, 0.3, 0.8)};
+  font-size: ${() => clampBuilder(320, 1200, 0.7, 1)};
+
+  row-gap: ${() => clampBuilder(320, 650, 0.2, 0.5)};
 
   & > span:first-child {
-    font-size: ${() => clampBuilder(320, 650, 1, 1.2)};
+    font-size: ${() => clampBuilder(320, 650, 1, 1.1)};
   }
 
   & > span:nth-child(2) {
-    font-size: ${() => clampBuilder(320, 650, 0.7, 1)};
+    font-size: ${() => clampBuilder(320, 650, 0.8, 1)};
   }
 `;
 
@@ -81,6 +84,10 @@ const Icon = styled.span`
   &:hover {
     color: var(--color-primary-muted);
   }
+`;
+
+const ProductInfoContainer = styled.p`
+  font-size: ${() => clampBuilder(320, 650, 0.9, 1.2)};
 `;
 
 function OrderTableItem({ order }) {
@@ -110,10 +117,10 @@ function OrderTableItem({ order }) {
       <ID> #{id} </ID>
 
       {viewportWidth <= 650 ? (
-        <p>
+        <ProductInfoContainer>
           <span> {totalCartQuantity} </span> --{" "}
           <ProductInfo>{data}</ProductInfo>
-        </p>
+        </ProductInfoContainer>
       ) : (
         <>
           <NoProducts> {totalCartQuantity} </NoProducts>

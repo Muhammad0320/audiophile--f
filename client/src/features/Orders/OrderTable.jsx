@@ -13,7 +13,7 @@ function OrderTable() {
   const column =
     viewportWidth >= 650
       ? "minmax(0, 0.4fr) minmax(0, 0.3fr) minmax(0, 1.2fr) minmax(0, 0.4fr) minmax(0, 0.5fr) minmax(0, 0.5fr) minmax(0, 0.2fr)  "
-      : "minmax(0, 0.4fr)  minmax(0, 1.35fr) minmax(0, 0.4fr) minmax(0, 0.25fr);";
+      : "minmax(0, 0.4fr) minmax(0, 1.35fr) minmax(0, 0.3fr) minmax(0, 0.5fr) minmax(0, 0.25fr);";
 
   return (
     <Table column={column} role="table">
