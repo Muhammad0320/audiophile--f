@@ -200,8 +200,10 @@ const OtherItemContainer = styled.div`
   margin-top: ${() => clampBuilder(320, 1200, 3, 7)};
   column-gap: ${() => clampBuilder(320, 1200, 3, 7)};
 
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     flex-direction: column;
+
+    row-gap: ${() => clampBuilder(320, 500, 4, 3)};
   }
 `;
 
@@ -224,7 +226,7 @@ const OtherTextBox = styled.div`
   flex-direction: column;
   column-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
   align-items: center;
-  font-size: ${() => clampBuilder(320, 1200, 2, 3.5)};
+  font-size: ${() => clampBuilder(320, 1200, 1.3, 3.5)};
   font-weight: 500;
 `;
 
