@@ -56,7 +56,6 @@ const GlobalStyles = createGlobalStyle`
     --font-tiny-2: 1.2rem;  
 
 
-
     --padding-huge: 10rem;
     --padding-medium: 7rem;
     --padding-medium-2: 5rem;
@@ -185,6 +184,7 @@ h5,
 h6 {
   overflow-wrap: break-word;
   -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 img {

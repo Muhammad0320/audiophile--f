@@ -33,16 +33,16 @@ const FeatureBox = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin: 15rem 0;
+  margin: ${() => clampBuilder(320, 1200, 7, 15)} 0;
 `;
 
 export const Heading = styled.h4`
-  font-size: 4.5rem;
+  font-size: ${() => clampBuilder(320, 1200, 2.2, 4.5)};
   font-weight: 600;
 
   color: var(--color-dark);
 
-  margin-bottom: 3rem;
+  margin-bottom: ${() => clampBuilder(320, 1200, 1.5, 3)};
 
   text-transform: uppercase;
 
@@ -59,8 +59,8 @@ export const Heading = styled.h4`
     props.type === "review" &&
     css`
       text-align: center;
-      margin-bottom: 6rem;
-      font-size: 4rem;
+      margin-bottom: ${() => clampBuilder(320, 1200, 3.5, 6)};
+      font-size: ${() => clampBuilder(320, 1200, 2.2, 4)};
       background-color: var(--color-primary-light-dark);
 
       background-image: var(--color-gradient-dark);
@@ -70,7 +70,7 @@ export const Heading = styled.h4`
     props.type === "login" &&
     css`
       margin: 0;
-      font-size: 3rem;
+      font-size: ${() => clampBuilder(320, 1200, 1.5, 3)};
       font-weight: 700;
     `}
 
@@ -78,34 +78,34 @@ export const Heading = styled.h4`
     props.type === "others" &&
     css`
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: ${() => clampBuilder(320, 1200, 2, 3)};
     `}
 `;
 
 const InTheBox = styled.div`
   display: flex;
-  column-gap: 2rem;
+  column-gap: ${() => clampBuilder(320, 1200, 1, 2)};
   align-items: center;
 `;
 
 const InTheBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: ${() => clampBuilder(320, 1200, 0.8, 2)};
 `;
 
 const Quantity = styled.span`
-  font-size: 2.5rem;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2.5)};
   font-weight: 600;
   color: var(--color-primary);
 `;
 
 const GalleryContainer = styled.div`
-  margin-bottom: 15rem;
+  margin-bottom: ${() => clampBuilder(320, 1200, 8, 15)};
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   grid-template-rows: repeat(2, 1fr);
-  gap: 3rem;
+  gap: ${() => clampBuilder(320, 1200, 1.4, 3)};
 
   & > img:first-of-type {
     grid-row: 1 / 2;
@@ -169,16 +169,16 @@ const OtherTextBox = styled.div`
   display: flex;
   grid-row: 2 / -1;
   flex-direction: column;
-  column-gap: 2rem;
+  column-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
   align-items: center;
-  font-size: 3.5rem;
+  font-size: ${() => clampBuilder(320, 1200, 2, 3.5)};
   font-weight: 500;
 `;
 
 const UpdateCartButton = styled.div`
   display: flex;
 
-  column-gap: 2rem;
+  column-gap: ${() => clampBuilder(320, 1200, 1.4, 2)};
 
   align-items: center;
 `;
@@ -192,12 +192,12 @@ const StyledReviewCard = styled.div`
 
   padding: 0 1rem;
 
-  column-gap: 4rem;
+  column-gap: ${() => clampBuilder(320, 1200, 2.5, 4)};
 
   overflow-x: auto;
 
-  padding-bottom: 4rem;
-  margin-bottom: var(--margin-huge);
+  padding-bottom: ${() => clampBuilder(320, 1200, 2.5, 4)};
+  margin-bottom: ${() => clampBuilder(320, 1200, 2.8, 5.5)};
 `;
 
 function ProductDetails() {
