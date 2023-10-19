@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { clampBuilder } from "../styles/clampFunction";
-import { useViewport } from "../features/context/ViewPort";
+import { useViewport } from "../context/ViewPort";
 
 const StyledContainerHero = styled.div`
   display: grid;

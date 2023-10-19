@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SmallButton from "../../ui/SmallButton";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { clampBuilder } from "../../styles/clampFunction";
-import { useViewport } from "../context/ViewPort";
+import { useViewport } from "../../context/ViewPort";
 
 export const Container = styled.div`
   display: grid;
@@ -86,7 +86,7 @@ export const NewProduct = styled.div`
   letter-spacing: ${() => clampBuilder(350, 1200, 0.5, 1)};
   font-size: ${() => clampBuilder(350, 1200, 1, 1.4)};
   text-transform: uppercase;
-  /* margin-bottom: -4rem; */
+
   color: var(--color-primary);
 
   @media (max-width: 920px) {

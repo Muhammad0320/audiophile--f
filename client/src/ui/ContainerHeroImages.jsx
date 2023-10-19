@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import { useViewport } from "../features/context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
+import { useViewport } from "../context/ViewPort";
 
 const StyledImageContainer = styled.div`
   display: grid;

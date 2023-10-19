@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Text } from "../category/Category";
 import { ReviewRating } from "../../ui/StarRating";
 import { clampBuilder } from "../../styles/clampFunction";
-import { useViewport } from "../context/ViewPort";
+import { useViewport } from "../../context/ViewPort";
 
 const StyledCard = styled.div`
   position: relative;
