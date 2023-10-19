@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: ${() => clampBuilder(320, 1200, 1.2, 1.5)};
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
   width: 90%;
   font-weight: 500;
   color: var(--color-dark);
@@ -21,10 +21,16 @@ const Container = styled.div`
   ${(props) =>
     props.type === "cart" &&
     css`
-      width: ${() => clampBuilder(320, 1200, 4.5, 6)};
+      width: ${() => clampBuilder(650, 1200, 4.5, 6)};
       padding: ${() => clampBuilder(320, 1200, 0.8, 1.2)}
         ${() => clampBuilder(320, 1200, 1, 1.5)};
       margin-left: var(--margin-tiny-2);
+
+      @media (max-width: 650px) {
+        width: ${() => clampBuilder(650, 650, 3.8, 4.5)};
+        padding: ${() => clampBuilder(320, 650, 0.6, 1)}
+          ${() => clampBuilder(320, 650, 0.8, 1.2)};
+      }
     `}
 `;
 
