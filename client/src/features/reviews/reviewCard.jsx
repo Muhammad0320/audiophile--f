@@ -6,13 +6,14 @@ import { useViewport } from "../context/ViewPort";
 
 const StyledCard = styled.div`
   position: relative;
-  display: flex;
-  flex-flow: column;
-  height: 90%;
-  width: 85%;
-  row-gap: 2rem;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+
+  grid-template-rows: max-content 1fr max-content ${() =>
+      clampBuilder(320, 1200, 1.3, 3)};
+
+  grid-row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
+
+  place-items: center;
 
   scroll-snap-align: start;
 
@@ -32,10 +33,6 @@ const StyledCard = styled.div`
   margin-bottom: ${() => clampBuilder(320, 1200, 1, 3)};
 
   border-radius: 1.2rem;
-
-  @media (max-width: 920px) {
-    height: 65%;
-  }
 `;
 
 const AvatarContainer = styled.div`
@@ -99,7 +96,6 @@ function ReviewCard({ reviews }) {
       </AvatarContainer>
 
       <Text type="review"> {review} </Text>
-
       <ReviewRating
         maxRating={5}
         rating={+rating}
