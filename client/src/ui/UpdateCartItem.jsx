@@ -4,21 +4,18 @@ import {
   addItemQuantity,
   removeItemQuantity,
 } from "../features/cart/cartSlice";
+import { clampBuilder } from "../styles/clampFunction";
 
 const Container = styled.div`
   background-color: var(--color-white-2);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
   width: 15%;
   font-weight: 500;
   color: var(--color-dark);
   padding: var(--padding-tiny-2) var(--padding-small);
-
-  @media (max-width: 920px) {
-    width: 100%;
-  }
 
   ${(props) =>
     props.type === "cart" &&

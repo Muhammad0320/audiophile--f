@@ -268,8 +268,14 @@ const StyledReviewCard = styled.div`
 
   scroll-snap-type: x mandatory;
 
+  scroll-padding: ${() => clampBuilder(320, 1200, 2.5, 4)};
+
   padding-bottom: ${() => clampBuilder(320, 1200, 2.5, 4)};
   margin-bottom: ${() => clampBuilder(320, 1200, 2.8, 5.5)};
+
+  @media (max-width: 920px) {
+    grid-auto-columns: 42%;
+  }
 `;
 
 function ProductDetails() {

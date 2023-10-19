@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Text } from "../category/Category";
 import { ReviewRating } from "../../ui/StarRating";
 import { clampBuilder } from "../../styles/clampFunction";
+import { useViewport } from "../context/ViewPort";
 
 const StyledCard = styled.div`
   position: relative;
@@ -57,8 +58,7 @@ const AvatarContainer = styled.div`
   & > span {
     text-transform: uppercase;
 
-    font-size: var(--font-small);
-
+    font-size: ${() => clampBuilder(320, 1200, 1, 2)};
     font-weight: 600;
   }
 `;
@@ -75,6 +75,8 @@ const TimeStamp = styled.span`
 `;
 
 function ReviewCard({ reviews }) {
+  const { viewportWidth } = useViewport();
+
   const {
     rating,
     createdAt,
@@ -98,7 +100,11 @@ function ReviewCard({ reviews }) {
 
       <Text type="review"> {review} </Text>
 
-      <ReviewRating maxRating={5} rating={+rating} size={40} />
+      <ReviewRating
+        maxRating={5}
+        rating={+rating}
+        size={viewportWidth >= 920 ? 40 : 20}
+      ></ReviewRating>
       <TimeStamp> {time} </TimeStamp>
     </StyledCard>
   );
