@@ -17,12 +17,16 @@ const DetailsContainer = styled.div`
   grid-auto-flow: column;
   background-color: var(--color-white-1);
   box-shadow: var(--box-shadow-dark);
+
+  @media (max-width: 920px) {
+    grid-template-columns: none;
+
+    grid-template-rows: ${() => clampBuilder(320, 920, 3.5, 7)};
+  }
 `;
 
 const OutletContainer = styled.div`
   grid-column: 2 / -1;
-
-  /* height: 120%; */
 `;
 
 const NavList = styled.ul`
@@ -32,7 +36,7 @@ const NavList = styled.ul`
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
-  row-gap: 4rem;
+  row-gap: ${() => clampBuilder(320, 1200, 2, 4)};
   padding-left: 0;
   margin-top: var(--margin-very-small);
 
@@ -61,12 +65,13 @@ const Sidebar = styled.div`
 const NavItem = styled(NavLink)`
   position: relative;
   width: 85%;
-  padding: var(--padding-tiny) var(--padding-small);
+  padding: ${() => clampBuilder(320, 1200, 1.2, 2)};
+  ${() => clampBuilder(320, 1200, 1.6, 3)};
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  font-size: var(--font-small);
+  gap: ${() => clampBuilder(320, 1200, 1, 1.5)};
+  font-size: ${() => clampBuilder(320, 1200, 1.3, 3)};
   text-transform: uppercase;
   cursor: pointer;
 
