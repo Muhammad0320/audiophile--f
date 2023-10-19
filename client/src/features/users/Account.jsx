@@ -21,7 +21,7 @@ const DetailsContainer = styled.div`
   box-shadow: var(--box-shadow-dark);
 
   @media (max-width: 920px) {
-    grid-template-columns: ${() => clampBuilder(320, 1200, 1.3, 3)};
+    grid-template-columns: ${() => clampBuilder(320, 920, 4, 9)} 1fr;
   }
 `;
 
