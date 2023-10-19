@@ -89,7 +89,7 @@ const InTheBox = styled.div`
 const InTheBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: ${() => clampBuilder(320, 1200, 0.8, 2)};
+  /* row-gap: ${() => clampBuilder(320, 1200, 0.8, 2)}; */
 `;
 
 const Quantity = styled.span`
@@ -307,7 +307,7 @@ function ProductDetails() {
             {includes?.map((item) => (
               <InTheBox key={item._id}>
                 <Quantity> {item.quantity + "x"} </Quantity>
-                <Text> {item.item} </Text>
+                <FeatureText> {item.item} </FeatureText>
               </InTheBox>
             ))}
           </InTheBoxContainer>
