@@ -109,8 +109,7 @@ export const ProductName = styled.p`
 `;
 
 export const Text = styled.p`
-  color: var(--color-dark-1);
-  opacity: 0.7;
+  color: var(--color-dark-3);
   font-size: ${() => clampBuilder(350, 920, 1.2, 2)};
 
   ${(props) =>
