@@ -1,9 +1,10 @@
 import { css, styled } from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledFormRow = styled.div`
   display: flex;
   flex-direction: column;
-  column-gap: 3rem;
+  column-gap: ${() => clampBuilder(320, 1200, 1.5, 3)};
 
   ${(props) =>
     props.position === "left" &&
@@ -33,7 +34,7 @@ const LabelContainer = styled.div`
 
 export const Label = styled.label`
   color: var(--color-dark);
-  font-size: 1.5rem;
+  font-size: ${() => clampBuilder(320, 1200, 0.8, 1.5)};
   font-weight: 500;
 
   ${(props) =>
@@ -52,7 +53,7 @@ export const Label = styled.label`
 
 const Error = styled.span`
   color: red;
-  font-size: 1.3rem;
+  font-size: ${() => clampBuilder(320, 1200, 0.7, 1.3)};
   font-weight: 400;
 `;
 

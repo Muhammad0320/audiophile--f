@@ -5,7 +5,6 @@ import { styled } from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
 
 import { useViewport } from "../../context/ViewPort";
-import { HamburgerContainer, HamburgerIcon } from "../../ui/HamburgerIcon";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
@@ -15,22 +14,18 @@ const PageContainer = styled.div`
 
 const DetailsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: ${() => clampBuilder(320, 920, 4, 9)} 1fr;
   grid-auto-rows: auto;
   grid-auto-flow: column;
   background-color: var(--color-white-1);
   box-shadow: var(--box-shadow-dark);
-
-  @media (max-width: 920px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 const OutletContainer = styled.div`
   grid-column: 2 / -1;
 
   @media (max-width: 920px) {
-    grid-column: 1 / -1;
+    grid-column: 2 / -1;
   }
 `;
 
@@ -39,8 +34,9 @@ const NavList = styled.ul`
 
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+
+  justify-content: center;
+  align-items: center;
   row-gap: ${() => clampBuilder(320, 1200, 2, 4)};
   padding-left: 0;
   margin-top: var(--margin-very-small);
@@ -106,6 +102,29 @@ const NavItem = styled(NavLink)`
   }
 `;
 
+const CollapesdSidebar = styled.aside`
+  background: var(--color-primary-muted);
+
+  background-image: var(--color-gradient-dark);
+
+  grid-column: 1 / 2;
+`;
+
+const CollapesdSidebarLink = styled.li`
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--color-white-vivid);
+  font-size: ${() => clampBuilder(320, 920, 2, 3)};
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--color-primary-light-muted);
+  }
+`;
+
 function Account({ children }) {
   const { viewportWidth } = useViewport();
 
@@ -115,9 +134,22 @@ function Account({ children }) {
         <BiSolidCommentDetail />
 
         {viewportWidth <= 920 ? (
-          <HamburgerContainer>
-            <HamburgerIcon color="black" />
-          </HamburgerContainer>
+          <CollapesdSidebar>
+            <NavList>
+              <CollapesdSidebarLink>
+                <HiCog6Tooth />
+              </CollapesdSidebarLink>
+              <CollapesdSidebarLink>
+                <HiShoppingCart />
+              </CollapesdSidebarLink>
+              <CollapesdSidebarLink>
+                <BiSolidCommentDetail />
+              </CollapesdSidebarLink>
+              <CollapesdSidebarLink>
+                <HiTruck />
+              </CollapesdSidebarLink>
+            </NavList>
+          </CollapesdSidebar>
         ) : (
           <Sidebar>
             {" "}
