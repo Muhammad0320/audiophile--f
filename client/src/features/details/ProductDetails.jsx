@@ -118,6 +118,11 @@ const InTheBoxContainer = styled.div`
     margin-inline-end: ${() => clampBuilder(320, 920, 4, 10)};
   }
 
+  @media (max-width: 420px) {
+    margin-top: 3rem;
+    align-self: flex-start;
+  }
+
   /* row-gap: ${() => clampBuilder(320, 1200, 0.8, 2)}; */
 `;
 
