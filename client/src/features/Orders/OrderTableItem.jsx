@@ -8,22 +8,38 @@ import { clampBuilder } from "../../styles/clampFunction";
 
 const ID = styled.span`
   font-size: ${() => clampBuilder(650, 1200, 1, 1.5)};
+
+  @media (max-width: 650px) {
+    font-size: ${() => clampBuilder(320, 650, 0.6, 1)};
+  }
 `;
 
 const NoProducts = styled.span`
-  font-size: ${() => clampBuilder(650, 1200, 1, 3, 2)};
+  font-size: ${() => clampBuilder(650, 1200, 1, 2)};
   font-weight: 500;
 
   text-align: center;
+
+  @media (max-width: 650px) {
+    font-size: ${() => clampBuilder(320, 650, 0.6, 1)};
+  }
 `;
 
 const ProductInfo = styled.span`
   font-size: ${() => clampBuilder(650, 1200, 1, 2)};
+
+  @media (max-width: 650px) {
+    font-size: ${() => clampBuilder(320, 650, 0.6, 1)};
+  }
 `;
 
 const Status = styled.span`
   font-size: ${() => clampBuilder(650, 1200, 1.2, 2)};
   text-align: center;
+
+  @media (max-width: 650px) {
+    font-size: ${() => clampBuilder(650, 1200, 0.7, 1.2)};
+  }
 
   ${(props) =>
     props.status === "paid" &&
