@@ -1,13 +1,15 @@
 import { css, styled } from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const Input = styled.input`
-  border: 2px solid var(--color-dark-2);
+  border: 1.5px solid var(--color-dark-2);
   background-color: transparent;
-  padding: 1rem 1.6rem;
+  padding: ${() => clampBuilder(320, 1200, 0.6, 1)};
+  ${() => clampBuilder(320, 1200, 0.8, 1.6)};
   caret-color: var(--color-primary);
   color: var(--color-dark);
   border-radius: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: ${() => clampBuilder(320, 1200, 1.2, 2)};
   position: relative;
   &::-webkit-input-placeholder {
     color: var(--color-dark);
@@ -17,8 +19,8 @@ const Input = styled.input`
   ${(props) =>
     props.account === "true" &&
     css`
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
+      font-size: ${() => clampBuilder(320, 1200, 1.1, 1.8)};
+      margin-bottom: ${() => clampBuilder(320, 1200, 1.2, 2)};
     `}
 
   ${(props) =>
