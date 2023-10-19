@@ -4,27 +4,26 @@ import Table from "../../ui/Table";
 import { format } from "date-fns";
 import { HiEye } from "react-icons/hi2";
 import { formatCurrency } from "../../utils/helper";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const ID = styled.span`
-  font-size: var(--font-tiny);
+  font-size: ${() => clampBuilder(650, 1200, 1, 1.5)};
 `;
 
 const NoProducts = styled.span`
-  font-size: var(--font-small);
+  font-size: ${() => clampBuilder(650, 1200, 1, 3, 2)};
   font-weight: 500;
 
   text-align: center;
 `;
 
 const ProductInfo = styled.span`
-  font-size: var(--font-tiny);
+  font-size: ${() => clampBuilder(650, 1200, 1, 2)};
 `;
 
 const Status = styled.span`
-  font-size: var(--font-small);
+  font-size: ${() => clampBuilder(650, 1200, 1.2, 2)};
   text-align: center;
-
-  font-size: var(--font-small);
 
   ${(props) =>
     props.status === "paid" &&
@@ -41,7 +40,7 @@ const Status = styled.span`
 
 const Icon = styled.span`
   color: var(--color-dark-2);
-  font-size: var(--font-medium);
+  font-size: ${() => clampBuilder(320, 1200, 1.4, 3)};
 
   text-align: center;
   cursor: pointer;
@@ -82,12 +81,15 @@ function OrderTableItem({ order }) {
 
       <Status status={"paid"}> {status} </Status>
 
-      <div style={{ fontSize: "var(--font-tiny)" }}>
+      <div style={{ fontSize: `${clampBuilder(320, 1200, 1, 1.8)}` }}>
         {" "}
         {formatCurrency(totalOrderPrice)}{" "}
       </div>
 
-      <div style={{ fontSize: "var(--font-tiny)" }}> {createdDate} </div>
+      <div style={{ fontSize: `${clampBuilder(320, 1200, 1, 1.8)}` }}>
+        {" "}
+        {createdDate}{" "}
+      </div>
 
       <Icon>
         {" "}
