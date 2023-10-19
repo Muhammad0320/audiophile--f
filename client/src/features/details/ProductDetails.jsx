@@ -139,6 +139,11 @@ const GalleryContainer = styled.div`
   grid-template-rows: repeat(2, 1fr);
   gap: ${() => clampBuilder(320, 1200, 1.4, 3)};
 
+  @media (max-width: 420px) {
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, 1fr) 1.5fr;
+  }
+
   & > img:first-of-type {
     grid-row: 1 / 2;
     display: block;
@@ -147,6 +152,10 @@ const GalleryContainer = styled.div`
     object-fit: cover;
 
     grid-column: 1 / 2;
+
+    @media (max-width: 420px) {
+      grid-row: 1 / 2;
+    }
   }
 
   & > img:nth-of-type(2) {
@@ -156,6 +165,10 @@ const GalleryContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    @media (max-width: 420px) {
+      grid-row: 2 / 3;
+    }
   }
 
   & > img:last-of-type {
@@ -165,6 +178,10 @@ const GalleryContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    @media (max-width: 420px) {
+      grid-row: 3 / -1;
+    }
   }
 `;
 
