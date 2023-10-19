@@ -37,10 +37,8 @@ const FeatureBox = styled.div`
 `;
 
 export const Heading = styled.h4`
-  font-size: ${() => clampBuilder(320, 1200, 2.2, 4.5)};
+  font-size: ${() => clampBuilder(320, 1200, 2, 4.5)};
   font-weight: 600;
-
-  color: var(--color-dark);
 
   margin-bottom: ${() => clampBuilder(320, 1200, 1.5, 3)};
 
@@ -175,6 +173,12 @@ const OtherTextBox = styled.div`
   font-weight: 500;
 `;
 
+const FeatureText = styled.p`
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
+
+  color: var(--color-dark-3);
+`;
+
 const UpdateCartButton = styled.div`
   display: flex;
 
@@ -292,7 +296,7 @@ function ProductDetails() {
           <Heading> Features </Heading>
 
           {productFeature.map((feat, i) => (
-            <Text key={i}> {feat} </Text>
+            <FeatureText key={i}> {feat} </FeatureText>
           ))}
         </div>
 
