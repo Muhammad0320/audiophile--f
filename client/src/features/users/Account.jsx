@@ -114,7 +114,7 @@ const CollapesdSidebar = styled.aside`
   grid-column: 1 / 2;
 `;
 
-const CollapesdSidebarLink = styled.li`
+const CollapesdSidebarLink = styled(NavLink)`
   display: flex;
 
   justify-content: center;
@@ -124,8 +124,9 @@ const CollapesdSidebarLink = styled.li`
   font-size: ${() => clampBuilder(320, 920, 2, 3)};
   transition: color 0.2s;
 
-  &:hover {
-    color: var(--color-primary-light-muted);
+  &:hover,
+  &.active {
+    color: var(--color-primary-light-dark);
   }
 `;
 
@@ -140,16 +141,16 @@ function Account({ children }) {
         {viewportWidth <= 920 ? (
           <CollapesdSidebar>
             <NavList>
-              <CollapesdSidebarLink>
+              <CollapesdSidebarLink to="/settings">
                 <HiCog6Tooth />
               </CollapesdSidebarLink>
-              <CollapesdSidebarLink>
+              <CollapesdSidebarLink to="/my-cart">
                 <HiShoppingCart />
               </CollapesdSidebarLink>
-              <CollapesdSidebarLink>
+              <CollapesdSidebarLink to="/my-reviews">
                 <BiSolidCommentDetail />
               </CollapesdSidebarLink>
-              <CollapesdSidebarLink>
+              <CollapesdSidebarLink to="/my-order">
                 <HiTruck />
               </CollapesdSidebarLink>
             </NavList>

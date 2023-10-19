@@ -6,25 +6,24 @@ import UpdateCartItem from "../../ui/UpdateCartItem";
 import { HiXMark } from "react-icons/hi2";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "./cartSlice";
-import Button from "../../ui/Button";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const Image = styled.img`
   display: block;
 
-  height: 10rem;
-  width: 10rem;
+  width: ${() => clampBuilder(320, 1200, 4, 10)};
 `;
 
 const Price = styled.span`
   font-weight: 600;
-
-  font-size: 2rem;
+  font-style: italic;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
 `;
 
 const DeleteIcon = styled.span`
   color: var(--color-dark-3);
 
-  font-size: 3.5rem;
+  font-size: ${() => clampBuilder(320, 1200, 1.3, 3.5)};
 
   font-weight: 600;
 
@@ -42,9 +41,9 @@ const DeleteIcon = styled.span`
 const Name = styled.span`
   display: flex;
 
-  column-gap: 1rem;
+  column-gap: 1re ${() => clampBuilder(320, 1200, 0.6, 1)};
 
-  font-size: 2rem;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
 
   line-height: 1;
 `;

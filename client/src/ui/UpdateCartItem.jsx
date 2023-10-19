@@ -15,13 +15,15 @@ const Container = styled.div`
   width: 90%;
   font-weight: 500;
   color: var(--color-dark);
-  padding: var(--padding-tiny-2) var(--padding-small);
+  padding: ${() => clampBuilder(320, 1200, 1, 1.6)};
+  ${() => clampBuilder(320, 1200, 1.2, 2)};
 
   ${(props) =>
     props.type === "cart" &&
     css`
       width: 50%;
-      padding: var(--padding-tiny-3) var(--padding-tiny);
+      padding: ${() => clampBuilder(320, 1200, 0.8, 1.2)}
+        ${() => clampBuilder(320, 1200, 1, 1.5)};
       margin-left: var(--margin-tiny-2);
     `}
 `;
@@ -30,9 +32,8 @@ const UpdateSign = styled.button`
   background-color: transparent;
 
   border: none;
-  font-size: 1.8rem;
-  color: var(--color-dark);
-  opacity: 0.7;
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.8)};
+  color: var(--color-dark-3);
   transition: color 0.3s;
 
   &:hover {
