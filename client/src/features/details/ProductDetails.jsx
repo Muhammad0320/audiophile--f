@@ -197,8 +197,12 @@ const OthersContainer = styled.div`
 
 const OtherItemContainer = styled.div`
   display: flex;
-  margin-top: var(--margin-very-small);
-  column-gap: var(--margin-very-small);
+  margin-top: ${() => clampBuilder(320, 1200, 3, 7)};
+  column-gap: ${() => clampBuilder(320, 1200, 3, 7)};
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+  }
 `;
 
 const OtherImageContainer = styled.div`
@@ -240,6 +244,10 @@ const UpdateCartButton = styled.div`
 
   @media (max-width: 920px) {
     width: 20%;
+  }
+
+  @media (max-width: 420px) {
+    width: 15%;
   }
 `;
 
