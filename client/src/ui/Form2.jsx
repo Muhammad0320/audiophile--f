@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledForm = styled.form`
   display: flex;
 
   flex-flow: column;
 
-  row-gap: 2rem;
+  row-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
 
   background-color: transparent;
 

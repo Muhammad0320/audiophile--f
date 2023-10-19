@@ -18,7 +18,7 @@ const StyledFormRow = styled.div`
       grid-column: 2 / -1;
     `}
 
-    ${(props) =>
+      ${(props) =>
     props.position === "both" &&
     css`
       grid-column: 1 / -1;
@@ -33,8 +33,8 @@ const LabelContainer = styled.div`
 `;
 
 export const Label = styled.label`
-  color: var(--color-dark);
-  font-size: ${() => clampBuilder(320, 1200, 1.2, 1.8)};
+  color: var(--color-dark-3);
+  font-size: ${() => clampBuilder(320, 1200, 1.1, 1.6)};
   font-weight: 500;
 
   ${(props) =>
@@ -47,7 +47,7 @@ export const Label = styled.label`
     props.account === "true" &&
     css`
       font-weight: 600;
-      font-size: 2rem;
+      font-size: ${() => clampBuilder(320, 1200, 1.3, 2)};
     `}
 `;
 
