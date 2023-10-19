@@ -34,7 +34,7 @@ const LabelContainer = styled.div`
 
 export const Label = styled.label`
   color: var(--color-dark);
-  font-size: ${() => clampBuilder(320, 1200, 0.8, 1.5)};
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 1.8)};
   font-weight: 500;
 
   ${(props) =>

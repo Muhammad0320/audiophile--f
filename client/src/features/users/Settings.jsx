@@ -11,12 +11,14 @@ import FileInput from "../../ui/FileInput";
 import { useUpdatePassword } from "./useUpdatePassword";
 import Spinner from "../../ui/Spinner";
 import { useEffect } from "react";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const InfoDetails = styled.div`
-  padding: var(--padding-medium-2) var(--padding-medium);
+  padding: ${() => clampBuilder(320, 1200, 3, 5)};
+  ${() => clampBuilder(320, 1200, 4.5, 7)};
   grid-column: 2 / -1;
   overflow: auto;
-  /* width: 70%; */
+
   display: flex;
   justify-content: center;
 
@@ -24,11 +26,11 @@ const InfoDetails = styled.div`
 
   &:has(form) form:first-of-type {
     border-bottom: 2px solid var(--color-dark-2);
-    padding-bottom: 10rem;
+    padding-bottom: ${() => clampBuilder(320, 1200, 6, 10)};
   }
 
   &:has(form) form:last-of-type {
-    padding-top: 8rem;
+    padding-top: ${() => clampBuilder(320, 1200, 5, 8)};
   }
 `;
 
@@ -36,14 +38,14 @@ const FileGroup = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  column-gap: 2rem;
-  margin-bottom: 2rem;
+  column-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
+  margin-bottom: ${() => clampBuilder(320, 1200, 1.2, 2)};
 `;
 
 const UserImage = styled.img`
   position: relative;
-  width: 5rem;
-  height: 5rem;
+  width: ${() => clampBuilder(320, 1200, 3.5, 5)};
+  height: ${() => clampBuilder(320, 1200, 3.5, 5)};
   border-radius: 50%;
 `;
 function Settings() {
