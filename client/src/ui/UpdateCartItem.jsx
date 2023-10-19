@@ -16,6 +16,10 @@ const Container = styled.div`
   color: var(--color-dark);
   padding: var(--padding-tiny-2) var(--padding-small);
 
+  @media (max-width: 920px) {
+    width: 100%;
+  }
+
   ${(props) =>
     props.type === "cart" &&
     css`

@@ -86,6 +86,14 @@ export const Heading = styled.h4`
       text-align: center;
       margin-bottom: ${() => clampBuilder(320, 1200, 2, 3)};
     `}
+
+    @media (max-width: 920px) {
+    ${(props) =>
+      props.type === "inTheBox" &&
+      css`
+        margin-bottom: ${() => clampBuilder(320, 920, -1, -2)};
+      `}
+  }
 `;
 
 const InTheBox = styled.div`
@@ -107,6 +115,7 @@ const InTheBoxContainer = styled.div`
 
   @media (max-width: 920px) {
     align-self: flex-end;
+    margin-inline-end: ${() => clampBuilder(320, 920, 4, 10)};
   }
 
   /* row-gap: ${() => clampBuilder(320, 1200, 0.8, 2)}; */
@@ -204,11 +213,12 @@ const FeatureText = styled.p`
 `;
 
 const UpdateCartButton = styled.div`
-  display: flex;
+  display: grid;
+  place-items: center;
 
-  column-gap: ${() => clampBuilder(320, 1200, 1.4, 2)};
-
-  align-items: center;
+  @media (max-width: 920px) {
+    width: 20%;
+  }
 `;
 
 const StyledReviewCard = styled.div`
@@ -325,7 +335,7 @@ function ProductDetails() {
         </div>
 
         <IntheBoxAndHeaderContainer>
-          <Heading> in the box </Heading>
+          <Heading type="inTheBox"> in the box </Heading>
 
           <InTheBoxContainer>
             {includes?.map((item) => (
