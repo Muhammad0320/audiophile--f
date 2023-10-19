@@ -1,14 +1,16 @@
 import styled from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const FileInput = styled.input.attrs({ type: "file" })`
-  font-size: 1.6rem;
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.6)};
 
   /* opacity: 0; */
 
   &::file-selector-button {
     font: inherit;
     font-weight: 500;
-    padding: 0.8rem 1.2rem;
+    padding: ${() => clampBuilder(320, 1200, 0.5, 0.8)};
+    ${() => clampBuilder(320, 1200, 1, 1.5)};
     border: none;
     color: var(--color-primary);
     background-color: transparent;

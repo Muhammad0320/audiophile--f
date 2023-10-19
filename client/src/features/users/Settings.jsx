@@ -24,12 +24,12 @@ const InfoDetails = styled.div`
 
   flex-flow: column;
 
-  &:has(form) form:first-of-type {
+  & > form:first-of-type {
     border-bottom: 2px solid var(--color-dark-2);
     padding-bottom: ${() => clampBuilder(320, 1200, 6, 10)};
   }
 
-  &:has(form) form:last-of-type {
+  & > form:last-of-type {
     padding-top: ${() => clampBuilder(320, 1200, 5, 8)};
   }
 `;
