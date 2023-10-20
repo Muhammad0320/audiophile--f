@@ -39,6 +39,7 @@ const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: ${() => clampBuilder(320, 1200, 1.3, 2)};
+
   overflow-y: auto;
 `;
 
@@ -55,6 +56,10 @@ export const CartTextBold = styled.p`
 
   @media (max-width: 920px) {
     font-weight: 500;
+  }
+
+  @media (max-width: 450px) {
+    font-size: ${() => clampBuilder(320, 450, 1.2, 1.5)};
   }
 
   ${(props) =>

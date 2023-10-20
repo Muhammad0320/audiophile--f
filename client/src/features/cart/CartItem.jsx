@@ -9,7 +9,7 @@ import { clampBuilder } from "../../styles/clampFunction";
 
 export const CartItemContainer = styled.li`
   display: grid;
-  grid-template-columns: ${clampBuilder(320, 1200, 4.5, 6)} 1.2fr 1fr 0.8fr;
+  grid-template-columns: ${clampBuilder(320, 1200, 5, 7)} 1.2fr 1fr 0.8fr;
   color: var(--color-dark);
   align-items: center;
 `;
@@ -18,9 +18,13 @@ export const CartText = styled.span`
   color: var(--color-dark-3);
 
   font-weight: 400;
-  font-size: ${() => clampBuilder(320, 1200, 1, 2)};
+  font-size: ${() => clampBuilder(450, 1200, 1.5, 2)};
   margin-left: auto;
-  padding-right: ${() => clampBuilder(320, 1200, 1.2, 2)};
+  padding-right: ${() => clampBuilder(450, 1200, 1.2, 2)};
+
+  @media (max-width: 450px) {
+    font-size: ${() => clampBuilder(320, 450, 1, 1.5)};
+  }
 `;
 
 export const CartItemDescription = styled.div`
@@ -31,10 +35,14 @@ export const CartItemDescription = styled.div`
 
 export const CartItemName = styled.p`
   margin-right: auto;
-  margin-bottom: ${() => clampBuilder(320, 1200, -0.3, -0.8)};
+  margin-bottom: ${() => clampBuilder(450, 1200, -0.3, -0.8)};
 
-  font-size: ${() => clampBuilder(320, 1200, 1, 2)};
+  font-size: ${() => clampBuilder(450, 1200, 1.5, 2)};
   font-weight: 600;
+
+  @media (max-width: 450px) {
+    font-size: ${() => clampBuilder(320, 450, 1, 1.5)};
+  }
 `;
 
 export const CartItemImageContainer = styled.div`
@@ -66,9 +74,13 @@ const ButtonDelete = styled.button`
 `;
 
 const CartPrice = styled.span`
-  font-size: ${() => clampBuilder(320, 1200, 1, 2)};
+  font-size: ${() => clampBuilder(450, 1200, 1.2, 2)};
 
   font-style: italic;
+
+  @media (max-width: 450px) {
+    font-size: ${() => clampBuilder(320, 450, 1, 1.2)};
+  }
 `;
 
 function CartItem({ cart, page }) {
