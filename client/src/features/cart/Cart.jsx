@@ -19,6 +19,9 @@ const StyledCart = styled.div`
   border-radius: 1rem;
   /* width: 40%; */
   background-color: var(--color-white);
+
+  background-image: var(--color-gradient-dark);
+
   flex-flow: column;
 
   color: var(--color-dark);
@@ -36,7 +39,7 @@ const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: ${() => clampBuilder(320, 1200, 1.3, 2)};
-  overflow: auto;
+  overflow-y: auto;
 `;
 
 const Container = styled.div`

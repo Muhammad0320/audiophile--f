@@ -1,5 +1,5 @@
 import { css, styled } from "styled-components";
-import { Text } from "../category/Category";
+
 import UpdateCartItem from "../../ui/UpdateCartItem";
 import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,7 @@ export const CartText = styled.span`
   color: var(--color-dark-3);
 
   font-weight: 400;
-  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
+  font-size: ${() => clampBuilder(320, 1200, 1, 2)};
   margin-left: auto;
   padding-right: ${() => clampBuilder(320, 1200, 1.2, 2)};
 `;

@@ -7,10 +7,13 @@ import { clampBuilder } from "../styles/clampFunction";
 const StyledModal = styled.div`
   border-radius: 1rem;
   position: fixed;
-
-  top: 35%;
+  top: 30%;
   right: 20%;
   transform: translate(50%, -35%);
+
+  @media (max-width: 920px) {
+    margin-inline-end: ${() => clampBuilder(320, 920, 5, 3)};
+  }
 `;
 
 const StyledModalMenu = styled.div`
