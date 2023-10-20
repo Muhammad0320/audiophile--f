@@ -11,6 +11,7 @@ import CartItem from "./CartItem";
 import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../../styles/clampFunction";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -69,7 +70,7 @@ export const CartTextBold = styled.p`
     `}
 `;
 
-function Cart({ page }) {
+function Cart({ page, onClose }) {
   const carts = useSelector(getCart);
 
   const dispatch = useDispatch();
@@ -82,6 +83,8 @@ function Cart({ page }) {
 
   const vat = 0.2 * +totalCartPrice;
 
+  const { ref } = useClickOutside(onClose);
+
   if (!carts.length)
     return (
       <StyledCart>
@@ -90,7 +93,7 @@ function Cart({ page }) {
     );
 
   return (
-    <StyledCart>
+    <StyledCart ref={ref}>
       <Container>
         <CartTextBold>
           {!page ? `Cart (${carts.length})` : "Summary"}

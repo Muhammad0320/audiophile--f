@@ -95,7 +95,7 @@ const Window = ({ children, name, page }) => {
               {cloneElement(children, { onClose: () => close() })}
             </StyledModal>
           ) : (
-            <StyledModalMobile>
+            <StyledModalMobile ref={ref}>
               {cloneElement(children, { onClose: () => close() })}
             </StyledModalMobile>
           )}
