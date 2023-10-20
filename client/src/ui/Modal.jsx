@@ -31,9 +31,9 @@ const OverLay = styled.div`
   inset: 0;
   position: fixed;
 
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(2px);
+  z-index: 1000;
+  background-color: var(--color-dark-3);
+  backdrop-filter: blur(3px);
   height: 100dvh;
   width: 100dvw;
 `;

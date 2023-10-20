@@ -35,11 +35,21 @@ const CategoryItem = styled.li`
   font-weight: 600;
   border-radius: 1rem;
   color: var(--color-dark);
-
   background-color: var(--color-white-2);
   text-align: center;
   text-transform: uppercase;
   padding: ${() => clampBuilder(500, 1200, 1.8, 3)};
+
+  &:not(:first-child) {
+    margin-top: ${() => clampBuilder(320, 520, -6, -10)};
+  }
+`;
+
+const CategoryTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 const Image = styled.img`
@@ -48,8 +58,9 @@ const Image = styled.img`
   translate: 0 -40%;
 
   @media (max-width: 500px) {
-    width: 80%;
-    margin-bottom: ${() => clampBuilder(100, 500, -10, -15)};
+    width: 50%;
+
+    margin-bottom: ${() => clampBuilder(3200, 500, -10, -15)};
   }
 `;
 
@@ -76,11 +87,13 @@ function CategoryBox({ ...props }) {
           src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
           alt="category speaker desktop"
         />
-        <p> speakers </p>
-        <ButtonCategory onClick={() => navigate("/speakers")}>
-          {" "}
-          Shop{" "}
-        </ButtonCategory>
+        <CategoryTextContainer>
+          <p> speakers </p>
+          <ButtonCategory onClick={() => navigate("/speakers")}>
+            {" "}
+            Shop{" "}
+          </ButtonCategory>
+        </CategoryTextContainer>
       </CategoryItem>
 
       <CategoryItem>
