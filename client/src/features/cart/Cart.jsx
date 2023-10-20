@@ -16,12 +16,11 @@ const StyledCart = styled.div`
   align-self: flex-start;
 
   display: flex;
-
   border-radius: 1rem;
-  width: 40%;
+  /* width: 40%; */
   background-color: var(--color-white);
   flex-flow: column;
-  max-height: 100%;
+
   color: var(--color-dark);
 
   padding: ${() => clampBuilder(320, 1200, 1.4, 2.5)};

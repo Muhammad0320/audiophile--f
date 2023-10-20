@@ -110,7 +110,7 @@ export const ProductName = styled.p`
 
 export const Text = styled.p`
   color: var(--color-dark-3);
-  font-size: ${() => clampBuilder(350, 920, 1.2, 2)};
+  font-size: ${() => clampBuilder(350, 1200, 1.2, 2)};
 
   @media (max-width: 920px) {
     ${(props) =>

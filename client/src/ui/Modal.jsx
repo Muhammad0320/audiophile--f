@@ -7,11 +7,10 @@ import { clampBuilder } from "../styles/clampFunction";
 const StyledModal = styled.div`
   border-radius: 1rem;
   position: fixed;
-  height: 60%;
 
   top: 35%;
   right: 20%;
-  transform: translate(70%, -35%);
+  transform: translate(50%, -35%);
 `;
 
 const StyledModalMenu = styled.div`
