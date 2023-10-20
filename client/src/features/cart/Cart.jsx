@@ -10,6 +10,7 @@ import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -23,7 +24,7 @@ const StyledCart = styled.div`
   max-height: 100%;
   color: var(--color-dark);
 
-  padding: 2.5rem;
+  padding: ${() => clampBuilder(320, 1200, 1.4, 2.5)};
 
   box-shadow: var(--box-shadow-light);
 
@@ -35,7 +36,7 @@ const StyledCart = styled.div`
 const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: ${() => clampBuilder(320, 1200, 1.3, 2)};
   overflow: auto;
 `;
 
@@ -46,7 +47,7 @@ const Container = styled.div`
 `;
 
 export const CartTextBold = styled.p`
-  font-size: 2rem;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
   font-weight: 600;
   text-transform: uppercase;
 

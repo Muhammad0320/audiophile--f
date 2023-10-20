@@ -24,9 +24,8 @@ const Container = styled.div`
       width: ${() => clampBuilder(650, 1200, 4.5, 6)};
       padding: ${() => clampBuilder(320, 1200, 0.8, 1.2)}
         ${() => clampBuilder(320, 1200, 1, 1.5)};
-      margin-left: var(--margin-tiny-2);
-
-      @media (max-width: 650px) {
+      margin-left: ${() => clampBuilder(650, 1200, 1, 1.5)} @media
+        (max-width: 650px) {
         width: ${() => clampBuilder(650, 650, 3.8, 4.5)};
         padding: ${() => clampBuilder(320, 650, 0.6, 1)}
           ${() => clampBuilder(320, 650, 0.8, 1.2)};
