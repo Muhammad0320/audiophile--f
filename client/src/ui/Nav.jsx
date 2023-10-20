@@ -20,6 +20,7 @@ import SpinnerMini from "./SpinnerMini";
 import { clampBuilder } from "../styles/clampFunction";
 import { HamburgerContainer, HamburgerIcon } from "./HamburgerIcon";
 import { useViewport } from "../context/ViewPort";
+import CategoryBox from "./CategoryBox";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -182,9 +183,15 @@ function Nav({ type }) {
       {type === "header" && (
         <StyledNav>
           <LeftNavContainer>
-            <HamburgerContainer>
-              {viewportWidth <= 920 && <HamburgerIcon />}
-            </HamburgerContainer>
+            <Modal.Open opens="menu">
+              <HamburgerContainer>
+                {viewportWidth <= 920 && <HamburgerIcon />}
+              </HamburgerContainer>
+            </Modal.Open>
+
+            <Modal.Window name="menu" page="menu">
+              <CategoryBox />
+            </Modal.Window>
 
             <HeaderIcon to="/home">
               <SVG fill="white" src={IconLogo} width={142} />

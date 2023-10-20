@@ -2,6 +2,7 @@ import { cloneElement, createContext, useContext, useState } from "react";
 import { styled } from "styled-components";
 import { useClickOutside } from "../hooks/useClickOutside";
 import { createPortal } from "react-dom";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledModal = styled.div`
   border-radius: 1rem;
@@ -16,8 +17,11 @@ const StyledModal = styled.div`
 const StyledModalMenu = styled.div`
   position: fixed;
   width: 100%;
+  top: ${() => clampBuilder(320, 920, 3, 5)};
   background-color: var(--color-white);
+  background: var(--color-white-vivid);
 
+  background-image: var(--color-gradient-light);
   box-shadow: var(--bos-shadow-light);
   transition: all 0.5s;
 `;
@@ -25,6 +29,7 @@ const StyledModalMenu = styled.div`
 const OverLay = styled.div`
   inset: 0;
   position: fixed;
+
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(2px);

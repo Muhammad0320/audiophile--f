@@ -26,7 +26,7 @@ function ReviewTable() {
           1200,
           3.5,
           8
-        )}  1fr minmax(0, 2.3fr) minmax(0,  ${clampBuilder(
+        )}  1fr minmax(0, 2.3fr) minmax(0, ${clampBuilder(
           320,
           1200,
           2,
