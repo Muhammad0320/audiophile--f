@@ -7,6 +7,7 @@ const StyledContainerHero = styled.div`
   margin-bottom: ${() => clampBuilder(920, 1200, 10, 15)};
   grid-template-columns: repeat(2, 1fr);
   grid-gap: var(--margin-medium);
+  padding-inline: 2rem;
 
   @media (max-width: 920px) {
     display: flex;
@@ -19,7 +20,7 @@ const Image = styled.img`
   grid-column: 2 / -1;
   align-self: center;
   display: block;
-  width: 100%;
+  box-shadow: var(--box-shadow-light);
 `;
 
 const TextGroup = styled.div`

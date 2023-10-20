@@ -7,6 +7,7 @@ const StyledAvatar = styled(NavLink)`
   /* position: relative; */
   display: flex;
   justify-content: center;
+  column-gap: ${() => clampBuilder(400, 1200, 0.8, 1.5)};
   cursor: pointer;
   margin-right: ${() => clampBuilder(400, 1200, 0.8, 1.5)};
   align-items: center;
