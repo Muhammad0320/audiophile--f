@@ -53,7 +53,7 @@ const CommonRow = styled.div`
 const Header = styled(CommonRow)`
   padding: ${() => clampBuilder(320, 1200, 1, 1.5)};
   ${() => clampBuilder(320, 1200, 1.2, 2)};
-  font-size: var(--font-small);
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
   background-color: var(--color-white-1);
   font-weight: 600;
   border-bottom: 1px solid var(--color-white-2);
