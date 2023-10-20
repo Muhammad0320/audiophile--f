@@ -31,8 +31,9 @@ export const CartItemDescription = styled.div`
 
 export const CartItemName = styled.p`
   margin-right: auto;
-  margin-bottom: ${() => clampBuilder(320, 1200, -1.2, -2)};
-  font-size: ${() => clampBuilder(320, 1200, 1.1, 2)};
+  margin-bottom: ${() => clampBuilder(320, 1200, -0.5, -1)};
+
+  font-size: ${() => clampBuilder(320, 1200, 0.8, 2)};
   font-weight: 600;
 `;
 
@@ -40,14 +41,14 @@ export const CartItemImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${() => clampBuilder(320, 1200, 3, 5)};
-  width: ${() => clampBuilder(320, 1200, 3, 5)};
+  height: ${() => clampBuilder(320, 1200, 4.5, 6)};
+  width: ${() => clampBuilder(320, 1200, 4.5, 6)};
 
   ${(props) =>
     props.page === "checkout" &&
     css`
-      height: ${() => clampBuilder(320, 1200, 2.5, 4)};
-      width: ${() => clampBuilder(320, 1200, 2.5, 4)};
+      height: ${() => clampBuilder(320, 1200, 3, 5)};
+      width: ${() => clampBuilder(320, 1200, 3, 5)};
     `}
 `;
 
@@ -64,6 +65,12 @@ const ButtonDelete = styled.button`
   &:hover {
     color: var(--color-primary);
   }
+`;
+
+const cartPrice = styled.span`
+  font-size: ${() => clampBuilder(320, 1200, 0.8, 1.5)};
+
+  font-style: italic;
 `;
 
 function CartItem({ cart, page }) {
@@ -85,7 +92,7 @@ function CartItem({ cart, page }) {
 
       <CartItemDescription>
         <CartItemName>{cartName}</CartItemName>
-        <Text> {formatCurrency(price)} </Text>
+        <cartPrice> {formatCurrency(price)} </cartPrice>
       </CartItemDescription>
 
       {!page && (
