@@ -9,7 +9,6 @@ const Box = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   max-width: 100%;
   padding: 0;
-
   column-gap: ${() => clampBuilder(500, 1200, 1.5, 3)};
 
   @media (max-width: 500px) {
@@ -38,6 +37,7 @@ const CategoryItem = styled.li`
   text-align: center;
   text-transform: uppercase;
   padding: ${() => clampBuilder(500, 1200, 1.8, 3)};
+  box-shadow: var(--box-shadow-light);
 
   & > *:not(:first-child) {
     margin-top: ${() => clampBuilder(320, 500, -10, -14)};

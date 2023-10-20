@@ -16,17 +16,20 @@ const StyledModal = styled.div`
 
 const StyledModalMenu = styled.div`
   position: fixed;
-  width: 100%;
-  height: 100dvh;
-  overflow-y: auto;
-  /* height: 50%; */
-  top: ${() => clampBuilder(320, 920, 5, 8)};
+
+  top: ${() => clampBuilder(300, 500, 6, 9)};
   padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)};
-  background: var(--color-white);
   z-index: 2;
+  background: var(--color-white-vivid);
   background-image: var(--color-gradient-light);
   box-shadow: var(--bos-shadow-light);
   transition: all 0.5s;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 100dvh;
+    overflow-y: auto;
+  }
 `;
 
 const OverLay = styled.div`
