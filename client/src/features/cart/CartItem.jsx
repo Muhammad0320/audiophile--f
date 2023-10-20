@@ -8,8 +8,8 @@ import { HiXMark } from "react-icons/hi2";
 import { clampBuilder } from "../../styles/clampFunction";
 
 export const CartItemContainer = styled.li`
-  display: flex;
-  column-gap: ${() => clampBuilder(320, 1200, 0.7, 1)};
+  display: grid;
+  grid-template-columns: ${clampBuilder(320, 1200, 4.5, 6)} 1.2fr 1fr 0.8fr;
   color: var(--color-dark);
   align-items: center;
 `;
@@ -31,9 +31,9 @@ export const CartItemDescription = styled.div`
 
 export const CartItemName = styled.p`
   margin-right: auto;
-  margin-bottom: ${() => clampBuilder(320, 1200, -0.5, -1)};
+  margin-bottom: ${() => clampBuilder(320, 1200, -0.3, -0.8)};
 
-  font-size: ${() => clampBuilder(320, 1200, 0.8, 2)};
+  font-size: ${() => clampBuilder(320, 1200, 1, 2)};
   font-weight: 600;
 `;
 
@@ -41,8 +41,6 @@ export const CartItemImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${() => clampBuilder(320, 1200, 4.5, 6)};
-  width: ${() => clampBuilder(320, 1200, 4.5, 6)};
 
   ${(props) =>
     props.page === "checkout" &&
@@ -67,8 +65,8 @@ const ButtonDelete = styled.button`
   }
 `;
 
-const cartPrice = styled.span`
-  font-size: ${() => clampBuilder(320, 1200, 0.8, 1.5)};
+const CartPrice = styled.span`
+  font-size: ${() => clampBuilder(320, 1200, 1, 2)};
 
   font-style: italic;
 `;
@@ -92,7 +90,7 @@ function CartItem({ cart, page }) {
 
       <CartItemDescription>
         <CartItemName>{cartName}</CartItemName>
-        <cartPrice> {formatCurrency(price)} </cartPrice>
+        <CartPrice> {formatCurrency(price)} </CartPrice>
       </CartItemDescription>
 
       {!page && (
