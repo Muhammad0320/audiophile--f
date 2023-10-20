@@ -3,6 +3,7 @@ import Spinner from "../../ui/Spinner";
 import Table from "../../ui/Table";
 import ReviewItem from "./ReviewItem";
 import { useGetUserReview } from "./useGetUserReviews";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const ReviewContainer = styled.div`
   grid-column: 2 / -1;
@@ -15,10 +16,13 @@ function ReviewTable() {
 
   return (
     <ReviewContainer>
-      <Table column="1fr 1fr 2.3fr 1.2fr 1.4fr">
+      <Table
+        column={` ${() =>
+          clampBuilder(320, 1200, 3.5, 8)} 1fr 2.3fr 1.2fr 1.4fr`}
+      >
         <Table.Header>
           <div></div>
-          <div>Name</div>
+          <div>Product</div>
           <div>Review</div>
           <div>Rating</div>
           <div></div>
