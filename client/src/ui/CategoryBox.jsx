@@ -34,7 +34,7 @@ const CategoryItem = styled.li`
   border-radius: 1rem;
   color: var(--color-dark);
   background-color: var(--color-white-2);
-  background-image: var(--color-gradient-dark);
+  background-image: var(--color-gradient-dark-muted);
   text-align: center;
   text-transform: uppercase;
   padding: ${() => clampBuilder(500, 1200, 1.8, 3)};
