@@ -50,6 +50,10 @@ export const CartTextBold = styled.p`
   font-weight: 600;
   text-transform: uppercase;
 
+  @media (max-width: 920px) {
+    font-weight: 500;
+  }
+
   ${(props) =>
     props.page === "confirm" &&
     css`
