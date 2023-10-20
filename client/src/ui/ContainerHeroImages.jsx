@@ -96,12 +96,12 @@ const FirstSpeakerText = styled.p`
 `;
 
 const SecondImage = styled.div`
+  background-color: var(--color-dark-3);
   background-image: url("/assets/home/desktop/image-speaker-zx7.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 1rem;
-
   box-shadow: var(--box-shadow-light);
 
   @media (max-width: 920px) {
