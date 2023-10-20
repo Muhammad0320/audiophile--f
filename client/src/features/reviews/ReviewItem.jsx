@@ -40,6 +40,8 @@ function ReviewItem({ data }) {
 
   const numberToCheck = viewportWidth >= 850 ? 10 : 6;
 
+  const ratingIconSize = viewportWidth >= 650 ? 22 : 15;
+
   const { deleteReview, isDeleting } = useDeleteReview();
 
   const {
@@ -74,7 +76,7 @@ function ReviewItem({ data }) {
 
       <span>
         {" "}
-        <ReviewRating maxRating={5} rating={+rating} size={20} />
+        <ReviewRating maxRating={5} rating={+rating} size={ratingIconSize} />
       </span>
 
       <Modal>

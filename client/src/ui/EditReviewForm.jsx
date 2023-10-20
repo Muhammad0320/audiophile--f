@@ -6,15 +6,17 @@ import { useForm } from "react-hook-form";
 import { useUpdateReview } from "../features/reviews/useUpdateReview";
 import Button from "./Button";
 import SpinnerMini from "./SpinnerMini";
+import { clampBuilder } from "../styles/clampFunction";
 
 const EditFormContainer = styled.div`
   background-color: var(--color-white);
 
-  border-radius: 1.2rem;
+  border-radius: ${() => clampBuilder(320, 1200, 0.8, 1.2)};
 
   box-shadow: var(--box-shadow-dark);
 
-  padding: 2.5rem 3rem;
+  padding: ${() => clampBuilder(320, 1200, 1.5, 2.5)};
+  ${() => clampBuilder(320, 1200, 1.7, 3)};
 `;
 
 function EditReviewForm({ review, onClose }) {
