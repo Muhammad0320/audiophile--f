@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { useClickOutside } from "../hooks/useClickOutside";
 import { createPortal } from "react-dom";
 import { clampBuilder } from "../styles/clampFunction";
+import { useViewport } from "../context/ViewPort";
 
 const StyledModal = styled.div`
   border-radius: 1rem;
@@ -11,9 +12,17 @@ const StyledModal = styled.div`
   right: 20%;
   transform: translate(50%, -35%);
 
-  @media (max-width: 920px) {
-    margin-inline-end: ${() => clampBuilder(320, 920, 5, 3)};
+  @media (max-width: 1000px) {
+    margin-inline-end: ${() => clampBuilder(320, 1000, 5, 3)};
   }
+`;
+
+const StyledModalMobile = styled.div`
+  height: 100dvh;
+  /* width: 100%; */
+  display: grid;
+  justify-content: center;
+  align-content: center;
 `;
 
 const StyledModalMenu = styled.div`
@@ -73,14 +82,24 @@ const Window = ({ children, name, page }) => {
 
   const { ref } = useClickOutside(close);
 
+  const { viewportWidth } = useViewport();
+
   if (openModal !== name) return null;
 
   return createPortal(
     <OverLay>
       {!page && (
-        <StyledModal ref={ref}>
-          {cloneElement(children, { onClose: () => close() })}
-        </StyledModal>
+        <>
+          {viewportWidth >= 450 ? (
+            <StyledModal ref={ref}>
+              {cloneElement(children, { onClose: () => close() })}
+            </StyledModal>
+          ) : (
+            <StyledModalMobile>
+              {cloneElement(children, { onClose: () => close() })}
+            </StyledModalMobile>
+          )}
+        </>
       )}
 
       {page && (
