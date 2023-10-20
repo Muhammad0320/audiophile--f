@@ -54,13 +54,11 @@ const CategoryTextContainer = styled.div`
 
 const Image = styled.img`
   display: block;
-  /* margin-bottom: ${() => clampBuilder(500, 1200, -8, -12)}; */
+
   translate: 0 -40%;
 
   @media (max-width: 500px) {
     width: 50%;
-
-    /* margin-bottom: ${() => clampBuilder(3200, 500, -10, -15)}; */
   }
 `;
 

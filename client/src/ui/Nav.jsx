@@ -185,18 +185,22 @@ function Nav({ type }) {
       {type === "header" && (
         <StyledNav>
           <LeftNavContainer>
-            <Modal.Open opens="menu">
-              <HamburgerContainer>
-                {viewportWidth <= 920 && <HamburgerIcon />}
-              </HamburgerContainer>
-            </Modal.Open>
+            {viewportWidth <= 920 && (
+              <Modal.Open opens="menu">
+                <HamburgerContainer>
+                  <HamburgerIcon />
+                </HamburgerContainer>
+              </Modal.Open>
+            )}
 
-            <Modal.Window name="menu" page="menu">
-              <CategoryBox type="menu" />
-            </Modal.Window>
+            {viewportWidth <= 920 && (
+              <Modal.Window name="menu" page="menu">
+                <CategoryBox type="menu" />
+              </Modal.Window>
+            )}
 
             <HeaderIcon to="/home">
-              <SVG fill="white" src={IconLogo} width={142} />
+              <SVG fill="white" src={IconLogo} />
             </HeaderIcon>
           </LeftNavContainer>
 

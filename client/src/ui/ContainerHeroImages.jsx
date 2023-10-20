@@ -25,6 +25,8 @@ const FirstImageGroup = styled.div`
   overflow: hidden;
   column-gap: ${() => clampBuilder(320, 1200, 6, 12)};
 
+  box-shadow: var(--box-shadow-light);
+
   @media (max-width: 920px) {
     grid-template-columns: none;
     background-position: 50% ${() => clampBuilder(300, 920, -20, -35)};
@@ -100,6 +102,8 @@ const SecondImage = styled.div`
   background-repeat: no-repeat;
   border-radius: 1rem;
 
+  box-shadow: var(--box-shadow-light);
+
   @media (max-width: 920px) {
     background-image: url("/assets/home/tablet/image-speaker-zx7.jpg");
   }
@@ -132,7 +136,7 @@ const ThirdImageGroup = styled.div`
   align-items: stretch;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
-
+  padding-bottom: 2rem;
   @media (max-width: 420px) {
     display: flex;
     flex-direction: column;
@@ -144,6 +148,7 @@ const ThirdImageGroup = styled.div`
 const ThirdImage = styled.img`
   border-radius: 1rem;
   display: block;
+  box-shadow: var(--box-shadow-light);
 
   width: 100%;
 `;
@@ -155,6 +160,7 @@ const ThirdTextGroup = styled.div`
   flex-direction: column;
   column-gap: ${() => clampBuilder(400, 1200, 1.8, 2.5)};
   color: var(--color-dark);
+  box-shadow: var(--box-shadow-light);
 
   justify-content: center;
 
