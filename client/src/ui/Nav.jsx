@@ -190,7 +190,7 @@ function Nav({ type }) {
             </Modal.Open>
 
             <Modal.Window name="menu" page="menu">
-              <CategoryBox />
+              <CategoryBox type="menu" />
             </Modal.Window>
 
             <HeaderIcon to="/home">

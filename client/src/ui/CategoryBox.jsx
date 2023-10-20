@@ -9,6 +9,7 @@ const Box = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   max-width: 100%;
   padding: 0;
+
   column-gap: ${() => clampBuilder(500, 1200, 1.5, 3)};
 
   @media (max-width: 500px) {
@@ -20,6 +21,7 @@ const Box = styled.ul`
   ${(props) =>
     props.type === "menu" &&
     css`
+      opacity: 1;
       margin: ${() => clampBuilder(320, 1200, 7, 12)} 0;
     `}
 `;
