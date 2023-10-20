@@ -30,7 +30,7 @@ const CategoryItem = styled.li`
   display: flex;
   flex-flow: column;
   align-items: center;
-  justify-items: flex-end;
+  height: 80%;
   font-size: ${() => clampBuilder(300, 1200, 1, 1.5)};
   font-weight: 600;
   border-radius: 1rem;
@@ -41,11 +41,12 @@ const CategoryItem = styled.li`
   padding: ${() => clampBuilder(500, 1200, 1.8, 3)};
 
   &:not(:first-child) {
-    margin-top: ${() => clampBuilder(320, 520, -6, -10)};
+    margin-top: ${() => clampBuilder(320, 500, -10, -14)};
   }
 `;
 
 const CategoryTextContainer = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -75,11 +76,13 @@ function CategoryBox({ ...props }) {
           alt="category Headphone desktop"
         />
 
-        <p> headphones </p>
-        <ButtonCategory onClick={() => navigate("/headphones")}>
-          {" "}
-          Shop{" "}
-        </ButtonCategory>
+        <CategoryTextContainer>
+          <p> headphones </p>
+          <ButtonCategory onClick={() => navigate("/headphones")}>
+            {" "}
+            Shop{" "}
+          </ButtonCategory>
+        </CategoryTextContainer>
       </CategoryItem>
 
       <CategoryItem>
@@ -101,11 +104,14 @@ function CategoryBox({ ...props }) {
           src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
           alt="category Headphone desktop"
         />
-        <p> earphones </p>
-        <ButtonCategory onClick={() => navigate("/earphones")}>
-          {" "}
-          Shop{" "}
-        </ButtonCategory>
+
+        <CategoryTextContainer>
+          <p> earphones </p>
+          <ButtonCategory onClick={() => navigate("/earphones")}>
+            {" "}
+            Shop{" "}
+          </ButtonCategory>
+        </CategoryTextContainer>
       </CategoryItem>
     </Box>
   );

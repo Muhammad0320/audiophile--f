@@ -19,7 +19,7 @@ const StyledModalMenu = styled.div`
   width: 100%;
   /* height: 50%; */
   top: ${() => clampBuilder(320, 920, 5, 8)};
-
+  padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)};
   background: var(--color-white);
   z-index: 2;
   background-image: var(--color-gradient-light);
@@ -31,9 +31,9 @@ const OverLay = styled.div`
   inset: 0;
   position: fixed;
 
-  z-index: 1000;
+  z-index: 100;
   background-color: var(--color-dark-3);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2.5px);
   height: 100dvh;
   width: 100dvw;
 `;

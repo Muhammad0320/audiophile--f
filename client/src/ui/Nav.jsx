@@ -28,6 +28,8 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   background-color: var(--color-dark);
 
+  z-index: 1000;
+
   ${(props) =>
     props.type === "footer" &&
     css`
