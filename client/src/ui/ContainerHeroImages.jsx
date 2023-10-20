@@ -9,6 +9,7 @@ const StyledImageContainer = styled.div`
   grid-template-rows: max-content repeat(2, 1fr);
   row-gap: 4rem;
   margin-bottom: 15rem;
+  padding-inline: ${() => clampBuilder(320, 1200, 1, 1.5)};
   overflow: hidden;
 `;
 
@@ -19,15 +20,19 @@ const FirstImageGroup = styled.div`
   background-image: url("/assets/home/desktop/pattern-circles.svg");
   background-size: 80%;
   background-position: ${() => clampBuilder(320, 1200, -10, -30)} 10%;
-  height: 60rem;
+  height: ${() => clampBuilder(920, 1200, 40, 50)};
   background-repeat: no-repeat;
   border-radius: 1rem;
   overflow: hidden;
   column-gap: ${() => clampBuilder(320, 1200, 6, 12)};
 
-  box-shadow: var(--box-shadow-light);
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: var(--box-shadow-dark);
 
   @media (max-width: 920px) {
+    height: 100%;
     grid-template-columns: none;
     background-position: 50% ${() => clampBuilder(300, 920, -20, -35)};
     background-size: 110%;
@@ -44,7 +49,7 @@ const FirstImage = styled.img`
   align-self: self-end;
   justify-self: self-end;
   translate: 0 ${() => clampBuilder(320, 1200, 1.5, 2)};
-  width: 70%;
+  width: 80%;
 
   @media (max-width: 920px) {
     align-self: center;
@@ -62,6 +67,7 @@ const FirstImageText = styled.div`
   display: flex;
   justify-self: center;
   justify-content: center;
+  height: 100%;
   flex-direction: column;
   row-gap: ${() => clampBuilder(920, 1200, 1.8, 2.5)};
   & > button {
