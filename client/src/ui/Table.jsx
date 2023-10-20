@@ -77,11 +77,12 @@ const Body = styled.div`
 `;
 
 const Row = styled(CommonRow)`
-  padding: 0.8rem var(--padding-tiny);
+  padding: ${() => clampBuilder(320, 1200, 0.5, 0.8)};
+  ${() => clampBuilder(320, 1200, 1.2, 1.5)};
 
   color: var(--color-dark-3);
 
-  font-size: var(--font-small);
+  font-size: ${() => clampBuilder(320, 1200, 1.1, 2)};
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-white-2);
