@@ -13,14 +13,11 @@ const StyledModal = styled.div`
   transform: translate(70%, -35%);
 `;
 
-const StyledModalConfirm = styled.div`
+const StyledModalMenu = styled.div`
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
+  width: 100%;
   background-color: var(--color-white);
-  border-radius: 1.5rem;
+
   box-shadow: var(--bos-shadow-light);
   transition: all 0.5s;
 `;
@@ -74,9 +71,9 @@ const Window = ({ children, name, page }) => {
       )}
 
       {page && (
-        <StyledModalConfirm ref={ref}>
+        <StyledModalMenu ref={ref}>
           {cloneElement(children, { onClose: () => close() })}
-        </StyledModalConfirm>
+        </StyledModalMenu>
       )}
     </OverLay>,
 
