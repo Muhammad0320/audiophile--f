@@ -9,6 +9,7 @@ import { useDeleteReview } from "./useDeleteReview";
 import EditReviewForm from "../../ui/EditReviewForm";
 import { ReviewRating } from "../../ui/StarRating";
 import { clampBuilder } from "../../styles/clampFunction";
+import { useViewport } from "../../context/ViewPort";
 
 const Image = styled.img`
   display: inline-block;
@@ -35,6 +36,10 @@ const Name = styled.span`
 function ReviewItem({ data }) {
   const [expand, setExpand] = useState(false);
 
+  const { viewportWidth } = useViewport();
+
+  const numberToCheck = viewportWidth >= 850 ? 10 : 6;
+
   const { deleteReview, isDeleting } = useDeleteReview();
 
   const {
@@ -45,8 +50,8 @@ function ReviewItem({ data }) {
   } = data || {};
 
   const rev =
-    review.slice().split(" ").length > 10 && !expand
-      ? review.slice().split(" ").slice(0, 10).join(" ") + "..."
+    review.slice().split(" ").length > numberToCheck && !expand
+      ? review.slice().split(" ").slice(0, numberToCheck).join(" ") + "..."
       : review;
 
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
