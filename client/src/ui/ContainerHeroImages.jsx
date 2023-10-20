@@ -8,7 +8,7 @@ const StyledImageContainer = styled.div`
   display: grid;
   grid-template-rows: max-content repeat(2, 1fr);
   row-gap: 4rem;
-  margin-bottom: 15rem;
+  margin-bottom: ${() => clampBuilder(400, 1200, 10, 15)};
   padding-inline: ${() => clampBuilder(320, 1200, 1, 1.5)};
   overflow: hidden;
 `;
@@ -69,7 +69,7 @@ const FirstImageText = styled.div`
   justify-content: center;
   height: 100%;
   flex-direction: column;
-  row-gap: ${() => clampBuilder(920, 1200, 1.8, 2.5)};
+  row-gap: ${() => clampBuilder(920, 1200, 1.6, 2.2)};
   & > button {
     align-self: flex-start;
   }
@@ -88,7 +88,7 @@ const FirstImageText = styled.div`
 `;
 
 const FirstSpeakerName = styled.h2`
-  font-size: ${() => clampBuilder(320, 1200, 2.5, 6)};
+  font-size: ${() => clampBuilder(320, 1200, 2.5, 5.5)};
   font-weight: 500;
   line-height: 1;
   color: var(--color-white);
@@ -176,6 +176,8 @@ const ThirdTextGroup = styled.div`
   border-radius: 1rem;
   background-color: var(--color-white-2);
   padding-inline: ${() => clampBuilder(300, 1200, 2.5, 4.5)};
+
+  background-image: var(--color-gradient-dark-1);
 
   @media (max-width: 420px) {
     padding-block: ${() => clampBuilder(300, 420, 3, 5)};
