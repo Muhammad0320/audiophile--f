@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { HiEllipsisVertical } from "react-icons/hi2";
 import { useClickOutside } from "../hooks/useClickOutside";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledList = styled.ul`
   position: fixed;
@@ -14,7 +15,7 @@ const StyledList = styled.ul`
   overflow: hidden;
   padding: 0;
   /* height: 10rem; */
-  width: 13rem;
+  width: ${() => clampBuilder(320, 1200, 9, 13)};
   right: ${(props) => props.position.x}px;
   top: ${(props) => props.position.y}px;
 `;
@@ -25,7 +26,8 @@ const StyledToggle = styled.button`
   border: none;
   border-radius: 0;
 
-  padding: 0.7rem 1rem;
+  padding: ${() => clampBuilder(320, 1200, 0.4, 0.7)};
+  ${() => clampBuilder(320, 1200, 0.6, 1)};
   transition: background-color 0.2s;
 
   &:hover {
@@ -34,8 +36,8 @@ const StyledToggle = styled.button`
 
   & > svg {
     color: var(--color-dark);
-    height: 5rem;
-    width: 5rem;
+    height: ${() => clampBuilder(320, 1200, 2.8, 5)};
+    width: ${() => clampBuilder(320, 1200, 2.8, 5)};
   }
 `;
 
@@ -52,13 +54,13 @@ const StyledButton = styled.button`
 
   border-radius: 0;
 
-  padding: 2rem;
+  padding: ${() => clampBuilder(320, 1200, 1.2, 2)};
 
-  font-size: 1.5rem;
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
 
-  padding: 1.3rem;
+  padding: ${() => clampBuilder(320, 1200, 0.9, 1.3)};
 
-  gap: 2.1rem;
+  gap: ${() => clampBuilder(320, 1200, 1.4, 2.1)};
 
   transition: background-color 0.3s ease-out;
 
@@ -67,10 +69,10 @@ const StyledButton = styled.button`
   }
 
   & > svg {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: ${() => clampBuilder(320, 1200, 1.2, 1.5)};
+    width: ${() => clampBuilder(320, 1200, 1.2, 1.5)};
 
-    margin-right: 1rem;
+    margin-right: ${() => clampBuilder(320, 1200, 0.6, 1)};
 
     color: currentColor;
 
