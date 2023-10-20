@@ -15,13 +15,12 @@ const Box = styled.ul`
   @media (max-width: 500px) {
     grid-template-columns: none;
     grid-template-rows: repeat(3, 1fr);
-    row-gap: ${() => clampBuilder(100, 500, 13, 18)};
+    row-gap: ${() => clampBuilder(320, 500, 5, 8)};
   }
 
   ${(props) =>
     props.type === "menu" &&
     css`
-      opacity: 1;
       margin: ${() => clampBuilder(320, 1200, 7, 12)} 0;
     `}
 `;
@@ -40,7 +39,7 @@ const CategoryItem = styled.li`
   text-transform: uppercase;
   padding: ${() => clampBuilder(500, 1200, 1.8, 3)};
 
-  &:not(:first-child) {
+  & > *:not(:first-child) {
     margin-top: ${() => clampBuilder(320, 500, -10, -14)};
   }
 `;
@@ -55,13 +54,13 @@ const CategoryTextContainer = styled.div`
 
 const Image = styled.img`
   display: block;
-  margin-bottom: ${() => clampBuilder(500, 1200, -8, -12)};
+  /* margin-bottom: ${() => clampBuilder(500, 1200, -8, -12)}; */
   translate: 0 -40%;
 
   @media (max-width: 500px) {
     width: 50%;
 
-    margin-bottom: ${() => clampBuilder(3200, 500, -10, -15)};
+    /* margin-bottom: ${() => clampBuilder(3200, 500, -10, -15)}; */
   }
 `;
 
