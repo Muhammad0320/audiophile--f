@@ -25,19 +25,23 @@ const StyledToggle = styled.button`
 
   border: none;
   border-radius: 0;
-
+  display: inline-block;
   padding: ${() => clampBuilder(320, 1200, 0.4, 0.7)};
   ${() => clampBuilder(320, 1200, 0.6, 1)};
   transition: background-color 0.2s;
+  line-height: 1;
+  margin-inline-start: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
   &:hover {
     background-color: var(--color-white-2);
   }
 
   & > svg {
-    color: var(--color-dark);
-    height: ${() => clampBuilder(320, 1200, 2.8, 5)};
-    width: ${() => clampBuilder(320, 1200, 2.8, 5)};
+    color: var(--color-dark-3);
+    font-size: ${() => clampBuilder(320, 1200, 2.2, 4)};
   }
 `;
 

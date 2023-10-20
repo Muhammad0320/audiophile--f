@@ -28,6 +28,12 @@ const Review = styled.span`
   }
 `;
 
+const RatingsContainer = styled.div`
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
+
+  text-wrap: nowrap;
+`;
+
 const Name = styled.span`
   font-size: ${() => clampBuilder(320, 1200, 1.2, 1.6)};
   font-weight: 600;
@@ -38,16 +44,9 @@ function ReviewItem({ data }) {
 
   const { viewportWidth } = useViewport();
 
-  const numberToCheck = viewportWidth >= 850 ? 10 : 6;
+  const numberToCheck = viewportWidth >= 650 ? 10 : 6;
 
-  const ratingIconSize =
-    viewportWidth < 750
-      ? 15
-      : viewportWidth < 650
-      ? 10
-      : viewportWidth < 600
-      ? 7
-      : 22;
+  const ratingIconSize = viewportWidth < 750 ? 14 : 18;
 
   const { deleteReview, isDeleting } = useDeleteReview();
 
@@ -83,10 +82,14 @@ function ReviewItem({ data }) {
         )}
       </Review>
 
-      <span>
-        {" "}
-        <ReviewRating maxRating={5} rating={+rating} size={ratingIconSize} />
-      </span>
+      {viewportWidth <= 650 ? (
+        <RatingsContainer> {rating} stars </RatingsContainer>
+      ) : (
+        <span>
+          {" "}
+          <ReviewRating maxRating={5} rating={+rating} size={ratingIconSize} />
+        </span>
+      )}
 
       <Modal>
         <div>
