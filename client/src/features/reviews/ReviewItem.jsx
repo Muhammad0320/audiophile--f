@@ -40,7 +40,8 @@ function ReviewItem({ data }) {
 
   const numberToCheck = viewportWidth >= 850 ? 10 : 6;
 
-  const ratingIconSize = viewportWidth >= 650 ? 22 : 15;
+  const ratingIconSize =
+    viewportWidth < 750 ? 15 : viewportWidth < 650 ? 10 : 22;
 
   const { deleteReview, isDeleting } = useDeleteReview();
 
@@ -58,10 +59,12 @@ function ReviewItem({ data }) {
 
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
 
+  const cartName = name.split(" ")[0];
+
   return (
     <Table.Row>
       <Image src={src} />
-      <Name> {name} </Name>
+      <Name> {cartName} </Name>
       <Review>
         <div>{rev}</div>
         {"  "}{" "}
