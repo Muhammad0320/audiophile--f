@@ -1,4 +1,5 @@
 import { css, styled } from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const variations = {
   primary: css`
@@ -57,16 +58,18 @@ const variations = {
 
 const Button = styled.button`
   text-transform: uppercase;
-  padding: 1rem 1.4rem;
-  font-size: 1.3rem;
+  padding: ${() => clampBuilder(320, 1200, 0.8, 1)};
+  ${() => clampBuilder(320, 1200, 1.1, 1.4)};
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.3)};
   border: none;
 
   ${(props) => variations[props.variation]}
   ${(props) =>
     props.size === "large" &&
     css`
-      padding: 1.4rem 2.4rem;
-      font-size: 1.5rem;
+      padding: ${() => clampBuilder(320, 1200, 1, 1.4)}
+        ${() => clampBuilder(320, 1200, 1.7, 2.5)};
+      font-size: ${() => clampBuilder(320, 1200, 1.1, 1.5)};
     `}
 
     ${(props) =>
@@ -75,7 +78,7 @@ const Button = styled.button`
       display: flex;
       justify-content: center;
       align-items: center;
-      column-gap: 1.5rem;
+      column-gap: ${() => clampBuilder(320, 1200, 1.2, 1.5)};
     `}
 `;
 
