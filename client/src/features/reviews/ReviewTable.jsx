@@ -17,8 +17,7 @@ function ReviewTable() {
   return (
     <ReviewContainer>
       <Table
-        column={` ${() =>
-          clampBuilder(320, 1200, 3.5, 8)} 1fr 2.3fr 1.2fr 1.4fr`}
+        column={`${clampBuilder(320, 1200, 3.5, 8)} 1fr 2.3fr 1.2fr 1.4fr`}
       >
         <Table.Header>
           <div></div>

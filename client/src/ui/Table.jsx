@@ -104,6 +104,8 @@ const TableContext = createContext();
 // Create parent element
 
 function Table({ children, column, changes = [] }) {
+  console.log(column);
+
   const { sendBulkdata, isSendingBulkData } = useSendBulkData();
 
   const dispatch = useDispatch();
