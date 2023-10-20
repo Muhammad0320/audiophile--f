@@ -1,10 +1,10 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import ButtonCategory from "./ButtonCategory";
 import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../styles/clampFunction";
 
 const Box = styled.ul`
-  margin: 20rem 0;
+  margin: ${() => clampBuilder(320, 1200, 15, 20)} 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-width: 100%;
@@ -16,6 +16,12 @@ const Box = styled.ul`
     grid-template-rows: repeat(3, 1fr);
     row-gap: ${() => clampBuilder(100, 500, 13, 18)};
   }
+
+  ${(props) =>
+    props.type === "menu" &&
+    css`
+      margin: ${() => clampBuilder(320, 1200, 7, 12)} 0;
+    `}
 `;
 
 const CategoryItem = styled.li`
@@ -45,11 +51,11 @@ const Image = styled.img`
   }
 `;
 
-function CategoryBox() {
+function CategoryBox({ ...props }) {
   const navigate = useNavigate();
 
   return (
-    <Box>
+    <Box {...props}>
       <CategoryItem>
         <Image
           src="/assets/shared/desktop/image-category-thumbnail-headphones.png"

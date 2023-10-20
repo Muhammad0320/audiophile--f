@@ -17,10 +17,11 @@ const StyledModal = styled.div`
 const StyledModalMenu = styled.div`
   position: fixed;
   width: 100%;
-  top: ${() => clampBuilder(320, 920, 3, 5)};
-  background-color: var(--color-white);
-  background: var(--color-white-vivid);
+  /* height: 50%; */
+  top: ${() => clampBuilder(320, 920, 5, 8)};
 
+  background: var(--color-white);
+  z-index: 2;
   background-image: var(--color-gradient-light);
   box-shadow: var(--bos-shadow-light);
   transition: all 0.5s;
