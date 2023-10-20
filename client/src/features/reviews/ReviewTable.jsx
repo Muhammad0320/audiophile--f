@@ -8,7 +8,11 @@ import { clampBuilder } from "../../styles/clampFunction";
 const ReviewContainer = styled.div`
   grid-column: 2 / -1;
   overflow: auto;
-  margin: 0 3rem;
+  margin: 0 ${() => clampBuilder(650, 1200, 1.2, 3)};
+
+  @media (max-width: 650) {
+    margin: 0;
+  }
 `;
 
 function ReviewTable() {
@@ -17,7 +21,17 @@ function ReviewTable() {
   return (
     <ReviewContainer>
       <Table
-        column={`${clampBuilder(320, 1200, 3.5, 8)} 1fr 2.3fr 1.2fr 1.4fr`}
+        column={` ${clampBuilder(
+          320,
+          1200,
+          3.5,
+          8
+        )}  1fr minmax(0, 2.3fr) minmax(0,  ${clampBuilder(
+          320,
+          1200,
+          2,
+          5
+        )}) minmax( 0, 1fr)`}
       >
         <Table.Header>
           <div></div>

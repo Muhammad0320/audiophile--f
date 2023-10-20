@@ -41,7 +41,13 @@ function ReviewItem({ data }) {
   const numberToCheck = viewportWidth >= 850 ? 10 : 6;
 
   const ratingIconSize =
-    viewportWidth < 750 ? 15 : viewportWidth < 650 ? 10 : 22;
+    viewportWidth < 750
+      ? 15
+      : viewportWidth < 650
+      ? 10
+      : viewportWidth < 600
+      ? 7
+      : 22;
 
   const { deleteReview, isDeleting } = useDeleteReview();
 
