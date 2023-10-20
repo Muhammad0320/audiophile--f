@@ -19,6 +19,7 @@ const DetailsContainer = styled.div`
   grid-auto-flow: column;
   background-color: var(--color-white-1);
   box-shadow: var(--box-shadow-dark);
+  background-image: var(--color-gradient-dark-muted);
 
   @media (max-width: 920px) {
     grid-template-columns: ${() => clampBuilder(320, 920, 4, 9)} 1fr;
@@ -137,8 +138,6 @@ function Account({ children }) {
   return (
     <PageContainer>
       <DetailsContainer>
-        <BiSolidCommentDetail />
-
         {viewportWidth <= 920 ? (
           <CollapesdSidebar>
             <NavList>
