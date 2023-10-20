@@ -8,15 +8,16 @@ import DeleteConfirm from "../../ui/DeleteConfirm";
 import { useDeleteReview } from "./useDeleteReview";
 import EditReviewForm from "../../ui/EditReviewForm";
 import { ReviewRating } from "../../ui/StarRating";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const Image = styled.img`
   display: inline-block;
-  height: 8rem;
-  width: 8rem;
+  height: ${() => clampBuilder(320, 1200, 3.5, 8)};
+  width: ${() => clampBuilder(320, 1200, 3.5, 8)};
 `;
 
 const Review = styled.span`
-  font-size: 1.4rem;
+  font-size: ${() => clampBuilder(320, 1200, 0.8, 1.4)};
 
   font-size: 500;
 
@@ -27,7 +28,7 @@ const Review = styled.span`
 `;
 
 const Name = styled.span`
-  font-size: 1.6rem;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 1.6)};
   font-weight: 600;
 `;
 

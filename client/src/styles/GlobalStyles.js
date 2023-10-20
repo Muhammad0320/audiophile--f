@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
     --color-white-2: #f1f1f1 ;
     --color-white-3: rgba(255, 255, 255, .4);
 
-    
+
 
     --color-gradient-dark: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .25));
     --color-gradient-dark-1: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .50));
@@ -42,7 +42,7 @@ const GlobalStyles = createGlobalStyle`
     --color-primary-dark: color-mix(in oklab, var(--color-primary) 80%, var(--color-dark));
     --color-primary-light-muted: color-mix(in oklab, var(--color-primary-light) 30%, var(--color-white));
     --color-primary-light-dark: color-mix(in oklab, var(--color-primary-light) 80%, var(--color-dark));
-
+    
 
     --box-shadow-light: 0 5px 5px 3px rgba(16, 16, 16, 0.2); 
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
