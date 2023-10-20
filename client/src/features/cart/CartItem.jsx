@@ -5,33 +5,34 @@ import { formatCurrency } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteItem, getCurrentItemQuantityById } from "./cartSlice";
 import { HiXMark } from "react-icons/hi2";
+import { clampBuilder } from "../../styles/clampFunction";
 
 export const CartItemContainer = styled.li`
   display: flex;
-  column-gap: 1rem;
+  column-gap: ${() => clampBuilder(320, 1200, 0.7, 1)};
   color: var(--color-dark);
   align-items: center;
 `;
 
 export const CartText = styled.span`
-  color: var(--color-dark);
-  opacity: 0.7;
+  color: var(--color-dark-3);
+
   font-weight: 400;
-  font-size: 2rem;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
   margin-left: auto;
-  padding-right: 2rem;
+  padding-right: ${() => clampBuilder(320, 1200, 1.2, 2)};
 `;
 
 export const CartItemDescription = styled.div`
   display: flex;
   flex-flow: column;
-  margin-left: 1rem;
+  margin-left: ${() => clampBuilder(320, 1200, 0.8, 1)};
 `;
 
 export const CartItemName = styled.p`
   margin-right: auto;
-  margin-bottom: -2rem;
-  font-size: 2rem;
+  margin-bottom: ${() => clampBuilder(320, 1200, -1.2, -2)};
+  font-size: ${() => clampBuilder(320, 1200, 1.1, 2)};
   font-weight: 600;
 `;
 
@@ -39,21 +40,21 @@ export const CartItemImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20%;
-  width: 20%;
+  height: ${() => clampBuilder(320, 1200, 3, 5)};
+  width: ${() => clampBuilder(320, 1200, 3, 5)};
 
   ${(props) =>
     props.page === "checkout" &&
     css`
-      height: 15%;
-      width: 15%;
+      height: ${() => clampBuilder(320, 1200, 2.5, 4)};
+      width: ${() => clampBuilder(320, 1200, 2.5, 4)};
     `}
 `;
 
 const ButtonDelete = styled.button`
-  font-size: 3rem;
-  color: var(--color-dark);
-  opacity: 0.8;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 3)};
+  color: var(--color-dark-3);
+
   border: none;
   background-color: transparent;
   transition: color 0.3s;
