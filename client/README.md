@@ -12,7 +12,7 @@
 - Changes state in the redux to add any changes that occurs in the cart for easier managaement and send all the chnanges to the server in just one network trip for improved performance.
 - Checkout: user can checkout products that are saved in their cart and handle their card payment with Stripe.
 - User profile management: Full access to the user's profile like updating current user's data, uploading a profile photo, passwords, resetting passwords for users forgot their password.
-
+- Order management: In this application, user can access all their processed orders and the information related to the specific order, like the date of purchase, total price, order status number of items per order and lot more.
 - Review management: user can manage all of their reviews by deleting and editing desired ones.
 
 - Notification on how many total items are present in the cart
