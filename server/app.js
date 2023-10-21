@@ -36,7 +36,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://audiophile-f.vercel.app/');
+  res.header(
+    'Access-Control-Allow-Origin',
+    'https://audiophile-1afij8wrk-muhammad0320.vercel.app'
+  );
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization'
@@ -50,7 +53,7 @@ app.use(function(req, res, next) {
 
 app.use(
   cors({
-    origin: ['https://audiophile-f.vercel.app/'],
+    origin: ['https://audiophile-1afij8wrk-muhammad0320.vercel.app'],
     methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD', 'PATCH', 'DELETE'],
     credentials: true
   })
