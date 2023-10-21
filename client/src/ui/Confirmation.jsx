@@ -35,9 +35,13 @@ const StyledContainer = styled.div`
 
   border-radius: 1.5rem;
   overflow: hidden;
-  padding: ${() => clampBuilder(320, 1200, 3, 5)};
+  padding: 3rem 0;
   ${() => clampBuilder(320, 1200, 1.8, 3)};
   box-shadow: var(--box-shadow-dark);
+
+  @media (max-width: 500px) {
+    grid-template-rows: 0.4fr 0.4fr ${() => clampBuilder(320, 1200, 3, 4)} 1.2fr 4rem;
+  }
 `;
 
 const StyledIcon = styled.span`
@@ -60,35 +64,49 @@ const CartOverviewContainer = styled.div`
   grid-template-columns: 1.5fr 1fr;
   background-color: transparent;
 
-  border-radius: 1rem;
+  border-radius: 5px;
+  overflow: hidden;
 
   & + button {
     margin-top: 2rem;
 
     align-self: center;
   }
+
+  @media (max-width: 500px) {
+    grid-template-columns: none;
+
+    grid-template-rows: 1.5fr 1fr;
+  }
 `;
 
 const CartPriceOverview = styled.div`
-  grid-column: 2 / -1;
-  grid-row: 1 / 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   row-gap: ${() => clampBuilder(320, 1200, 1, 1.5)};
   padding: ${() => clampBuilder(320, 1200, 1.4, 2)};
   background-color: var(--color-dark-1);
+
+  @media (max-width: 500px) {
+    padding: ${() => clampBuilder(320, 500, 1.3, 2)};
+    ${() => clampBuilder(320, 500, 2, 3)};
+  }
 `;
 
 const CartOverview = styled.div`
   background-color: var(--color-white-2);
   padding: ${() => clampBuilder(320, 1200, 1.4, 2)};
-  grid-column: 1 / 2;
+
+  @media (max-width: 500px) {
+    padding-block-end: 0;
+  }
 `;
 
 const OtherCartItem = styled.div`
   border-top: 1px solid var(--color-dark-2);
-  opacity: 0.4;
+  color: var(--color-dark-3);
+  font-weight: 500;
   text-align: center;
 `;
 
