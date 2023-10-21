@@ -12,6 +12,7 @@ import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../../styles/clampFunction";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { useViewport } from "../../context/ViewPort";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -85,6 +86,8 @@ function Cart({ page, onClose }) {
 
   const { ref } = useClickOutside(onClose);
 
+  const { viewportWidth } = useViewport();
+
   if (!carts.length)
     return (
       <StyledCart>
@@ -114,7 +117,11 @@ function Cart({ page, onClose }) {
       </CartContainer>
 
       <Container>
-        <Text style={{ fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}` }}>
+        <Text
+          style={{
+            fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}`,
+          }}
+        >
           {" "}
           TOTAL{" "}
         </Text>
@@ -125,7 +132,11 @@ function Cart({ page, onClose }) {
       {page && (
         <>
           <Container>
-            <Text style={{ fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}` }}>
+            <Text
+              style={{
+                fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}`,
+              }}
+            >
               {" "}
               SHIPPING FEES{" "}
             </Text>
