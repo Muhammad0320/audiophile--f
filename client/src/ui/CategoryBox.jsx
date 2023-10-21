@@ -4,12 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../styles/clampFunction";
 
 const Box = styled.ul`
-  margin: ${() => clampBuilder(320, 1200, 15, 20)} 0;
+  margin: ${() => clampBuilder(320, 1200, 10, 13)} 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-width: 100%;
   padding: 0;
   column-gap: ${() => clampBuilder(500, 1200, 1.5, 3)};
+
+  justify-content: center;
+
+  align-items: center;
+  margin-inline: auto;
 
   @media (max-width: 500px) {
     grid-template-columns: none;
@@ -20,7 +25,7 @@ const Box = styled.ul`
   ${(props) =>
     props.type === "menu" &&
     css`
-      margin: ${() => clampBuilder(320, 1200, 7, 12)} 0;
+      max-width: 90%;
     `}
 `;
 
@@ -34,8 +39,8 @@ const CategoryItem = styled.li`
   border-radius: 1rem;
   color: var(--color-dark);
   background-color: var(--color-white-2);
+
   background-image: var(--color-gradient-dark-muted);
-  text-align: center;
   text-transform: uppercase;
   padding: ${() => clampBuilder(500, 1200, 1.8, 3)};
   box-shadow: var(--box-shadow-light);

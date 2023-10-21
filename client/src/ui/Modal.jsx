@@ -36,6 +36,8 @@ const StyledModalMenu = styled.div`
   box-shadow: var(--bos-shadow-light);
   transition: all 0.5s;
 
+  padding-left: 0;
+
   @media (max-width: 500px) {
     width: 100%;
     height: 100dvh;
