@@ -20,6 +20,7 @@ import { CartTextBold } from "../features/cart/Cart";
 import { formatCurrency, grandTotalPrice } from "../utils/helper";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -29,11 +30,13 @@ const StyledContainer = styled.div`
   width: 70%;
   align-items: center;
   align-items: flex-start;
-  background-color: var(--color-white-vivid);
-  border-radius: 2rem;
+  background-color: var(--color-white);
+  background-image: var(--color-gradient-dark);
+
   border-radius: 1.5rem;
   overflow: hidden;
-  padding: 5rem 3rem;
+  padding: ${() => clampBuilder(320, 1200, 3, 5)};
+  ${() => clampBuilder(320, 1200, 1.8, 3)};
   box-shadow: var(--box-shadow-dark);
 `;
 
@@ -43,7 +46,7 @@ const StyledIcon = styled.span`
 
 const ConfirmationText = styled.h2`
   font-weight: 600;
-  font-size: var(--font-medium);
+  font-size: ${() => clampBuilder(320, 1200, 2, 3)};
   text-transform: uppercase;
   color: var(--color-dark);
 `;
@@ -51,16 +54,16 @@ const ConfirmationText = styled.h2`
 const CartOverviewContainer = styled.div`
   display: grid;
   border-bottom: 1rem;
-
+  box-shadow: var(--box-shadow-dark);
   grid-template-columns: 1.5fr 1fr;
   background-color: transparent;
 
-  padding: 1.5rem;
-  border-radius: 1.5rem;
+  padding: ${() => clampBuilder(320, 1200, 1, 1.5)};
+  border-radius: 1rem;
 
   & + button {
     margin-top: var(--margin-very-small);
-    padding: 1.7rem;
+    padding: ${() => clampBuilder(320, 1200, 1.3, 1.7)};
     align-self: stretch;
     text-align: center;
   }
@@ -72,28 +75,28 @@ const CartPriceOverview = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  row-gap: 1.5rem;
-  padding: var(--padding-tiny);
+  row-gap: ${() => clampBuilder(320, 1200, 1, 1.5)};
+  padding: ${() => clampBuilder(320, 1200, 1.4, 2)};
   background-color: var(--color-dark-1);
 `;
 
 const CartOverview = styled.div`
   background-color: var(--color-white-2);
-  padding: var(--padding-tiny);
+  padding: ${() => clampBuilder(320, 1200, 1.4, 2)};
   grid-column: 1 / 2;
 `;
 
 const OtherCartItem = styled.div`
-  border-top: 1px solid var(--color-dark);
-  opacity: 0.3;
+  border-top: 1px solid var(--color-dark-3);
+  /* opacity: 0.3; */
   text-align: center;
 `;
 
 const TextTotal = styled.span`
   color: var(--color-white-2);
 
-  font-size: 2rem;
-  opacity: 0.8;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
+  /* opacity: 0.8; */
   align-self: flex-start;
   margin-bottom: -2rem;
 `;
