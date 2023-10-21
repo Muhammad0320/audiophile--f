@@ -2,7 +2,7 @@
 
 ## Description
 
-**A fully functional, responsive fullstack website for an e-commerce platform. This website allows users to browse and purchase products, add and manage reviews, manage their shopping carts and persisting the update in the database, handling real payment with stripe , complete orders, and lot more.**
+**A fully functional, responsive fullstack website for an e-commerce platform with a beautiful UI. This website allows users to browse and purchase products, add and manage reviews, manage their shopping carts and persisting the update in the database, handling real payment with stripe , complete orders, and lot more.**
 
 ## Features
 
@@ -14,7 +14,7 @@
 - User profile management: Full access to the user's profile like updating current user's data, uploading a profile photo, passwords, resetting passwords for users forgot their password.
 - Order management: In this application, user can access all their processed orders and the information related to the specific order, like the date of purchase, total price, order status number of items per order and lot more.
 - Review management: user can manage all of their reviews by deleting and editing desired ones.
-
+- Security: security is the our priority in this application as user's sensitive data like are not stored verbatim exactly in the database it's hashed by a powerful package called bcrypt to handle the hashing.
 - Notification on how many total items are present in the cart
 - Responsiveness: With all the good and nice features in this app it is also fully responsive on desktops, tablets and mobile mode
 
@@ -32,7 +32,7 @@ You can preview this website at `https://audiophile-f.vercel.app/`
 
 1. Clone the repository: `git clone https://github.com/Muhammad0320/audiophile--f.git`
 2. Navigate to the server directory: `cd audiophile--f/server`
-3. Install dependencies: `npm install`
+3. Install dependencies: `npm install` or `npm i`
 
 ## Usage
 
