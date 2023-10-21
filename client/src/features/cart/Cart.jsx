@@ -122,7 +122,7 @@ function Cart({ page, onClose }) {
       {page && (
         <>
           <Container>
-            <Text style={{ fontSize: "1.2rem" }}> SHIPPING FEES </Text>
+            <Text> SHIPPING FEES </Text>
 
             <CartTextBold> {formatCurrency(shippingFee)} </CartTextBold>
           </Container>

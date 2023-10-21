@@ -12,7 +12,6 @@ const StyledCheckout = styled.div`
   display: grid;
 
   grid-template-columns: 1.5fr 1fr;
-
   column-gap: ${() => clampBuilder(320, 1200, 2.5, 4)};
 `;
 

@@ -32,7 +32,6 @@ function CheckoutContent() {
   return (
     <ContainerLayout page="checkout">
       <Header />
-
       <ContainerContent>
         <Checkout>
           <StyledCheckoutForm>
