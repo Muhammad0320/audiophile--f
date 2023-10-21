@@ -23,13 +23,13 @@ import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../styles/clampFunction";
 
 const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 0.5fr 3rem max-content 0.1fr;
+
   justify-content: center;
   height: 70%;
   width: 70%;
-  align-items: center;
-  align-items: flex-start;
+
   background-color: var(--color-white);
   background-image: var(--color-gradient-dark);
 
@@ -41,12 +41,13 @@ const StyledContainer = styled.div`
 `;
 
 const StyledIcon = styled.span`
-  width: 100%;
+  width: ${() => clampBuilder(320, 1200, 1.2, 2)};
 `;
 
 const ConfirmationText = styled.h2`
   font-weight: 600;
-  font-size: ${() => clampBuilder(320, 1200, 2, 3)};
+  margin-block: 0;
+  font-size: ${() => clampBuilder(320, 1200, 1.8, 3)};
   text-transform: uppercase;
   color: var(--color-dark);
 `;
@@ -62,10 +63,10 @@ const CartOverviewContainer = styled.div`
   border-radius: 1rem;
 
   & + button {
-    margin-top: var(--margin-very-small);
-    padding: ${() => clampBuilder(320, 1200, 1.3, 1.7)};
-    align-self: stretch;
-    text-align: center;
+    margin-block: var(--margin-very-small);
+    padding: ${() => clampBuilder(320, 1200, 1.2, 1.7)};
+
+    align-self: self-end;
   }
 `;
 
@@ -87,16 +88,15 @@ const CartOverview = styled.div`
 `;
 
 const OtherCartItem = styled.div`
-  border-top: 1px solid var(--color-dark-3);
-  /* opacity: 0.3; */
+  border-top: 1px solid var(--color-dark-2);
+  opacity: 0.4;
   text-align: center;
 `;
 
 const TextTotal = styled.span`
-  color: var(--color-white-2);
+  color: var(--color-white-3);
 
   font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
-  /* opacity: 0.8; */
   align-self: flex-start;
   margin-bottom: -2rem;
 `;
