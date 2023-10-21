@@ -5,7 +5,6 @@ const StyledForm = styled.form`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
 
-  background-color: var(--color-white);
   color: var(--color-dark);
 `;
 
