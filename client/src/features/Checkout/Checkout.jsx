@@ -2,8 +2,6 @@ import { styled } from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
 
 const StyledCheckout = styled.div`
-  background-color: var(--color-white-2);
-
   margin: ${() => clampBuilder(320, 1200, 7, 10)} 0;
   border-radius: 1.2rem;
 

@@ -9,7 +9,6 @@ const StyledContainerLayout = styled.div`
   ${(props) =>
     props.page === "checkout" &&
     css`
-      background-color: var(--color-white-2);
       grid-template-columns: minmax(4rem, 8rem) 90dvw minmax(4rem, 8rem);
     `}
 

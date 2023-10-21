@@ -12,7 +12,6 @@ import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../../styles/clampFunction";
 import { useClickOutside } from "../../hooks/useClickOutside";
-import { useViewport } from "../../context/ViewPort";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -49,6 +48,13 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  ${(props) =>
+    props.type === "total" &&
+    css`
+      color: var(--color-primary);
+      font-weight: 700;
+    `}
 `;
 
 export const CartTextBold = styled.p`
@@ -85,8 +91,6 @@ function Cart({ page, onClose }) {
   const vat = 0.2 * +totalCartPrice;
 
   const { ref } = useClickOutside(onClose);
-
-  const { viewportWidth } = useViewport();
 
   if (!carts.length)
     return (
@@ -153,7 +157,7 @@ function Cart({ page, onClose }) {
             <CartTextBold> {formatCurrency(vat)} </CartTextBold>
           </Container>
 
-          <Container>
+          <Container type="total">
             <Text style={{ fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}` }}>
               {" "}
               GRAND TOTAL{" "}
