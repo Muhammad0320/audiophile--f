@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.set('trust proxy', true);
+app.set('trust proxy', false);
 
 app.use(sanitize());
 
