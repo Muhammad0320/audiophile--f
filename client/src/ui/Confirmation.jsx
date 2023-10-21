@@ -24,10 +24,10 @@ import { clampBuilder } from "../styles/clampFunction";
 
 const StyledContainer = styled.div`
   display: grid;
-  grid-template-rows: 1fr 0.5fr 3rem max-content 0.1fr;
-
+  grid-template-rows: 1fr 0.5fr 3rem max-content 3rem;
+  row-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
   justify-content: center;
-  height: 70%;
+  height: 75%;
   width: 70%;
 
   background-color: var(--color-white);
@@ -44,10 +44,10 @@ const StyledIcon = styled.span`
   width: ${() => clampBuilder(320, 1200, 1.2, 2)};
 `;
 
-const ConfirmationText = styled.h2`
+const ConfirmationText = styled.h3`
   font-weight: 600;
   margin-block: 0;
-  font-size: ${() => clampBuilder(320, 1200, 1.8, 3)};
+  font-size: ${() => clampBuilder(320, 1200, 2, 3)};
   text-transform: uppercase;
   color: var(--color-dark);
 `;
@@ -59,12 +59,10 @@ const CartOverviewContainer = styled.div`
   grid-template-columns: 1.5fr 1fr;
   background-color: transparent;
 
-  padding: ${() => clampBuilder(320, 1200, 1, 1.5)};
   border-radius: 1rem;
 
   & + button {
-    margin-block: var(--margin-very-small);
-    padding: ${() => clampBuilder(320, 1200, 1.2, 1.7)};
+    margin-top: 2rem;
 
     align-self: center;
   }
