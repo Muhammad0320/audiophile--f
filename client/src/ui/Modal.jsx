@@ -1,4 +1,10 @@
-import { cloneElement, createContext, useContext, useState } from "react";
+import {
+  cloneElement,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { styled } from "styled-components";
 import { useClickOutside } from "../hooks/useClickOutside";
 import { createPortal } from "react-dom";
@@ -19,7 +25,7 @@ const StyledModal = styled.div`
 
 const StyledModalMobile = styled.div`
   height: 100dvh;
-  /* width: 100%; */
+
   display: grid;
   justify-content: center;
   align-content: center;
@@ -64,6 +70,14 @@ function Modal({ children }) {
   const open = setOpenModal;
 
   const close = () => setOpenModal("");
+
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [openModal]);
 
   return (
     <ModalContext.Provider value={{ open, openModal, close }}>
