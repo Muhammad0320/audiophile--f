@@ -28,6 +28,7 @@ import AccountPage from "./pages/AccountPage";
 import HomePage from "./pages/HomePage";
 import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
 import { ViewPortProvider } from "./context/ViewPort";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -58,6 +59,7 @@ function App() {
       <ViewPortProvider>
         <GlobalStyles />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route element={<AppLayout />}>
               <Route index element={<Navigate replace to="home" />} />
