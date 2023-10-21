@@ -5,6 +5,7 @@ import InputTypeHeader from "../../ui/InputTypeHeader";
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import { handleFormStep } from "./handleFormStep";
+import { useViewport } from "../../context/ViewPort";
 
 function ShippingInfo({ step, setStep }) {
   const { register, handleSubmit, reset, formState } = useForm();
@@ -12,6 +13,10 @@ function ShippingInfo({ step, setStep }) {
   const { errors } = formState;
 
   const onSubmit = handleFormStep(reset, step, setStep);
+
+  const { viewportWidth } = useViewport();
+
+  const isSmallVW = viewportWidth < 600;
 
   return (
     <>
@@ -31,7 +36,11 @@ function ShippingInfo({ step, setStep }) {
           />
         </FormRow>
 
-        <FormRow label="Zip Code" position="left" error={errors?.zip?.message}>
+        <FormRow
+          label="Zip Code"
+          position={isSmallVW ? "both" : "left"}
+          error={errors?.zip?.message}
+        >
           <Input
             id="zip"
             error={errors?.zip?.message}
@@ -48,11 +57,15 @@ function ShippingInfo({ step, setStep }) {
           />
         </FormRow>
 
-        <FormRow label="City" position="right" error={errors?.city?.message}>
+        <FormRow
+          label="City"
+          position={isSmallVW ? "both" : "right"}
+          error={errors?.city?.message}
+        >
           <Input
             id="city"
             disabled={step !== 2}
-            placeholder="Meddina"
+            placeholder="NY CITY"
             error={errors?.city?.message}
             {...register("city", {
               required: "This field is required",
@@ -62,20 +75,20 @@ function ShippingInfo({ step, setStep }) {
 
         <FormRow
           label="Country"
-          position="left"
+          position={isSmallVW ? "both" : "left"}
           error={errors?.country?.message}
         >
           <Input
             id="country"
             disabled={step !== 2}
-            placeholder="Kuwait"
+            placeholder="USA"
             error={errors?.country?.message}
             {...register("country", {
               required: "This field is required",
             })}
           />
 
-          <FormRow position="right">
+          <FormRow position={isSmallVW ? "both" : "right"}>
             <Button disabled={step !== 2}> Continue </Button>
           </FormRow>
         </FormRow>
