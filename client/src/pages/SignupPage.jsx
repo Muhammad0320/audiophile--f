@@ -13,6 +13,8 @@ const PageContainer = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
+  padding-block: ${() => clampBuilder(320, 1200, 3, 6)};
+  overflow-y: scroll;
 `;
 
 const StyledSignupContainer = styled.div`
