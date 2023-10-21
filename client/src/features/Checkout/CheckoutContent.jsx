@@ -17,8 +17,7 @@ const StyledCheckoutForm = styled.div`
   background-color: var(--color-white);
   padding: 3rem 5rem;
   border-radius: 1.5rem;
-  width: 70%;
-
+  background-image: var(--color-gradient-dark);
   box-shadow: var(--box-shadow-light);
 `;
 
