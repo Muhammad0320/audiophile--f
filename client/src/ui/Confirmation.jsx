@@ -24,10 +24,10 @@ import { clampBuilder } from "../styles/clampFunction";
 
 const StyledContainer = styled.div`
   display: grid;
-  grid-template-rows: 1fr 0.5fr 3rem max-content 3rem;
+  grid-template-rows: 0.4fr 0.4fr ${() => clampBuilder(320, 1200, 3, 4)} max-content 4rem;
   row-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
   justify-content: center;
-  height: 75%;
+  height: 72%;
   width: 70%;
 
   background-color: var(--color-white);
@@ -48,6 +48,7 @@ const ConfirmationText = styled.h3`
   font-weight: 600;
   margin-block: 0;
   font-size: ${() => clampBuilder(320, 1200, 2, 3)};
+  align-self: center;
   text-transform: uppercase;
   color: var(--color-dark);
 `;
@@ -115,7 +116,7 @@ function Confirmation() {
       totalPrice: productTotalPrice,
     } = cart?.at(0);
 
-    name = prodName;
+    name = prodName.split(" ").slice(0, -1).join(" ");
     image = prodImage;
     quantity = prodQuantity;
 
@@ -151,11 +152,24 @@ function Confirmation() {
               <img src={image} alt="Cart overviewImage" />
             </CartItemImageContainer>
             <CartItemDescription>
-              <CartItemName> {name || `loading...`} </CartItemName>
-              <Text> {formatCurrency(totalPrice)} </Text>
+              <CartItemName style={{ width: "100%" }}>
+                {" "}
+                {name || `loading...`}{" "}
+              </CartItemName>
+              <Text
+                style={{
+                  marginBlockStart: ` ${() =>
+                    clampBuilder(320, 1200, 0.5, 1.2)}`,
+                }}
+              >
+                {" "}
+                {formatCurrency(totalPrice)}{" "}
+              </Text>
             </CartItemDescription>
 
-            <CartText>{"X" + quantity || `loading...`} </CartText>
+            <CartText style={{ gridColumn: "3 / -1" }}>
+              {"X" + quantity || `loading...`}{" "}
+            </CartText>
           </CartItemContainer>
 
           <OtherCartItem>
