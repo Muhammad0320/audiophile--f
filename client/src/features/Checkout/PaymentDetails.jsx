@@ -11,12 +11,14 @@ import Button from "../../ui/Button";
 
 import { getCheckoutSesionApi } from "../../service/apiOrder";
 import { useNavigate } from "react-router-dom";
+import { useViewport } from "../../context/ViewPort";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const RadioButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-block: ${() => clampBuilder(320, 1200, 2, 3)};
 `;
 
 function PaymentDetails({ step }) {
@@ -34,15 +36,21 @@ function PaymentDetails({ step }) {
 
   const navigate = useNavigate();
 
+  const { viewportWidth } = useViewport();
+
+  const isSmallVW = viewportWidth < 600;
+
   return (
     <>
       <InputTypeHeader> payment details </InputTypeHeader>
       <Form>
-        <FormRow label="payment method" position="left">
-          <Input type="hidden" />
-        </FormRow>
+        {viewportWidth > 600 && (
+          <FormRow label="payment method">
+            <Input type="hidden" />
+          </FormRow>
+        )}
 
-        <FormRow position="right">
+        <FormRow position={isSmallVW ? "both" : "right"}>
           <RadioButtonsContainer>
             <RadioButton
               value="card"
