@@ -23,9 +23,9 @@ const StyledCard = styled.div`
 
   box-shadow: var(--box-shadow-light);
 
-  background: var(--color-white-vivid);
+  background: var(--color-white);
 
-  background-image: var(--color-gradient-light);
+  background-image: var(--color-gradient-dark);
 
   padding: ${() => clampBuilder(320, 1200, 1.3, 2)};
   ${() => clampBuilder(320, 1200, 1, 1.5)};
