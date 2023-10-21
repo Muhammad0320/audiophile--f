@@ -8,8 +8,11 @@ const StyledCheckout = styled.div`
   border-radius: 1.2rem;
   padding: ${() => clampBuilder(320, 1200, 1.8, 3.5)};
   ${() => clampBuilder(320, 1200, 2, 4)};
-  display: flex;
-  justify-content: center;
+
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr;
+
   column-gap: ${() => clampBuilder(320, 1200, 2.5, 4)};
 `;
 
