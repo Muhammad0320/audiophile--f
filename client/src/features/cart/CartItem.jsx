@@ -22,6 +22,16 @@ export const CartText = styled.span`
   margin-left: auto;
   padding-right: ${() => clampBuilder(450, 1200, 1.2, 2)};
 
+  grid-column: 4 / -1;
+
+  justify-self: self-end;
+
+  ${(props) =>
+    props.page === "checkout" &&
+    css`
+      padding-right: 0;
+    `}
+
   @media (max-width: 450px) {
     font-size: ${() => clampBuilder(320, 450, 1, 1.5)};
   }
@@ -30,6 +40,7 @@ export const CartText = styled.span`
 export const CartItemDescription = styled.div`
   display: flex;
   flex-flow: column;
+
   margin-left: ${() => clampBuilder(320, 1200, 0.8, 1)};
 `;
 
@@ -119,7 +130,7 @@ function CartItem({ cart, page }) {
         </>
       )}
 
-      {page && <CartText> {"X" + quantity} </CartText>}
+      {page && <CartText page="checkout"> {"X" + quantity} </CartText>}
     </CartItemContainer>
   );
 }

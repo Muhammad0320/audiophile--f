@@ -18,7 +18,7 @@ const StyledCart = styled.div`
 
   display: flex;
   border-radius: 1rem;
-  /* width: 40%; */
+
   background-color: var(--color-white);
 
   background-image: var(--color-gradient-dark);
@@ -114,7 +114,10 @@ function Cart({ page, onClose }) {
       </CartContainer>
 
       <Container>
-        <Text> TOTAL </Text>
+        <Text style={{ fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}` }}>
+          {" "}
+          TOTAL{" "}
+        </Text>
 
         <CartTextBold> {formatCurrency(totalCartPrice)} </CartTextBold>
       </Container>
@@ -122,19 +125,28 @@ function Cart({ page, onClose }) {
       {page && (
         <>
           <Container>
-            <Text> SHIPPING FEES </Text>
+            <Text style={{ fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}` }}>
+              {" "}
+              SHIPPING FEES{" "}
+            </Text>
 
             <CartTextBold> {formatCurrency(shippingFee)} </CartTextBold>
           </Container>
 
           <Container>
-            <Text> {"VAT (INCLUDED)"} </Text>
+            <Text style={{ fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}` }}>
+              {" "}
+              {"VAT (INCLUDED)"}{" "}
+            </Text>
 
             <CartTextBold> {formatCurrency(vat)} </CartTextBold>
           </Container>
 
           <Container>
-            <Text> GRAND TOTAL </Text>
+            <Text style={{ fontSize: ` ${clampBuilder(320, 1200, 1, 1.6)}` }}>
+              {" "}
+              GRAND TOTAL{" "}
+            </Text>
 
             <CartTextBold>
               {" "}

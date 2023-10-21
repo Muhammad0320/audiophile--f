@@ -6,8 +6,6 @@ const StyledCheckout = styled.div`
 
   margin: ${() => clampBuilder(320, 1200, 7, 10)} 0;
   border-radius: 1.2rem;
-  padding: ${() => clampBuilder(320, 1200, 1.8, 3.5)};
-  ${() => clampBuilder(320, 1200, 2, 4)};
 
   display: grid;
 
