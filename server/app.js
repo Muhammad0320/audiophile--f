@@ -37,6 +37,8 @@ app.use(xss());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// http://127.0.0.1:3000
+
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'https://audiophile-f.vercel.app');
   res.header(
@@ -52,7 +54,7 @@ app.use(function(req, res, next) {
 
 app.use(
   cors({
-    origin: ['https://audiophile-f.vercel.app'],
+    origin: ['https://audiophile-f.vercel.app', 'http://127.0.0.1:3000/'],
     methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD', 'PATCH', 'DELETE'],
     credentials: true
   })

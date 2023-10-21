@@ -77,7 +77,7 @@ const NavItem = styled(NavLink)`
   justify-content: center;
   align-items: center;
   gap: ${() => clampBuilder(320, 1200, 1, 1.5)};
-  font-size: ${() => clampBuilder(920, 1200, 1.3, 3)};
+  font-size: ${() => clampBuilder(920, 1200, 1.3, 2.5)};
   text-transform: uppercase;
   cursor: pointer;
 
