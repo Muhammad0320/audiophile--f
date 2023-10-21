@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
 
 const StyledCheckout = styled.div`
-  margin: ${() => clampBuilder(320, 1200, 7, 10)} 0;
+  margin-block: ${() => clampBuilder(320, 1200, 7, 10)};
   border-radius: 1.2rem;
 
   display: grid;

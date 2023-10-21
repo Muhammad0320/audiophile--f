@@ -9,12 +9,12 @@ const StyledContainerLayout = styled.div`
   ${(props) =>
     props.page === "checkout" &&
     css`
-      grid-template-columns: minmax(4rem, 8rem) 90dvw minmax(4rem, 8rem);
+      grid-template-columns: minmax(6rem, 8rem) 85dvw minmax(6rem, 8rem);
     `}
 
   @media (max-width: 920px) {
-    grid-template-columns: minmax(${() => clampBuilder(320, 1200, 1, 4)}, 1fr) 95dvw minmax(
-        ${() => clampBuilder(320, 1200, 1, 4)},
+    grid-template-columns: minmax(${() => clampBuilder(320, 1200, 2, 4)}, 1fr) 95dvw minmax(
+        ${() => clampBuilder(320, 1200, 2, 4)},
         1fr
       );
   }

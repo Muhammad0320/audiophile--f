@@ -12,10 +12,12 @@ import { useSelector } from "react-redux";
 import { getCart } from "../cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const StyledCheckoutForm = styled.div`
   background-color: var(--color-white);
-  padding: 3rem 5rem;
+  padding: ${() => clampBuilder(320, 1200, 1.8, 2.8)};
+  ${() => clampBuilder(320, 1200, 3, 5)};
   border-radius: 1.5rem;
   background-image: var(--color-gradient-dark);
   box-shadow: var(--box-shadow-light);

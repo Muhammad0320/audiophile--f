@@ -6,12 +6,14 @@ import Form from "../../ui/Form";
 import { styled } from "styled-components";
 import Button from "../../ui/Button";
 import { handleFormStep } from "./handleFormStep";
+import { useViewport } from "../../context/ViewPort";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const FormHeader = styled.div`
-  font-size: 3.5rem;
+  font-size: ${() => clampBuilder(320, 1200, 2.6, 3.5)};
   font-weight: 500;
 
-  margin: 3rem 0;
+  margin: ${() => clampBuilder(320, 1200, 1.8, 3)} 0;
   color: var(--color-dark);
 `;
 
@@ -22,12 +24,20 @@ function BillingDetails({ step, setStep }) {
 
   const onSubmit = handleFormStep(reset, step, setStep);
 
+  const { viewportWidth } = useViewport();
+
+  const isSmallVW = viewportWidth < 600;
+
   return (
     <>
       <FormHeader> Checkout </FormHeader>
       <InputTypeHeader> Billing Details </InputTypeHeader>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormRow label="Name" position="left" error={errors?.name?.message}>
+        <FormRow
+          label="Name"
+          position={isSmallVW ? "both" : "left"}
+          error={errors?.name?.message}
+        >
           <Input
             id="email"
             disabled={step !== 1}
@@ -37,7 +47,11 @@ function BillingDetails({ step, setStep }) {
           />
         </FormRow>
 
-        <FormRow label="Email" position="right" error={errors?.email?.message}>
+        <FormRow
+          label="Email"
+          position={isSmallVW ? "both" : "right"}
+          error={errors?.email?.message}
+        >
           <Input
             id="email"
             type="email"
@@ -56,7 +70,7 @@ function BillingDetails({ step, setStep }) {
         <FormRow
           label="Phone Number"
           disabled={step !== 1}
-          position="left"
+          position={isSmallVW ? "both" : "left"}
           error={errors?.phone?.message}
         >
           <Input
@@ -75,7 +89,7 @@ function BillingDetails({ step, setStep }) {
           />
         </FormRow>
 
-        <FormRow position="left">
+        <FormRow position={isSmallVW ? "both" : "left"}>
           <Button disabled={step !== 1}> Next </Button>
         </FormRow>
       </Form>
