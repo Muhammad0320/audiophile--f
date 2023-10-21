@@ -66,7 +66,7 @@ const CartOverviewContainer = styled.div`
     margin-block: var(--margin-very-small);
     padding: ${() => clampBuilder(320, 1200, 1.2, 1.7)};
 
-    align-self: self-end;
+    align-self: center;
   }
 `;
 
@@ -142,7 +142,10 @@ function Confirmation() {
       <ConfirmationText>
         Thank you <br /> for your order
       </ConfirmationText>
-      <Text> You will receive an email confirmation shortly </Text>
+      <Text style={{ alignSelf: "center" }}>
+        {" "}
+        You will receive an email confirmation shortly{" "}
+      </Text>
       <CartOverviewContainer>
         <CartOverview>
           <CartItemContainer>
