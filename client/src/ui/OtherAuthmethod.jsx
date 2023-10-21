@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledAuthMethod = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ const StyledAuthMethod = styled.div`
 
   justify-content: space-between;
 
-  font-size: 1.6rem;
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 1.6)};
 
   color: var(--color-dark);
 
@@ -18,6 +19,10 @@ const StyledAuthMethod = styled.div`
     &:hover {
       color: var(--color-primary-light);
     }
+  }
+
+  & > span {
+    font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
   }
 `;
 

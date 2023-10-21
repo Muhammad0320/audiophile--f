@@ -5,9 +5,9 @@ import LoginForm from "../features/Authentication/LoginForm";
 import SVG from "react-inlinesvg";
 import { IconLogo } from "../ui/Icons";
 import OtherAuthmethod from "../ui/OtherAuthmethod";
+import { clampBuilder } from "../styles/clampFunction";
 
 const PageContainer = styled.div`
-  /* width: 100vw; */
   height: 100vh;
   display: grid;
   justify-content: center;
@@ -15,14 +15,15 @@ const PageContainer = styled.div`
 `;
 
 const StyledSignupContainer = styled.div`
-  width: 110%;
   display: grid;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: ${() => clampBuilder(320, 1200, 2.5, 4.5)};
+  ${() => clampBuilder(320, 1200, 1.3, 2.5)};
   background-color: var(--color-white-1);
+  background-image: var(--color-gradient-light);
   border-radius: 1.5rem;
-  row-gap: 3rem;
+  row-gap: ${() => clampBuilder(320, 1200, 1.4, 3)};
   box-shadow: var(--box-shadow-light);
 `;
 
