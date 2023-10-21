@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../styles/clampFunction";
 
 const Box = styled.ul`
-  margin: ${() => clampBuilder(320, 1200, 10, 13)} 0;
+  margin: ${() => clampBuilder(320, 1200, 20, 25)} 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-width: 100%;
@@ -25,6 +25,7 @@ const Box = styled.ul`
   ${(props) =>
     props.type === "menu" &&
     css`
+      margin: ${() => clampBuilder(320, 1200, 10, 13)} 0;
       max-width: 90%;
     `}
 `;
