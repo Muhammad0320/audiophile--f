@@ -95,6 +95,12 @@ export const Heading = styled.h4`
         margin-bottom: ${() => clampBuilder(320, 920, -1, -2)};
       `}
   }
+
+  ${(props) =>
+    props.type === "inTheBox" &&
+    css`
+      text-align: center;
+    `}
 `;
 
 const InTheBox = styled.div`
@@ -111,6 +117,7 @@ const IntheBoxAndHeaderContainer = styled.div`
 `;
 
 const InTheBoxContainer = styled.div`
+  align-self: center;
   display: flex;
   flex-direction: column;
 
