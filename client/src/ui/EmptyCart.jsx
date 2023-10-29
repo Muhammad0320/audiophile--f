@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Text } from "../features/category/Category";
+import { Text } from "./Text";
 
 const EmptyContainer = styled.div`
   display: flex;

@@ -74,6 +74,7 @@ function Modal({ children }) {
 
   useEffect(() => {
     if (openModal) {
+      console.log("Modal is open");
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
