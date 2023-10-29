@@ -5,6 +5,7 @@
 import { Text } from "../../ui/Text";
 import Button from "../../ui/Button";
 import Spinner from "../../ui/Spinner";
+import { Heading } from "../../ui/Heading";
 import { styled } from "styled-components";
 import { useUser } from "../users/useUser";
 import SmallButton from "../../ui/SmallButton";
@@ -12,10 +13,12 @@ import { useNavigate } from "react-router-dom";
 import ReviewCard from "../reviews/reviewCard";
 import { formatCurrency } from "../../utils/helper";
 import UpdateCartItem from "../../ui/UpdateCartItem";
+import { GalleryContainer } from "./GalleryContainer";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetProductBySlug } from "./useProductBySlug";
 import { clampBuilder } from "../../styles/clampFunction";
+import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
 import {
   Container,
   DescriptionContainer,
@@ -33,53 +36,15 @@ import {
   IntheBoxAndHeaderContainer,
   Quantity,
 } from "./FeatureContainer";
-import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
-import { Heading } from "../../ui/Heading";
-import { GalleryContainer } from "./GalleryContainer";
+import {
+  OtherImageContainer,
+  OtherItemContainer,
+  OtherTextBox,
+  OthersContainer,
+} from "./OtherProducts";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
-`;
-
-const OthersContainer = styled.div`
-  display: grid;
-  grid-template-rows: 1fr max-content;
-  color: var(--color-dark);
-`;
-
-const OtherItemContainer = styled.div`
-  display: flex;
-  margin-top: ${() => clampBuilder(320, 1200, 3, 7)};
-  column-gap: ${() => clampBuilder(320, 1200, 3, 7)};
-
-  @media (max-width: 500px) {
-    flex-direction: column;
-
-    row-gap: ${() => clampBuilder(320, 500, 4, 3)};
-  }
-`;
-
-const OtherImageContainer = styled.div`
-  text-align: center;
-  background-color: var(--color-white-2);
-  border-radius: 1rem;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-  grid-row: 1 / 2;
-`;
-
-const OtherTextBox = styled.div`
-  display: flex;
-  grid-row: 2 / -1;
-  flex-direction: column;
-  column-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
-  align-items: center;
-  font-size: ${() => clampBuilder(320, 1200, 1.3, 3.5)};
-  font-weight: 500;
 `;
 
 const StyledReviewCard = styled.div`
