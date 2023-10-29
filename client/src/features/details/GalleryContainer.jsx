@@ -13,6 +13,10 @@ export const GalleryContainer = styled.div`
     grid-template-rows: repeat(2, 1fr) 1.5fr;
   }
 
+  & > * {
+    box-shadow: var(--box-shadow-light);
+  }
+
   & > img:first-of-type {
     grid-row: 1 / 2;
     display: block;

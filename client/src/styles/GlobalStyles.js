@@ -52,8 +52,10 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
 
     --text-shadow: 
-    -0.5px -2px  1px var(--color-primary-muted),
-    -0.5px -2px  1px var(--color-primary-light-dark);
+    -0.5px -1px  1px var(--color-primary-muted),
+    -0.5px -2px  1px var(--color-primary-light-dark),
+    -1px -3px  2px var(--color-white);
+
 
 
     --font-huge: clamp(3.5rem, 4rem, 5.5rem);
