@@ -55,7 +55,7 @@ export const DescriptionContainer = styled.div`
   align-self: center;
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: ${() => clampBuilder(320, 1200, 1.5, 3)};
   margin-inline-end: ${() => clampBuilder(920, 1200, 5, 10)};
   & > button {
     align-self: flex-start;
