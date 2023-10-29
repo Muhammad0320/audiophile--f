@@ -57,6 +57,8 @@ const Text = styled.p`
 
   color: var(--color-dark-3);
 
+  text-align: justify;
+
   @media (max-width: 920px) {
     padding-right: 0;
   }

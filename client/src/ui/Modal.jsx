@@ -15,7 +15,7 @@ const StyledModal = styled.div`
   border-radius: 1rem;
   position: fixed;
   max-width: 50%;
-  top: 20%;
+  top: 30%;
   right: 20%;
   transform: translate(40%, -35%);
   margin-right: ${() => clampBuilder(1000, 1200, 3, 4)};
