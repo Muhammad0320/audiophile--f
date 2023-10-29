@@ -9,7 +9,7 @@ const StyledAvatar = styled(NavLink)`
   justify-content: center;
   column-gap: ${() => clampBuilder(400, 1200, 0.8, 1.5)};
   cursor: pointer;
-  margin-right: ${() => clampBuilder(400, 1200, 0.8, 1.5)};
+  margin-right: ${() => clampBuilder(400, 1200, 0.4, 1)};
   align-items: center;
   color: var(--color-white);
   font-size: ${() => clampBuilder(700, 1200, 1, 1.5)};
@@ -32,7 +32,7 @@ const ImageContainer = styled.img`
   width: 4rem;
   border-radius: 50%;
   box-sizing: content-box;
-  transition: border 0.2s ease-in;
+  transition: border 0.2s;
 
   @media (max-width: 400) {
     height: 3rem;

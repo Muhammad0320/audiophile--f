@@ -99,7 +99,8 @@ export const ProductName = styled.p`
   font-size: ${() => clampBuilder(350, 1200, 3.0, 4.5)};
   line-height: 1.3;
   font-weight: 500;
-  margin-bottom: -1rem;
+  /* margin-bottom: -1rem; */
+  margin-block: 0;
 
   @media (max-width: 920px) {
     text-align: center;

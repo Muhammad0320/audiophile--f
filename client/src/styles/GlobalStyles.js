@@ -84,8 +84,15 @@ html {
   font-size: 62.5%;
 }
 
+html,body{
+
+  overflow-x: hidden;
+
+}
+
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Manrope', sans-serif;
   color: var(--color-white);
   min-height: 100dvh;
@@ -97,13 +104,14 @@ body {
 }
 
 input,
+textarea,
 button{
   font: inherit;
   color: inherit;
 }
 
 ::-webkit-scrollbar-thumb {
-
+  
   background: var( --color-primary-muted ); 
 
   background-image: var(--color-gradient-dark);
