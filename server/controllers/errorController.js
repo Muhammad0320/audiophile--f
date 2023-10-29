@@ -24,7 +24,7 @@ const sendErrorProd = (err, res) => {
 };
 
 const handleCastError = err => {
-  const message = `Invalid product _id: ${err.value}`;
+  const message = `Invalid  id: ${err.value}`;
 
   return new AppError(message, 404);
 };

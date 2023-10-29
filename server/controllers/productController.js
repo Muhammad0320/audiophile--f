@@ -70,6 +70,7 @@ exports.uploadProductImages = upload.fields([
 
 exports.resizeProductImages = catchAsync(async (req, res, next) => {
   if (!req.files.image || !req.files.gallery) return next();
+
   req.body.image = `product-${req.params.id}-${Date.now()}.jpeg`;
 
   const imagePath = path.join(
