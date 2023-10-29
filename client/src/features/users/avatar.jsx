@@ -20,6 +20,10 @@ const StyledAvatar = styled(NavLink)`
   &:hover {
     color: var(--color-primary-muted);
   }
+
+  &:hover > :first-child {
+    border: 1px solid var(--color-primary);
+  }
 `;
 
 const ImageContainer = styled.img`
@@ -29,10 +33,6 @@ const ImageContainer = styled.img`
   border-radius: 50%;
   box-sizing: content-box;
   transition: border 0.2s ease-in;
-
-  &:hover {
-    border: 1px solid var(--color-primary);
-  }
 
   @media (max-width: 400) {
     height: 3rem;
