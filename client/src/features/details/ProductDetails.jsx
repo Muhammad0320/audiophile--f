@@ -239,18 +239,21 @@ const FeatureText = styled.p`
   }
 `;
 
-const UpdateCartButton = styled.div`
-  display: grid;
-  place-items: center;
+// const UpdateCartButton = styled.div`
+//   display: grid;
 
-  @media (max-width: 920px) {
-    width: 30%;
-  }
+//   place-items: center;
 
-  @media (max-width: 420px) {
-    width: 15%;
-  }
-`;
+//   width: 100%;
+
+//   @media (max-width: 920px) {
+//     width: 30%;
+//   }
+
+//   @media (max-width: 420px) {
+//     width: 15%;
+//   }
+// `;
 
 const StyledReviewCard = styled.div`
   display: grid;
@@ -361,9 +364,7 @@ function ProductDetails() {
               add to cart{" "}
             </Button>
           ) : (
-            <UpdateCartButton>
-              <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
-            </UpdateCartButton>
+            <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
           )}
         </DescriptionContainer>
       </Container>

@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
-  width: ${() => clampBuilder(650, 1200, 4, 5)};
+  width: ${() => clampBuilder(650, 1200, 7, 10)};
   font-weight: 500;
   color: var(--color-dark);
   padding: ${() => clampBuilder(320, 1200, 1, 1.6)};
