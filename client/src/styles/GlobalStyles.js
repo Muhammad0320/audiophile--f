@@ -30,6 +30,8 @@ const GlobalStyles = createGlobalStyle`
     --color-white-2: #f1f1f1 ;
     --color-white-3: rgba(255, 255, 255, .4);
 
+  
+
 
 
     --color-gradient-dark: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .25));
@@ -48,6 +50,10 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow-light: 0 5px 5px 3px rgba(16, 16, 16, 0.2); 
     --box-shadow-light-2: 0 5px 5px 3px rgba(16, 16, 16, 0.1); 
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
+
+    --text-shadow: 
+    -0.5px -2px  1px var(--color-primary-muted),
+    -0.5px -2px  1px var(--color-primary-light-dark);
 
 
     --font-huge: clamp(3.5rem, 4rem, 5.5rem);

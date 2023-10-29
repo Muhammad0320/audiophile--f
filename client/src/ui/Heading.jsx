@@ -13,6 +13,8 @@ export const Heading = styled.h4`
 
   background-image: var(--color-gradient-dark);
 
+  text-shadow: var(--text-shadow);
+
   background-clip: text;
   -webkit-background-clip: text;
 
@@ -24,9 +26,6 @@ export const Heading = styled.h4`
       text-align: center;
       margin-bottom: ${() => clampBuilder(320, 1200, 3.5, 6)};
       font-size: ${() => clampBuilder(320, 1200, 2.2, 4)};
-      background-color: var(--color-primary-light-dark);
-
-      background-image: var(--color-gradient-dark);
     `}
 
   ${(props) =>

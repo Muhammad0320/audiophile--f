@@ -1,10 +1,10 @@
 import Button from "../../ui/Button";
-import { useNavigate } from "react-router-dom";
+import { Text } from "../../ui/Text";
 import SmallButton from "../../ui/SmallButton";
+import { useNavigate } from "react-router-dom";
+import { useViewport } from "../../context/ViewPort";
 import { useMoveBack } from "../../hooks/useMoveBack";
 
-import { useViewport } from "../../context/ViewPort";
-import { Text } from "../../ui/Text";
 import {
   Container,
   DescriptionContainer,
