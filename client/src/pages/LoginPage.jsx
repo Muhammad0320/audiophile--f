@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { Heading } from "../features/details/ProductDetails";
+
 import LoginForm from "../features/Authentication/LoginForm";
 
 import SVG from "react-inlinesvg";
 import { IconLogo } from "../ui/Icons";
 import OtherAuthmethod from "../ui/OtherAuthmethod";
 import { clampBuilder } from "../styles/clampFunction";
+import { Heading } from "../ui/Heading";
 
 const PageContainer = styled.div`
   height: 100vh;

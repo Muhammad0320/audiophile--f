@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { Heading } from "../features/details/ProductDetails";
 
 import SVG from "react-inlinesvg";
 import { IconLogo } from "../ui/Icons";
 import SignupForm from "../features/Authentication/SignupForm";
 import OtherAuthmethod from "../ui/OtherAuthmethod";
 import { clampBuilder } from "../styles/clampFunction";
+import { Heading } from "../ui/Heading";
 
 const PageContainer = styled.div`
   width: 100vw;
