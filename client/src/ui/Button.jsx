@@ -61,6 +61,7 @@ const Button = styled.button`
   padding: ${() => clampBuilder(320, 1200, 0.8, 1)};
   ${() => clampBuilder(320, 1200, 1.1, 1.4)};
   font-size: ${() => clampBuilder(320, 1200, 1, 1.3)};
+  box-shadow: 2px 2px 2px var(--color-primary);
   border: none;
 
   ${(props) => variations[props.variation]}
