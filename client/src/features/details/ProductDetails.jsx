@@ -3,14 +3,7 @@
 // https://youtu.be/FErIfEd3IHI?si=bQHsyv4Le3WgbiK6
 
 import { useNavigate } from "react-router-dom";
-import {
-  Container,
-  DescriptionContainer,
-  ImageContainer,
-  NewProduct,
-  ProductName,
-  ProductPrice,
-} from "../category/Category";
+
 import { formatCurrency } from "../../utils/helper";
 import Button from "../../ui/Button";
 import { css, styled } from "styled-components";
@@ -28,6 +21,14 @@ import { useUser } from "../users/useUser";
 import ReviewCard from "../reviews/reviewCard";
 import { clampBuilder } from "../../styles/clampFunction";
 import { Text } from "../../ui/Text";
+import {
+  Container,
+  DescriptionContainer,
+  ImageContainer,
+  NewProduct,
+  ProductName,
+  ProductPrice,
+} from "../../ui/productStyles";
 
 const FeatureBox = styled.div`
   display: flex;
@@ -122,8 +123,6 @@ const InTheBoxContainer = styled.div`
     margin-top: 3rem;
     align-self: flex-start;
   }
-
-  /* row-gap: ${() => clampBuilder(320, 1200, 0.8, 2)}; */
 `;
 
 const Quantity = styled.span`
