@@ -34,12 +34,12 @@ const FeatureBox = styled.div`
   display: grid;
   align-items: flex-start;
   grid-template-columns: 1.5fr 1fr;
-  column-gap: ${() => clampBuilder(920, 1200, 7, 10)};
+  column-gap: ${() => clampBuilder(920, 1200, 8, 10)};
   margin: ${() => clampBuilder(320, 1200, 7, 15)} 0;
 
   @media (max-width: 920px) {
-    flex-flow: column;
-
+    grid-template-columns: none;
+    grid-template-rows: 2fr 1fr;
     row-gap: ${() => clampBuilder(320, 920, 1.4, 3)};
 
     margin-inline-end: ${() => clampBuilder(320, 920, 2.5, 6)};
