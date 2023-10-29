@@ -2,25 +2,20 @@
 
 // https://youtu.be/FErIfEd3IHI?si=bQHsyv4Le3WgbiK6
 
-import { useNavigate } from "react-router-dom";
-
-import { formatCurrency } from "../../utils/helper";
-import Button from "../../ui/Button";
-import { css, styled } from "styled-components";
-
-import { useMoveBack } from "../../hooks/useMoveBack";
-import SmallButton from "../../ui/SmallButton";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
-
-import UpdateCartItem from "../../ui/UpdateCartItem";
-
-import Spinner from "../../ui/Spinner";
-import { useGetProductBySlug } from "./useProductBySlug";
-import { useUser } from "../users/useUser";
-import ReviewCard from "../reviews/reviewCard";
-import { clampBuilder } from "../../styles/clampFunction";
 import { Text } from "../../ui/Text";
+import Button from "../../ui/Button";
+import Spinner from "../../ui/Spinner";
+import { useUser } from "../users/useUser";
+import SmallButton from "../../ui/SmallButton";
+import { useNavigate } from "react-router-dom";
+import ReviewCard from "../reviews/reviewCard";
+import { css, styled } from "styled-components";
+import { formatCurrency } from "../../utils/helper";
+import UpdateCartItem from "../../ui/UpdateCartItem";
+import { useMoveBack } from "../../hooks/useMoveBack";
+import { useDispatch, useSelector } from "react-redux";
+import { useGetProductBySlug } from "./useProductBySlug";
+import { clampBuilder } from "../../styles/clampFunction";
 import {
   Container,
   DescriptionContainer,
@@ -38,111 +33,7 @@ import {
   IntheBoxAndHeaderContainer,
   Quantity,
 } from "./FeatureContainer";
-
-export const Heading = styled.h4`
-  font-size: ${() => clampBuilder(320, 1200, 2, 4.5)};
-  font-weight: 600;
-
-  margin-bottom: ${() => clampBuilder(320, 1200, 1.5, 3)};
-
-  text-transform: uppercase;
-
-  background-color: var(--color-primary-light-dark);
-
-  background-image: var(--color-gradient-dark);
-
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  color: transparent;
-
-  ${(props) =>
-    props.type === "review" &&
-    css`
-      text-align: center;
-      margin-bottom: ${() => clampBuilder(320, 1200, 3.5, 6)};
-      font-size: ${() => clampBuilder(320, 1200, 2.2, 4)};
-      background-color: var(--color-primary-light-dark);
-
-      background-image: var(--color-gradient-dark);
-    `}
-
-  ${(props) =>
-    props.type === "login" &&
-    css`
-      margin: 0;
-      font-size: ${() => clampBuilder(320, 1200, 1.5, 3)};
-      font-weight: 700;
-    `}
-
-    ${(props) =>
-    props.type === "others" &&
-    css`
-      text-align: center;
-      margin-bottom: ${() => clampBuilder(320, 1200, 2, 3)};
-    `}
-
-    @media (max-width: 920px) {
-    ${(props) =>
-      props.type === "inTheBox" &&
-      css`
-        margin-bottom: ${() => clampBuilder(320, 920, -1, -2)};
-      `}
-  }
-`;
-
-const GalleryContainer = styled.div`
-  margin-bottom: ${() => clampBuilder(320, 1200, 8, 15)};
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  grid-template-rows: repeat(2, 1fr);
-  gap: ${() => clampBuilder(320, 1200, 1.4, 3)};
-
-  @media (max-width: 420px) {
-    grid-template-columns: none;
-    grid-template-rows: repeat(2, 1fr) 1.5fr;
-  }
-
-  & > img:first-of-type {
-    grid-row: 1 / 2;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    grid-column: 1 / 2;
-
-    @media (max-width: 420px) {
-      grid-row: 1 / 2;
-    }
-  }
-
-  & > img:nth-of-type(2) {
-    grid-row: 2 / -1;
-    grid-column: 1 / 2;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    @media (max-width: 420px) {
-      grid-row: 2 / 3;
-    }
-  }
-
-  & > img:last-of-type {
-    grid-row: 1 / -1;
-    grid-column: 2 / -1;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    @media (max-width: 420px) {
-      grid-row: 3 / -1;
-    }
-  }
-`;
+import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
