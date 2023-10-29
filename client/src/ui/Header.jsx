@@ -85,15 +85,16 @@ const ProductType = styled.p`
 `;
 
 const ProductName = styled.h1`
-  font-size: ${() => clampBuilder(400, 1200, 3, 5.5)};
+  font-size: ${() => clampBuilder(400, 1200, 2, 5)};
   font-weight: 600;
   margin: 0;
   text-transform: uppercase;
 `;
 
 const Text = styled.p`
-  font-size: ${() => clampBuilder(400, 1200, 1.2, 2)};
+  font-size: ${() => clampBuilder(400, 1200, 1, 2)};
   color: var(--color-white-3);
+
   letter-spacing: 1px;
   line-height: 1.6;
   margin-inline-end: 10dvh;
