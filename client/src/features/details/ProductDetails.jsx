@@ -31,9 +31,9 @@ import {
 } from "../../ui/productStyles";
 
 const FeatureBox = styled.div`
-  display: flex;
+  display: grid;
   align-items: flex-start;
-  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
   margin: ${() => clampBuilder(320, 1200, 7, 15)} 0;
 
   @media (max-width: 920px) {
@@ -105,15 +105,15 @@ export const Heading = styled.h4`
 
 const InTheBox = styled.div`
   display: flex;
+  flex-direction: column;
+
   column-gap: ${() => clampBuilder(320, 1200, 1, 2)};
-  align-items: center;
 `;
 
 const IntheBoxAndHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: flex-start;
 `;
 
 const InTheBoxContainer = styled.div`
