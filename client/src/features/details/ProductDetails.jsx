@@ -46,6 +46,13 @@ const FeatureBox = styled.div`
   }
 `;
 
+const FeatureContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  row-gap: ${() => clampBuilder(500, 1200, 1, 1.5)};
+`;
+
 export const Heading = styled.h4`
   font-size: ${() => clampBuilder(320, 1200, 2, 4.5)};
   font-weight: 600;
@@ -382,10 +389,11 @@ function ProductDetails() {
       <FeatureBox>
         <div style={{ flexBasis: "60%" }}>
           <Heading> Features </Heading>
-
-          {productFeature.map((feat, i) => (
-            <FeatureText key={i}> {feat} </FeatureText>
-          ))}
+          <FeatureContainer>
+            {productFeature.map((feat, i) => (
+              <FeatureText key={i}> {feat} </FeatureText>
+            ))}
+          </FeatureContainer>
         </div>
 
         <IntheBoxAndHeaderContainer>
