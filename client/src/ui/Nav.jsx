@@ -1,27 +1,25 @@
-import { css, styled } from "styled-components";
-
-import SVG from "react-inlinesvg";
-import { NavLink, useLocation } from "react-router-dom";
-import { IconLogo } from "./Icons";
 import Modal from "./Modal";
+import { Text } from "./Text";
+import SVG from "react-inlinesvg";
+import { IconLogo } from "./Icons";
+import SpinnerMini from "./SpinnerMini";
+import CategoryBox from "./CategoryBox";
 import Cart from "../features/cart/Cart";
 import { useSelector } from "react-redux";
-import { getTotalCartQuantity } from "../features/cart/cartSlice";
-import { useUser } from "../features/users/useUser";
 import Avatar from "../features/users/avatar";
-
+import { css, styled } from "styled-components";
+import { useViewport } from "../context/ViewPort";
+import { useUser } from "../features/users/useUser";
+import { clampBuilder } from "../styles/clampFunction";
 import { useLogout } from "../features/users/useLogout";
+import { NavLink, useLocation } from "react-router-dom";
+import { getTotalCartQuantity } from "../features/cart/cartSlice";
+import { HamburgerContainer, HamburgerIcon } from "./HamburgerIcon";
+
 import {
   HiArrowRightOnRectangle,
   HiOutlineShoppingCart,
 } from "react-icons/hi2";
-import SpinnerMini from "./SpinnerMini";
-
-import { clampBuilder } from "../styles/clampFunction";
-import { HamburgerContainer, HamburgerIcon } from "./HamburgerIcon";
-import { useViewport } from "../context/ViewPort";
-import CategoryBox from "./CategoryBox";
-import { Text } from "./Text";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -106,9 +104,9 @@ const CartIconNotification = styled.span`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -5px;
+  top: -7px;
   right: -1rem;
-  font-size: ${() => clampBuilder(350, 1200, 1, 1.5)};
+  font-size: ${() => clampBuilder(350, 1200, 0.8, 1.3)};
 
   background-color: var(--color-white);
   color: var(--color-dark-3);
