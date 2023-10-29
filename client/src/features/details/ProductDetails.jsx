@@ -5,11 +5,11 @@
 import { Text } from "../../ui/Text";
 import Button from "../../ui/Button";
 import Spinner from "../../ui/Spinner";
+import { styled } from "styled-components";
 import { useUser } from "../users/useUser";
 import SmallButton from "../../ui/SmallButton";
 import { useNavigate } from "react-router-dom";
 import ReviewCard from "../reviews/reviewCard";
-import { css, styled } from "styled-components";
 import { formatCurrency } from "../../utils/helper";
 import UpdateCartItem from "../../ui/UpdateCartItem";
 import { useMoveBack } from "../../hooks/useMoveBack";
@@ -34,6 +34,8 @@ import {
   Quantity,
 } from "./FeatureContainer";
 import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
+import { Heading } from "../../ui/Heading";
+import { GalleryContainer } from "./GalleryContainer";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
