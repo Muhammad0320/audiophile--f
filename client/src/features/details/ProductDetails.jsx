@@ -29,29 +29,15 @@ import {
   ProductName,
   ProductPrice,
 } from "../../ui/productStyles";
-
-const FeatureBox = styled.div`
-  display: grid;
-  align-items: flex-start;
-  grid-template-columns: 1.5fr 1fr;
-  column-gap: ${() => clampBuilder(920, 1200, 8, 10)};
-  margin: ${() => clampBuilder(320, 1200, 7, 15)} 0;
-
-  @media (max-width: 920px) {
-    grid-template-columns: none;
-    grid-template-rows: 2fr 1fr;
-    row-gap: ${() => clampBuilder(320, 920, 1.4, 3)};
-
-    margin-inline-end: ${() => clampBuilder(320, 920, 2.5, 6)};
-  }
-`;
-
-const FeatureContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  row-gap: ${() => clampBuilder(500, 1200, 1, 1.5)};
-`;
+import {
+  FeatureBox,
+  FeatureContainer,
+  FeatureText,
+  InTheBox,
+  InTheBoxContainer,
+  IntheBoxAndHeaderContainer,
+  Quantity,
+} from "./FeatureContainer";
 
 export const Heading = styled.h4`
   font-size: ${() => clampBuilder(320, 1200, 2, 4.5)};
@@ -103,41 +89,6 @@ export const Heading = styled.h4`
         margin-bottom: ${() => clampBuilder(320, 920, -1, -2)};
       `}
   }
-`;
-
-const InTheBox = styled.div`
-  display: flex;
-
-  column-gap: ${() => clampBuilder(320, 1200, 1, 2)};
-
-  align-items: flex-start;
-`;
-
-const IntheBoxAndHeaderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const InTheBoxContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: ${() => clampBuilder(320, 1200, 1.5, 2)};
-
-  @media (max-width: 920px) {
-    align-self: flex-end;
-    margin-inline-end: ${() => clampBuilder(320, 920, 4, 10)};
-  }
-
-  @media (max-width: 420px) {
-    margin-top: 3rem;
-    align-self: flex-start;
-  }
-`;
-
-const Quantity = styled.span`
-  font-size: ${() => clampBuilder(320, 1200, 1.2, 2.5)};
-  font-weight: 600;
-  color: var(--color-primary);
 `;
 
 const GalleryContainer = styled.div`
@@ -237,32 +188,6 @@ const OtherTextBox = styled.div`
   font-size: ${() => clampBuilder(320, 1200, 1.3, 3.5)};
   font-weight: 500;
 `;
-
-const FeatureText = styled.p`
-  font-size: ${() => clampBuilder(920, 1200, 1.2, 2)};
-
-  color: var(--color-dark-3);
-
-  @media (max-width: 920px) {
-    font-size: ${() => clampBuilder(350, 920, 1.3, 2)};
-  }
-`;
-
-// const UpdateCartButton = styled.div`
-//   display: grid;
-
-//   place-items: center;
-
-//   width: 100%;
-
-//   @media (max-width: 920px) {
-//     width: 30%;
-//   }
-
-//   @media (max-width: 420px) {
-//     width: 15%;
-//   }
-// `;
 
 const StyledReviewCard = styled.div`
   display: grid;
