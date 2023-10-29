@@ -14,10 +14,11 @@ import { useViewport } from "../context/ViewPort";
 const StyledModal = styled.div`
   border-radius: 1rem;
   position: fixed;
-  top: 30%;
+  max-width: 50%;
+  top: 20%;
   right: 20%;
-  transform: translate(50%, -35%);
-
+  transform: translate(40%, -35%);
+  margin-right: ${() => clampBuilder(1000, 1200, 3, 4)};
   @media (max-width: 1000px) {
     margin-inline-end: ${() => clampBuilder(320, 1000, 5, 3)};
   }
