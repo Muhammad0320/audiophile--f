@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { getTotalCartQuantity } from "../features/cart/cartSlice";
 import { useUser } from "../features/users/useUser";
 import Avatar from "../features/users/avatar";
-import { Text } from "../features/category/Category";
+
 import { useLogout } from "../features/users/useLogout";
 import {
   HiArrowRightOnRectangle,
@@ -21,6 +21,7 @@ import { clampBuilder } from "../styles/clampFunction";
 import { HamburgerContainer, HamburgerIcon } from "./HamburgerIcon";
 import { useViewport } from "../context/ViewPort";
 import CategoryBox from "./CategoryBox";
+import { Text } from "./Text";
 
 const StyledNav = styled.nav`
   display: flex;

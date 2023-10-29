@@ -15,12 +15,13 @@ import {
   CartText,
 } from "../features/cart/CartItem";
 import { IconConfirmation } from "./Icons";
-import { Text } from "../features/category/Category";
+
 import { CartTextBold } from "../features/cart/Cart";
 import { formatCurrency, grandTotalPrice } from "../utils/helper";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../styles/clampFunction";
+import { Text } from "./Text";
 
 const StyledContainer = styled.div`
   display: grid;

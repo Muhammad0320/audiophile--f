@@ -1,8 +1,6 @@
 import { css, styled } from "styled-components";
 import SmallButton from "../../ui/SmallButton";
 
-import { Text } from "../category/Category";
-
 import { formatCurrency, grandTotalPrice } from "../../utils/helper";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, getCart, getTotalCartPrice } from "./cartSlice";
@@ -12,6 +10,7 @@ import EmptyCart from "../../ui/EmptyCart";
 import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../../styles/clampFunction";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { Text } from "../../ui/Text";
 
 const StyledCart = styled.div`
   align-self: flex-start;

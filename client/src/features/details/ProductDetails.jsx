@@ -8,7 +8,6 @@ import {
   DescriptionContainer,
   ImageContainer,
   NewProduct,
-  Text,
   ProductName,
   ProductPrice,
 } from "../category/Category";
@@ -28,6 +27,7 @@ import { useGetProductBySlug } from "./useProductBySlug";
 import { useUser } from "../users/useUser";
 import ReviewCard from "../reviews/reviewCard";
 import { clampBuilder } from "../../styles/clampFunction";
+import { Text } from "../../ui/Text";
 
 const FeatureBox = styled.div`
   display: flex;

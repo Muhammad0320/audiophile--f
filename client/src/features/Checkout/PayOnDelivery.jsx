@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import SVG from "react-inlinesvg";
 import { IconMoney } from "../../ui/Icons";
-import { Text } from "../category/Category";
+import { Text } from "../../ui/Text";
 
 const StyledContainer = styled.div`
   display: flex;
