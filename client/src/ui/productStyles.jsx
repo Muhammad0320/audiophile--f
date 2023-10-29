@@ -32,6 +32,8 @@ export const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
 
+  box-shadow: var(--box-shadow-light-2);
+
   @media (max-width: 920px) {
     grid-row: 1 / 2;
     width: 90%;

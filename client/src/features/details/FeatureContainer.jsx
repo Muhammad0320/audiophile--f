@@ -18,7 +18,7 @@ export const FeatureBox = styled.div`
 `;
 
 export const FeatureText = styled.p`
-  font-size: ${() => clampBuilder(920, 1200, 1.2, 2)};
+  font-size: ${() => clampBuilder(920, 1200, 1.5, 2.2)};
 
   color: var(--color-dark-3);
 
