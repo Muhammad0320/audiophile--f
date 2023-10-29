@@ -103,17 +103,10 @@ export const Heading = styled.h4`
         margin-bottom: ${() => clampBuilder(320, 920, -1, -2)};
       `}
   }
-
-  /* ${(props) =>
-    props.type === "inTheBox" &&
-    css`
-      text-align: center;
-    `} */
 `;
 
 const InTheBox = styled.div`
   display: flex;
-  /* flex-direction: column; */
 
   column-gap: ${() => clampBuilder(320, 1200, 1, 2)};
 
@@ -126,7 +119,6 @@ const IntheBoxAndHeaderContainer = styled.div`
 `;
 
 const InTheBoxContainer = styled.div`
-  /* align-self: center; */
   display: flex;
   flex-direction: column;
   row-gap: ${() => clampBuilder(320, 1200, 1.5, 2)};
