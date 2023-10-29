@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { clampBuilder } from "../../styles/clampFunction";
+import { clampBuilder } from "../styles/clampFunction";
 
 export const Text = styled.p`
   color: var(--color-dark-3);

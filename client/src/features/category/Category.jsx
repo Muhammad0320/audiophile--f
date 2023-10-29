@@ -5,6 +5,7 @@ import SmallButton from "../../ui/SmallButton";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { clampBuilder } from "../../styles/clampFunction";
 import { useViewport } from "../../context/ViewPort";
+import { Text } from "../../ui/Text";
 
 export const Container = styled.div`
   display: grid;
@@ -99,7 +100,7 @@ export const ProductName = styled.p`
   font-size: ${() => clampBuilder(350, 1200, 3.0, 4.5)};
   line-height: 1.3;
   font-weight: 500;
-  /* margin-bottom: -1rem; */
+
   margin-block: 0;
 
   @media (max-width: 920px) {
@@ -107,37 +108,6 @@ export const ProductName = styled.p`
     padding-inline: ${() => clampBuilder(350, 920, 5, 8)};
     margin-block: 0;
   }
-`;
-
-export const Text = styled.p`
-  color: var(--color-dark-3);
-  font-size: ${() => clampBuilder(350, 1200, 1.2, 2)};
-
-  @media (max-width: 920px) {
-    ${(props) =>
-      props.type === "product" &&
-      css`
-        text-align: center;
-        font-size: ${() => clampBuilder(320, 920, 1.2, 2)};
-      `}
-  }
-
-  ${(props) =>
-    props.type === "avatar" &&
-    css`
-      color: var(--color-white);
-      margin-right: auto;
-    `}
-
-  ${(props) =>
-    props.type === "review" &&
-    css`
-      align-self: flex-start;
-      text-align: justify;
-      margin-block: auto;
-      line-height: 1.4;
-      font-size: ${() => clampBuilder(320, 920, 1, 1.4)};
-    `}
 `;
 
 export const ProductPrice = styled.p`
