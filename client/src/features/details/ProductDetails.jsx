@@ -33,7 +33,8 @@ import {
 const FeatureBox = styled.div`
   display: grid;
   align-items: flex-start;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1.5fr 1fr;
+  column-gap: ${() => clampBuilder(920, 1200, 7, 10)};
   margin: ${() => clampBuilder(320, 1200, 7, 15)} 0;
 
   @media (max-width: 920px) {
@@ -96,30 +97,32 @@ export const Heading = styled.h4`
       `}
   }
 
-  ${(props) =>
+  /* ${(props) =>
     props.type === "inTheBox" &&
     css`
       text-align: center;
-    `}
+    `} */
 `;
 
 const InTheBox = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 
   column-gap: ${() => clampBuilder(320, 1200, 1, 2)};
+
+  align-items: flex-start;
 `;
 
 const IntheBoxAndHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
 `;
 
 const InTheBoxContainer = styled.div`
-  align-self: center;
+  /* align-self: center; */
   display: flex;
   flex-direction: column;
+  row-gap: ${() => clampBuilder(320, 1200, 1.5, 2)};
 
   @media (max-width: 920px) {
     align-self: flex-end;
