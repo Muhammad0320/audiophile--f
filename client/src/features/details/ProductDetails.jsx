@@ -339,7 +339,6 @@ function ProductDetails() {
 
   const productFeature = features.split("\n");
 
-  
   return (
     <ProductContainer>
       <SmallButton onClick={moveback} kind="back">
