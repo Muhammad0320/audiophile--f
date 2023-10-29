@@ -17,6 +17,16 @@ export const FeatureBox = styled.div`
   }
 `;
 
+export const FeatureText = styled.p`
+  font-size: ${() => clampBuilder(920, 1200, 1.2, 2)};
+
+  color: var(--color-dark-3);
+
+  @media (max-width: 920px) {
+    font-size: ${() => clampBuilder(350, 920, 1.3, 2)};
+  }
+`;
+
 export const FeatureContainer = styled.div`
   display: flex;
   flex-direction: column;
