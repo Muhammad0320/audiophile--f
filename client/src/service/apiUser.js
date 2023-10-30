@@ -49,3 +49,17 @@ export const updateUserPassword = async ({
 
   return res.data;
 };
+
+export const deleteUserApi = async ({ currentPassword }) => {
+  const res = await axios({
+    method: "DELETE",
+    url: `${SERVER_ROOT_URL}/users/deleteMe`,
+    withCredentials: true,
+    data: {
+      currentPassword,
+    },
+  });
+
+  console.log(res.data);
+  return res.data;
+};
