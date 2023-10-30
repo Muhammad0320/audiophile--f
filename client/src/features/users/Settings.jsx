@@ -194,7 +194,11 @@ function Settings() {
       </Form2>
 
       <DangerousOperation>
-        <Input account dangerous="danger" placeholder="••••••••" />
+        <FormRow type="danger" account label={"Password"}>
+          <Input account dangerous="danger" placeholder="••••••••" />
+        </FormRow>
+
+        <Button variation="danger"> Delete my account </Button>
       </DangerousOperation>
     </InfoDetails>
   );

@@ -44,6 +44,12 @@ export const Label = styled.label`
     `}
 
   ${(props) =>
+    props.type === "danger" &&
+    css`
+      color: var(--color-red-light);
+    `}
+
+  ${(props) =>
     props.account === "true" &&
     css`
       font-weight: 600;
@@ -57,7 +63,7 @@ const Error = styled.span`
   font-weight: 400;
 `;
 
-function FormRow({ children, error, label, position, account }) {
+function FormRow({ children, error, label, position, account, type }) {
   return (
     <StyledFormRow position={position}>
       {label && (
@@ -65,6 +71,7 @@ function FormRow({ children, error, label, position, account }) {
           {label && (
             <Label
               htmlFor={children?.props?.id}
+              type={type}
               account={account ? "true" : ""}
             >
               {" "}
