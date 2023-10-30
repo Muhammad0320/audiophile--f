@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import styled from "styled-components";
 import FormRow from "../../ui/FormRow";
 import { clampBuilder } from "../../styles/clampFunction";
+import { useState } from "react";
 
 const DangerousOperation = styled.section`
   padding-top: ${() => clampBuilder(320, 1200, 5, 8)};
@@ -18,15 +19,22 @@ const DangerousOperation = styled.section`
 `;
 
 function DeleteUserAccount() {
+  const [deleteInput, setDeleteInput] = useState();
+
+  console.log(deleteInput);
+
+  const onSubmit = () => {};
+
   return (
     <DangerousOperation>
-      <FormRow type="danger" account label={"Password"}>
+      <FormRow type="danger" account="true" label={"Password"}>
         <Input
           id="delete"
           type="password"
           account
           dangerous="danger"
           placeholder="••••••••"
+          onChange={(e) => setDeleteInput(e.target.value)}
         />
       </FormRow>
 
