@@ -16,6 +16,11 @@ export const useDeleteUser = () => {
 
       queryClient.resetQueries({ queryKey: ["user"] });
     },
+
+    onError: (error) => {
+      console.log(error);
+      toast.error(error.data.response.message);
+    },
   });
 
   return { deleteUser, isDeleting };
