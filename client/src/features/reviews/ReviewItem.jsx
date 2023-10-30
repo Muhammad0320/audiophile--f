@@ -98,20 +98,20 @@ function ReviewItem({ data }) {
 
             <Menu.List id={id}>
               <li>
-                <Modal.Open opens="edit-review">
+                <Modal.Open opens="editReview">
                   <Menu.Button icon={<HiPencil />}> Edit </Menu.Button>
                 </Modal.Open>
               </li>
 
               <li>
-                <Modal.Open opens="delete-review">
+                <Modal.Open opens="deleteReview">
                   <Menu.Button icon={<HiTrash />}> Delete </Menu.Button>
                 </Modal.Open>
               </li>
             </Menu.List>
           </Menu>
 
-          <Modal.Window page="confirm-delete" name="delete-review">
+          <Modal.Window page="confirmDelete" name="deleteReview">
             <DeleteConfirm
               OnConfirm={() => deleteReview({ id })}
               isDeleting={isDeleting}
@@ -119,7 +119,7 @@ function ReviewItem({ data }) {
             />
           </Modal.Window>
 
-          <Modal.Window page="edit-form" name="edit-review">
+          <Modal.Window page="editForm" name="editReview">
             <EditReviewForm review={data} />
           </Modal.Window>
         </div>
