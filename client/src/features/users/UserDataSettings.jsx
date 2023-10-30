@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import Form2 from "../../ui/Form2";
 import Input from "../../ui/Input";
-import { useUser } from "./useUser";
 import Button from "../../ui/Button";
 import styled from "styled-components";
 import FormRow from "../../ui/FormRow";
-import Spinner from "../../ui/Spinner";
 import { useForm } from "react-hook-form";
 import FileInput from "../../ui/FileInput";
 import SpinnerMini from "../../ui/SpinnerMini";
