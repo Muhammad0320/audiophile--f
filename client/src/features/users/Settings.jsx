@@ -197,6 +197,7 @@ function Settings() {
         <FormRow type="danger" account label={"Password"}>
           <Input
             id="delete"
+            type="password"
             account
             dangerous="danger"
             placeholder="••••••••"
