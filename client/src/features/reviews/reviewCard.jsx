@@ -10,7 +10,7 @@ const StyledCard = styled.div`
   display: grid;
 
   grid-template-rows: max-content 1fr max-content ${() =>
-      clampBuilder(320, 1200, 1.3, 3)};
+      clampBuilder(320, 1200, 1, 3)};
 
   grid-row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
 
@@ -33,7 +33,7 @@ const StyledCard = styled.div`
 
   margin-bottom: ${() => clampBuilder(320, 1200, 1, 3)};
 
-  border-radius: 1.2rem;
+  border-radius: 1rem;
 `;
 
 const AvatarContainer = styled.div`
@@ -100,7 +100,7 @@ function ReviewCard({ reviews }) {
       <ReviewRating
         maxRating={5}
         rating={+rating}
-        size={viewportWidth >= 920 ? 40 : 20}
+        size={viewportWidth >= 920 ? 35 : 20}
       ></ReviewRating>
       <TimeStamp> {time} </TimeStamp>
     </StyledCard>
