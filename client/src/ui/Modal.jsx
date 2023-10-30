@@ -30,6 +30,8 @@ const StyledModalMobile = styled.div`
   display: grid;
   justify-content: center;
   align-content: center;
+
+  margin-inline: ${() => clampBuilder(400, 1200, 5, 25)};
 `;
 
 const StyledModalMenu = styled.div`
@@ -121,9 +123,9 @@ const Window = ({ children, name, page }) => {
       )}
 
       {page && (
-        <StyledModalMenu ref={ref}>
+        <StyledModalMobile ref={ref}>
           {cloneElement(children, { onClose: () => close() })}
-        </StyledModalMenu>
+        </StyledModalMobile>
       )}
     </OverLay>,
 
