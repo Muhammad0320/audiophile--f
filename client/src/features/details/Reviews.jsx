@@ -6,7 +6,7 @@ export const StyledReviewCard = styled.div`
 
   grid-auto-flow: column;
 
-  grid-auto-columns: 31%;
+  grid-auto-columns: 33%;
 
   padding: 0 1rem;
 
@@ -22,7 +22,7 @@ export const StyledReviewCard = styled.div`
   margin-bottom: ${() => clampBuilder(320, 1200, 2.8, 5.5)};
 
   @media (max-width: 920px) {
-    grid-auto-columns: 37%;
+    grid-auto-columns: 39%;
   }
 
   @media (max-width: 500px) {

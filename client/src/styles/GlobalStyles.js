@@ -47,7 +47,7 @@ const GlobalStyles = createGlobalStyle`
     --color-primary-light-dark: color-mix(in oklab, var(--color-primary-light) 80%, var(--color-dark));
 
 
-    --box-shadow-light: 0 5px 5px 3px rgba(16, 16, 16, 0.2); 
+    --box-shadow-light: 0 5px 5px 2px rgba(16, 16, 16, 0.2); 
     --box-shadow-light-2: 0 5px 5px 3px rgba(16, 16, 16, 0.1); 
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
 
