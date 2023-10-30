@@ -9,7 +9,7 @@ const StyledCard = styled.div`
   position: relative;
   display: grid;
 
-  grid-template-rows: max-content 1fr max-content ${() =>
+  grid-template-rows: max-content 0.9fr max-content ${() =>
       clampBuilder(320, 1200, 1, 3)};
 
   grid-row-gap: ${() => clampBuilder(320, 1200, 1, 1.5)};
@@ -42,7 +42,7 @@ const AvatarContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  column-gap: ${() => clampBuilder(320, 1200, 1.1, 2)};
+  column-gap: ${() => clampBuilder(320, 1200, 1, 1.8)};
 
   & > img {
     display: block;
@@ -56,20 +56,18 @@ const AvatarContainer = styled.div`
   & > span {
     text-transform: uppercase;
 
-    font-size: ${() => clampBuilder(320, 1200, 1, 2)};
+    font-size: ${() => clampBuilder(320, 1200, 0.8, 2)};
+    /* white-space: nowrap; */
     font-weight: 600;
   }
 `;
 
 const TimeStamp = styled.span`
   color: var(--color-dark-1);
-
+  grid-row: 4 / -1;
+  align-self: self-end;
+  justify-self: self-end;
   font-size: ${() => clampBuilder(320, 1200, 0.7, 1.2)};
-
-  position: absolute;
-
-  bottom: 1.5rem;
-  right: 1rem;
 `;
 
 function ReviewCard({ reviews }) {
