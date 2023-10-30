@@ -46,7 +46,6 @@ const upload = multer({
 exports.uploadUserImage = upload.single('photo');
 
 exports.resizeUserImage = catchAsync(async (req, res, next) => {
-  console.log(req.file);
   if (!req.file) return next();
 
   req.file.filename = `user-${req.user._id}-${Date.now()}.jpeg`;
@@ -117,7 +116,7 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   if (!currentPassword) {
     return next(
       new AppError(
-        'We need your current password before you can perform this operation! For security purpose ',
+        'We need your current password before you can perform this operation! For security purpose',
         404
       )
     );
