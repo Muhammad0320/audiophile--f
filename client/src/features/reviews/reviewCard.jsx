@@ -12,7 +12,7 @@ const StyledCard = styled.div`
   grid-template-rows: max-content 1fr max-content ${() =>
       clampBuilder(320, 1200, 1, 3)};
 
-  grid-row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
+  grid-row-gap: ${() => clampBuilder(320, 1200, 1, 1.5)};
 
   place-items: center;
 
@@ -68,7 +68,7 @@ const TimeStamp = styled.span`
 
   position: absolute;
 
-  bottom: 1rem;
+  bottom: 1.5rem;
   right: 1rem;
 `;
 

@@ -27,7 +27,8 @@ export const Text = styled.p`
       align-self: flex-start;
       text-align: justify;
       margin-block: auto;
-      line-height: 1.4;
+      line-height: 1.3;
+
       font-size: ${() => clampBuilder(320, 920, 1, 1.4)};
     `}
 `;
