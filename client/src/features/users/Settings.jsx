@@ -30,7 +30,9 @@ const InfoDetails = styled.div`
   }
 
   & > form:last-of-type {
-    padding-top: ${() => clampBuilder(320, 1200, 5, 8)};
+    padding-block: ${() => clampBuilder(320, 1200, 5, 8)};
+
+    border-bottom: 2px solid var(--color-dark-2);
   }
 `;
 
@@ -48,6 +50,20 @@ const UserImage = styled.img`
   height: ${() => clampBuilder(320, 1200, 3.5, 5)};
   border-radius: 50%;
 `;
+
+const DangerousOperation = styled.section`
+  padding-top: ${() => clampBuilder(320, 1200, 5, 8)};
+
+  display: flex;
+  flex-direction: column;
+
+  row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
+
+  color: var(--color-red-light);
+
+  font-weight: 600;
+`;
+
 function Settings() {
   const { user = {}, isLoading } = useUser();
 
@@ -69,8 +85,6 @@ function Settings() {
   if (isLoading) return <Spinner />;
 
   const onSubmitData = ({ name, email, photo }, e) => {
-    console.log(name, email);
-
     e.preventDefault();
 
     updateUser({ name, email, photo: photo[0] });
@@ -178,6 +192,10 @@ function Settings() {
           <Button withspinner="true"> Save password </Button>
         )}
       </Form2>
+
+      <DangerousOperation>
+        <Input account dangerous="danger" placeholder="••••••••" />
+      </DangerousOperation>
     </InfoDetails>
   );
 }

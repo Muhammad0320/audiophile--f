@@ -30,6 +30,12 @@ const Input = styled.input`
     css`
       border: 1px solid red;
     `}
+
+      ${(props) =>
+    props.dangerous &&
+    css`
+      border: 2px solid var(--color-red-light);
+    `}
 `;
 
 export default Input;
