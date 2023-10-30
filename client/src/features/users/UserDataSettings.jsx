@@ -27,11 +27,10 @@ const UserImage = styled.img`
   border-radius: 50%;
 `;
 
-function UserDataSettings() {
+function UserDataSettings({ user }) {
   const { updateUser, isUpdating } = useUpdateUSer();
 
   const { register, handleSubmit, setValue } = useForm();
-  const { user = {}, isLoading } = useUser();
 
   const { photo, name, email } = user;
 
@@ -47,8 +46,6 @@ function UserDataSettings() {
 
     updateUser({ name, email, photo: photo[0] });
   };
-
-  if (isLoading) return <Spinner />;
 
   return (
     <Form2 onSubmit={handleSubmit(onSubmitData)}>

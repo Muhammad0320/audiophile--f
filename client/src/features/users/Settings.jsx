@@ -1,17 +1,15 @@
-import styled from "styled-components";
 import Form2 from "../../ui/Form2";
-import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import styled from "styled-components";
+import FormRow from "../../ui/FormRow";
 import { useForm } from "react-hook-form";
 import Button from "../../ui/Button";
 import { useUser } from "./useUser";
-import { useUpdateUSer } from "./useUpdateUser";
 import SpinnerMini from "../../ui/SpinnerMini";
-import FileInput from "../../ui/FileInput";
 import { useUpdatePassword } from "./useUpdatePassword";
 import Spinner from "../../ui/Spinner";
-import { useEffect } from "react";
 import { clampBuilder } from "../../styles/clampFunction";
+import UserDataSettings from "./userDataSettings";
 
 const InfoDetails = styled.div`
   padding: ${() => clampBuilder(320, 1200, 3, 5)};
@@ -36,21 +34,6 @@ const InfoDetails = styled.div`
   }
 `;
 
-const FileGroup = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  column-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
-  margin-bottom: ${() => clampBuilder(320, 1200, 1.2, 2)};
-`;
-
-const UserImage = styled.img`
-  position: relative;
-  width: ${() => clampBuilder(320, 1200, 3.5, 5)};
-  height: ${() => clampBuilder(320, 1200, 3.5, 5)};
-  border-radius: 50%;
-`;
-
 const DangerousOperation = styled.section`
   padding-top: ${() => clampBuilder(320, 1200, 5, 8)};
 
@@ -67,28 +50,11 @@ const DangerousOperation = styled.section`
 function Settings() {
   const { user = {}, isLoading } = useUser();
 
-  const { photo, name, email } = user;
-
-  const { updateUser, isUpdating } = useUpdateUSer();
-
   const { updatePassword, isUpdatingPassowrd } = useUpdatePassword();
 
-  const { register, handleSubmit, reset, setValue } = useForm();
-
-  useEffect(() => {
-    if (user) {
-      setValue("name", name || "");
-      setValue("email", email || "");
-    }
-  }, [name, email, setValue, user]);
+  const { register, handleSubmit, reset } = useForm();
 
   if (isLoading) return <Spinner />;
-
-  const onSubmitData = ({ name, email, photo }, e) => {
-    e.preventDefault();
-
-    updateUser({ name, email, photo: photo[0] });
-  };
 
   const onSubmitPassword = (
     { password, passwordConfirm, currentPassword },
@@ -106,51 +72,7 @@ function Settings() {
 
   return (
     <InfoDetails>
-      <Form2 onSubmit={handleSubmit(onSubmitData)}>
-        <FormRow account label="Name">
-          <Input
-            account="true"
-            disabled={isUpdating}
-            type="text"
-            id="name"
-            {...register("name", {
-              required: "This field is required",
-            })}
-          />
-        </FormRow>
-
-        <FormRow account label="Email address">
-          <Input
-            account="true"
-            id="email"
-            disabled={isUpdating}
-            {...register("email", {
-              required: "This field is required",
-            })}
-          />
-        </FormRow>
-
-        <FileGroup>
-          <UserImage src={`/assets/users/${photo}`} />
-
-          <FileInput
-            name="photo"
-            disabled={isUpdating}
-            id="photo"
-            accept="image/*"
-            {...register("photo")}
-          />
-        </FileGroup>
-
-        {isUpdating ? (
-          <Button withspinner="true" disabled={isUpdating}>
-            {" "}
-            <SpinnerMini /> <span> updating settings... </span>{" "}
-          </Button>
-        ) : (
-          <Button withspinner="true"> Save settings </Button>
-        )}
-      </Form2>
+      <UserDataSettings user={user} />
 
       <Form2 onSubmit={handleSubmit(onSubmitPassword)}>
         <FormRow account label="Current password">
