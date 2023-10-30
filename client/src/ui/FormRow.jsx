@@ -78,7 +78,11 @@ function FormRow({ children, error, label, position, account, type }) {
               {label}{" "}
             </Label>
           )}
-          {label && error && <Label type="error"> </Label>}
+          {label && error && (
+            <Label htmlFor={children?.props?.id} type="error">
+              {" "}
+            </Label>
+          )}
           {error && <Error> {error} </Error>}
         </LabelContainer>
       )}
