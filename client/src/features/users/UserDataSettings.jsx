@@ -1,13 +1,16 @@
-import { useForm } from "react-hook-form";
-import Button from "../../ui/Button";
+import { useEffect } from "react";
 import Form2 from "../../ui/Form2";
-import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import { useUser } from "./useUser";
+import Button from "../../ui/Button";
+import styled from "styled-components";
+import FormRow from "../../ui/FormRow";
+import Spinner from "../../ui/Spinner";
+import { useForm } from "react-hook-form";
+import FileInput from "../../ui/FileInput";
 import SpinnerMini from "../../ui/SpinnerMini";
 import { useUpdateUSer } from "./useUpdateUser";
-import styled from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
-import { useEffect } from "react";
 
 const FileGroup = styled.div`
   display: flex;
@@ -44,6 +47,8 @@ function UserDataSettings() {
 
     updateUser({ name, email, photo: photo[0] });
   };
+
+  if (isLoading) return <Spinner />;
 
   return (
     <Form2 onSubmit={handleSubmit(onSubmitData)}>
