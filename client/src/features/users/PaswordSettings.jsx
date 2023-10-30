@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
-import Button from "../../ui/Button";
 import Form2 from "../../ui/Form2";
-import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import Button from "../../ui/Button";
+import FormRow from "../../ui/FormRow";
+import { useForm } from "react-hook-form";
 import SpinnerMini from "../../ui/SpinnerMini";
 import { useUpdatePassword } from "./useUpdatePassword";
 
