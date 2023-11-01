@@ -1,6 +1,6 @@
 import { useUser } from "./useUser";
-import Spinner from "../../ui/Spinner";
 import styled from "styled-components";
+import Spinner from "../../ui/Spinner";
 import PaswordSettings from "./PaswordSettings";
 import UserDataSettings from "./userDataSettings";
 import DeleteUserAccount from "./DeleteUserAccount";

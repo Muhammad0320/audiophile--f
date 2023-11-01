@@ -1,6 +1,6 @@
-import { css, styled } from "styled-components";
 import ButtonCategory from "./ButtonCategory";
 import { useNavigate } from "react-router-dom";
+import { css, styled } from "styled-components";
 import { clampBuilder } from "../styles/clampFunction";
 
 const Box = styled.ul`
