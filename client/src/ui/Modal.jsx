@@ -1,3 +1,8 @@
+import { createPortal } from "react-dom";
+import { styled } from "styled-components";
+import { useViewport } from "../context/ViewPort";
+import { clampBuilder } from "../styles/clampFunction";
+import { useClickOutside } from "../hooks/useClickOutside";
 import {
   cloneElement,
   createContext,
@@ -5,11 +10,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import { styled } from "styled-components";
-import { useClickOutside } from "../hooks/useClickOutside";
-import { createPortal } from "react-dom";
-import { clampBuilder } from "../styles/clampFunction";
-import { useViewport } from "../context/ViewPort";
 
 const StyledModal = styled.div`
   border-radius: 1rem;
@@ -34,25 +34,25 @@ const StyledModalMobile = styled.div`
   margin-inline: ${() => clampBuilder(400, 1200, 5, 25)};
 `;
 
-const StyledModalMenu = styled.div`
-  position: fixed;
+// const StyledModalMenu = styled.div`
+//   position: fixed;
 
-  top: ${() => clampBuilder(300, 500, 6, 9)};
-  padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)};
-  z-index: 2;
-  background: var(--color-white-vivid);
-  background-image: var(--color-gradient-light);
-  box-shadow: var(--bos-shadow-light);
-  transition: all 0.5s;
+//   top: ${() => clampBuilder(300, 500, 6, 9)};
+//   padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)};
+//   z-index: 2;
+//   background: var(--color-white-vivid);
+//   background-image: var(--color-gradient-light);
+//   box-shadow: var(--bos-shadow-light);
+//   transition: all 0.5s;
 
-  padding-left: 0;
+//   padding-left: 0;
 
-  @media (max-width: 500px) {
-    width: 100%;
-    height: 100dvh;
-    overflow-y: auto;
-  }
-`;
+//   @media (max-width: 500px) {
+//     width: 100%;
+//     height: 100dvh;
+//     overflow-y: auto;
+//   }
+// `;
 
 const OverLay = styled.div`
   inset: 0;
