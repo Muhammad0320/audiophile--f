@@ -21,7 +21,7 @@ const variations = {
     color: var(--color-dark);
     border: 1px solid var(--color-dark);
     transition: all 0.3s;
-    box-shadow: var(--box-shadow-button) var(--color-white-3);
+    box-shadow: var(--box-shadow-button) var(--color-dark-2);
 
     &:hover {
       background-color: var(--color-dark);
@@ -33,7 +33,7 @@ const variations = {
     background-color: var(--color-dark);
     color: var(--color-white);
     border: 1px solid var(--color-dark);
-    box-shadow: var(--box-shadow-button) var(--color-primary-dark);
+    box-shadow: var(--box-shadow-button) var(--color-dark-2);
 
     transition: all 0.3s;
 
