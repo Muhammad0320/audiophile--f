@@ -18,7 +18,6 @@ const GlobalStyles = createGlobalStyle`
 
     --color-green: #31cb00;
     
-
     --color-dark: #000;
     --color-dark-1: #101010;
     --color-dark-2:  rgba(0, 0, 0, 0.2);
@@ -50,6 +49,7 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow-light: 0 5px 5px 2px rgba(16, 16, 16, 0.2); 
     --box-shadow-light-2: 0 5px 5px 3px rgba(16, 16, 16, 0.1); 
     --box-shadow-dark: 0 5px 10px 6px rgba(16, 16, 16, 0.3); 
+    --box-shadow-button:  2.5px 2.5px 1px ;
 
     --text-shadow: 
     -0.5px -1px  1px var(--color-primary-muted),

@@ -8,6 +8,7 @@ const variations = {
     color: var(--color-white);
     transition: background-color 0.3s;
     border: none;
+    box-shadow: var(--box-shadow-button) var(--color-primary);
 
     &:hover {
       background-color: var(--color-primary-light);
@@ -20,6 +21,7 @@ const variations = {
     color: var(--color-dark);
     border: 1px solid var(--color-dark);
     transition: all 0.3s;
+    box-shadow: var(--box-shadow-button) var(--color-white-3);
 
     &:hover {
       background-color: var(--color-dark);
@@ -31,6 +33,7 @@ const variations = {
     background-color: var(--color-dark);
     color: var(--color-white);
     border: 1px solid var(--color-dark);
+    box-shadow: var(--box-shadow-button) var(--color-primary-dark);
 
     transition: all 0.3s;
 
@@ -48,6 +51,8 @@ const variations = {
 
     transition: all 0.3s;
 
+    box-shadow: var(--box-shadow-button) var(--color-red-light);
+
     &:hover {
       background-color: var(--color-red-light);
       color: var(--color-white);
@@ -61,7 +66,7 @@ const Button = styled.button`
   padding: ${() => clampBuilder(320, 1200, 0.8, 1)};
   ${() => clampBuilder(320, 1200, 1.1, 1.4)};
   font-size: ${() => clampBuilder(320, 1200, 1, 1.3)};
-  box-shadow: 2px 2px 2px var(--color-primary);
+
   border: none;
 
   ${(props) => variations[props.variation]}
