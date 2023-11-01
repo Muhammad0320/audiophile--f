@@ -7,7 +7,7 @@ const Box = styled.ul`
   margin: ${() => clampBuilder(320, 1200, 20, 25)} 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  max-width: 100%;
+  width: 100%;
   padding: 0;
   column-gap: ${() => clampBuilder(500, 1200, 1.5, 3)};
 
@@ -28,6 +28,14 @@ const Box = styled.ul`
       margin: ${() => clampBuilder(320, 1200, 10, 13)} 0;
       max-width: 90%;
     `}
+
+  @media (max-width: 920px) {
+    ${(props) =>
+      props.type === "menu" &&
+      css`
+        max-width: 100%;
+      `}
+  }
 `;
 
 const CategoryItem = styled.li`

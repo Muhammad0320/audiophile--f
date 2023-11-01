@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { useViewport } from "../context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
 import { useClickOutside } from "../hooks/useClickOutside";
@@ -26,12 +26,18 @@ const StyledModal = styled.div`
 
 const StyledModalMobile = styled.div`
   height: 100dvh;
-
   display: grid;
   justify-content: center;
   align-content: center;
 
   margin-inline: ${() => clampBuilder(400, 1200, 5, 25)};
+
+  ${(props) =>
+    props.type === "menu" &&
+    css`
+      width: 80dvw;
+      margin-inline: auto;
+    `}
 `;
 
 // const StyledModalMenu = styled.div`
@@ -123,7 +129,7 @@ const Window = ({ children, name, page }) => {
       )}
 
       {page && (
-        <StyledModalMobile ref={ref}>
+        <StyledModalMobile ref={ref} type={page}>
           {cloneElement(children, { onClose: () => close() })}
         </StyledModalMobile>
       )}
