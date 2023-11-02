@@ -9,6 +9,7 @@ import { clampBuilder } from "../../styles/clampFunction";
 
 export const CartItemContainer = styled.li`
   display: grid;
+  background-color: transparent;
   grid-template-columns: ${clampBuilder(320, 1200, 5, 7)} 1.2fr 1fr 0.8fr;
   color: var(--color-dark);
   align-items: center;

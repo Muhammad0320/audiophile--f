@@ -29,9 +29,9 @@ const TableAndButtonContainer = styled.div`
 `;
 
 const TableContainer = styled.div`
-  border: 1px solid var(--color-white-1);
+  /* border: 1px solid var(--color-white-1); */
 
-  background-color: var(--color-white-1);
+  background-color: transparent;
 
   font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
 
