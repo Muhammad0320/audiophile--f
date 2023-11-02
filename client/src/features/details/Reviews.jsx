@@ -6,7 +6,7 @@ export const StyledReviewCard = styled.div`
 
   grid-auto-flow: column;
 
-  grid-auto-columns: 33%;
+  grid-auto-columns: 27%;
 
   padding: 0 1rem;
 

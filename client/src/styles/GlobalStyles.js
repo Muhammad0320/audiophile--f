@@ -203,8 +203,8 @@ h5,
 h6 {
   margin: 0;
   overflow-wrap: break-word;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  /* -webkit-hyphens: auto; */
+  /* hyphens: auto; */
 }
 
 img {

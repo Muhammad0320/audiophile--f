@@ -70,6 +70,7 @@ const FirstImageText = styled.div`
   height: 100%;
   flex-direction: column;
   row-gap: ${() => clampBuilder(920, 1200, 1.6, 2.2)};
+  margin-inline-end: ${() => clampBuilder(920, 1200, 1.6, 3)};
   & > button {
     align-self: flex-start;
   }

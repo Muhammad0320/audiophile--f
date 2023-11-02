@@ -8,9 +8,11 @@ import { useViewport } from "../context/ViewPort";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
-  padding: ${() => clampBuilder(400, 1200, 1.2, 2)};
-  ${() => clampBuilder(400, 1200, 0.1, 12)};
+  padding: ${() => clampBuilder(400, 1200, 1.2, 2)}
+    ${() => clampBuilder(400, 1200, 0.1, 12)};
   background-color: var(--color-dark);
+  max-height: 100dvh;
+  overflow: hidden;
 `;
 
 const StyledHeaderContent = styled.div`
@@ -23,7 +25,7 @@ const StyledHeaderContent = styled.div`
     props.content === "category" &&
     css`
       text-align: center;
-      font-size: ${() => clampBuilder(350, 1200, 2, 3.5)};
+      font-size: ${() => clampBuilder(350, 1200, 2, 4.5)};
       text-transform: uppercase;
       font-weight: 500;
       display: flex;
@@ -94,7 +96,8 @@ const ProductName = styled.h1`
 const Text = styled.p`
   font-size: ${() => clampBuilder(400, 1200, 1, 2)};
   color: var(--color-white-3);
-
+  word-wrap: normal;
+  hyphens: none;
   letter-spacing: 1px;
   line-height: 1.6;
   margin-inline-end: 10dvh;
