@@ -18,7 +18,7 @@ function CartTable() {
   const changes = useSelector(getChanges);
 
   const { viewportWidth } = useViewport();
-  
+
   const otherColumnValue =
     viewportWidth >= 680
       ? " 0.8fr max-content 0.6fr 0.4fr "
@@ -29,6 +29,7 @@ function CartTable() {
       <Table
         column={`${clampBuilder(320, 1200, 4, 8)} ${otherColumnValue}`}
         changes={changes}
+        type="cart"
       >
         <Table.Body
           data={carts}

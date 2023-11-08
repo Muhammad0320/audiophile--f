@@ -103,7 +103,7 @@ const TableContext = createContext();
 
 // Create parent element
 
-function Table({ children, column, changes = [] }) {
+function Table({ children, column, changes = [], type }) {
   const { sendBulkdata, isSendingBulkData } = useSendBulkData();
 
   const dispatch = useDispatch();
@@ -135,7 +135,7 @@ function Table({ children, column, changes = [] }) {
           <> {children} </>{" "}
         </TableContainer>
 
-        {changes.length ? (
+        {changes.length && type === "cart" && (
           <Button
             onClick={() => handleSendBulk()}
             withspinner={isSendingBulkData ? "true" : ""}
@@ -150,9 +150,9 @@ function Table({ children, column, changes = [] }) {
               <span> Save cart & checkout </span>
             )}
           </Button>
-        ) : (
-          <Button>checkout</Button>
         )}
+
+        {type === "cart" && <Button>Checkout</Button>}
       </TableAndButtonContainer>
     </TableContext.Provider>
   );
