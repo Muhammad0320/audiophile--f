@@ -2,7 +2,7 @@ import { useUser } from "./useUser";
 import styled from "styled-components";
 import Spinner from "../../ui/Spinner";
 import PaswordSettings from "./PaswordSettings";
-import UserDataSettings from "./userDataSettings";
+import UserDataSettings from "./UserDataSettings";
 import DeleteUserAccount from "./DeleteUserAccount";
 import { clampBuilder } from "../../styles/clampFunction";
 
@@ -16,7 +16,7 @@ const InfoDetails = styled.div`
   justify-content: center;
 
   flex-flow: column;
-  
+
   & > form:first-of-type {
     border-bottom: 2px solid var(--color-dark-2);
     padding-bottom: ${() => clampBuilder(320, 1200, 6, 10)};
