@@ -9,7 +9,7 @@ const StyledContainerLayout = styled.div`
   ${(props) =>
     props.page === "checkout" &&
     css`
-      grid-template-columns: minmax(6rem, 8rem) 85dvw minmax(6rem, 8rem);
+      grid-template-columns: minmax(6rem, 1fr) 85dvw minmax(6rem, 1fr);
     `}
 
   @media (max-width: 920px) {
