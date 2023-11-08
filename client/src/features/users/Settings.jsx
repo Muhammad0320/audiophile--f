@@ -16,7 +16,7 @@ const InfoDetails = styled.div`
   justify-content: center;
 
   flex-flow: column;
-
+  
   & > form:first-of-type {
     border-bottom: 2px solid var(--color-dark-2);
     padding-bottom: ${() => clampBuilder(320, 1200, 6, 10)};

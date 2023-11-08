@@ -27,7 +27,7 @@ const NoProducts = styled.span`
 `;
 
 const ProductInfo = styled.span`
-  font-size: ${() => clampBuilder(650, 1200, 1, 2)};
+  font-size: ${() => clampBuilder(650, 1200, 1, 1.5)};
 
   @media (max-width: 650px) {
     font-size: ${() => clampBuilder(320, 650, 0.6, 1)};
