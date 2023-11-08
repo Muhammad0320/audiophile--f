@@ -110,17 +110,21 @@ function Table({ children, column, changes = [] }) {
 
   const navigate = useNavigate();
 
+  // send bulk and navigate to checkout
+
   const handleSendBulk = () => {
     navigate("/checkout");
 
-    sendBulkdata(
-      { changes },
-      {
-        onSuccess: () => {
-          dispatch(clearChanges);
-        },
-      }
-    );
+    if (changes.length) {
+      sendBulkdata(
+        { changes },
+        {
+          onSuccess: () => {
+            dispatch(clearChanges);
+          },
+        }
+      );
+    }
   };
 
   return (
