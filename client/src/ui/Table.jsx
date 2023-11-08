@@ -135,7 +135,7 @@ function Table({ children, column, changes = [] }) {
           <> {children} </>{" "}
         </TableContainer>
 
-        {changes.length && (
+        {changes.length ? (
           <Button
             onClick={() => handleSendBulk()}
             withspinner={isSendingBulkData ? "true" : ""}
@@ -147,9 +147,11 @@ function Table({ children, column, changes = [] }) {
                 <SpinnerMini /> <span> saving cart data ... </span>{" "}
               </>
             ) : (
-              <span> Save cart </span>
+              <span> Save cart & checkout </span>
             )}
           </Button>
+        ) : (
+          <Button>checkout</Button>
         )}
       </TableAndButtonContainer>
     </TableContext.Provider>
