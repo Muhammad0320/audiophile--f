@@ -130,12 +130,9 @@ function Table({ children, column, changes = [], type }) {
   return (
     <TableContext.Provider value={{ column }}>
       <TableAndButtonContainer>
-        <TableContainer role="table">
-          {" "}
-          <> {children} </>{" "}
-        </TableContainer>
+        <TableContainer role="table"> {children}</TableContainer>
 
-        {changes.length && (
+        {type === "cart" && changes.length ? (
           <Button
             onClick={() => handleSendBulk()}
             withspinner={isSendingBulkData ? "true" : ""}
@@ -150,9 +147,9 @@ function Table({ children, column, changes = [], type }) {
               <span> Save cart & checkout </span>
             )}
           </Button>
+        ) : (
+          <Button onClick={handleSendBulk}> Checkout </Button>
         )}
-
-        {type === "cart" && <Button onClick={handleSendBulk}>Checkout</Button>}
       </TableAndButtonContainer>
     </TableContext.Provider>
   );

@@ -16,7 +16,7 @@ function OrderTable() {
       : "minmax(0, 0.4fr) minmax(0, 1.35fr) minmax(0, 0.3fr) minmax(0, 0.5fr) minmax(0, 0.25fr);";
 
   return (
-    <Table column={column} role="table" type="cart">
+    <Table column={column} role="table">
       {isLoading ? (
         <Spinner />
       ) : (
