@@ -14,6 +14,7 @@ import { Text } from "../../ui/Text";
 
 const StyledCart = styled.div`
   align-self: flex-start;
+  row-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
 
   display: flex;
   border-radius: 1rem;
