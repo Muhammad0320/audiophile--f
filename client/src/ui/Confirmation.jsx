@@ -122,6 +122,8 @@ const TextTotal = styled.span`
 function Confirmation() {
   const cart = useSelector(getCart);
 
+  console.log(cart);
+
   const dispatch = useDispatch();
 
   const totalCartPrice = useSelector(getTotalCartPrice);

@@ -1,10 +1,9 @@
-import { css, styled } from "styled-components";
-
-import Button from "./Button";
 import Nav from "./Nav";
+import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import { clampBuilder } from "../styles/clampFunction";
+import { css, styled } from "styled-components";
 import { useViewport } from "../context/ViewPort";
+import { clampBuilder } from "../styles/clampFunction";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
