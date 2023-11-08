@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import CategoryBox from "../ui/CategoryBox";
 import ContainerContent from "../ui/ContainerContent";
 import ContainerHero from "../ui/ContainerHero";
@@ -14,11 +13,6 @@ function HomePage() {
 
       <ContainerContent>
         <CategoryBox />
-
-        <NavLink
-          to="/success"
-          style={{ color: "black", border: "1px solid red" }}
-        />
 
         <ContainerHeroImages />
         <ContainerHero />
