@@ -7,7 +7,7 @@ import { clampBuilder } from "../styles/clampFunction";
 
 const StyledHeader = styled.div`
   grid-column: 1 / -1;
-  padding-inline: ${() => clampBuilder(400, 1200, 0.1, 12)};
+  padding-inline: ${() => clampBuilder(900, 1200, 0.1, 8)};
   padding-block: ${() => clampBuilder(400, 1200, 1.2, 2)};
 
   background-color: var(--color-dark);
