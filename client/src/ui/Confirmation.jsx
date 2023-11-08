@@ -36,8 +36,7 @@ const StyledContainer = styled.div`
 
   border-radius: 1.5rem;
   overflow: hidden;
-  padding: 3rem 0;
-  ${() => clampBuilder(320, 1200, 1.8, 3)};
+  padding: 3rem ${() => clampBuilder(320, 1200, 1.3, 2.5)};
   box-shadow: var(--box-shadow-dark);
 
   @media (max-width: 500px) {
@@ -97,6 +96,7 @@ const CartPriceOverview = styled.div`
 
 const CartOverview = styled.div`
   background-color: var(--color-white-2);
+  background-image: var(--color-gradient-dark-muted);
   padding: ${() => clampBuilder(320, 1200, 1.4, 2)};
 
   @media (max-width: 500px) {
@@ -121,8 +121,6 @@ const TextTotal = styled.span`
 
 function Confirmation() {
   const cart = useSelector(getCart);
-
-  console.log(cart);
 
   const dispatch = useDispatch();
 

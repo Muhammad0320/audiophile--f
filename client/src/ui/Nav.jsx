@@ -212,6 +212,7 @@ function Nav({ type }) {
               <NavItem to="/speakers">speakers</NavItem>
 
               <NavItem to="/earphones">earphones</NavItem>
+              <NavItem to="/success">success</NavItem>
             </NavList>
           )}
 
