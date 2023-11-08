@@ -37,7 +37,7 @@ const StyledContainer = styled.div`
   border-radius: 1.5rem;
   overflow: hidden;
   padding: 3rem ${() => clampBuilder(320, 1200, 1.3, 2.5)};
-  box-shadow: var(--box-shadow-dark);
+  box-shadow: var(--box-shadow-dark-2);
 
   @media (max-width: 500px) {
     grid-template-rows: 0.4fr 0.4fr ${() => clampBuilder(320, 1200, 3, 4)} 1.2fr 4rem;
