@@ -53,7 +53,7 @@ const Header = styled(CommonRow)`
   ${() => clampBuilder(320, 1200, 1.2, 2)};
   font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
   /* background-color: var(--color-white-1); */
-  
+
   font-weight: 600;
   border-bottom: 1px solid var(--color-white-2);
 
@@ -104,8 +104,6 @@ const TableContext = createContext();
 // Create parent element
 
 function Table({ children, column, changes = [] }) {
-  console.log(column);
-
   const { sendBulkdata, isSendingBulkData } = useSendBulkData();
 
   const dispatch = useDispatch();

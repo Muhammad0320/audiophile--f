@@ -18,7 +18,7 @@ function CartTable() {
   const changes = useSelector(getChanges);
 
   const { viewportWidth } = useViewport();
-
+  
   const otherColumnValue =
     viewportWidth >= 680
       ? " 0.8fr max-content 0.6fr 0.4fr "
