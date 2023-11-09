@@ -85,7 +85,7 @@ function Footer() {
       <FooterContent>
         <FooterText>
           <span> By Muhammad Awwal ( codemastreo_7 ) </span>
-          <span> Copyright 2023. All Rights Reserved </span>
+          <span> Copyright&copy;2023. All Rights Reserved </span>
         </FooterText>
 
         <IconList>
