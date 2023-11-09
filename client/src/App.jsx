@@ -29,6 +29,7 @@ import HomePage from "./pages/HomePage";
 import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
 import { ViewPortProvider } from "./context/ViewPort";
 import ScrollToTop from "./utils/ScrollToTop";
+import useSmoothScroll from "./utils/useSmoothScroll";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +40,9 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  // call the smooth scroll funcition
+  useSmoothScroll();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -60,6 +64,7 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <ScrollToTop />
+
           <Routes>
             <Route element={<AppLayout />}>
               <Route index element={<Navigate replace to="home" />} />
