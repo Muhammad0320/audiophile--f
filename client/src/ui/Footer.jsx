@@ -16,6 +16,9 @@ const StyledFooter = styled.div`
 const FooterText = styled.div`
   color: var(--color-white-3);
   font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  row-gap: ${() => clampBuilder(920, 1200, 1.2, 2)};
   font-size: ${() => clampBuilder(920, 1200, 1.3, 1.7)};
   @media (max-width: 920px) {
     font-size: ${() => clampBuilder(350, 920, 1, 1.3)};
@@ -81,6 +84,7 @@ function Footer() {
       </FooterParagraph>
       <FooterContent>
         <FooterText>
+          <span> By Muhammad Awwal ( codemastreo_7 ) </span>
           <span> Copyright 2023. All Rights Reserved </span>
         </FooterText>
 
