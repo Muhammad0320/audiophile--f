@@ -28,7 +28,7 @@ export const loginApi = async ({ email, password }) => {
     },
   });
 
-  return res.data;
+  return res.data.user;
 };
 
 export const logoutApi = async () => {

@@ -19,10 +19,15 @@ function LoginForm() {
       { email, password },
       {
         onSettled: () => reset(),
+        onSuccess: (user) => {
+          console.log(user);
+        },
       }
     );
 
-    console.log(user);
+    if (!isLoading && user) {
+      console.log(user);
+    }
   };
 
   return (
