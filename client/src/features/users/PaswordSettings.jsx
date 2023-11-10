@@ -21,6 +21,9 @@ function PaswordSettings() {
       { currentPassword, password, passwordConfirm },
       {
         onSettled: () => reset(),
+        onSuccess: (user) => {
+          localStorage.setItem("user", user);
+        },
       }
     );
   };

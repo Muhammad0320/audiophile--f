@@ -28,7 +28,7 @@ export const updateUserData = async ({ email, name, photo }) => {
     data: form,
   });
 
-  return res.data;
+  return res.data.data.user;
 };
 
 export const updateUserPassword = async ({

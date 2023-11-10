@@ -15,19 +15,17 @@ function LoginForm() {
   const onSubmit = ({ email, password }, e) => {
     e.preventDefault();
 
-    const user = login(
+    login(
       { email, password },
       {
         onSettled: () => reset(),
         onSuccess: (user) => {
-          console.log(user);
+          const userStr = JSON.stringify(user);
+
+          localStorage.setItem("user", userStr);
         },
       }
     );
-
-    if (!isLoading && user) {
-      console.log(user);
-    }
   };
 
   return (
