@@ -46,8 +46,9 @@ const TextHeader = styled.h3`
   margin-bottom: -2px;
 
   & > span {
+    font-family: "Oleo Script", cursive;
+    font-size: ${() => clampBuilder(320, 1200, 2.5, 4)};
     color: var(--color-primary);
-    font-style: italic;
   }
 `;
 
