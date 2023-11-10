@@ -26,10 +26,15 @@ function DeleteUserAccount() {
 
   const { deleteUser, isDeleting } = useDeleteUser();
 
-  console.log(deleteInput);
-
   const onSubmit = () => {
-    deleteUser({ currentPassword: deleteInput });
+    deleteUser(
+      { currentPassword: deleteInput },
+      {
+        onSuccess: () => {
+          localStorage.removeItem("user");
+        },
+      }
+    );
   };
 
   return (

@@ -179,6 +179,14 @@ function Nav({ type }) {
 
   const { viewportWidth } = useViewport();
 
+  const handleLogoutFunction = () => {
+    logout(null, {
+      onSuccess: () => {
+        localStorage.removeItem("user");
+      },
+    });
+  };
+
   return (
     <Modal>
       {type === "header" && (
@@ -241,7 +249,7 @@ function Nav({ type }) {
                 {isLoggingOut ? (
                   <SpinnerMini />
                 ) : (
-                  <HeaderIcon as="a" onClick={logout}>
+                  <HeaderIcon as="a" onClick={handleLogoutFunction}>
                     <HiArrowRightOnRectangle />
                   </HeaderIcon>
                 )}
