@@ -47,6 +47,7 @@ const TextHeader = styled.h3`
 
   & > span {
     color: var(--color-primary);
+    font-style: italic;
   }
 `;
 
