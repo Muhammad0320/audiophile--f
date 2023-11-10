@@ -15,12 +15,14 @@ function LoginForm() {
   const onSubmit = ({ email, password }, e) => {
     e.preventDefault();
 
-    login(
+    const user = login(
       { email, password },
       {
         onSettled: () => reset(),
       }
     );
+
+    console.log(user);
   };
 
   return (
