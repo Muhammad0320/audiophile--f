@@ -40,10 +40,7 @@ app.use(express.json());
 // http://127.0.0.1:3000
 
 app.use(function(req, res, next) {
-  res.header(
-    'Access-Control-Allow-Origin',
-    'https://audiophile-f-muhammad0320.vercel.app'
-  );
+  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5173');
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization'
