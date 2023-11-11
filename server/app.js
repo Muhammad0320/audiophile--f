@@ -81,14 +81,14 @@ app.use(
 
 app.use(helmet());
 
-// app.use(
-//   '/api',
-//   rateLimit({
-//     max: 200,
-//     windowMs: 60 * 60 * 1000,
-//     message: 'Too many requests from this IP'
-//   })
-// );
+app.use(
+  '/api',
+  rateLimit({
+    max: 200,
+    windowMs: 60 * 60 * 1000,
+    message: 'Too many requests from this IP'
+  })
+);
 
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/users', userRoutes);
