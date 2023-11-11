@@ -70,9 +70,8 @@ const Sidebar = styled.div`
 
 const NavItem = styled(NavLink)`
   position: relative;
-  width: 90%;
-  padding: ${() => clampBuilder(320, 1200, 1.2, 2)};
-  ${() => clampBuilder(320, 1200, 1.6, 3)};
+  width: 100%;
+  padding-block: ${() => clampBuilder(320, 1200, 1.2, 2)};
   display: flex;
   justify-content: center;
   align-items: center;
