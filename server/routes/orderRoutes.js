@@ -17,7 +17,7 @@ router.use(verifyToken, protect);
 
 router.get('/checkout-session', getCheckoutSesion);
 
-router.post('/create-order', createOrderOnSession);
+// router.post('/create-order', createOrderOnSession);
 
 router.route('/my-order').get(getMyOrders);
 
