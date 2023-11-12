@@ -57,7 +57,7 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     )}/success?session_data=${encodedCartData}`,
     cancel_url: `${req.protocol}://${req.get('host')}/home`,
     customer_email: req.user.email,
-    client_reference_id: req.user._id,
+    client_reference_id: cartIdString,
 
     line_items: checkoutItems
   });
