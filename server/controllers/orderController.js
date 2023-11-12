@@ -93,7 +93,17 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.webHookCheckout = catchAsync(async (req, res, next) => {});
+exports.webHookCheckout = (req, res, next) => {
+  const stripeSignature = req.headers['stripe-signature'];
+
+  const event = stripe.webhooks.constructEvent(
+    req.body,
+    stripeSignature,
+    process.env.STRIPE_WEBHOOK_SECRET
+  );
+
+  console.log(event);
+};
 
 exports.getMyOrders = catchAsync(async (req, res, next) => {
   const user = req.user._id;
