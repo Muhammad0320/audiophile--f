@@ -19,14 +19,19 @@ const orderRoutes = require('./routes/orderRoutes');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
+const { webHookCheckout } = require('./controllers/orderController');
 
 const app = express();
-
-app.use(cookieParser());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+app.use(
+  '/api/v1/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  webHookCheckout
+);
 
 app.set('trust proxy', false);
 
@@ -34,8 +39,10 @@ app.use(sanitize());
 
 app.use(xss());
 
-app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // http://127.0.0.1:5173
 
