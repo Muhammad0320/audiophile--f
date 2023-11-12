@@ -2,6 +2,7 @@ const stripe = require('stripe')(process.env.stripe_secret_key);
 
 const Cart = require('../models/cartModel');
 const Order = require('../models/orderModel');
+const User = require('../models/userModel');
 
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
@@ -25,7 +26,7 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     );
   }
 
-  const cartId = currentUserCart.map(item => item.product._id);
+  const cartId = currentUserCart.map(item => item._id);
 
   const checkoutItems = currentUserCart.map(item => {
     return {
@@ -43,10 +44,6 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
   });
 
   const cartIdString = JSON.stringify(cartId);
-
-  const currentUserCartStr = JSON.stringify(currentUserCart);
-
-  const encodedCartData = encodeURIComponent(currentUserCartStr);
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
@@ -91,8 +88,33 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
   });
 });
 
-const createNewOrderOnCompletedSession = session => {
-  console.dir(session, { depth: null });
+const createNewOrderOnCompletedSession = async session => {
+  const totalPrice = session.amount_total;
+
+  const user = (await User.findOne({ email: session.email }))._id;
+
+  const cartIds = JSON.parse(session.client_reference_id);
+
+  const cartData = await Cart.find({ _id: { $in: cartIds } });
+
+  const products = cartData.map(item => {
+    return {
+      productId: item.product._id,
+      quantity: item.quantity,
+      price: item.totalPrice
+    };
+  });
+
+  const newOrder = await Order.create({ user, products, totalPrice });
+
+  if (newOrder) {
+    await Cart.find({ user }).deleteMany();
+  }
+
+  res.status(201).json({
+    status: 'success',
+    data: 'Order created successfully'
+  });
 };
 
 exports.webHookCheckout = (req, res, next) => {
@@ -110,7 +132,6 @@ exports.webHookCheckout = (req, res, next) => {
     return res.status(200).send(`Webhook error: ${error.message}`);
   }
 
-  console.log(event);
   if (event.type === 'checkout.session.completed')
     createNewOrderOnCompletedSession(event.data.object);
 
