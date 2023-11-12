@@ -52,8 +52,10 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     payment_method_types: ['card'],
 
     mode: 'payment',
-    success_url: `${req.protocol}://127.0.0.1:5173/success?session_data=${encodedCartData}`,
-    cancel_url: `${req.protocol}://127.0.0.1:5173/home`,
+    success_url: `${req.protocol}://${req.get(
+      'host'
+    )}/success?session_data=${encodedCartData}`,
+    cancel_url: `${req.protocol}://${req.get('host')}/home`,
     customer_email: req.user.email,
     client_reference_id: req.user._id,
 
@@ -90,6 +92,8 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
     data: 'Order created successfully'
   });
 });
+
+exports.webHookCheckout = catchAsync(async (req, res, next) => {});
 
 exports.getMyOrders = catchAsync(async (req, res, next) => {
   const user = req.user._id;
