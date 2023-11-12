@@ -96,11 +96,17 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
 exports.webHookCheckout = (req, res, next) => {
   const stripeSignature = req.headers['stripe-signature'];
 
-  const event = stripe.webhooks.constructEvent(
-    req.body,
-    stripeSignature,
-    process.env.STRIPE_WEBHOOK_SECRET
-  );
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(
+      req.body,
+      stripeSignature,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+  } catch (error) {
+    return res.status(200).send(`Webhook error: ${error.message}`);
+  }
 
   console.log(event);
 };
