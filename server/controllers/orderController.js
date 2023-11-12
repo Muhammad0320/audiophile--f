@@ -93,6 +93,10 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
   });
 });
 
+const createNewOrderOnCompletedSession = session => {
+  console.dir(session, { depth: null });
+};
+
 exports.webHookCheckout = (req, res, next) => {
   const stripeSignature = req.headers['stripe-signature'];
 
@@ -109,6 +113,10 @@ exports.webHookCheckout = (req, res, next) => {
   }
 
   console.log(event);
+  if (event.type === 'checkout.session.completed')
+    createNewOrderOnCompletedSession(event.data.object);
+
+  res.status(200).json({ received: true });
 };
 
 exports.getMyOrders = catchAsync(async (req, res, next) => {
