@@ -26,6 +26,11 @@ const orderSchema = new mongoose.Schema({
     }
   ],
 
+  totalPrice: {
+    type: Number,
+    required: [true, 'An order must have a total price']
+  },
+
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
