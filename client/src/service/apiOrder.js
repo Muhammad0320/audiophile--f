@@ -26,19 +26,6 @@ export const getCheckoutSesionApi = async () => {
   }
 };
 
-export const createOrderApi = async ({ product }) => {
-  const res = await axios({
-    method: "POST",
-    url: `${SERVER_ROOT_URL}/orders/create-order`,
-    withCredentials: true,
-    data: {
-      product,
-    },
-  });
-
-  return res.data;
-};
-
 export const getMyOrderApi = async () => {
   const res = await axios.get(`${SERVER_ROOT_URL}/orders/my-order`, {
     withCredentials: true,
