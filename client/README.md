@@ -10,7 +10,8 @@
 - Product details with images, descriptions, features, items in the box, reviews, average rating and ratings count and more...
 - Shopping cart management: adding items to cart, updating cart item, removing cart item, and clearing the entire cart .
 - Changes state in the redux to add any changes that occurs in the cart for easier management and send all the chnanges to the server in just one network trip for improved performance.
-- Checkout: user can checkout products that are saved in their cart and handle their card payment with Stripe.
+- Checkout: user can checkout products that are saved in their cart and handle their card payment with Stripe - a popular and trustworthy software company that helps in payment integration.
+- Secured Payments and Orders - As said above that payments are hanlded with stripe api; this app also packs an advanced stripe features called Stripe Webhooks - Here, the ordering is not handled by our company but with Stripe itself where we attached an endpoint to be called by stripe on successsful checkout which inturn automatically create order.
 - User profile management: Full access to the user's profile like updating current user's data, uploading a profile photo, passwords, resetting passwords for users forgot their password.
 - Order management: In this website, user can access all their processed orders and the information related to the specific order, like the date of purchase, total price, order status number of items per order and lot more.
 - Review management: users can manage all of their reviews by deleting and editing desired ones.
