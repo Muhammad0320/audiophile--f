@@ -6,7 +6,6 @@ const {
   updateOrder,
   deleteOrder,
   getCheckoutSesion,
-  createOrderOnSession,
   getMyOrders
 } = require('../controllers/orderController');
 const { protect, verifyToken } = require('../controllers/authController');
@@ -16,8 +15,6 @@ const router = express.Router();
 router.use(verifyToken, protect);
 
 router.get('/checkout-session', getCheckoutSesion);
-
-// router.post('/create-order', createOrderOnSession);
 
 router.route('/my-order').get(getMyOrders);
 

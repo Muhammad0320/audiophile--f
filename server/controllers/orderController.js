@@ -63,31 +63,6 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createOrderOnSession = catchAsync(async (req, res, next) => {
-  const user = req.user._id;
-
-  const cartData = JSON.parse(req.body.product);
-
-  const products = cartData.map(item => {
-    return {
-      productId: item.product._id,
-      quantity: item.quantity,
-      price: item.totalPrice
-    };
-  });
-
-  // const newOrder = await Order.create({ user, products });
-
-  // if (newOrder) {
-  //   await Cart.find({ user }).deleteMany();
-  // }
-
-  res.status(201).json({
-    status: 'success',
-    data: 'Order created successfully'
-  });
-});
-
 const createNewOrderOnCompletedSession = async session => {
   const totalPrice = session.amount_total;
 
