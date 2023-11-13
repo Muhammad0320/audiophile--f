@@ -210,7 +210,7 @@ function Confirmation() {
           </CartTextBold>
         </CartPriceOverview>
       </CartOverviewContainer>
-      <Button onClick={() => handleClickHome()}> Back to Home </Button>
+      <Button onClick={handleClickHome}> Back to Home </Button>
     </StyledContainer>
   );
 }
