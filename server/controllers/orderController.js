@@ -107,11 +107,11 @@ const createNewOrderOnCompletedSession = async session => {
     };
   });
 
-  const newOrder = await Order.create({ user, products, totalPrice });
+  await Order.create({ user, products, totalPrice });
 
-  if (newOrder) {
-    await Cart.find({ user }).deleteMany();
-  }
+  // if (newOrder) {
+  //   await Cart.find({ user }).deleteMany();
+  // }
 };
 
 exports.webHookCheckout = (req, res, next) => {

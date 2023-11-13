@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Confirmation from "../ui/Confirmation";
-import ContainerContent from "../ui/ContainerContent";
-
 import ContainerLayout from "../ui/ContainerLayout";
+import ContainerContent from "../ui/ContainerContent";
 
 const Container = styled.div`
   display: flex;
