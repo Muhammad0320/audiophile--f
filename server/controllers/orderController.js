@@ -91,11 +91,13 @@ exports.createOrderOnSession = catchAsync(async (req, res, next) => {
 const createNewOrderOnCompletedSession = async session => {
   const totalPrice = session.amount_total;
 
-  const user = (await User.findOne({ email: session.email }))._id;
+  const user = (await User.findOne({ email: session.customer_email }))._id;
 
   const cartIds = JSON.parse(session.client_reference_id);
 
   const cartData = await Cart.find({ _id: { $in: cartIds } });
+
+  console.log(cartData);
 
   const products = cartData.map(item => {
     return {
@@ -124,7 +126,7 @@ exports.webHookCheckout = (req, res, next) => {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (error) {
-    return res.status(200).send(`Webhook error: ${error.message}`);
+    return res.status(404).send(`Webhook error: ${error.message}`);
   }
 
   if (event.type === 'checkout.session.completed')
