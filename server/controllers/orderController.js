@@ -97,8 +97,6 @@ const createNewOrderOnCompletedSession = async session => {
 
   const cartData = await Cart.find({ _id: { $in: cartIds } });
 
-  console.log(cartData);
-
   const products = cartData.map(item => {
     return {
       productId: item.product._id,
@@ -108,10 +106,6 @@ const createNewOrderOnCompletedSession = async session => {
   });
 
   await Order.create({ user, products, totalPrice });
-
-  // if (newOrder) {
-  //   await Cart.find({ user }).deleteMany();
-  // }
 };
 
 exports.webHookCheckout = (req, res, next) => {

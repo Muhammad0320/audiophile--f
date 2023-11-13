@@ -5,6 +5,7 @@ import { getCart, getChanges } from "./cartSlice";
 import CartTableItem from "./CartTableITem";
 import { useViewport } from "../../context/ViewPort";
 import { clampBuilder } from "../../styles/clampFunction";
+import Button from "../../ui/Button";
 
 const StyledCartContainer = styled.div`
   position: relative;
@@ -38,6 +39,7 @@ function CartTable() {
           )}
         />
       </Table>
+      <Button> Let me see </Button>
     </StyledCartContainer>
   );
 }
