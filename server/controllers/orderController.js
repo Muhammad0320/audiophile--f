@@ -110,11 +110,6 @@ const createNewOrderOnCompletedSession = async session => {
   if (newOrder) {
     await Cart.find({ user }).deleteMany();
   }
-
-  res.status(201).json({
-    status: 'success',
-    data: 'Order created successfully'
-  });
 };
 
 exports.webHookCheckout = (req, res, next) => {
