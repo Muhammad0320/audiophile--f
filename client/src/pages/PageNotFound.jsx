@@ -3,7 +3,7 @@ import Error from "../ui/Error";
 import SmallButton from "../ui/SmallButton";
 import { useMoveBack } from "../hooks/useMoveBack";
 
-function PageNotFount() {
+function PageNotFound() {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -24,4 +24,4 @@ function PageNotFount() {
   );
 }
 
-export default PageNotFount;
+export default PageNotFound;
