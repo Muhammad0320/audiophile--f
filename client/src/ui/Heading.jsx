@@ -29,6 +29,14 @@ export const Heading = styled.h4`
     `}
 
   ${(props) =>
+    props.type === "error" &&
+    css`
+      text-align: center;
+      background-color: var(--color-primary-dark);
+      font-size: ${() => clampBuilder(320, 1200, 1.4, 3)};
+    `}
+
+  ${(props) =>
     props.type === "login" &&
     css`
       margin: 0;
