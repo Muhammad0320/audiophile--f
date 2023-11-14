@@ -15,6 +15,8 @@ function CategoryHeadphone() {
 
   if (isLoading) return <Spinner />;
 
+  if (!categoryProduct) return <div> Kosi </div>;
+
   return (
     <CategoryContainer>
       {categoryProduct.map((data, index) => (
