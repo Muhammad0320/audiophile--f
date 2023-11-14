@@ -42,7 +42,7 @@ const Box = styled.div`
   }
 `;
 
-function Error({ message, type, onClick }) {
+function Error({ message, type, onClick, extraConfig }) {
   const buttonText = type === "boundary" ? " Try Again " : " Go Home ";
 
   return (
@@ -50,6 +50,7 @@ function Error({ message, type, onClick }) {
       <GlobalStyles />
       <Container>
         <Box>
+          {(extraConfig ||= "")}
           <Heading type="error"> Something went wrong!</Heading>
 
           <span> {message} </span>
