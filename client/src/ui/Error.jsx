@@ -42,7 +42,9 @@ const Box = styled.div`
   }
 `;
 
-function ErrorFallback({ error }) {
+function ErrorFallback({ message, type }) {
+  const buttonText = type === "boundary" ? " Try Again " : " Go Home ";
+
   return (
     <>
       <GlobalStyles />
@@ -50,10 +52,9 @@ function ErrorFallback({ error }) {
         <Box>
           <Heading type="error"> Something went wrong!</Heading>
 
-          <span> {error.message} </span>
+          <span> {message} </span>
           <Button size="large" onClick={[]}>
-            {" "}
-            Try again{" "}
+            {buttonText}
           </Button>
         </Box>
       </Container>
