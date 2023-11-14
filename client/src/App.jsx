@@ -30,6 +30,7 @@ import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
 import { ViewPortProvider } from "./context/ViewPort";
 import ScrollToTop from "./utils/ScrollToTop";
 import useSmoothScroll from "./utils/useSmoothScroll";
+import PageNotFound from "./pages/PageNotFound";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -94,6 +95,7 @@ function App() {
 
             <Route path="signup" element={<SignupPage />} />
             <Route path="login" element={<LoginPage />} />
+            <Route path="*" element={PageNotFound} />
           </Routes>
 
           <Toaster
