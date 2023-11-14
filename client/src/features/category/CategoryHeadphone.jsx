@@ -11,11 +11,10 @@ const CategoryContainer = styled.div`
 `;
 
 function CategoryHeadphone() {
-  const { categoryProduct = [], isLoading } = useProductCategory("headphones");
+  const { categoryProduct, isLoading } = useProductCategory("headphones");
 
+  if (!categoryProduct.length) return <div> Kosi </div>;
   if (isLoading) return <Spinner />;
-
-  if (!categoryProduct) return <div> Kosi </div>;
 
   return (
     <CategoryContainer>

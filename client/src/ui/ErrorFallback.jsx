@@ -32,19 +32,21 @@ const Box = styled.div`
 
   flex-direction: column;
 
+  border: 1px solid red;
+
   row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
 `;
 
-function ErrorFallback({ error, resetErrorBoundary }) {
+function ErrorFallback() {
   return (
     <>
       <GlobalStyles />
       <Container>
         <Box>
-          <Heading> Something went wrong! 😟😔 </Heading>
+          <Heading type="error"> Something went wrong! 😟😔 </Heading>
 
-          <span>{error}</span>
-          <Button size="large" onClick={resetErrorBoundary}>
+          <span> odeh </span>
+          <Button size="large" onClick={[]}>
             {" "}
             Go Back{" "}
           </Button>
