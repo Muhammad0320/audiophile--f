@@ -13,7 +13,6 @@ const CategoryContainer = styled.div`
 function CategoryHeadphone() {
   const { categoryProduct, isLoading } = useProductCategory("headphones");
 
-  if (!categoryProduct.length) return <div> Kosi </div>;
   if (isLoading) return <Spinner />;
 
   return (

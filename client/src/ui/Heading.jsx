@@ -33,7 +33,6 @@ export const Heading = styled.h4`
     css`
       text-align: center;
 
-      margin-bottom: ${() => clampBuilder(320, 1200, 0.3, 1)};
       font-size: ${() => clampBuilder(320, 1200, 1.4, 3)};
     `}
 
