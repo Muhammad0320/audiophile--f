@@ -42,7 +42,7 @@ const Box = styled.div`
   }
 `;
 
-function ErrorFallback({ message, type }) {
+function Error({ message, type }) {
   const buttonText = type === "boundary" ? " Try Again " : " Go Home ";
 
   return (
@@ -62,4 +62,4 @@ function ErrorFallback({ message, type }) {
   );
 }
 
-export default ErrorFallback;
+export default Error;
