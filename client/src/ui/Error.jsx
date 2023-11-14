@@ -42,7 +42,13 @@ const Box = styled.div`
   }
 `;
 
-function Error({ message, type, onClick, extraConfig }) {
+const TinyButton = styled.span`
+  align-self: flex-start;
+  justify-self: flex-end;
+  margin-bottom: ${() => clampBuilder(320, 1200, -2, -3)};
+`;
+
+function Error({ message, type, onClick, extraConfig = null }) {
   const buttonText = type === "boundary" ? " Try Again " : " Go Home ";
 
   return (
@@ -50,7 +56,7 @@ function Error({ message, type, onClick, extraConfig }) {
       <GlobalStyles />
       <Container>
         <Box>
-          {(extraConfig ||= "")}
+          <TinyButton>{(extraConfig ||= "")}</TinyButton>
           <Heading type="error"> Something went wrong!</Heading>
 
           <span> {message} </span>

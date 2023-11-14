@@ -12,9 +12,16 @@ function PageNotFound() {
 
   const moveBack = useMoveBack();
 
-  const ExtraUI = <SmallButton onClick={moveBack}> Go back </SmallButton>;
+  const extraUI = <SmallButton onClick={moveBack}> Go back </SmallButton>;
 
-  return <div style={{ border: "1px solid red" }}>I can see you</div>;
+  return (
+    <Error
+      type="pageNotFound"
+      message="The page you are looking for could not be found! 🧐"
+      onClick={handleClick}
+      extraConfig={extraUI}
+    />
+  );
 }
 
 export default PageNotFound;

@@ -32,7 +32,7 @@ export const Heading = styled.h4`
     props.type === "error" &&
     css`
       text-align: center;
-
+      margin-bottom: 0;
       font-size: ${() => clampBuilder(320, 1200, 1.4, 3)};
     `}
 
