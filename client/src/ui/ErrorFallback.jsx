@@ -32,9 +32,7 @@ const Box = styled.div`
 
   flex-direction: column;
 
-  border: 1px solid red;
-
-  row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
+  row-gap: ${() => clampBuilder(320, 1200, 1.5, 2.5)};
 
   span {
     color: var(--color-primary-dark);
@@ -50,12 +48,12 @@ function ErrorFallback({ error }) {
       <GlobalStyles />
       <Container>
         <Box>
-          <Heading type="error"> Something went wrong! 😟😔 </Heading>
+          <Heading type="error"> Something went wrong!</Heading>
 
           <span> {error.message} </span>
           <Button size="large" onClick={[]}>
             {" "}
-            Go Back{" "}
+            Try again{" "}
           </Button>
         </Box>
       </Container>
