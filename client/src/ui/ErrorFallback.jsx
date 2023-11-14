@@ -35,9 +35,16 @@ const Box = styled.div`
   border: 1px solid red;
 
   row-gap: ${() => clampBuilder(320, 1200, 1, 2)};
+
+  span {
+    color: var(--color-primary-dark);
+
+    font-size: ${() => clampBuilder(320, 1200, 1, 1.8)};
+    font-weight: bold;
+  }
 `;
 
-function ErrorFallback() {
+function ErrorFallback({ error }) {
   return (
     <>
       <GlobalStyles />
@@ -45,7 +52,7 @@ function ErrorFallback() {
         <Box>
           <Heading type="error"> Something went wrong! 😟😔 </Heading>
 
-          <span> odeh </span>
+          <span> {error.message} </span>
           <Button size="large" onClick={[]}>
             {" "}
             Go Back{" "}

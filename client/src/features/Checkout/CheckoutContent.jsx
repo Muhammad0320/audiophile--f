@@ -29,6 +29,7 @@ function CheckoutContent() {
   const navigate = useNavigate();
 
   const [formStep, setFormStep] = useState(1);
+
   if (!cart.length) return navigate(`/home`);
 
   return (

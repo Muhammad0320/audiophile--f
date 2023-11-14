@@ -6,12 +6,6 @@ import store from "../store.js";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "./ui/ErrorFallback.jsx";
 
-const MyFallBack = () => {
-  return (
-    <div style={{ border: "1px solid red" }}> Odeh show leme see you </div>
-  );
-};
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ErrorBoundary
