@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import { Provider } from "react-redux";
 import store from "../store.js";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "./ui/ErrorFallback.jsx";
+import ErrorFallback from "./pages/ErrorFallback.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
