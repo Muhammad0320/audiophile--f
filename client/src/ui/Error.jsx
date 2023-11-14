@@ -42,7 +42,7 @@ const Box = styled.div`
   }
 `;
 
-function Error({ message, type }) {
+function Error({ message, type, onClick }) {
   const buttonText = type === "boundary" ? " Try Again " : " Go Home ";
 
   return (
@@ -53,7 +53,7 @@ function Error({ message, type }) {
           <Heading type="error"> Something went wrong!</Heading>
 
           <span> {message} </span>
-          <Button size="large" onClick={[]}>
+          <Button size="large" onClick={onClick}>
             {buttonText}
           </Button>
         </Box>
