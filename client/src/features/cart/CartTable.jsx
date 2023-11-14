@@ -9,8 +9,15 @@ import Button from "../../ui/Button";
 
 const StyledCartContainer = styled.div`
   position: relative;
-
+  overflow: hidden;
   height: 100%;
+
+  border: 1px solid red;
+
+  & > button {
+    position: absolute;
+    right: 0;
+  }
 `;
 
 function CartTable() {
