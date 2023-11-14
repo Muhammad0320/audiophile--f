@@ -12,8 +12,6 @@ const StyledCartContainer = styled.div`
   overflow: hidden;
   height: 100%;
 
-  border: 1px solid red;
-
   & > button {
     position: absolute;
     right: 0;

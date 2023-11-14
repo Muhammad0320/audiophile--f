@@ -24,8 +24,6 @@ const TableAndButtonContainer = styled.div`
 
     align-self: flex-end;
   }
-  margin: ${() => clampBuilder(320, 1200, 1.6, 3)};
-  ${() => clampBuilder(320, 1200, 2, 5)};
 `;
 
 const TableContainer = styled.div`
