@@ -1,11 +1,14 @@
-import styled from "styled-components";
 import Table from "../../ui/Table";
-import { useSelector } from "react-redux";
-import { getCart, getChanges } from "./cartSlice";
-import CartTableItem from "./CartTableITem";
-import { useViewport } from "../../context/ViewPort";
-import { clampBuilder } from "../../styles/clampFunction";
 import Button from "../../ui/Button";
+import styled from "styled-components";
+import CartTableItem from "./CartTableITem";
+import { useNavigate } from "react-router-dom";
+import { clearChanges, getCart, getChanges } from "./cartSlice";
+import { useSendBulkData } from "./useSendBulkData";
+import { useViewport } from "../../context/ViewPort";
+import { useDispatch, useSelector } from "react-redux";
+import { clampBuilder } from "../../styles/clampFunction";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 const StyledCartContainer = styled.div`
   position: relative;
@@ -13,6 +16,7 @@ const StyledCartContainer = styled.div`
   height: 100%;
 
   & > button {
+    margin-top: ${() => clampBuilder(320, 1200, 1.2, 2.5)};
     position: absolute;
     right: 0;
   }
@@ -30,13 +34,32 @@ function CartTable() {
       ? " 0.8fr max-content 0.6fr 0.4fr "
       : " 0.9fr 0.4fr 0.4fr";
 
+  const { sendBulkdata, isSendingBulkData } = useSendBulkData();
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  // send bulk and navigate to checkout
+
+  const handleSendBulk = () => {
+    navigate("/checkout");
+
+    if (!changes.length) return;
+
+    sendBulkdata(
+      { changes },
+      {
+        onSuccess: () => {
+          dispatch(clearChanges);
+        },
+      }
+    );
+  };
+
   return (
     <StyledCartContainer>
-      <Table
-        column={`${clampBuilder(320, 1200, 4, 8)} ${otherColumnValue}`}
-        changes={changes}
-        type="cart"
-      >
+      <Table column={`${clampBuilder(320, 1200, 4, 8)} ${otherColumnValue}`}>
         <Table.Body
           data={carts}
           render={(cart) => (
@@ -44,7 +67,26 @@ function CartTable() {
           )}
         />
       </Table>
-      <Button> Let me see </Button>
+      <Button> Save & checkout </Button>
+
+      {changes.length ? (
+        <Button
+          onClick={handleSendBulk}
+          withspinner={isSendingBulkData ? "true" : ""}
+          disabled={isSendingBulkData}
+        >
+          {isSendingBulkData ? (
+            <>
+              {" "}
+              <SpinnerMini /> <span> saving cart... </span>{" "}
+            </>
+          ) : (
+            <span> Save & Checkout </span>
+          )}
+        </Button>
+      ) : (
+        <Button onClick={handleSendBulk}> Move to Checkout </Button>
+      )}
     </StyledCartContainer>
   );
 }

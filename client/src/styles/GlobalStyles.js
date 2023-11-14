@@ -38,7 +38,6 @@ const GlobalStyles = createGlobalStyle`
     --color-gradient-dark-1: linear-gradient(145deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .50));
     --color-gradient-light: linear-gradient(145deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .25));
 
-
     --color-white-vivid: color-mix(in oklab, var(--color-primary-light) 10%, var(--color-white));
     --color-primary-muted: color-mix(in oklab, var(--color-primary) 80%, var(--color-white));
     --color-primary-dark: color-mix(in oklab, var(--color-primary) 80%, var(--color-dark));
