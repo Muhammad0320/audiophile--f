@@ -49,7 +49,7 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     payment_method_types: ['card'],
 
     mode: 'payment',
-    success_url: `https://audiophile-f-muhammad0320.vercel.app/success`,
+    success_url: `https://audiophile-f-muhammad0320.vercel.app/success?alert=ok`,
     cancel_url: `https://audiophile-f-muhammad0320.vercel.app/home`,
     customer_email: req.user.email,
     client_reference_id: cartIdString,

@@ -1,13 +1,16 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCartOnCheckout } from "../../service/apiCart";
 import toast from "react-hot-toast";
 
 export const useDeleteCartOnCheckout = () => {
+  const queryClient = useQueryClient();
+
   const { mutate: deleteCart, isLoading } = useMutation({
     mutationFn: deleteCartOnCheckout,
-    mutationKey: ["cart"],
+
     onSuccess: () => {
       toast.success("Order successfully placed");
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
     },
 
     onError: () => {

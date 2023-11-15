@@ -19,9 +19,11 @@ import { IconConfirmation } from "./Icons";
 import { CartTextBold } from "../features/cart/Cart";
 import { formatCurrency, grandTotalPrice } from "../utils/helper";
 import Button from "./Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { clampBuilder } from "../styles/clampFunction";
 import { Text } from "./Text";
+import { useEffectOnce } from "../hooks/useeffectOnce";
+import { useDeleteCartOnCheckout } from "../features/cart/useDeleteCartOnCheckout";
 
 const StyledContainer = styled.div`
   display: grid;
@@ -122,6 +124,8 @@ const TextTotal = styled.span`
 function Confirmation() {
   const cart = useSelector(getCart);
 
+  const [searchParams] = useSearchParams();
+
   const dispatch = useDispatch();
 
   const totalCartPrice = useSelector(getTotalCartPrice);
@@ -145,6 +149,10 @@ function Confirmation() {
   const OtherCartItemCount = cart.length - 1;
 
   const navigate = useNavigate();
+
+  useEffectOnce(() => {
+    searchParams.get("alert") && useDeleteCartOnCheckout();
+  });
 
   const handleClickHome = () => {
     dispatch(clearCart());
