@@ -137,12 +137,12 @@ function OrderTableItem({ order }) {
         </PriceContainer>
       ) : (
         <>
-          <div style={{ fontSize: `${clampBuilder(650, 1200, 1.2, 2)}` }}>
+          <div style={{ fontSize: `${clampBuilder(650, 1200, 0.8, 1.5)}` }}>
             {" "}
             {formatCurrency(totalOrderPrice)}{" "}
           </div>
 
-          <div style={{ fontSize: `${clampBuilder(650, 1200, 1.2, 2)}` }}>
+          <div style={{ fontSize: `${clampBuilder(650, 1200, 0.8, 1.2)}` }}>
             {" "}
             {createdDate}{" "}
           </div>
