@@ -126,6 +126,8 @@ function Confirmation() {
 
   const [searchParams] = useSearchParams();
 
+  const { deleteCart } = useDeleteCartOnCheckout();
+
   const dispatch = useDispatch();
 
   const totalCartPrice = useSelector(getTotalCartPrice);
@@ -151,7 +153,7 @@ function Confirmation() {
   const navigate = useNavigate();
 
   useEffectOnce(() => {
-    searchParams.get("alert") && useDeleteCartOnCheckout();
+    searchParams.get("alert") && deleteCart();
   });
 
   const handleClickHome = () => {
