@@ -46,7 +46,7 @@ const StyledNav = styled.nav`
 
 const NavList = styled.ul`
   display: flex;
-  column-gap: ${() => clampBuilder(430, 1200, 1.4, 5)};
+  column-gap: ${() => clampBuilder(430, 1200, 1, 4)};
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding-left: 0;
@@ -64,7 +64,7 @@ const NavList = styled.ul`
 
 const NavItem = styled(NavLink)`
   color: var(--color-white-2);
-  font-size: ${() => clampBuilder(920, 1200, 1, 1.5)};
+  font-size: ${() => clampBuilder(920, 1200, 0.7, 1.5)};
 
   &:hover {
     color: var(--color-primary);
