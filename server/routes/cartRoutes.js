@@ -7,7 +7,8 @@ const {
   deleteCart,
   getMyCart,
   addProductUserIds,
-  sendBulkDataFromClient
+  sendBulkDataFromClient,
+  deleteCartOnCheckout
 } = require('../controllers/cartController');
 const {
   protect,
@@ -27,6 +28,8 @@ router
   .post(addProductUserIds, addItemToCart);
 
 router.route('/bulkSend').post(addProductUserIds, sendBulkDataFromClient);
+
+router.route('/deleteCartCheckout').delete(deleteCartOnCheckout);
 
 router.use(restrictTo('admin', 'user'));
 
