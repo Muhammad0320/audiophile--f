@@ -20,6 +20,7 @@ import {
   HiArrowRightOnRectangle,
   HiOutlineShoppingCart,
 } from "react-icons/hi2";
+import NavList from "./NavList";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -42,41 +43,6 @@ const StyledNav = styled.nav`
         align-items: center;
       }
     `}
-`;
-
-const NavList = styled.ul`
-  display: flex;
-  column-gap: ${() => clampBuilder(430, 1200, 1, 4)};
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding-left: 0;
-
-  @media (max-width: 920px) {
-    column-gap: ${() => clampBuilder(350, 1200, 1.8, 3)};
-  }
-
-  @media (max-width: 420px) {
-    flex-direction: column;
-    row-gap: 1.2rem;
-    align-items: center;
-  }
-`;
-
-const NavItem = styled(NavLink)`
-  color: var(--color-white-2);
-  font-size: ${() => clampBuilder(920, 1200, 0.7, 1.5)};
-
-  &:hover {
-    color: var(--color-primary);
-  }
-
-  &.active {
-    color: var(--color-primary);
-  }
-
-  @media (max-width: 920px) {
-    font-size: ${() => clampBuilder(350, 920, 1, 1.4)};
-  }
 `;
 
 const HeaderIcon = styled(NavLink)`
@@ -211,17 +177,7 @@ function Nav({ type }) {
             </HeaderIcon>
           </LeftNavContainer>
 
-          {viewportWidth >= 920 && (
-            <NavList>
-              <NavItem to="/home">Home</NavItem>
-
-              <NavItem to="/headphones">Headphones</NavItem>
-
-              <NavItem to="/speakers">speakers</NavItem>
-
-              <NavItem to="/earphones">earphones</NavItem>
-            </NavList>
-          )}
+          {viewportWidth >= 920 && <NavList />}
 
           <NavCornerContainer>
             {user ? (
@@ -273,15 +229,7 @@ function Nav({ type }) {
             <SVG src={IconLogo} fill="white" />
           </HeaderIcon>
 
-          <NavList>
-            <NavItem to="/home">Home</NavItem>
-
-            <NavItem to="/headphones">Headphones</NavItem>
-
-            <NavItem to="/speakers">speakers</NavItem>
-
-            <NavItem to="/earphones">earphones</NavItem>
-          </NavList>
+          <NavList />
         </StyledNav>
       )}
     </Modal>
