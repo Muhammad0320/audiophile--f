@@ -49,6 +49,15 @@ exports.getMyCart = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.deleteCartOnCheckout = catchAsync(async (req, res, next) => {
+  const user = req.user._id;
+
+  await Cart.deleteMany({ user });
+
+  res.status(204).json({
+    status: 'success'
+  });
+});
 exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   const { changes } = req.body;
 
