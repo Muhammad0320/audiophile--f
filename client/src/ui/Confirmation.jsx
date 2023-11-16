@@ -152,8 +152,18 @@ function Confirmation() {
 
   const navigate = useNavigate();
 
+  const alert = searchParams.get("alert");
+
   useEffectOnce(() => {
-    searchParams.get("alert") && deleteCart();
+    // searchParams.get("alert") && deleteCart();
+
+    if (alert === "ok") {
+      console.log("Lemme see you 🔥🔥");
+
+      deleteCart();
+
+      console.log("Show yourself coward 😒");
+    }
   });
 
   const handleClickHome = () => {
