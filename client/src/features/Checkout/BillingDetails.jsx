@@ -1,12 +1,12 @@
-import { useForm } from "react-hook-form";
-import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
-import InputTypeHeader from "../../ui/InputTypeHeader";
 import Form from "../../ui/Form";
-import { styled } from "styled-components";
+import Input from "../../ui/Input";
 import Button from "../../ui/Button";
+import FormRow from "../../ui/FormRow";
+import { useForm } from "react-hook-form";
+import { styled } from "styled-components";
 import { handleFormStep } from "./handleFormStep";
 import { useViewport } from "../../context/ViewPort";
+import InputTypeHeader from "../../ui/InputTypeHeader";
 import { clampBuilder } from "../../styles/clampFunction";
 
 const FormHeader = styled.div`

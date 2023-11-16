@@ -1,17 +1,16 @@
-import { css, styled } from "styled-components";
-import SmallButton from "../../ui/SmallButton";
-
-import { formatCurrency, grandTotalPrice } from "../../utils/helper";
-import { useDispatch, useSelector } from "react-redux";
-import { clearCart, getCart, getTotalCartPrice } from "./cartSlice";
-import Button from "../../ui/Button";
 import CartItem from "./CartItem";
+import { Text } from "../../ui/Text";
+import Button from "../../ui/Button";
 import EmptyCart from "../../ui/EmptyCart";
+import SmallButton from "../../ui/SmallButton";
 import { useNavigate } from "react-router-dom";
+import { css, styled } from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { SHIPPING_FEE, VAT } from "../../utils/constant";
 import { clampBuilder } from "../../styles/clampFunction";
 import { useClickOutside } from "../../hooks/useClickOutside";
-import { Text } from "../../ui/Text";
-import { SHIPPING_FEE, VAT } from "../../utils/constant";
+import { clearCart, getCart, getTotalCartPrice } from "./cartSlice";
+import { formatCurrency, grandTotalPrice } from "../../utils/helper";
 
 const StyledCart = styled.div`
   align-self: flex-start;

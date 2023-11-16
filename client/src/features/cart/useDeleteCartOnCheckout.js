@@ -1,6 +1,6 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteCartOnCheckout } from "../../service/apiCart";
 import toast from "react-hot-toast";
+import { deleteCartOnCheckout } from "../../service/apiCart";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const useDeleteCartOnCheckout = () => {
   const queryClient = useQueryClient();

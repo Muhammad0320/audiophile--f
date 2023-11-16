@@ -1,11 +1,10 @@
 const stripe = require('stripe')(process.env.stripe_secret_key);
-
+const User = require('../models/userModel');
 const Cart = require('../models/cartModel');
 const Order = require('../models/orderModel');
-const User = require('../models/userModel');
-
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
+
 const {
   createOne,
   updateOne,
