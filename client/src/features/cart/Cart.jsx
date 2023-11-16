@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { clampBuilder } from "../../styles/clampFunction";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { Text } from "../../ui/Text";
+import { SHIPPING_FEE, VAT } from "../../utils/constant";
 
 const StyledCart = styled.div`
   align-self: flex-start;
@@ -86,9 +87,7 @@ function Cart({ page, onClose }) {
 
   const navigate = useNavigate();
 
-  const shippingFee = 50;
-
-  const vat = 0.2 * +totalCartPrice;
+  const vat = VAT * +totalCartPrice;
 
   const { ref } = useClickOutside(onClose);
 
@@ -145,7 +144,7 @@ function Cart({ page, onClose }) {
               SHIPPING FEES{" "}
             </Text>
 
-            <CartTextBold> {formatCurrency(shippingFee)} </CartTextBold>
+            <CartTextBold> {formatCurrency(SHIPPING_FEE)} </CartTextBold>
           </Container>
 
           <Container>
