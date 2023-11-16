@@ -1,20 +1,18 @@
-import { useState } from "react";
-import RadioButton from "../../ui/RadioButton";
-import { styled } from "styled-components";
-import InputTypeHeader from "../../ui/InputTypeHeader";
-
-import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
 import Form from "../../ui/Form";
-import PayOnDelivery from "./PayOnDelivery";
+import { useState } from "react";
+import Input from "../../ui/Input";
 import Button from "../../ui/Button";
-
-import { getCheckoutSesionApi } from "../../service/apiOrder";
-import { useNavigate } from "react-router-dom";
-import { useViewport } from "../../context/ViewPort";
-import { clampBuilder } from "../../styles/clampFunction";
+import FormRow from "../../ui/FormRow";
 import { useSelector } from "react-redux";
+import { styled } from "styled-components";
+import PayOnDelivery from "./PayOnDelivery";
+import { useNavigate } from "react-router-dom";
+import RadioButton from "../../ui/RadioButton";
+import { useViewport } from "../../context/ViewPort";
 import { getTotalCartPrice } from "../cart/cartSlice";
+import InputTypeHeader from "../../ui/InputTypeHeader";
+import { clampBuilder } from "../../styles/clampFunction";
+import { getCheckoutSesionApi } from "../../service/apiOrder";
 import { formatCurrency, grandTotalPrice } from "../../utils/helper";
 
 const RadioButtonsContainer = styled.div`

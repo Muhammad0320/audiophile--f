@@ -1,11 +1,21 @@
+import { Text } from "./Text";
+import Button from "./Button";
+import SVG from "react-inlinesvg";
+import { IconConfirmation } from "./Icons";
 import { styled } from "styled-components";
+import { CartTextBold } from "../features/cart/Cart";
+import { clampBuilder } from "../styles/clampFunction";
+import { useEffectOnce } from "../hooks/useeffectOnce";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { formatCurrency, grandTotalPrice } from "../utils/helper";
+import { useDeleteCartOnCheckout } from "../features/cart/useDeleteCartOnCheckout";
+
 import {
   clearCart,
   getCart,
   getTotalCartPrice,
 } from "../features/cart/cartSlice";
-import SVG from "react-inlinesvg";
 
 import {
   CartItemContainer,
@@ -14,16 +24,6 @@ import {
   CartItemName,
   CartText,
 } from "../features/cart/CartItem";
-import { IconConfirmation } from "./Icons";
-
-import { CartTextBold } from "../features/cart/Cart";
-import { formatCurrency, grandTotalPrice } from "../utils/helper";
-import Button from "./Button";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { clampBuilder } from "../styles/clampFunction";
-import { Text } from "./Text";
-import { useEffectOnce } from "../hooks/useeffectOnce";
-import { useDeleteCartOnCheckout } from "../features/cart/useDeleteCartOnCheckout";
 
 const StyledContainer = styled.div`
   display: grid;
