@@ -31,7 +31,7 @@
 
 ## Technologies Used
 
-- Frontend: React.js, Redux-toolkit , Redux , React query, Axios, React hot toast , HTML5, CSS3, CSS in JS: React Styled component, React-hook-form, React-router, React-router-dom,React Cotext API , Stripe API , and more.
+- Frontend: React.js, Redux-toolkit , Redux , React query, Axios, React hot toast , HTML5, CSS3, CSS in JS: React Styled component, React-hook-form, React-router, React-router-dom,React Cotext API , Stripe API , and more...
 
 - Backend: Node.js, Express.js, Stripe API, Bcrypt.js, Express-mongo-sanitize, Morgan - Cors - Cookie-parser - xss-clean, express-rate-limit, Helmet, HPP.
 
