@@ -39,10 +39,12 @@ export const sendBulkItemToCart = async ({ changes }) => {
 
 export const deleteCartOnCheckout = async () => {
   const res = await axios({
-    method: "POST",
+    method: "DELETE",
     url: `${SERVER_ROOT_URL}/carts/deleteCartCheckout`,
     withCredentials: true,
   });
+
+  console.log(res.data);
 
   return res.data;
 };
