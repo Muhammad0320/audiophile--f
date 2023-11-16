@@ -54,7 +54,7 @@ const NavList = styled.ul`
 
     &.active,
     &:hover {
-      z-index: 10000;
+      z-index: 100;
       color: var(--color-primary-muted);
     }
   }
