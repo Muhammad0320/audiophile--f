@@ -18,11 +18,11 @@ const FormHeader = styled.div`
 `;
 
 function BillingDetails({ step, setStep }) {
-  const { register, reset, formState, handleSubmit } = useForm();
+  const { register, formState, handleSubmit } = useForm();
 
   const { errors } = formState;
 
-  const onSubmit = handleFormStep(reset, step, setStep);
+  const onSubmit = handleFormStep(step, setStep);
 
   const { viewportWidth } = useViewport();
 
