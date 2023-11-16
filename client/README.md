@@ -30,18 +30,12 @@
 
 ## Website Preview
 
-You can preview this website at `https://audiophile-f.vercel.app/`
-
-## Installation
-
-1. Clone the repository: `git clone https://github.com/Muhammad0320/audiophile--f.git`
-2. Navigate to the server directory: `cd audiophile--f/server`
-3. Install dependencies: `npm install` or `npm i`
+You can preview this website at `https://audiophile-f-muhammad0320.vercel.app`
 
 ## Usage
 
 1. Run the development server: `npm run dev`
-2. Open your browser and visit: `http://127.0.0.1:5173`
+2. Open your browser and visit: `http://127.0.0.1:5173/`
 
 ## Contact
 
