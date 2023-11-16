@@ -32,6 +32,8 @@
 
 - Backend: Node.js, Express.js, Stripe API, Bcrypt.js, Express-mongo-sanitize, Morgan - Cors - Cookie-parser - xss-clean, express-rate-limit, Helmet, HPP.
 
+- Database: NoSQL database, MongoDB, Mongoose.
+
 ## Deployment
 
 - Frontend: Vercel, Github, Netify,
