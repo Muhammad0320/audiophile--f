@@ -28,7 +28,7 @@
 
 ## Technologies Used
 
-- Frontend: React.js, React query, axios, React hot toast , Redux , HTML5, CSS3, Css in js: React Styled component, React-hook-form, React-router, React-router-dom, Redux-toolkit, and more.
+- Frontend: React.js, Redux-toolkit , Redux , React query, Axios, React hot toast , HTML5, CSS3, Css in js: React Styled component, React-hook-form, React-router, React-router-dom,React Cotext API , Stripe API , and more.
 
 - Deployment: Vercel, OnRender, Github
 
