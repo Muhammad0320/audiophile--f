@@ -52,7 +52,13 @@ exports.getMyCart = catchAsync(async (req, res, next) => {
 exports.deleteCartOnCheckout = catchAsync(async (req, res, next) => {
   const user = req.user._id;
 
-  await Cart.deleteMany({ user });
+  console.log(user);
+
+  const deleteCart = await Cart.deleteMany({ user });
+
+  console.log(deleteCart, 'A don pass 🔥🔥');
+
+  if (!deleteCart) return new AppError('There is nothing to delete', 404);
 
   res.status(204).json({
     status: 'success'
