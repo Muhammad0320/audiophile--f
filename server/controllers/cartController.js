@@ -58,7 +58,7 @@ exports.deleteCartOnCheckout = catchAsync(async (req, res, next) => {
 
   console.log(deleteCart, 'A don pass 🔥🔥');
 
-  if (!deleteCart) return new AppError('There is nothing to delete', 404);
+  if (!deleteCart) return next(new AppError('There is nothing to delete', 404));
 
   res.status(204).json({
     status: 'success'

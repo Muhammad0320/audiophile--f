@@ -24,10 +24,13 @@ const RadioButtonsContainer = styled.div`
 function PaymentDetails({ step }) {
   const [checked, setIsChecked] = useState("");
 
+  const [isRedirecting, setIsRedirecting] = useState(false);
+
   const handleCheckout = async (e) => {
     e.preventDefault();
-
+    setIsRedirecting(false);
     await getCheckoutSesionApi();
+    setIsRedirecting(true);
   };
 
   const handleChange = (e) => {
@@ -75,11 +78,7 @@ function PaymentDetails({ step }) {
           </FormRow>
         )}
 
-        {checked === "card" && (
-          <FormRow position="right">
-            <Button onClick={handleCheckout}> Continue & pay </Button>
-          </FormRow>
-        )}
+        {checked === "card" && <FormRow position="right">{}</FormRow>}
 
         {checked === "cash" && (
           <FormRow position="right">
