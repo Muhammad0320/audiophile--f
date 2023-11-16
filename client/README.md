@@ -6,28 +6,28 @@
 
 ## Features
 
-- Product catalog.
-- Product details with thumnail, gallery, descriptions, features, items in the box, reviews, average rating and ratings count and more...
-- Shopping cart management: adding items to cart, updating cart item, removing cart item, and clearing the entire cart .
+- **Product catalog** .
+- **Product details** : product details with thumnail, gallery, descriptions, features, items in the box, reviews, average rating and ratings count and more...
+- **Shopping cart** management: adding items to cart, updating cart item, removing cart item, and clearing the entire cart .
 
-- Changes state in the redux to add any changes that occurs in the cart for easier management and send all the chnanges to the server in just one network trip for improved performance.
-- Checkout: user can checkout products that are saved in their cart and handle their card payment with **Stripe** - a popular and trustworthy software company that helps in payment integration.
+- **Limited server trips** : changes state in the redux to add any changes that occurs in the cart for easier management and send all the chnanges to the server in just one network trip for improved performance.
+- **Checkout pp** : user can checkout products that are saved in their cart and handle their card payment with **Stripe** - a popular and trustworthy software company that helps in payment integration.
 
-- Secured Payments and Orders - As said above that payments are hanlded with stripe api; this app also packs an advanced stripe features called Stripe Webhooks - Here, the ordering is not handled by our company but with Stripe itself where we attached an endpoint to be called by stripe on successsful checkout which inturn automatically create order.
+- **Secured Payments** and Orders: As said above that payments are hanlded with stripe api; this app also packs an advanced stripe features called Stripe Webhooks: here, the ordering is not handled by our company but with Stripe itself where we attached an endpoint to be called by stripe on successsful checkout which inturn automatically create order.
 
-- User profile management: Full access to the user's profile like updating current user's data, uploading a profile photo, passwords, resetting passwords for users forgot their password.
+- **User profile** management: Full access to the user's profile like updating current user's data, uploading a profile photo, passwords, resetting passwords for users forgot their password.
 
-- Order management: In this website, user can access all their processed orders and the information related to the specific order, like the date of purchase, total price, order status number of items per order and lot more.
-- Review management: users can manage all of their reviews by deleting and editing desired ones.
+- **Order management** : In this website, user can access all their processed orders and the information related to the specific order, like the date of purchase, total price, order status number of items per order and lot more.
+- **Review management** : users can manage all of their reviews by deleting and editing desired ones.
 
-- Security odeh: security is the our priority in this website as user's sensitive data like are not stored verbatim exactly in the database it's hashed by a powerful package called bcrypt - to handle the users password hashing and prevent decoding the hash by attackers - in the backend.
+- **Security** : security is the our priority in this website as user's sensitive data like are not stored verbatim exactly in the database it's hashed by a powerful package called bcrypt - to handle the users password hashing and prevent decoding the hash by attackers - in the backend.
 
-- Cart Notification: This gives a preview on the total quantity of items that are present in the cart
-- Responsiveness: With all the nice features in this website, it is also fully responsive on desktops, tablets and mobile devices.
+- **Cart Notification** : This gives a preview on the total quantity of items that are present in the cart
+- **Responsiveness:** With all the nice features in this website, it is also fully responsive on desktops, tablets and mobile devices.
 
-- Feedback window - A fun little and minimalistic popup window which act as give the users a feedback about their currently fultilled request, activitiy or interaction with the app.
+- **Feedback window** : A fun little and minimalistic popup window which act as give the users a feedback about their currently fultilled request, activitiy or interaction with the app.
 
-- This website are also coming with some amazing, intriguing and attention-sapping features in the next version of the website.
+- **Future update** This website are also coming with some amazing, intriguing and attention-sapping features in the next version of the website.
 
 ## Technologies Used
 
