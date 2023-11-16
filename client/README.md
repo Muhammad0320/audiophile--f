@@ -6,7 +6,7 @@
 
 ## Features
 
-- **Product catalog** .
+- **Product catalog** Users can scroll through products and navigates to a detailed page of the one that catch their attention.
 - **Product details** : product details with thumnail, gallery, descriptions, features, items in the box, reviews, average rating and ratings count and more...
 - **Shopping cart** management: adding items to cart, updating cart item, removing cart item, and clearing the entire cart .
 
