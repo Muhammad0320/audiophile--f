@@ -13,6 +13,9 @@ import { getCheckoutSesionApi } from "../../service/apiOrder";
 import { useNavigate } from "react-router-dom";
 import { useViewport } from "../../context/ViewPort";
 import { clampBuilder } from "../../styles/clampFunction";
+import { useSelector } from "react-redux";
+import { getTotalCartPrice } from "../cart/cartSlice";
+import { formatCurrency, grandTotalPrice } from "../../utils/helper";
 
 const RadioButtonsContainer = styled.div`
   display: flex;
@@ -23,6 +26,10 @@ const RadioButtonsContainer = styled.div`
 
 function PaymentDetails({ step }) {
   const [checked, setIsChecked] = useState("");
+
+  const price = useSelector(getTotalCartPrice);
+
+  const totalPrice = formatCurrency(grandTotalPrice(price));
 
   const [isRedirecting, setIsRedirecting] = useState(false);
 
@@ -78,7 +85,20 @@ function PaymentDetails({ step }) {
           </FormRow>
         )}
 
-        {checked === "card" && <FormRow position="right">{}</FormRow>}
+        {checked === "card" && (
+          <FormRow position="right">
+            <Button
+              disabled={isRedirecting}
+              withspinner={isRedirecting && "true"}
+              onClick={handleCheckout}
+            >
+              {" "}
+              {isRedirecting
+                ? "Redirecting to checkout..."
+                : `Checkout ${grandTotalPrice}`}{" "}
+            </Button>
+          </FormRow>
+        )}
 
         {checked === "cash" && (
           <FormRow position="right">
