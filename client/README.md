@@ -44,11 +44,6 @@
 
 You can preview this website at `https://audiophile-f-muhammad0320.vercel.app`
 
-## Usage
-
-1. Run the development server: `npm run dev`
-2. Open your browser and visit: `http://127.0.0.1:5173/`
-
 ## Contact
 
 For any inquiries, please contact us at `balogunmuhammadawwal4@gmail.com`
