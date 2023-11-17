@@ -118,8 +118,23 @@ const Menu = ({ children }) => {
 const Toggle = ({ id }) => {
   const { close, open, openId, setPosition } = useContext(MenuContext);
 
+  const handlePageOverflowOpens = (open, id) => {
+    open(id);
+
+    document.querySelector("html").style.overflow = "hidden";
+  };
+
+  const handlePageOverFlowClose = (close) => {
+    close();
+
+    document.querySelector("html").style.overflow = "auto";
+  };
+
   const handleToggle = (e) => {
-    openId === "" && openId !== id ? open(id) : close();
+    // openId === "" && openId !== id ? open(id) : close();
+    openId === "" && openId !== id
+      ? handlePageOverflowOpens(open, id)
+      : close();
 
     const rect = e.target?.closest("button").getBoundingClientRect();
 
@@ -129,11 +144,11 @@ const Toggle = ({ id }) => {
     });
   };
 
-  useEffect(() => {
-    if (open) {
-      document.html.style.overflow = "hidden";
-    }
-  }, [open]);
+  // useEffect(() => {
+  //   if (open) {
+  //     document.querySelector("html").style.overflow = "hidden";
+  //   }
+  // }, [open]);
 
   return (
     <StyledToggle onClick={handleToggle}>
