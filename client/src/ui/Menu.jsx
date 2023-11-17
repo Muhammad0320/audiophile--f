@@ -118,23 +118,33 @@ const Menu = ({ children }) => {
 const Toggle = ({ id }) => {
   const { close, open, openId, setPosition } = useContext(MenuContext);
 
-  const handlePageOverflowOpens = (open, id) => {
-    open(id);
+  // const handlePageOverflowOpens = (open, id) => {
+  //   open(id);
 
-    document.querySelector("html").style.overflow = "hidden";
-  };
+  //   useEffect(() => {
+  //     document.querySelector("html").style.overflow = "hidden";
+  //   }, []);
+  // };
 
-  const handlePageOverFlowClose = (close) => {
-    close();
+  // const handlePageOverFlowClose = (close) => {
+  //   close();
 
-    document.querySelector("html").style.overflow = "auto";
-  };
+  //   useEffect(() => {
+  //     document.querySelector("html").style.overflow = "auto";
+  //   }, []);
+  // };
+
+  useEffect(() => {
+    const condition = openId ? "hidden" : "auto";
+
+    document.querySelector("html").style.overflow = condition;
+  }, [openId]);
 
   const handleToggle = (e) => {
-    // openId === "" && openId !== id ? open(id) : close();
-    openId === "" && openId !== id
-      ? handlePageOverflowOpens(open, id)
-      : handlePageOverFlowClose(close);
+    openId === "" && openId !== id ? open(id) : close();
+    // openId === "" && openId !== id
+    //   ? handlePageOverflowOpens(open, id)
+    //   : handlePageOverFlowClose(close);
 
     const rect = e.target?.closest("button").getBoundingClientRect();
 
