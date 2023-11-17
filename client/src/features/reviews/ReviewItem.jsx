@@ -119,7 +119,7 @@ function ReviewItem({ data }) {
             />
           </Modal.Window>
 
-          <Modal.Window page="editForm" name="editReview">
+          <Modal.Window page="menu" name="editReview">
             <EditReviewForm review={data} />
           </Modal.Window>
         </div>

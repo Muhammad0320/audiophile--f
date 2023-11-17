@@ -24,6 +24,26 @@ const StyledModal = styled.div`
   }
 `;
 
+const StyledModalMenu = styled.div`
+  position: fixed;
+
+  top: ${() => clampBuilder(300, 500, 6, 9)};
+  padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)};
+  z-index: 2;
+  background: var(--color-white-vivid);
+  background-image: var(--color-gradient-light);
+  box-shadow: var(--bos-shadow-light);
+  transition: all 0.5s;
+
+  padding-left: 0;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 100dvh;
+    overflow-y: auto;
+  }
+`;
+
 const StyledModalMobile = styled.div`
   height: 100dvh;
   display: grid;
@@ -35,30 +55,10 @@ const StyledModalMobile = styled.div`
   ${(props) =>
     props.type === "menu" &&
     css`
-      width: 80dvw;
+      width: 90dvw;
       margin-inline: auto;
     `}
 `;
-
-// const StyledModalMenu = styled.div`
-//   position: fixed;
-
-//   top: ${() => clampBuilder(300, 500, 6, 9)};
-//   padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)};
-//   z-index: 2;
-//   background: var(--color-white-vivid);
-//   background-image: var(--color-gradient-light);
-//   box-shadow: var(--bos-shadow-light);
-//   transition: all 0.5s;
-
-//   padding-left: 0;
-
-//   @media (max-width: 500px) {
-//     width: 100%;
-//     height: 100dvh;
-//     overflow-y: auto;
-//   }
-// `;
 
 const OverLay = styled.div`
   inset: 0;
@@ -82,7 +82,6 @@ function Modal({ children }) {
 
   useEffect(() => {
     if (openModal) {
-      console.log("Modal is open");
       document.querySelector("html").style.overflow = "hidden";
     } else {
       document.querySelector("html").style.overflow = "auto";
