@@ -51,6 +51,10 @@ const StyledButton = styled.button`
   border: none;
   overflow: hidden;
 
+  white-space: nowrap;
+
+  color: var(--color-dark-4);
+
   width: 100%;
   height: 100%;
 
@@ -58,18 +62,24 @@ const StyledButton = styled.button`
 
   border-radius: 0;
 
-  padding: ${() => clampBuilder(320, 1200, 1.2, 2)};
-
-  font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
+  font-size: ${() => clampBuilder(320, 1200, 0.8, 1.3)};
 
   padding: ${() => clampBuilder(320, 1200, 0.9, 1.3)};
 
-  gap: ${() => clampBuilder(320, 1200, 1.4, 2.1)};
+  display: flex;
 
-  transition: background-color 0.3s ease-out;
+  column-gap: ${() => clampBuilder(320, 1200, 0.5, 1)};
+
+  /* gap: ${() => clampBuilder(320, 1200, 1, 2)}; */
+
+  align-items: center;
+
+  transition: background-color 0.3s ease-out, color 0.2s ease-in;
 
   &:hover {
     background-color: var(--color-white-2);
+
+    color: var(--color-primary);
   }
 
   & > svg {
@@ -154,7 +164,7 @@ const Button = ({ icon, children, onClick }) => {
   return (
     <StyledButton onClick={handleClick}>
       {" "}
-      {icon} <span> {children} </span>{" "}
+      <i> {icon}</i> <span> {children} </span>{" "}
     </StyledButton>
   );
 };

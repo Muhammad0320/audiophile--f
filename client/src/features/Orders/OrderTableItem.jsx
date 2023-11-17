@@ -74,18 +74,7 @@ const PriceContainer = styled.div`
   }
 `;
 
-const Icon = styled.span`
-  color: var(--color-dark-2);
-  /* font-size: ${() => clampBuilder(320, 1200, 1.4, 3)}; */
-
-  text-align: center;
-  cursor: pointer;
-  transition: color 0.2;
-
-  &:hover {
-    color: var(--color-primary-muted);
-  }
-`;
+const Icon = styled.span``;
 
 const ProductInfoContainer = styled.p`
   font-size: ${() => clampBuilder(320, 650, 0.9, 1.2)};
@@ -151,7 +140,7 @@ function OrderTableItem({ order }) {
       )}
 
       <Menu>
-        <Icon>
+        <div>
           <Menu.Toggle id={_id} />
 
           <Menu.List id={_id}>
@@ -163,7 +152,7 @@ function OrderTableItem({ order }) {
               <Menu.Button icon={<HiTruck />}> Reorder </Menu.Button>
             </li>
           </Menu.List>
-        </Icon>
+        </div>
       </Menu>
     </Table.Row>
   );

@@ -29,6 +29,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 //  React quert setup
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
