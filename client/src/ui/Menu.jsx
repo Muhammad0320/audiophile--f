@@ -81,12 +81,9 @@ const StyledButton = styled.button`
     color: var(--color-primary);
   }
 
-  & > svg {
-    height: ${() => clampBuilder(320, 1200, 1.2, 1.5)};
-    width: ${() => clampBuilder(320, 1200, 1.2, 1.5)};
-
-    margin-right: ${() => clampBuilder(320, 1200, 0.6, 1)};
-
+  & > i {
+    font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
+    translate: 0 2.5px;
     color: currentColor;
 
     transition: all 0.2s;
