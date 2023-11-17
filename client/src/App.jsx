@@ -1,37 +1,34 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-
-import { Toaster } from "react-hot-toast";
-
+import { useEffect } from "react";
+import Details from "./pages/Details";
 import AppLayout from "./ui/AppLayout";
-import Headphone from "./pages/Headphone";
+import CartPage from "./pages/CartPage";
 import Earphone from "./pages/Earphone";
 import Speakers from "./pages/Speakers";
-import GlobalStyles from "./styles/GlobalStyles";
-import Details from "./pages/Details";
-import CheckoutPage from "./pages/CheckoutPage";
-import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
-import Settings from "./features/users/Settings";
-import ReviewPage from "./pages/ReviewPage";
-import { useDispatch } from "react-redux";
-import { setCartData } from "./features/cart/cartSlice";
-import { useEffect } from "react";
-import { getMyCart } from "./service/apiCart";
-import CartPage from "./pages/CartPage";
-import OrderTable from "./features/Orders/OrderTable";
-import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
-import AccountPage from "./pages/AccountPage";
 import HomePage from "./pages/HomePage";
-import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
-import { ViewPortProvider } from "./context/ViewPort";
+import { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import LoginPage from "./pages/LoginPage";
+import Headphone from "./pages/Headphone";
+import SignupPage from "./pages/SignupPage";
+import ReviewPage from "./pages/ReviewPage";
 import ScrollToTop from "./utils/ScrollToTop";
-import useSmoothScroll from "./utils/useSmoothScroll";
+import { getMyCart } from "./service/apiCart";
+import AccountPage from "./pages/AccountPage";
 import PageNotFound from "./pages/PageNotFound";
+import CheckoutPage from "./pages/CheckoutPage";
+import Settings from "./features/users/Settings";
+import GlobalStyles from "./styles/GlobalStyles";
+import OrderTable from "./features/Orders/OrderTable";
+import { ViewPortProvider } from "./context/ViewPort";
+import useSmoothScroll from "./utils/useSmoothScroll";
+import { setCartData } from "./features/cart/cartSlice";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
+import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
+//  React
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
