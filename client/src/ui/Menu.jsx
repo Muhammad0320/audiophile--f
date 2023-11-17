@@ -130,8 +130,10 @@ const Toggle = ({ id }) => {
   };
 
   useEffect(() => {
-    openId && document.querySelector("body").style.overflowY = 'hidden';
-  }, []);
+    if (open) {
+      document.html.style.overflow = "hidden";
+    }
+  }, [open]);
 
   return (
     <StyledToggle onClick={handleToggle}>
