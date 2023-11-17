@@ -101,6 +101,8 @@ html,body{
 
   overflow-x: hidden;
 
+  overflow-y: auto;
+
 }
 
 body {

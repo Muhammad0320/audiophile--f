@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { HiEllipsisVertical } from "react-icons/hi2";
@@ -128,6 +128,10 @@ const Toggle = ({ id }) => {
       y: rect.y + rect.height - 30,
     });
   };
+
+  useEffect(() => {
+    openId && document.querySelector("body").style.overflowY = 'hidden';
+  }, []);
 
   return (
     <StyledToggle onClick={handleToggle}>
