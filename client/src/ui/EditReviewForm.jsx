@@ -7,6 +7,7 @@ import SpinnerMini from "./SpinnerMini";
 import { useForm } from "react-hook-form";
 import { clampBuilder } from "../styles/clampFunction";
 import { useUpdateReview } from "../features/reviews/useUpdateReview";
+import { TextArea } from "./TextArea";
 
 const EditFormContainer = styled.div`
   background-color: var(--color-white);
@@ -55,7 +56,7 @@ function EditReviewForm({ review, onClose }) {
         </FormRow>
 
         <FormRow label="Review">
-          <Input
+          <TextArea
             id="review"
             {...register("review", { required: "This field is required" })}
           />
