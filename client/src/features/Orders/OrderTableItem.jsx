@@ -2,10 +2,11 @@ import styled, { css } from "styled-components";
 import Table from "../../ui/Table";
 
 import { format } from "date-fns";
-import { HiEye } from "react-icons/hi2";
+import { HiEye, HiTruck } from "react-icons/hi2";
 import { formatCurrency } from "../../utils/helper";
 import { clampBuilder } from "../../styles/clampFunction";
 import { useViewport } from "../../context/ViewPort";
+import Menu from "../../ui/Menu";
 
 const ID = styled.span`
   font-size: ${() => clampBuilder(650, 1200, 1, 1.5)};
@@ -75,7 +76,7 @@ const PriceContainer = styled.div`
 
 const Icon = styled.span`
   color: var(--color-dark-2);
-  font-size: ${() => clampBuilder(320, 1200, 1.4, 3)};
+  /* font-size: ${() => clampBuilder(320, 1200, 1.4, 3)}; */
 
   text-align: center;
   cursor: pointer;
@@ -149,10 +150,21 @@ function OrderTableItem({ order }) {
         </>
       )}
 
-      <Icon>
-        {" "}
-        <HiEye />{" "}
-      </Icon>
+      <Menu>
+        <Icon>
+          <Menu.Toggle id={_id} />
+
+          <Menu.List id={_id}>
+            <li>
+              <Menu.Button icon={<HiEye />}> Order Details </Menu.Button>
+            </li>
+
+            <li>
+              <Menu.Button icon={<HiTruck />}> Reorder </Menu.Button>
+            </li>
+          </Menu.List>
+        </Icon>
+      </Menu>
     </Table.Row>
   );
 }
