@@ -1,9 +1,8 @@
-import { createContext, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-
 import { HiEllipsisVertical } from "react-icons/hi2";
-import { useClickOutside } from "../hooks/useClickOutside";
 import { clampBuilder } from "../styles/clampFunction";
+import { useClickOutside } from "../hooks/useClickOutside";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const StyledList = styled.ul`
   position: fixed;
