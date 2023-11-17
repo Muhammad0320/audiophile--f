@@ -95,15 +95,9 @@ const GlobalStyles = createGlobalStyle`
 html {
   font-size: 62.5%;
   scroll-behavior: smooth; 
-}
-
-html,body{
-
-  /* overflow-x: hidden; */
-
   overflow: auto;
-
 }
+
 
 body {
   margin: 0;

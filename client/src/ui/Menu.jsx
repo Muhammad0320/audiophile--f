@@ -134,7 +134,7 @@ const Toggle = ({ id }) => {
     // openId === "" && openId !== id ? open(id) : close();
     openId === "" && openId !== id
       ? handlePageOverflowOpens(open, id)
-      : close();
+      : handlePageOverFlowClose(close);
 
     const rect = e.target?.closest("button").getBoundingClientRect();
 
