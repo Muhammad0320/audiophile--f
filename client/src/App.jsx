@@ -73,8 +73,6 @@ function App() {
               <Route path="headphones" element={<Headphone />} />
               <Route path="earphones" element={<Earphone />} />
               <Route path="speakers" element={<Speakers />} />
-              <Route path="checkout" element={<CheckoutPage />} />
-              <Route path="success" element={<PaymentConfirmationPage />} />
               <Route path="product/:slug" element={<Details />} />
             </Route>
 
@@ -89,6 +87,8 @@ function App() {
               <Route index element={<Navigate replace to="settings" />} />
               <Route path="settings" element={<Settings />} />
               <Route path="my-reviews" element={<ReviewPage />} />
+              <Route path="checkout" element={<CheckoutPage />} />
+              <Route path="success" element={<PaymentConfirmationPage />} />
               <Route path="my-cart" element={<CartPage />} />
               <Route path="my-order" element={<OrderTable />} />
             </Route>
