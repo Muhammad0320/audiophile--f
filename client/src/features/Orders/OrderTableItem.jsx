@@ -91,15 +91,15 @@ const ProductInfoContainer = styled.p`
 `;
 
 function OrderTableItem({ order }) {
-  const { _id, createdAt, products, paid } = order;
+  const { _id, createdAt, products, paid, totalPrice = 5000 } = order;
+
+  const totalOrderPrice = formatCurrency(totalPrice / 100);
 
   const data = products
     .map((item) => `${item.quantity}X- ${item.productId.name}`)
     .join(" with ");
 
   const id = _id.slice(-6, -1);
-
-  const totalOrderPrice = products.reduce((acc, sum) => acc + sum.price, 0);
 
   const totalCartQuantity = products.reduce(
     (acc, sum) => acc + sum.quantity,
@@ -131,7 +131,7 @@ function OrderTableItem({ order }) {
       <Status status={"paid"}> {status} </Status>
       {viewportWidth <= 650 ? (
         <PriceContainer>
-          <div> {formatCurrency(totalOrderPrice)} </div>
+          <div> {totalOrderPrice} </div>
 
           <div> {createdDate} </div>
         </PriceContainer>
@@ -139,7 +139,7 @@ function OrderTableItem({ order }) {
         <>
           <div style={{ fontSize: `${clampBuilder(650, 1200, 0.8, 1.5)}` }}>
             {" "}
-            {formatCurrency(totalOrderPrice)}{" "}
+            {totalOrderPrice}{" "}
           </div>
 
           <div style={{ fontSize: `${clampBuilder(650, 1200, 0.8, 1.2)}` }}>

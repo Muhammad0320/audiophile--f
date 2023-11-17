@@ -28,7 +28,7 @@ import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-//  React
+//  React quert setup
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
