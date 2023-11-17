@@ -1,10 +1,9 @@
-import { BiSolidCommentDetail } from "react-icons/bi";
-import { HiCog6Tooth, HiShoppingCart, HiTruck } from "react-icons/hi2";
-import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
-import { clampBuilder } from "../../styles/clampFunction";
-
+import { NavLink } from "react-router-dom";
 import { useViewport } from "../../context/ViewPort";
+import { BiSolidCommentDetail } from "react-icons/bi";
+import { clampBuilder } from "../../styles/clampFunction";
+import { HiCog6Tooth, HiShoppingCart, HiTruck } from "react-icons/hi2";
 
 const PageContainer = styled.div`
   background-color: var(--color-white);
