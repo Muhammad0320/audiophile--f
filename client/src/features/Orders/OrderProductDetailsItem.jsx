@@ -43,36 +43,48 @@ const TextIconContainer = styled.p`
 
   justify-content: center;
 
-  column-gap: ${() => clampBuilder(320, 1200, 0.5, 0.8)};
-
   align-items: center;
+
+  column-gap: ${() => clampBuilder(320, 1200, 0.5, 0.8)};
 
   color: var(--color-primary-dark);
 
-  font-size: ${() => clampBuilder(320, 1200, 1, 1.4)};
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.7)};
+
+  & > em {
+    font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
+  }
 `;
 
-function OrderProductDetailsItem() {
+function OrderProductDetailsItem({ product = {} }) {
+  console.log(product);
+
+  const {
+    price,
+    quantity,
+    productId: { image, name },
+  } = product;
+
   return (
     <ItemContainer>
-      <Image src="https://i.ibb.co/zQhW0N1/product-1-preview.jpg" />
+      <Image src={image} />
       <TextBox>
         <div>
-          <Text type="details"> XX59 Mark II Headphone </Text>
+          <Text type="details"> {name} </Text>
         </div>
         <TextIconContainer>
           <span>
             {" "}
             <HiArchiveBoxXMark />{" "}
           </span>{" "}
-          <em> Price </em>
+          <em> {quantity} </em>
         </TextIconContainer>
         <TextIconContainer>
           <span>
             {" "}
             <HiArchiveBoxXMark />{" "}
           </span>{" "}
-          <em> Price </em>
+          <em> {price} </em>
         </TextIconContainer>
         <Button> Go to product </Button>
       </TextBox>
