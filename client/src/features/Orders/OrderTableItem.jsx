@@ -1,12 +1,11 @@
-import styled, { css } from "styled-components";
-import Table from "../../ui/Table";
-
+import Menu from "../../ui/Menu";
 import { format } from "date-fns";
+import Table from "../../ui/Table";
+import styled, { css } from "styled-components";
 import { HiEye, HiTruck } from "react-icons/hi2";
 import { formatCurrency } from "../../utils/helper";
-import { clampBuilder } from "../../styles/clampFunction";
 import { useViewport } from "../../context/ViewPort";
-import Menu from "../../ui/Menu";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const ID = styled.span`
   font-size: ${() => clampBuilder(650, 1200, 1, 1.5)};
