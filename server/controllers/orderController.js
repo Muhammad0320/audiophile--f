@@ -108,7 +108,7 @@ exports.getMyOrders = catchAsync(async (req, res, next) => {
 
   const order = await Order.find({ user }).populate({
     path: 'products.productId',
-    select: 'name image'
+    select: 'name image slug'
   });
 
   res.status(200).json({
