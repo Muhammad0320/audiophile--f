@@ -25,14 +25,22 @@ const StyledModal = styled.div`
 `;
 
 const StyledModalMenu = styled.div`
+  /* top: ${() => clampBuilder(300, 500, 6, 9)}; */
+
+  /* padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)}; */
+
   position: fixed;
-  
-  top: ${() => clampBuilder(300, 500, 6, 9)};
-  padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)};
+
+  display: grid;
+
+  place-items: center;
+
+  width: 70%;
+
   z-index: 2;
   background: var(--color-white-vivid);
   background-image: var(--color-gradient-light);
-  box-shadow: var(--bos-shadow-light);
+  box-shadow: var(--box-shadow-light);
   transition: all 0.5s;
 
   padding-left: 0;
@@ -128,9 +136,9 @@ const Window = ({ children, name, page }) => {
       )}
 
       {page && (
-        <StyledModalMobile ref={ref} type={page}>
+        <StyledModalMenu ref={ref} type={page}>
           {cloneElement(children, { onClose: () => close() })}
-        </StyledModalMobile>
+        </StyledModalMenu>
       )}
     </OverLay>,
 
