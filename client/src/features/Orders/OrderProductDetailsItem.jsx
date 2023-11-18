@@ -11,20 +11,24 @@ const ItemContainer = styled.div`
   background-color: var(--color-white-vivid);
 
   background-image: var(--color-gradient-dark-muted);
-
-  /* border-radius: ${() => clampBuilder(320, 1200, 0.5, 1)}; */
 `;
 
 const Image = styled.img`
   grid-row: 1 / 2;
 
   display: block;
+  border-radius: 0;
 `;
 
 const TextBox = styled.div`
   display: grid;
 
   grid-template-columns: repeat(2, 1fr);
+
+  /* overflow: hidden; */
+
+  padding-top: ${() => clampBuilder(320, 1200, 1, 1.7)};
+  padding-left: ${() => clampBuilder(320, 1200, 1, 1.7)};
 
   &:first-child,
   &:last-child {
@@ -59,7 +63,7 @@ function OrderProductDetailsItem() {
     <ItemContainer>
       <Image src="https://i.ibb.co/zQhW0N1/product-1-preview.jpg" />
       <TextBox>
-        <Text> XX59 Mark II Headphone </Text>
+        <Text type="details"> XX59 Mark II Headphone </Text>
         <TextIconContainer>
           <span>
             {" "}

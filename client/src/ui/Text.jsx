@@ -22,6 +22,15 @@ export const Text = styled.p`
     `}
 
   ${(props) =>
+    props.type === "details" &&
+    css`
+      color: var(--color-primary-light-dark);
+
+      font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
+    `}
+
+
+  ${(props) =>
     props.type === "review" &&
     css`
       align-self: flex-start;
