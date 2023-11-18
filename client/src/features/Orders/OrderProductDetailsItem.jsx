@@ -30,17 +30,11 @@ const TextBox = styled.div`
   padding-top: ${() => clampBuilder(320, 1200, 1, 1.7)};
   padding-left: ${() => clampBuilder(320, 1200, 1, 1.7)};
 
-  &:first-child,
-  &:last-child {
-    grid-column: 1 / -1;
-  }
-
-  &:nth-child(3) {
-    grid-column: 1 / 2;
-  }
-
-  &:nth-child(3) {
-    grid-column: 2 / -1;
+  & > div:first-child {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
   }
 `;
 
@@ -49,13 +43,13 @@ const TextIconContainer = styled.p`
 
   justify-content: center;
 
-  column-gap: ${() => clampBuilder(320, 1200, 0.5, 1)};
+  column-gap: ${() => clampBuilder(320, 1200, 0.5, 0.8)};
 
   align-items: center;
 
   color: var(--color-primary-dark);
 
-  font-size: ${() => clampBuilder(320, 1200, 0.8, 1.3)};
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.4)};
 `;
 
 function OrderProductDetailsItem() {
@@ -63,7 +57,9 @@ function OrderProductDetailsItem() {
     <ItemContainer>
       <Image src="https://i.ibb.co/zQhW0N1/product-1-preview.jpg" />
       <TextBox>
-        <Text type="details"> XX59 Mark II Headphone </Text>
+        <div>
+          <Text type="details"> XX59 Mark II Headphone </Text>
+        </div>
         <TextIconContainer>
           <span>
             {" "}
