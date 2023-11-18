@@ -11,9 +11,10 @@ export const TextArea = styled.textarea`
   border-radius: 1rem;
   margin-bottom: ${() => clampBuilder(320, 1200, 1.2, 2)};
   position: relative;
+  height: ${() => clampBuilder(320, 1200, 7, 10)};
 
   &::-webkit-input-placeholder {
-    color: var(--color-dark-3);
+    color: currentColor;
     opacity: 0.7;
 
     font-size: ${() => clampBuilder(320, 1200, 1.5, 2.5)};
