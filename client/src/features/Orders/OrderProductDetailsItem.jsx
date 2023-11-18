@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
 import { Text } from "../../ui/Text";
 import Button from "../../ui/Button";
+import { useNavigate } from "react-router-dom";
 import { HiArchiveBoxXMark } from "react-icons/hi2";
 
 const ItemContainer = styled.div`
@@ -24,8 +25,6 @@ const TextBox = styled.div`
   display: grid;
 
   grid-template-columns: repeat(2, 1fr);
-
-  /* overflow: hidden; */
 
   padding-top: ${() => clampBuilder(320, 1200, 1, 1.7)};
   padding-left: ${() => clampBuilder(320, 1200, 1, 1.7)};
@@ -57,13 +56,17 @@ const TextIconContainer = styled.p`
 `;
 
 function OrderProductDetailsItem({ product = {} }) {
-  console.log(product);
+  const navigate = useNavigate();
 
   const {
     price,
     quantity,
-    productId: { image, name },
+    productId: { image, name, slug },
   } = product;
+
+  const handleGoToProduct = () => {
+    navigate(`/product/${slug}`);
+  };
 
   return (
     <ItemContainer>
@@ -86,7 +89,7 @@ function OrderProductDetailsItem({ product = {} }) {
           </span>{" "}
           <em> {price} </em>
         </TextIconContainer>
-        <Button> Go to product </Button>
+        <Button onClick={handleGoToProduct}> Go to product </Button>
       </TextBox>
     </ItemContainer>
   );
