@@ -14,11 +14,17 @@ const Container = styled.div`
 
   overflow-x: auto;
 
+  padding-inline: ${() => clampBuilder(320, 1200, 1, 2.3)};
+  padding-block: ${() => clampBuilder(320, 1200, 1.3, 2.5)};
   scroll-behavior: smooth;
 
   scroll-snap-type: x mandatory;
 
   scroll-padding: ${() => clampBuilder(700, 1200, 1, 2)};
+
+  background-color: var(--color-white-vivid);
+
+  background-image: var(--color-gradient-dark);
 `;
 
 function OrderProductDetails({ products }) {
