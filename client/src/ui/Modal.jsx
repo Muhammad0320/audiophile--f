@@ -13,8 +13,8 @@ import {
 
 const StyledModal = styled.div`
   border-radius: 1rem;
-  position: fixed;
   max-width: 50%;
+  position: fixed;
   top: 30%;
   right: 20%;
   transform: translate(40%, -35%);
@@ -40,24 +40,15 @@ const StyledModalMobile = styled.div`
 `;
 
 const StyledModalMenu = styled.div`
-  /* top: ${() => clampBuilder(300, 500, 6, 9)}; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  /* padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)}; */
-
-  /* position: fixed; */
-
-  display: grid;
-
-  place-items: center;
-
-  width: 100%;
-
-  height: 100dvh;
+  width: 40%;
 
   z-index: 2;
-  background: var(--color-white-vivid);
-  background-image: var(--color-gradient-light);
-  box-shadow: var(--box-shadow-light);
+
   transition: all 0.5s;
 
   padding-left: 0;

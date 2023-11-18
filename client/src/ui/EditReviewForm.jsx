@@ -10,7 +10,7 @@ import { useUpdateReview } from "../features/reviews/useUpdateReview";
 import { TextArea } from "./TextArea";
 
 const EditFormContainer = styled.div`
-  width: 40%;
+  /* width: 40%; */
   background-color: var(--color-white);
 
   border-radius: ${() => clampBuilder(320, 1200, 0.8, 1.2)};
