@@ -31,7 +31,7 @@ const Review = styled.span`
 const RatingsContainer = styled.div`
   font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
 
-  text-wrap: nowrap;
+  white-space: nowrap;
 `;
 
 const Name = styled.span`
