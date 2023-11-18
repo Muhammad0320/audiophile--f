@@ -74,8 +74,6 @@ const PriceContainer = styled.div`
   }
 `;
 
-const Icon = styled.span``;
-
 const ProductInfoContainer = styled.p`
   font-size: ${() => clampBuilder(320, 650, 0.9, 1.2)};
 `;
