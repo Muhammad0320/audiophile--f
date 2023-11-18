@@ -158,7 +158,14 @@ function OrderTableItem({ order }) {
         </Menu>
 
         <Modal.Window name="productDetails" page="details">
-          <OrderProductDetails products={order.products} />
+          <OrderProductDetails
+            products={[
+              ...order.products,
+              { product: "rice", price: 200 },
+              { product: "rice", price: 200 },
+              { product: "rice", price: 200 },
+            ]}
+          />
         </Modal.Window>
       </Modal>
     </Table.Row>
