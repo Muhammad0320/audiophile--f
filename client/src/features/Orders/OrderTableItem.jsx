@@ -80,6 +80,8 @@ const ProductInfoContainer = styled.p`
 function OrderTableItem({ order }) {
   const { _id, createdAt, products, paid, totalPrice = 5000 } = order;
 
+  console.log(order);
+
   const totalOrderPrice = formatCurrency(totalPrice / 100);
 
   const data = products
