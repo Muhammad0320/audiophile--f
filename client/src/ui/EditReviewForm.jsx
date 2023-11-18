@@ -10,6 +10,10 @@ import { useUpdateReview } from "../features/reviews/useUpdateReview";
 import { TextArea } from "./TextArea";
 
 const EditFormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
   background-color: var(--color-white);
 
   border-radius: ${() => clampBuilder(320, 1200, 0.8, 1.2)};
@@ -51,6 +55,7 @@ function EditReviewForm({ review, onClose }) {
         <FormRow label="Rating">
           <Input
             id="rating"
+            variation={"review"}
             {...register("rating", { required: "This field is required" })}
           />
         </FormRow>
@@ -58,6 +63,7 @@ function EditReviewForm({ review, onClose }) {
         <FormRow label="Review">
           <TextArea
             id="review"
+            variation={"review"}
             {...register("review", { required: "This field is required" })}
           />
         </FormRow>

@@ -26,6 +26,12 @@ const Input = styled.input`
     `}
 
   ${(props) =>
+    props.variation === "review" &&
+    css`
+      width: 100%;
+    `}
+
+  ${(props) =>
     props.error &&
     css`
       border: 1px solid red;
