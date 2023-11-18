@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
+import { Text } from "../../ui/Text";
+import Button from "../../ui/Button";
+import { HiArchiveBoxXMark } from "react-icons/hi2";
 
 const ItemContainer = styled.div`
   display: grid;
@@ -9,7 +12,7 @@ const ItemContainer = styled.div`
 
   background-image: var(--color-gradient-dark-muted);
 
-  border-radius: ${() => clampBuilder(320, 1200, 0.5, 1)};
+  /* border-radius: ${() => clampBuilder(320, 1200, 0.5, 1)}; */
 `;
 
 const Image = styled.img`
@@ -45,12 +48,34 @@ const TextIconContainer = styled.p`
   column-gap: ${() => clampBuilder(320, 1200, 0.5, 1)};
 
   align-items: center;
+
+  color: var(--color-primary-dark);
+
+  font-size: ${() => clampBuilder(320, 1200, 0.8, 1.3)};
 `;
 
 function OrderProductDetailsItem() {
   return (
     <ItemContainer>
-      <Image />
+      <Image src="https://i.ibb.co/zQhW0N1/product-1-preview.jpg" />
+      <TextBox>
+        <Text> XX59 Mark II Headphone </Text>
+        <TextIconContainer>
+          <span>
+            {" "}
+            <HiArchiveBoxXMark />{" "}
+          </span>{" "}
+          <em> Price </em>
+        </TextIconContainer>
+        <TextIconContainer>
+          <span>
+            {" "}
+            <HiArchiveBoxXMark />{" "}
+          </span>{" "}
+          <em> Price </em>
+        </TextIconContainer>
+        <Button> Go to product </Button>
+      </TextBox>
     </ItemContainer>
   );
 }
