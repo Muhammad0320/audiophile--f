@@ -57,6 +57,12 @@ const StyledModalMenu = styled.div`
     width: 100%;
     overflow-y: auto;
   }
+
+  ${(props) =>
+    props.type === "details" &&
+    css`
+      width: 70%;
+    `}
 `;
 
 const OverLay = styled.div`

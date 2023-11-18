@@ -157,7 +157,7 @@ function OrderTableItem({ order }) {
           </div>
         </Menu>
 
-        <Modal.Window name="productDetails">
+        <Modal.Window name="productDetails" page="details">
           <OrderProductDetails products={order.products} />
         </Modal.Window>
       </Modal>
