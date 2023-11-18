@@ -6,6 +6,8 @@ import { HiEye, HiTruck } from "react-icons/hi2";
 import { formatCurrency } from "../../utils/helper";
 import { useViewport } from "../../context/ViewPort";
 import { clampBuilder } from "../../styles/clampFunction";
+import Modal from "../../ui/Modal";
+import OrderProductDetails from "./OrderProductDetails";
 
 const ID = styled.span`
   font-size: ${() => clampBuilder(650, 1200, 1, 1.5)};
@@ -80,8 +82,6 @@ const ProductInfoContainer = styled.p`
 function OrderTableItem({ order }) {
   const { _id, createdAt, products, paid, totalPrice = 5000 } = order;
 
-  console.log(order);
-
   const totalOrderPrice = formatCurrency(totalPrice / 100);
 
   const data = products
@@ -138,21 +138,29 @@ function OrderTableItem({ order }) {
         </>
       )}
 
-      <Menu>
-        <div>
-          <Menu.Toggle id={_id} />
+      <Modal>
+        <Menu>
+          <div>
+            <Menu.Toggle id={_id} />
 
-          <Menu.List id={_id}>
-            <li>
-              <Menu.Button icon={<HiEye />}> Order Details </Menu.Button>
-            </li>
+            <Menu.List id={_id}>
+              <li>
+                <Modal.Open opens="productDetails">
+                  <Menu.Button icon={<HiEye />}> Order Details </Menu.Button>
+                </Modal.Open>
+              </li>
 
-            <li>
-              <Menu.Button icon={<HiTruck />}> Reorder </Menu.Button>
-            </li>
-          </Menu.List>
-        </div>
-      </Menu>
+              <li>
+                <Menu.Button icon={<HiTruck />}> Reorder </Menu.Button>
+              </li>
+            </Menu.List>
+          </div>
+        </Menu>
+
+        <Modal.Window name="productDetails">
+          <OrderProductDetails products={order.products} />
+        </Modal.Window>
+      </Modal>
     </Table.Row>
   );
 }
