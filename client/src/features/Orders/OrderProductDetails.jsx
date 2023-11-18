@@ -12,12 +12,15 @@ const Container = styled.div`
 
   column-gap: ${() => clampBuilder(700, 1200, 1, 2)};
 
+  border-radius: ${() => clampBuilder(320, 1200, 0.4, 1)};
+
   overflow-x: auto;
 
   padding-inline: ${() => clampBuilder(320, 1200, 1, 2.3)};
   padding-block: ${() => clampBuilder(320, 1200, 1.3, 2.5)};
   scroll-behavior: smooth;
 
+  padding-bottom: 3rem;
   scroll-snap-type: x mandatory;
 
   scroll-padding: ${() => clampBuilder(700, 1200, 1, 2)};
