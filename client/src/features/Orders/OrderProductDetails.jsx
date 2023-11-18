@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { clampBuilder } from "../../styles/clampFunction";
+import OrderProductDetailsItem from "./OrderProductDetailsItem";
 
 const Container = styled.div`
   width: 100%;
@@ -20,8 +21,14 @@ const Container = styled.div`
   scroll-padding: ${() => clampBuilder(700, 1200, 1, 2)};
 `;
 
-function OrderProductDetails() {
-  return <Container></Container>;
+function OrderProductDetails({ products }) {
+  return (
+    <Container>
+      {products?.map((product, i) => {
+        return <OrderProductDetailsItem key={i} />;
+      })}
+    </Container>
+  );
 }
 
 export default OrderProductDetails;
