@@ -26,7 +26,7 @@ const StyledModal = styled.div`
 
 const StyledModalMenu = styled.div`
   position: fixed;
-
+  
   top: ${() => clampBuilder(300, 500, 6, 9)};
   padding-inline: ${() => clampBuilder(320, 920, 1, 1.5)};
   z-index: 2;
