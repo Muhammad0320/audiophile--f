@@ -20,7 +20,6 @@ const Container = styled.div`
   padding-block: ${() => clampBuilder(320, 1200, 1.3, 2.5)};
   scroll-behavior: smooth;
 
-  padding-bottom: 3rem;
   scroll-snap-type: x mandatory;
 
   scroll-padding: ${() => clampBuilder(700, 1200, 1, 2)};
@@ -34,7 +33,7 @@ function OrderProductDetails({ products }) {
   return (
     <Container>
       {products?.map((product, i) => {
-        return <OrderProductDetailsItem key={i} />;
+        return <OrderProductDetailsItem key={i} product={product} />;
       })}
     </Container>
   );
