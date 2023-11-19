@@ -25,8 +25,8 @@ export const Text = styled.p`
     props.type === "details" &&
     css`
       color: var(--color-primary-light-dark);
-
-      font-size: ${() => clampBuilder(320, 1200, 1, 1.5)};
+      font-weight: 600;
+      font-size: ${() => clampBuilder(320, 1200, 1.1, 1.6)};
     `}
 
 

@@ -54,8 +54,18 @@ const TextIconContainer = styled.p`
 
   font-size: ${() => clampBuilder(320, 1200, 1, 1.7)};
 
-  & > em {
+  &:last-of-type {
+    column-gap: 0;
+  }
+
+  & > span {
+    justify-self: flex-end;
     font-size: ${() => clampBuilder(320, 1200, 1.2, 2)};
+    translate: 0 3px;
+  }
+
+  & > em {
+    font-weight: 600;
   }
 `;
 
