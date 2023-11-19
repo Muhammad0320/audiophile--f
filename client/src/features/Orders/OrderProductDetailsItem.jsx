@@ -7,7 +7,7 @@ import { HiArchiveBoxXMark } from "react-icons/hi2";
 
 const ItemContainer = styled.div`
   display: grid;
-  grid-template-rows: 1.2fr 1fr;
+  grid-template-rows: 1.25fr 1fr;
 
   background-color: var(--color-white-vivid);
 
@@ -32,7 +32,7 @@ const TextBox = styled.div`
   & > div:first-child {
     display: flex;
     justify-content: center;
-    text-align: center;
+
     align-items: center;
   }
 `;

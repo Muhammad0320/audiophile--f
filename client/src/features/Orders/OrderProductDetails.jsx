@@ -8,7 +8,7 @@ const Container = styled.div`
   display: grid;
   grid-auto-flow: column;
 
-  grid-auto-columns: 30%;
+  grid-auto-columns: 33%;
 
   column-gap: ${() => clampBuilder(700, 1200, 1, 2)};
 
