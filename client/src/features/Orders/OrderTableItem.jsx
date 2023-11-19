@@ -1,12 +1,12 @@
 import { format } from "date-fns";
+import Modal from "../../ui/Modal";
 import Table from "../../ui/Table";
-import styled, { css } from "styled-components";
 import { HiEye } from "react-icons/hi2";
+import styled, { css } from "styled-components";
 import { formatCurrency } from "../../utils/helper";
 import { useViewport } from "../../context/ViewPort";
-import { clampBuilder } from "../../styles/clampFunction";
-import Modal from "../../ui/Modal";
 import OrderProductDetails from "./OrderProductDetails";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const ID = styled.span`
   font-size: ${() => clampBuilder(650, 1200, 1, 1.5)};
