@@ -54,6 +54,10 @@ const StyledModalMenu = styled.div`
   padding-left: 0;
 
   @media (max-width: 500px) {
+    width: 90%;
+  }
+
+  @media (max-width: 500px) {
     width: 100%;
     overflow-y: auto;
   }
