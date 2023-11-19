@@ -37,7 +37,7 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
         currency: 'usd',
         unit_amount: item.totalPrice * 100,
         product_data: {
-          name: `${item.product.name} Tour`,
+          name: `${item.product.name} `,
           description: item.product.description,
           images: [item.product.image]
         }
@@ -60,6 +60,7 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
       {
         shipping_rate_data: {
           type: 'fixed_amount',
+          display_name: 'Order shipping',
           fixed_amount: {
             amount: 5000,
             currency: 'usd'
@@ -76,7 +77,7 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
           currency: 'usd',
           unit_amount: +VAT * 100,
 
-          product: {
+          product_data: {
             name: 'VAT'
           }
         }
