@@ -57,14 +57,19 @@ const Status = styled.span`
     `}
 `;
 
-const Icon = styled.div`
+const Icon = styled.a`
+  font-size: ${() => clampBuilder(320, 1200, 1.5, 3)};
 
-  font-size:  ${() => clampBuilder(320, 1200, 2, 4)}; 
+  color: var(--color-dark-2);
 
-    
+  cursor: pointer;
 
+  transition: color 0.2s ease-in;
 
-`
+  &:hover {
+    color: var(--color-primary);
+  }
+`;
 
 const PriceContainer = styled.div`
   display: flex;
@@ -148,19 +153,13 @@ function OrderTableItem({ order }) {
       )}
 
       <Modal>
-        
-          <div>
-          
-
-           
-                <Modal.Open opens="productDetails">
-
-                </Modal.Open>
-          
-                < icon={<HiTruck />}> Reorder </>
-           
-          </div>
-        
+        <div>
+          <Modal.Open opens="productDetails">
+            <Icon title="Order details">
+              <HiEye />
+            </Icon>
+          </Modal.Open>
+        </div>
 
         <Modal.Window name="productDetails" page="details">
           <OrderProductDetails products={[...order.products]} />
