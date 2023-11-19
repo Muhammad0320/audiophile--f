@@ -27,7 +27,8 @@ import {
 
 const StyledContainer = styled.div`
   display: grid;
-  grid-template-rows: 0.4fr 0.4fr ${() => clampBuilder(320, 1200, 3, 4)} max-content 4rem;
+  grid-template-rows: 0.4fr 0.4fr ${() =>
+    clampBuilder(320, 1200, 3, 4)} max-content 4rem;
   row-gap: ${() => clampBuilder(320, 1200, 1.2, 2)};
   justify-content: center;
   height: 72%;
@@ -38,11 +39,15 @@ const StyledContainer = styled.div`
 
   border-radius: 1.5rem;
   overflow: hidden;
-  padding: 3rem ${() => clampBuilder(320, 1200, 1.3, 2.5)};
+  padding-block: ${() => clampBuilder(320, 1200, 1.5, 3)}
+   
+  padding-inline:  ${() => clampBuilder(320, 1200, 1, 1.5)};
+
   box-shadow: var(--box-shadow-dark-2);
 
   @media (max-width: 500px) {
-    grid-template-rows: 0.4fr 0.4fr ${() => clampBuilder(320, 1200, 3, 4)} 1.2fr 4rem;
+    grid-template-rows: 0.4fr 0.4fr ${() =>
+      clampBuilder(320, 1200, 3, 4)} 1.2fr 4rem;
   }
 `;
 
@@ -158,11 +163,7 @@ function Confirmation() {
     // searchParams.get("alert") && deleteCart();
 
     if (alert === "ok") {
-      console.log("Lemme see you 🔥🔥");
-
       deleteCart();
-
-      console.log("Show yourself coward 😒");
     }
   });
 

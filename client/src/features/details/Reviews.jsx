@@ -18,7 +18,7 @@ export const StyledReviewCard = styled.div`
 
   scroll-padding: ${() => clampBuilder(320, 1200, 2.5, 4)};
 
-  padding-bottom: ${() => clampBuilder(320, 1200, 2.5, 4)};
+  padding-bottom: ${() => clampBuilder(320, 1200, 2, 4)};
   margin-bottom: ${() => clampBuilder(320, 1200, 2.8, 5.5)};
 
   @media (max-width: 920px) {
