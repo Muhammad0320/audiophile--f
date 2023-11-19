@@ -93,7 +93,7 @@ function PaymentDetails({ step }) {
               {" "}
               {isRedirecting
                 ? "Redirecting to checkout..."
-                : `Checkout ${" "} <strong>  ${totalPrice} </strong>`}{" "}
+                : `Checkout ${" "}  ${totalPrice}`}{" "}
             </Button>
           </FormRow>
         )}
