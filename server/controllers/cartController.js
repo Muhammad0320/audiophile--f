@@ -52,11 +52,7 @@ exports.getMyCart = catchAsync(async (req, res, next) => {
 exports.deleteCartOnCheckout = catchAsync(async (req, res, next) => {
   const user = req.user._id;
 
-  console.log(user);
-
   const deleteCart = await Cart.deleteMany({ user });
-
-  console.log(deleteCart, 'A don pass 🔥🔥');
 
   if (!deleteCart) return next(new AppError('There is nothing to delete', 404));
 
@@ -102,8 +98,6 @@ exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   });
 
   const updatedCart = await Cart.bulkWrite(bulkOps, { ordered: true });
-
-  console.log(updatedCart);
 
   res.status(201).json({
     status: 'success',
