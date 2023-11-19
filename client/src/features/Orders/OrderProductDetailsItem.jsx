@@ -5,6 +5,11 @@ import Button from "../../ui/Button";
 import { useNavigate } from "react-router-dom";
 import { HiArchiveBoxXMark } from "react-icons/hi2";
 
+import {
+  MdOutlineAttachMoney,
+  MdOutlineProductionQuantityLimits,
+} from "react-icons/md";
+
 const ItemContainer = styled.div`
   display: grid;
   grid-template-rows: 1.25fr 1fr;
@@ -78,14 +83,14 @@ function OrderProductDetailsItem({ product = {} }) {
         <TextIconContainer>
           <span>
             {" "}
-            <HiArchiveBoxXMark />{" "}
+            <MdOutlineProductionQuantityLimits />
           </span>{" "}
           <em> {quantity} </em>
         </TextIconContainer>
         <TextIconContainer>
           <span>
             {" "}
-            <HiArchiveBoxXMark />{" "}
+            <MdOutlineAttachMoney />
           </span>{" "}
           <em> {price} </em>
         </TextIconContainer>
