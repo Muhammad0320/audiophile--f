@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { clampBuilder } from "../../styles/clampFunction";
 import { Text } from "../../ui/Text";
 import Button from "../../ui/Button";
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { HiArchiveBoxXMark } from "react-icons/hi2";
+import { clampBuilder } from "../../styles/clampFunction";
 
 import {
   MdOutlineAttachMoney,
