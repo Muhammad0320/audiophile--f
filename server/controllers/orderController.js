@@ -25,6 +25,9 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     );
   }
 
+  const VAT =
+    currentUserCart.reduce((acc, sum) => acc + sum.totalPrice, 0) * 0.2;
+
   const cartId = currentUserCart.map(item => item._id);
 
   const checkoutItems = currentUserCart.map(item => {
@@ -65,7 +68,20 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
       }
     ],
 
-    line_items: checkoutItems
+    line_items: [
+      ...checkoutItems,
+      {
+        quantity: 1,
+        price_data: {
+          currency: 'usd',
+          unit_amount: +VAT * 100,
+
+          prodcut_data: {
+            name: 'VAT'
+          }
+        }
+      }
+    ]
   });
 
   res.status(200).json({
