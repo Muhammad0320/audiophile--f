@@ -8,7 +8,7 @@ const Container = styled.div`
   display: grid;
   grid-auto-flow: column;
 
-  grid-auto-columns: 33%;
+  grid-auto-columns: 31%;
 
   column-gap: ${() => clampBuilder(700, 1200, 1, 2)};
 
@@ -27,6 +27,14 @@ const Container = styled.div`
   background-color: var(--color-white-vivid);
 
   background-image: var(--color-gradient-dark);
+
+  @media (max-width: 950px) {
+    grid-auto-columns: 43%;
+  }
+
+  @media (max-width: 400px) {
+    grid-auto-columns: 53%;
+  }
 `;
 
 function OrderProductDetails({ products }) {
