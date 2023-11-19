@@ -5,13 +5,14 @@ import { css, styled } from "styled-components";
 import { useViewport } from "../context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
+  max-height: 95dvh !important;
+
   grid-column: 1 / -1;
   padding-inline: ${() => clampBuilder(950, 1200, 0.1, 8)};
   padding-block: ${() => clampBuilder(400, 1200, 1.2, 2)};
 
   background-color: var(--color-dark);
-  max-height: 100dvh;
   overflow: hidden;
 `;
 
