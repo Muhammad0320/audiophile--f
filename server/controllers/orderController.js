@@ -53,6 +53,18 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
     customer_email: req.user.email,
     client_reference_id: cartIdString,
 
+    shipping_options: [
+      {
+        shipping_rate_data: {
+          type: 'fixed_amount',
+          fixed_amount: {
+            amount: 5000,
+            currency: 'usd'
+          }
+        }
+      }
+    ],
+
     line_items: checkoutItems
   });
 
