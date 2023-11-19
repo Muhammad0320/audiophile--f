@@ -57,6 +57,15 @@ const Status = styled.span`
     `}
 `;
 
+const Icon = styled.div`
+
+  font-size:  ${() => clampBuilder(320, 1200, 2, 4)}; 
+
+    
+
+
+`
+
 const PriceContainer = styled.div`
   display: flex;
   flex-flow: column;
@@ -139,23 +148,19 @@ function OrderTableItem({ order }) {
       )}
 
       <Modal>
-        <Menu>
+        
           <div>
-            <Menu.Toggle id={_id} />
+          
 
-            <Menu.List id={_id}>
-              <li>
+           
                 <Modal.Open opens="productDetails">
-                  <Menu.Button icon={<HiEye />}> Order Details </Menu.Button>
-                </Modal.Open>
-              </li>
 
-              <li>
-                <Menu.Button icon={<HiTruck />}> Reorder </Menu.Button>
-              </li>
-            </Menu.List>
+                </Modal.Open>
+          
+                < icon={<HiTruck />}> Reorder </>
+           
           </div>
-        </Menu>
+        
 
         <Modal.Window name="productDetails" page="details">
           <OrderProductDetails products={[...order.products]} />

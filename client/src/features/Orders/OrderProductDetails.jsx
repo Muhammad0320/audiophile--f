@@ -32,7 +32,7 @@ const Container = styled.div`
     grid-auto-columns: 43%;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 450px) {
     grid-auto-columns: 53%;
   }
 `;
