@@ -93,7 +93,7 @@ function Cart({ page, onClose }) {
   if (!carts.length)
     return (
       <StyledCart>
-        <EmptyCart />;
+        <EmptyCart />
       </StyledCart>
     );
 

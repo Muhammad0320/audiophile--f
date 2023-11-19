@@ -13,7 +13,8 @@ function EmptyCart() {
     <EmptyContainer>
       <Text>
         {" "}
-        Your cart is still empty, Start by adding an item that catch your eye 🤩{" "}
+        Your cart is still empty, Start by adding an items that catch your
+        attention 🤩.{" "}
       </Text>
     </EmptyContainer>
   );
