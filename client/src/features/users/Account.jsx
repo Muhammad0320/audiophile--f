@@ -79,6 +79,10 @@ const NavItem = styled(NavLink)`
   text-transform: uppercase;
   cursor: pointer;
 
+  & > span:first-of-type {
+    translate: 0 2.5px;
+  }
+
   &::before {
     content: "";
     height: 100%;

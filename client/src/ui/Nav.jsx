@@ -186,7 +186,7 @@ function Nav({ type }) {
 
                 {location.pathname !== "/checkout" && (
                   <Modal.Open opens="cart">
-                    <HeaderIcon>
+                    <HeaderIcon as="a" title="cart preview">
                       <HiOutlineShoppingCart />
                       {totalQuantity > 0 && (
                         <CartIconNotification>
