@@ -1,8 +1,7 @@
-import Menu from "../../ui/Menu";
 import { format } from "date-fns";
 import Table from "../../ui/Table";
 import styled, { css } from "styled-components";
-import { HiEye, HiTruck } from "react-icons/hi2";
+import { HiEye } from "react-icons/hi2";
 import { formatCurrency } from "../../utils/helper";
 import { useViewport } from "../../context/ViewPort";
 import { clampBuilder } from "../../styles/clampFunction";

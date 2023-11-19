@@ -48,7 +48,7 @@ function Avatar({ user }) {
   const { viewportWidth } = useViewport();
 
   return (
-    <StyledAvatar to="/settings">
+    <StyledAvatar to="/settings" title="Your Account">
       <ImageContainer src={`/assets/users/${photo}`} alt="user-avatar" />
 
       {viewportWidth >= 700 && <span> {firstname} </span>}

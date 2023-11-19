@@ -205,7 +205,11 @@ function Nav({ type }) {
                 {isLoggingOut ? (
                   <SpinnerMini />
                 ) : (
-                  <HeaderIcon as="a" onClick={handleLogoutFunction}>
+                  <HeaderIcon
+                    as="a"
+                    title="Logout"
+                    onClick={handleLogoutFunction}
+                  >
                     <HiArrowRightOnRectangle />
                   </HeaderIcon>
                 )}
