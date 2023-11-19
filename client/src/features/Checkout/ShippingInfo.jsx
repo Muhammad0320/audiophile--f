@@ -8,11 +8,11 @@ import { handleFormStep } from "./handleFormStep";
 import { useViewport } from "../../context/ViewPort";
 
 function ShippingInfo({ step, setStep }) {
-  const { register, handleSubmit, reset, formState } = useForm();
+  const { register, handleSubmit, formState } = useForm();
 
   const { errors } = formState;
 
-  const onSubmit = handleFormStep(reset, step, setStep);
+  const onSubmit = handleFormStep(step, setStep);
 
   const { viewportWidth } = useViewport();
 
