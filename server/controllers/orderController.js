@@ -76,13 +76,15 @@ exports.getCheckoutSesion = catchAsync(async (req, res, next) => {
           currency: 'usd',
           unit_amount: +VAT * 100,
 
-          prodcut_data: {
+          product: {
             name: 'VAT'
           }
         }
       }
     ]
   });
+
+  console.log(session);
 
   res.status(200).json({
     status: 'success',
