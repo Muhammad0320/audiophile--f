@@ -6,14 +6,14 @@ import FormRow from "../../ui/FormRow";
 import { useSelector } from "react-redux";
 import { styled } from "styled-components";
 import PayOnDelivery from "./PayOnDelivery";
-import { useNavigate } from "react-router-dom";
 import RadioButton from "../../ui/RadioButton";
+import { useNavigate } from "react-router-dom";
+import { formatCurrency } from "../../utils/helper";
 import { useViewport } from "../../context/ViewPort";
 import { getTotalCartPrice } from "../cart/cartSlice";
 import InputTypeHeader from "../../ui/InputTypeHeader";
 import { clampBuilder } from "../../styles/clampFunction";
 import { getCheckoutSesionApi } from "../../service/apiOrder";
-import { formatCurrency, grandTotalPrice } from "../../utils/helper";
 
 const RadioButtonsContainer = styled.div`
   display: flex;
@@ -25,12 +25,16 @@ const RadioButtonsContainer = styled.div`
 const BtnPriceContainer = styled.div`
   display: flex;
 
-  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
 
+  column-gap: ${() => clampBuilder(320, 1200, 0.4, 0.8)};
+
+  text-align: center;
+
+  font-size: ${() => clampBuilder(320, 1200, 1.3, 1.5)};
   & > em {
     font-weight: 500;
-
-    font-size: ${() => clampBuilder(320, 1200, 1.3, 1.5)};
   }
 `;
 
@@ -74,7 +78,7 @@ function PaymentDetails({ step }) {
           <RadioButtonsContainer>
             <RadioButton
               value="card"
-              disabled={step !== 3}
+              // disabled={step !== 3}
               checked={checked === "card"}
               label="Pay with card"
               onChange={handleChange}
