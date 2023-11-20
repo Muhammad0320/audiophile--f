@@ -69,7 +69,7 @@ function CartTable() {
       </Table>
       <Button> Save & checkout </Button>
 
-      {changes.length ? (
+      {changes.length && carts.length ? (
         <Button
           onClick={handleSendBulk}
           withspinner={isSendingBulkData ? "true" : ""}
