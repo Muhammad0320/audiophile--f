@@ -46,6 +46,7 @@ function ReviewTable() {
         ) : (
           <Table.Body
             data={reviews}
+            resource="review"
             render={(review) => <ReviewItem data={review} key={review._id} />}
           />
         )}

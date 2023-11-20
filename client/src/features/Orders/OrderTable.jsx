@@ -31,6 +31,7 @@ function OrderTable() {
         ) : (
           <Table.Body
             data={myOrder}
+            resource="order item"
             render={(order) => <OrderTableItem order={order} key={order._id} />}
           />
         )}

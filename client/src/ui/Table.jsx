@@ -128,7 +128,7 @@ const TableRow = ({ children }) => {
   );
 };
 
-const TableBody = ({ data, render, resource }) => {
+const TableBody = ({ data, render, resource = "resource" }) => {
   if (!data.length)
     return (
       <Empty> {`There is no ${resource} to display  at the moment ☹ `} </Empty>

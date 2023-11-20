@@ -62,6 +62,7 @@ function CartTable() {
       <Table column={`${clampBuilder(320, 1200, 4, 8)} ${otherColumnValue}`}>
         <Table.Body
           data={carts}
+          resource="cart item"
           render={(cart) => (
             <CartTableItem cart={cart} key={cart.product._id} />
           )}
