@@ -18,9 +18,11 @@
 
 - **Secured Payments** and Orders: As said above that payments are hanlded with stripe api; this app also packs an advanced stripe features called Stripe Webhooks: here, the ordering is not handled by our company but with Stripe itself where we attached an endpoint to be called by stripe on successsful checkout which inturn automatically create order.
 
-- **User profile** management: Full access to the user's profile like updating current user's data, uploading a profile photo, passwords, resetting passwords for users forgot their password.
+- **User profile** management: Full access to the user's profile like updating current user's data, uploading a profile photo, passwords and even deleting user account which can be done only if the user passes his/her password.
 
-- **Order management** : In this website, user can access all their processed orders and the information related to the specific order, like the date of purchase, total price, order status number of items per order and lot more.
+- **Order** : In this website, user can access all their processed orders and the information related to the specific order, like the date of purchase, total price, order status number of items per order and lot more.
+
+- **Order Details** : In the order page user can even click an _eye_ icon to even show the overview and details of the product and can also navigate to the products age itself which can be actually useful and save users lots of clicks .
 
 - **Review management** : users can manage all of their reviews by deleting and editing desired ones.
 
@@ -29,6 +31,8 @@
 - **Cart Notification** : This gives a preview on the total quantity of items that are present in the cart.
 
 - **Responsiveness:** With all the nice features in this website, it is also fully responsive on desktops, tablets and mobile devices.
+
+- **Interactive Modal Window**: This app features a nice modal window which helps users to perform simple tasks instead of navigating to another page which might be annoying sometimes and can simply be minimized as simple as clicking outside the modal window.
 
 - **Feedback window** : A fun little and minimalistic popup window which act as give the users a feedback about their currently fultilled request, activitiy or interaction with the app.
 
