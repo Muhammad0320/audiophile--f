@@ -1,5 +1,5 @@
-import Confirmation from "../ui/Confirmation";
 import Modal from "../ui/Modal";
+import Confirmation from "../ui/Confirmation";
 
 function PaymentConfirmation() {
   return (

@@ -22,7 +22,7 @@ const StyledNavList = styled.ul`
 
 const NavItem = styled(NavLink)`
   color: var(--color-white-2);
-  font-size: ${() => clampBuilder(920, 1200, 0.7, 1.5)};
+  font-size: ${() => clampBuilder(920, 1200, 0.9, 1.7)};
 
   &:hover {
     color: var(--color-primary);
@@ -47,7 +47,6 @@ function NavList() {
       <NavItem to="/speakers">speakers</NavItem>
 
       <NavItem to="/earphones">earphones</NavItem>
-      <NavItem to="/success">success</NavItem>
     </StyledNavList>
   );
 }
