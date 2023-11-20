@@ -47,6 +47,7 @@ function NavList() {
       <NavItem to="/speakers">speakers</NavItem>
 
       <NavItem to="/earphones">earphones</NavItem>
+      <NavItem to="/success">success</NavItem>
     </StyledNavList>
   );
 }
