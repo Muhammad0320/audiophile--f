@@ -68,26 +68,27 @@ function CartTable() {
           )}
         />
       </Table>
-      <Button> Save & checkout </Button>
 
-      {changes.length && carts.length ? (
-        <Button
-          onClick={handleSendBulk}
-          withspinner={isSendingBulkData ? "true" : ""}
-          disabled={isSendingBulkData}
-        >
-          {isSendingBulkData ? (
-            <>
-              {" "}
-              <SpinnerMini /> <span> saving cart... </span>{" "}
-            </>
-          ) : (
-            <span> Save & Checkout </span>
-          )}
-        </Button>
-      ) : (
-        <Button onClick={handleSendBulk}> Move to Checkout </Button>
-      )}
+      {carts.length ? (
+        changes.length ? (
+          <Button
+            onClick={handleSendBulk}
+            withspinner={isSendingBulkData ? "true" : ""}
+            disabled={isSendingBulkData}
+          >
+            {isSendingBulkData ? (
+              <>
+                {" "}
+                <SpinnerMini /> <span> saving cart... </span>{" "}
+              </>
+            ) : (
+              <span> Save & Checkout </span>
+            )}
+          </Button>
+        ) : (
+          <Button onClick={handleSendBulk}> Move to Checkout </Button>
+        )
+      ) : null}
     </StyledCartContainer>
   );
 }
