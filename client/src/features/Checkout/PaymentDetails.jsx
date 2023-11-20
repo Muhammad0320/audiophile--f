@@ -78,7 +78,7 @@ function PaymentDetails({ step }) {
           <RadioButtonsContainer>
             <RadioButton
               value="card"
-              // disabled={step !== 3}
+              disabled={step !== 3}
               checked={checked === "card"}
               label="Pay with card"
               onChange={handleChange}
