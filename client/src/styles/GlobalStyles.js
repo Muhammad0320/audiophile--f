@@ -17,12 +17,13 @@ const GlobalStyles = createGlobalStyle`
 
 
     --color-green: #31cb00;
-    
+
     --color-dark: #000;
     --color-dark-1: #101010;
     --color-dark-2:  rgba(0, 0, 0, 0.2);
     --color-dark-3:  rgba(0, 0, 0, 0.8);
     --color-dark-4:  rgba(0, 0, 0, 0.5);
+    
 
     
     --color-white: #fff ;
@@ -104,7 +105,7 @@ body {
   color: var(--color-white);
   min-height: 100dvh;
   max-width: 100dvw;
-
+  overflow-x: hidden;
   line-height: 1.5;
   font-size: 1.5rem;
   box-sizing: border-box;

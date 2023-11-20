@@ -6,10 +6,12 @@ import { useViewport } from "../context/ViewPort";
 import { clampBuilder } from "../styles/clampFunction";
 
 const StyledHeader = styled.header`
+  --color-dark: rgba(0, 0, 0, 0.98);
+
   max-height: 95dvh !important;
 
   grid-column: 1 / -1;
-  padding-inline: ${() => clampBuilder(950, 1200, 0.1, 8)};
+  padding-inline: ${() => clampBuilder(950, 1200, 1, 8)};
   padding-block: ${() => clampBuilder(400, 1200, 1.2, 2)};
 
   background-color: var(--color-dark);
