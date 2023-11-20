@@ -22,20 +22,32 @@ const RadioButtonsContainer = styled.div`
   margin-block: ${() => clampBuilder(320, 1200, 2, 3)};
 `;
 
+const BtnPriceContainer = styled.div`
+  display: flex;
+
+  column-gap: 2rem;
+
+  & > em {
+    font-weight: 500;
+
+    font-size: ${() => clampBuilder(320, 1200, 1.3, 1.5)};
+  }
+`;
+
 function PaymentDetails({ step }) {
   const [checked, setIsChecked] = useState("");
 
   const price = useSelector(getTotalCartPrice);
 
-  const totalPrice = formatCurrency(grandTotalPrice(price));
+  const totalPrice = formatCurrency(price);
 
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   const handleCheckout = async (e) => {
     e.preventDefault();
-    setIsRedirecting(false);
-    await getCheckoutSesionApi();
     setIsRedirecting(true);
+    await getCheckoutSesionApi();
+    setIsRedirecting(false);
   };
 
   const handleChange = (e) => {
@@ -91,9 +103,13 @@ function PaymentDetails({ step }) {
               onClick={handleCheckout}
             >
               {" "}
-              {isRedirecting
-                ? "Redirecting to checkout..."
-                : `Checkout ${" "}  ${totalPrice}`}{" "}
+              {isRedirecting ? (
+                "Redirecting to checkout..."
+              ) : (
+                <BtnPriceContainer>
+                  <span> Pay </span> <em> {totalPrice} </em>
+                </BtnPriceContainer>
+              )}
             </Button>
           </FormRow>
         )}
