@@ -76,6 +76,10 @@ const Image = styled.img`
   grid-column: 1 / -1;
   mix-blend-mode: difference;
   max-width: 100%;
+
+  @media (max-width: 920px) {
+    height: 100%;
+  }
 `;
 
 const ProductType = styled.p`

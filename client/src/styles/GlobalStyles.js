@@ -105,7 +105,7 @@ body {
   color: var(--color-white);
   min-height: 100dvh;
   max-width: 100dvw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   line-height: 1.5;
   font-size: 1.5rem;
   box-sizing: border-box;
