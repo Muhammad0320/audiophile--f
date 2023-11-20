@@ -3,12 +3,12 @@ import Button from "../../ui/Button";
 import styled from "styled-components";
 import CartTableItem from "./CartTableITem";
 import { useNavigate } from "react-router-dom";
-import { clearChanges, getCart, getChanges } from "./cartSlice";
+import SpinnerMini from "../../ui/SpinnerMini";
 import { useSendBulkData } from "./useSendBulkData";
 import { useViewport } from "../../context/ViewPort";
 import { useDispatch, useSelector } from "react-redux";
 import { clampBuilder } from "../../styles/clampFunction";
-import SpinnerMini from "../../ui/SpinnerMini";
+import { clearChanges, getCart, getChanges } from "./cartSlice";
 
 const StyledCartContainer = styled.div`
   position: relative;
