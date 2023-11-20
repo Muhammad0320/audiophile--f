@@ -85,7 +85,9 @@ const Empty = styled.div`
 
   text-align: center;
 
-  padding: ${() => clampBuilder(320, 1200, 1.9, 4)} 0;
+  padding-block: ${() => clampBuilder(320, 1200, 1.9, 4)};
+
+  padding-inline: ${() => clampBuilder(320, 1200, 1.6, 3)};
 `;
 
 // Create context
