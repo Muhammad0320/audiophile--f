@@ -10,6 +10,8 @@ const xss = require('xss-clean');
 
 const cors = require('cors');
 
+const path = require('path');
+
 const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -33,6 +35,10 @@ app.use(
 );
 
 app.set('trust proxy', false);
+
+app.set('view engine', 'pug');
+
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(sanitize());
 
