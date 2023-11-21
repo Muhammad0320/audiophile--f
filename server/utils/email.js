@@ -55,6 +55,13 @@ module.exports = class Email {
   async sendWelcome() {
     await this.sendMail('welcome', 'Hello, welcome to audiophile family 👋 ');
   }
+
+  async sendResetPassword() {
+    await this.sendMail(
+      'resetPassword',
+      'Your password reset token valid for 10 mins ⏳'
+    );
+  }
 };
 
 // 9640253013
