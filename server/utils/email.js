@@ -53,7 +53,13 @@ module.exports = class Email {
 
     await this.createTransport().sendMail(mailOptions);
   }
+
+  async sendWelcome() {
+    await this.sendMail('welcome', 'Hello, welcome to audiophile family 👋 ');
+  }
 };
+
+// 9640253013
 
 const sendMail = async function(mailOption) {
   const transporter = nodemailer.createTransport({
