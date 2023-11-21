@@ -7,7 +7,6 @@ const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
 const helmet = require('helmet');
 const xss = require('xss-clean');
-const exphbs = require('express-handlebars');
 
 const cors = require('cors');
 
@@ -34,9 +33,6 @@ app.use(
 );
 
 app.set('trust proxy', false);
-
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
 
 app.use(sanitize());
 
