@@ -8,19 +8,19 @@ module.exports = class Email {
     this.to = user.email;
   }
 
-  // createTransport() {
-  //   if (process.env.NODE_ENV === 'production') {
-  //     return nodemailer.createTransport({
-  //       host: process.env.EMAIL_HOST,
-  //       port: process.env.EMAIL_PORT,
-  //       secure: true,
-  //       auth: {
-  //         pass: process.env.BREVO_PASSWORD,
-  //         user: process.env.BREVO_API_KEY
-  //       }
-  //     });
-  //   }
-  // }
+  createTransport() {
+    if (process.env.NODE_ENV === 'production') {
+      return nodemailer.createTransport({
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
+        secure: true,
+        auth: {
+          pass: process.env.BREVO_PASSWORD,
+          user: process.env.BREVO_API_KEY
+        }
+      });
+    }
+  }
 };
 
 const sendMail = async function(mailOption) {
