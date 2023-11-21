@@ -15,8 +15,8 @@ const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
+const exphbs = require('express-handlebars');
 const orderRoutes = require('./routes/orderRoutes');
-
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const { webHookCheckout } = require('./controllers/orderController');
@@ -34,6 +34,9 @@ app.use(
 );
 
 app.set('trust proxy', false);
+
+app.engine('handlebars', exphbs());
+// app.set('view engine', 'handlebars');
 
 app.use(sanitize());
 
