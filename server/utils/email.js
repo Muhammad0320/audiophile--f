@@ -2,7 +2,7 @@ const pug = require('pug');
 const nodemailer = require('nodemailer');
 const { htmlToText } = require('html-to-text');
 
-module.exports = class Email {
+class Email {
   constructor(user, url) {
     this.url = url;
     this.firstname = user.name.split(' ')[0];
@@ -63,31 +63,31 @@ module.exports = class Email {
       'Your password reset token valid for 10 mins ⏳'
     );
   }
-};
+}
 
-// 9640253013
+// // 9640253013
 
-const sendMail = async function(mailOption) {
-  const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
-    logger: true,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD
-    }
-  });
+// const sendMail = async function(mailOption) {
+//   const transporter = nodemailer.createTransport({
+//     host: process.env.EMAIL_HOST,
+//     port: process.env.EMAIL_PORT,
+//     logger: true,
+//     secure: false,
+//     auth: {
+//       user: process.env.EMAIL_USERNAME,
+//       pass: process.env.EMAIL_PASSWORD
+//     }
+//   });
 
-  const options = {
-    from: ` Muhammad Awwal <audiophile@gmail.com> `,
+//   const options = {
+//     from: ` Muhammad Awwal <audiophile@gmail.com> `,
 
-    to: mailOption.email,
-    subject: mailOption.subject,
-    text: mailOption.message
-  };
+//     to: mailOption.email,
+//     subject: mailOption.subject,
+//     text: mailOption.message
+//   };
 
-  await transporter.sendMail(options);
-};
+//   await transporter.sendMail(options);
+// };
 
-module.exports = sendMail;
+module.exports = Email;

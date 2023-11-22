@@ -4,9 +4,10 @@ const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const crypto = require('crypto');
 
+const Email = require('../utils/email');
+
 const { promisify } = require('util');
 
-const sendMail = require('../utils/email');
 const RevokedToken = require('../models/revokedTokenModel');
 
 const signJwt = id => {
@@ -65,6 +66,8 @@ exports.signUp = catchAsync(async (req, res) => {
   };
 
   const newUser = await User.create(filteredBody);
+
+  await new Email();
 
   sendJwt(res, newUser, req);
 });
