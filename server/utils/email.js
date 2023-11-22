@@ -13,11 +13,11 @@ module.exports = class Email {
   createTransport() {
     if (process.env.NODE_ENV === 'production') {
       return nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        secure: true,
+        host: process.env.MAILCHIMP_HOST,
+        port: process.env.MAILCHIMP_PORT,
+        secure: false,
         auth: {
-          pass: process.env.BREVO_PASSWORD,
+          pass: process.env.MAILCHIMP_API_KEY,
           user: process.env.BREVO_API_KEY
         }
       });

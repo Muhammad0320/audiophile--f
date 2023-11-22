@@ -3,7 +3,6 @@ import ReviewTable from "../features/reviews/ReviewTable";
 
 const ReviewContainer = styled.div`
   grid-column: 2 / -1;
-  overflow: auto;
 `;
 
 function ReviewPage() {
