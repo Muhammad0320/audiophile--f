@@ -68,16 +68,23 @@ exports.signUp = catchAsync(async (req, res) => {
 
   const newUser = await User.create(filteredBody);
 
-  try {
-    await new Email(
-      newUser,
-      'https://audiophile-f-muhammad0320.vercel.app/settings'
-    ).sendWelcome();
+  await new Email(
+    newUser,
+    'https://audiophile-f-muhammad0320.vercel.app/settings'
+  ).sendWelcome();
 
-    sendJwt(res, newUser, req);
-  } catch (error) {
-    return new AppError(error.message, 400);
-  }
+  sendJwt(res, newUser, req);
+
+  // try {
+  //   await new Email(
+  //     newUser,
+  //     'https://audiophile-f-muhammad0320.vercel.app/settings'
+  //   ).sendWelcome();
+
+  //   sendJwt(res, newUser, req);
+  // } catch (error) {
+  //   return new AppError(error, 400);
+  // }
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -192,11 +199,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const message = `Forget your password? send a PATCH request to this url: ${reqUrl} with your new password and passwordConfirm, If you did not forget your kindly ignore this email`;
 
   try {
-    await sendMail({
-      email: user.email,
-      message,
-      subject: `Your password reset token (valid for just 10 minutes)`
-    });
+    // await sendMail({
+    //   email: user.email,
+    //   message,
+    //   subject: `Your password reset token (valid for just 10 minutes)`
+    // });
+
+    await new Email(user, reqUrl).sendResetPassword();
 
     res.status(200).json({
       status: 'success',

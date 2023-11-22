@@ -12,13 +12,14 @@ class Email {
 
   createTransport() {
     if (process.env.NODE_ENV === 'production') {
+      console.log('Okay');
       return nodemailer.createTransport({
         host: process.env.ELASTIC_EMAIL_HOST,
         port: process.env.ELASTIC_EMAIL_PORT,
         secure: false,
         auth: {
-          pass: process.env.ELASTIC_EMAIL_USERNAME,
-          user: process.env.ELASTIC_EMAIL_PASSWORD
+          user: process.env.ELASTIC_EMAIL_USERNAME,
+          pass: process.env.ELASTIC_EMAIL_PASSWORD
         }
       });
     }
