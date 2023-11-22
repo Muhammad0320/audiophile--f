@@ -12,7 +12,6 @@ class Email {
 
   createTransport() {
     if (process.env.NODE_ENV === 'production') {
-      console.log('Okay');
       return nodemailer.createTransport({
         host: process.env.ELASTIC_EMAIL_HOST,
         port: process.env.ELASTIC_EMAIL_PORT,
