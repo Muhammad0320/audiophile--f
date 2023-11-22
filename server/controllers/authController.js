@@ -1,13 +1,10 @@
+const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const catchAsync = require('../utils/catchAsync');
+const { promisify } = require('util');
+const Email = require('../utils/email');
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
-const crypto = require('crypto');
-
-const Email = require('../utils/email');
-
-const { promisify } = require('util');
-
+const catchAsync = require('../utils/catchAsync');
 const RevokedToken = require('../models/revokedTokenModel');
 
 const signJwt = id => {
