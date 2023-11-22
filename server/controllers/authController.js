@@ -39,8 +39,9 @@ const sendJwt = (res, user, req) => {
       Date.now() + process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'None'
+    // secure: process.env.NODE_ENV === 'production',
+    secure: false
+    // sameSite: 'None'
   };
 
   res.cookie('jwt', token, cookieOptions);
@@ -67,12 +68,16 @@ exports.signUp = catchAsync(async (req, res) => {
 
   const newUser = await User.create(filteredBody);
 
-  await new Email(
-    newUser,
-    'https://audiophile-f-muhammad0320.vercel.app/settings'
-  ).sendWelcome();
+  try {
+    await new Email(
+      newUser,
+      'https://audiophile-f-muhammad0320.vercel.app/settings'
+    ).sendWelcome();
 
-  sendJwt(res, newUser, req);
+    sendJwt(res, newUser, req);
+  } catch (error) {
+    return new AppError(error.message, 400);
+  }
 });
 
 exports.login = catchAsync(async (req, res, next) => {
