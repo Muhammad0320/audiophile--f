@@ -10,11 +10,13 @@
 
 - **Product details** : product details with thumnail, gallery, descriptions, features, items in the box, reviews, average rating and ratings count and more...
 
+- **Email marketing** : This app features a realtime email markiting where newly signup users are sent appeling emails. Email is also sent when even a user forget's his/her password; to reset the password with a link in the email.
+
 - **Shopping cart** management: adding items to cart, updating cart item, removing cart item, and clearing the entire cart .
 
 - **Limited server trips** : changes state in the redux to add any changes that occurs in the cart for easier management and send all the chnanges to the server in just one network trip for improved performance.
 
-- **Checkout pp** : user can checkout products that are saved in their cart and handle their card payment with **Stripe** - a popular and trustworthy software company that helps in payment integration.
+- **Checkout** : user can checkout products that are saved in their cart and handle their card payment with **Stripe** - a popular and trustworthy software company that helps in payment integration.
 
 - **Secured Payments** and Orders: As said above that payments are hanlded with stripe api; this app also packs an advanced stripe features called Stripe Webhooks: here, the ordering is not handled by our company but with Stripe itself where we attached an endpoint to be called by stripe on successsful checkout which inturn automatically create order.
 

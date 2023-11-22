@@ -60,6 +60,7 @@ exports.deleteCartOnCheckout = catchAsync(async (req, res, next) => {
     status: 'success'
   });
 });
+
 exports.sendBulkDataFromClient = catchAsync(async (req, res, next) => {
   const { changes } = req.body;
 
