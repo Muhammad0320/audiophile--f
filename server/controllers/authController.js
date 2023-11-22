@@ -68,18 +68,25 @@ exports.signUp = catchAsync(async (req, res) => {
 
   const newUser = await User.create(filteredBody);
 
+  console.log('before');
+
   await new Email(
     newUser,
     'https://audiophile-f-muhammad0320.vercel.app/settings'
   ).sendWelcome();
 
+  console.log('After');
+
   sendJwt(res, newUser, req);
 
   // try {
+  //   console.log('before');
   //   await new Email(
   //     newUser,
   //     'https://audiophile-f-muhammad0320.vercel.app/settings'
   //   ).sendWelcome();
+
+  //   console.log('After');
 
   //   sendJwt(res, newUser, req);
   // } catch (error) {
