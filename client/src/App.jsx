@@ -92,7 +92,10 @@ function App() {
             </Route>
 
             <Route path="checkout" element={<CheckoutPage />} />
-            <Route path="passwordReset" element={<PasswordResetPage />} />
+            <Route
+              path="passwordReset/:token"
+              element={<PasswordResetPage />}
+            />
             <Route path="success" element={<PaymentConfirmationPage />} />
 
             <Route path="signup" element={<SignupPage />} />
