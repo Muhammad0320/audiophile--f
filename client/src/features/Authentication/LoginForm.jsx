@@ -42,7 +42,7 @@ function LoginForm() {
       <FormRow label="Password">
         <Input
           id="password"
-          placeholder="Enter your password"
+          placeholder="••••••••"
           type="password"
           {...register("password", { required: "Please input your password" })}
         />
