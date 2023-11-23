@@ -33,6 +33,7 @@ function LoginForm() {
       <FormRow label="Email">
         <Input
           id="email"
+          placeholder="Enter your email"
           type="email"
           {...register("email", { required: " User must have an email " })}
         />
@@ -41,6 +42,7 @@ function LoginForm() {
       <FormRow label="Password">
         <Input
           id="password"
+          placeholder="Enter your password"
           type="password"
           {...register("password", { required: "Please input your password" })}
         />
