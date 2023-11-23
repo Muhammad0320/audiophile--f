@@ -41,11 +41,14 @@ export const logoutApi = async () => {
   return res.data;
 };
 
-export const forgotPasswordApi = async () => {
+export const forgotPasswordApi = async ({ email }) => {
   const res = await axios({
     method: "POST",
     url: ` ${SERVER_ROOT_URL}/users/forgotPassword`,
     withCredentials: true,
+    data: {
+      email,
+    },
   });
 
   return res.data;
