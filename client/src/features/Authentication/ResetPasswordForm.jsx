@@ -4,6 +4,8 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import { useParams } from "react-router-dom";
 import { useResetPassword } from "./useResetPassword";
+import SpinnerMini from "../../ui/SpinnerMini";
+import Button from "../../ui/Button";
 
 function ResetPasswordForm() {
   const { register, reset, handleSubmit } = useForm();
@@ -41,6 +43,17 @@ function ResetPasswordForm() {
           })}
         />
       </FormRow>
+
+      {isLoading ? (
+        <Button withspinner={"true"}>
+          {"  "}
+          <SpinnerMini />
+          {"  "}
+          <span> Resetting your password... </span>{" "}
+        </Button>
+      ) : (
+        <Button> Reset </Button>
+      )}
     </Form2>
   );
 }
