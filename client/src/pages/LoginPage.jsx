@@ -9,6 +9,7 @@ import { clampBuilder } from "../styles/clampFunction";
 import { Heading } from "../ui/Heading";
 import SmallButton from "../ui/SmallButton";
 import Modal from "../ui/Modal";
+import ForgorPassword from "../features/Authentication/ForgorPassword";
 
 const PageContainer = styled.div`
   height: 100vh;
@@ -71,7 +72,9 @@ function LoginPage() {
               <SmallButton password="true">Forgot password?</SmallButton>
             </Modal.Open>
 
-            <Modal.Window name="forgot-password"></Modal.Window>
+            <Modal.Window name="forgot-password">
+              <ForgorPassword />
+            </Modal.Window>
           </ForgotPassword>
         </StyledSignupContainer>
       </PageContainer>
