@@ -1,12 +1,12 @@
+import { useState } from "react";
+import Modal from "../../ui/Modal";
 import Input from "../../ui/Input";
 import Button from "../../ui/Button";
-import styled from "styled-components";
 import FormRow from "../../ui/FormRow";
-import { clampBuilder } from "../../styles/clampFunction";
-import { useState } from "react";
+import styled from "styled-components";
 import { useDeleteUser } from "./useDeleteUser";
-import Modal from "../../ui/Modal";
 import DeleteConfirm from "../../ui/DeleteConfirm";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const DangerousOperation = styled.section`
   padding-top: ${() => clampBuilder(320, 1200, 5, 8)};
