@@ -9,11 +9,23 @@ function ResetPasswordForm() {
   return (
     <Form2>
       <FormRow label="New Password">
-        <Input id="password" type="password" placeholder="••••••••" />
+        <Input
+          id="password"
+          type="password"
+          placeholder="••••••••"
+          {...register("password", { required: "Please input your password" })}
+        />
       </FormRow>
 
       <FormRow label="Confirm New Password">
-        <Input id="password" type="password" placeholder="••••••••" />
+        <Input
+          id="password"
+          type="password"
+          placeholder="••••••••"
+          {...register("passwordConfirm", {
+            required: "Please confirm your password",
+          })}
+        />
       </FormRow>
     </Form2>
   );
