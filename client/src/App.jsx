@@ -28,6 +28,7 @@ import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
 import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import OnSuccessEmail from "./features/Authentication/OnSuccessEmail";
 
 //  React quert setup
 
@@ -92,6 +93,8 @@ function App() {
             </Route>
 
             <Route path="checkout" element={<CheckoutPage />} />
+            <Route path="success-email" element={<OnSuccessEmail />} />
+
             <Route
               path="passwordReset/:token"
               element={<PasswordResetPage />}
