@@ -1,8 +1,7 @@
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { forgotPasswordApi } from "../../service/apiAuth";
-
-import { useNavigate } from "react-router-dom";
 
 export const useForgotPassword = () => {
   const navigate = useNavigate();
