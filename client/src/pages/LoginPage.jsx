@@ -7,6 +7,8 @@ import { IconLogo } from "../ui/Icons";
 import OtherAuthmethod from "../ui/OtherAuthmethod";
 import { clampBuilder } from "../styles/clampFunction";
 import { Heading } from "../ui/Heading";
+import SmallButton from "../ui/SmallButton";
+import Modal from "../ui/Modal";
 
 const PageContainer = styled.div`
   height: 100vh;
@@ -48,18 +50,32 @@ const StyledSVG = styled.div`
   }
 `;
 
+const ForgotPassword = styled.div`
+  text-align: center;
+`;
+
 function LoginPage() {
   return (
-    <PageContainer>
-      <StyledSignupContainer>
-        <StyledSVG>
-          <SVG src={IconLogo} />
-        </StyledSVG>
-        <Heading type="login"> Log in to your account </Heading>
-        <LoginForm />
-        <OtherAuthmethod authMethod="create one" />
-      </StyledSignupContainer>
-    </PageContainer>
+    <Modal>
+      <PageContainer>
+        <StyledSignupContainer>
+          <StyledSVG>
+            <SVG src={IconLogo} />
+          </StyledSVG>
+          <Heading type="login"> Log in to your account </Heading>
+          <LoginForm />
+          <OtherAuthmethod authMethod="create one" />
+
+          <ForgotPassword>
+            <Modal.Open opens="forgot-password">
+              <SmallButton password="true">Forgot password?</SmallButton>
+            </Modal.Open>
+
+            <Modal.Window name="forgot-password"></Modal.Window>
+          </ForgotPassword>
+        </StyledSignupContainer>
+      </PageContainer>
+    </Modal>
   );
 }
 
