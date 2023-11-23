@@ -1,5 +1,4 @@
 import toast from "react-hot-toast";
-
 import { useMutation } from "@tanstack/react-query";
 import { resetPasswordApi } from "../../service/apiAuth";
 

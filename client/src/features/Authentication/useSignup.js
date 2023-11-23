@@ -23,7 +23,5 @@ export const useSignup = () => {
     },
   });
 
-  // console.log(signup);
-
   return { signup, isLoading, error };
 };

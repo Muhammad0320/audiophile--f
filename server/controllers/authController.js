@@ -196,7 +196,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
     res.status(500).json({
       status: 'success',
-      message: 'Something went very wrong while trying to send the mail 😐'
+      message: 'Something went very wrong while trying to send the email 😐'
     });
   }
 });
