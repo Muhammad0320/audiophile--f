@@ -1,11 +1,11 @@
-import { useForm } from "react-hook-form";
 import Form2 from "../../ui/Form2";
-import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-import { useParams } from "react-router-dom";
-import { useResetPassword } from "./useResetPassword";
-import SpinnerMini from "../../ui/SpinnerMini";
 import Button from "../../ui/Button";
+import FormRow from "../../ui/FormRow";
+import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+import SpinnerMini from "../../ui/SpinnerMini";
+import { useResetPassword } from "./useResetPassword";
 
 function ResetPasswordForm() {
   const { register, reset, handleSubmit } = useForm();
