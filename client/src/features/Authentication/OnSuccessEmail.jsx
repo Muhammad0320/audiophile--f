@@ -1,7 +1,7 @@
 import SVG from "react-inlinesvg";
 import styled from "styled-components";
-import { clampBuilder } from "../../styles/clampFunction";
 import { IconLogo } from "../../ui/Icons";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const Container = styled.div`
   height: 100dvh;
