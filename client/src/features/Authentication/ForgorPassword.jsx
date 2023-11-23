@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { clampBuilder } from "../../styles/clampFunction";
-import Form2 from "../../ui/Form2";
-import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
-import Button from "../../ui/Button";
 import { useState } from "react";
-import { useForgotPassword } from "./useForgotPassword";
+import Input from "../../ui/Input";
+import Form2 from "../../ui/Form2";
+import Button from "../../ui/Button";
+import FormRow from "../../ui/FormRow";
+import styled from "styled-components";
 import SpinnerMini from "../../ui/SpinnerMini";
+import { useForgotPassword } from "./useForgotPassword";
+import { clampBuilder } from "../../styles/clampFunction";
 
 const Container = styled.div`
   display: grid;
