@@ -21,6 +21,19 @@ const Button = styled.button`
       margin-bottom: 7rem;
     `}
 
+  ${(props) =>
+    props.password === "true" &&
+    css`
+      color: var(--color-primary);
+
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--color-primary-light);
+      }
+    `}
+
+
   &:hover {
     color: var(--color-primary);
 
@@ -28,9 +41,9 @@ const Button = styled.button`
   }
 `;
 
-function SmallButton({ children, onClick, type }) {
+function SmallButton({ children, onClick, type, password }) {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} password={password}>
       {" "}
       {type ? (
         <span> {children} </span>
