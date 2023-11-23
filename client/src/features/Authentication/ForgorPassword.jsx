@@ -6,6 +6,7 @@ import Input from "../../ui/Input";
 import Button from "../../ui/Button";
 import { useState } from "react";
 import { useForgotPassword } from "./useForgotPassword";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 const Container = styled.div`
   display: grid;
@@ -44,7 +45,16 @@ function ForgorPassword() {
           />
         </FormRow>
 
-        <Button> Submit </Button>
+        {isLoading ? (
+          <Button withspinner={"true"}>
+            {"  "}
+            <SpinnerMini />
+            {"  "}
+            <span> please wait... </span>{" "}
+          </Button>
+        ) : (
+          <Button> Submit </Button>
+        )}
       </Form2>
     </Container>
   );
