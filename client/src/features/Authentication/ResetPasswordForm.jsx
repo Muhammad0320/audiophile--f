@@ -6,8 +6,14 @@ import Input from "../../ui/Input";
 function ResetPasswordForm() {
   const { register, reset, handleSubmit } = useForm();
 
+  const onsubmit = ({ password, passwordConfirm }, e) => {
+    e.preventDefault();
+
+    reset();
+  };
+
   return (
-    <Form2>
+    <Form2 onSubmit={handleSubmit(onsubmit)}>
       <FormRow label="New Password">
         <Input
           id="password"
