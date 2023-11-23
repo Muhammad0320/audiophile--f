@@ -179,7 +179,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // const reqUrl = `https://audiophile-f-muhammad0320.vercel.app/passwordReset/${token}`;
-  const reqUrl = `https://audiophile-f-muhammad0320.vercel.app/passwordReset/${token}`;
+  const reqUrl = `https://127.0.0.1:5173/passwordReset/${token}`;
 
   try {
     await new Email(user, reqUrl).sendResetPassword();

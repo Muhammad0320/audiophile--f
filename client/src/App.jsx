@@ -41,6 +41,7 @@ const queryClient = new QueryClient({
 
 function App() {
   // call the smooth scroll funcition
+
   useSmoothScroll();
 
   const dispatch = useDispatch();
