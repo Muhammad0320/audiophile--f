@@ -19,8 +19,10 @@ const StyledSignupContainer = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-  padding: ${() => clampBuilder(320, 1200, 2.5, 4.5)};
-  ${() => clampBuilder(320, 1200, 1.3, 2.5)};
+  padding-block: ${() => clampBuilder(320, 1200, 2.5, 4.5)};
+
+  padding-inline: ${() => clampBuilder(320, 1200, 1.6, 3)};
+
   background-color: var(--color-white-1);
   background-image: var(--color-gradient-light);
   border-radius: 1.5rem;
