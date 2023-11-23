@@ -2,12 +2,20 @@ import { useForm } from "react-hook-form";
 import Form2 from "../../ui/Form2";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import { useParams } from "react-router-dom";
+import { useResetPassword } from "./useResetPassword";
 
 function ResetPasswordForm() {
   const { register, reset, handleSubmit } = useForm();
 
+  const { resetPassword, isLoading } = useResetPassword();
+
+  const { token } = useParams();
+
   const onsubmit = ({ password, passwordConfirm }, e) => {
     e.preventDefault();
+
+    resetPassword({ token, password, passwordConfirm });
 
     reset();
   };
@@ -38,23 +46,3 @@ function ResetPasswordForm() {
 }
 
 export default ResetPasswordForm;
-
-/* 
-
-
-const Container = styled.section`
-  height: 100dvh;
-  background-color: var(--color-white-2);
-
-  display: grid;
-  place-items: center;
-`;
-
-function ResetPassword() {
-  return <></>;
-}
-
-export default ResetPassword;
-
-
-*/
