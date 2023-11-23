@@ -54,11 +54,20 @@ export const forgotPasswordApi = async ({ email }) => {
   return res.data;
 };
 
-export const resetPasswordApi = async (token) => {
+export const resetPasswordApi = async ({
+  token,
+  password,
+  passwordConfirm,
+}) => {
   const res = await axios({
     method: "PATCH",
     url: `${SERVER_ROOT_URL}/users/passwordReset/${token}`,
     withCredentials: true,
+
+    data: {
+      password,
+      passwordConfirm,
+    },
   });
 
   return res.data;

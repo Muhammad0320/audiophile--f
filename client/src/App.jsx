@@ -22,12 +22,12 @@ import OrderTable from "./features/Orders/OrderTable";
 import { ViewPortProvider } from "./context/ViewPort";
 import useSmoothScroll from "./utils/useSmoothScroll";
 import { setCartData } from "./features/cart/cartSlice";
+import PasswordResetPage from "./pages/PasswordResetPage";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
 import ProtectedRoutes from "./features/Authentication/ProtectedRoutes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import PasswordResetPage from "./pages/PasswordResetPage";
 
 //  React quert setup
 
