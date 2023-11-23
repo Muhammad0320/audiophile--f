@@ -50,3 +50,13 @@ export const forgotPasswordApi = async () => {
 
   return res.data;
 };
+
+export const resetPasswordApi = async (token) => {
+  const res = await axios({
+    method: "PATCH",
+    url: `${SERVER_ROOT_URL}/users/passwordReset/${token}`,
+    withCredentials: true,
+  });
+
+  return res.data;
+};
