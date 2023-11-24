@@ -1,4 +1,4 @@
-# AudioPhile e-commerce website
+# Audiophile e-commerce website
 
 ## Description
 
