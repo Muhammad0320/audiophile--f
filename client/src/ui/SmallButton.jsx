@@ -26,6 +26,8 @@ const Button = styled.button`
     css`
       color: var(--color-primary);
 
+      text-align: center;
+
       transition: color 0.2s ease;
 
       &:hover {

@@ -10,10 +10,10 @@ import { clampBuilder } from "../../styles/clampFunction";
 
 const Container = styled.div`
   display: grid;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   padding-block: ${() => clampBuilder(320, 1200, 2.2, 3.5)};
-
+  width: 90%;
   padding-inline: ${() => clampBuilder(320, 1200, 1, 3)};
 
   background-color: var(--color-white-1);
@@ -26,7 +26,8 @@ function ForgorPassword() {
 
   const { forgotPassword, isLoading } = useForgotPassword();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!email) return;
 
     forgotPassword({ email });
