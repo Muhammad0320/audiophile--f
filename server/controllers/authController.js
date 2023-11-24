@@ -36,9 +36,10 @@ const sendJwt = (res, user, req) => {
       Date.now() + process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    // secure: process.env.NODE_ENV === 'production',
+    secure: false
 
-    sameSite: 'None'
+    // sameSite: 'None'
   };
 
   res.cookie('jwt', token, cookieOptions);

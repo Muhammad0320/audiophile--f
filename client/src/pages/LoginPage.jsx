@@ -68,9 +68,9 @@ function LoginPage() {
           <OtherAuthmethod authMethod="create one" />
 
           <ForgotPassword>
-            {/* <Modal.Open opens="forgot-password">
+            <Modal.Open opens="forgot-password">
               <SmallButton password="true">Forgot password?</SmallButton>
-            </Modal.Open> */}
+            </Modal.Open>
 
             <Modal.Window name="forgot-password">
               <ForgorPassword />
