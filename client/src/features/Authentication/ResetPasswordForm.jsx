@@ -14,13 +14,13 @@ function ResetPasswordForm() {
 
   const { token } = useParams();
 
-  const onsubmit = ({ password, passwordConfirm }, e) => {
-    e.preventDefault();
+  // const onsubmit = ({ password, passwordConfirm }, e) => {
+  //   e.preventDefault();
 
-    resetPassword({ token, password, passwordConfirm });
+  //   resetPassword({ token, password, passwordConfirm });
 
-    reset();
-  };
+  //   reset();
+  // };
 
   return (
     <Form2 onSubmit={handleSubmit(onsubmit)}>
