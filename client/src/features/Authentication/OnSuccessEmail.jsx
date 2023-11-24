@@ -36,8 +36,6 @@ const TextContainer = styled.div`
 
   height: fit-content;
 
-  /* margin-inline: ${() => clampBuilder(320, 1200, 5, 20)}; */
-
   row-gap: ${() => clampBuilder(320, 1200, 1.6, 3)};
 
   & > em {

@@ -26,6 +26,8 @@ const Button = styled.button`
     css`
       color: var(--color-primary);
 
+      font-weight: 500;
+
       text-align: center;
 
       transition: color 0.2s ease;
@@ -34,13 +36,6 @@ const Button = styled.button`
         color: var(--color-primary-light);
       }
     `}
-
-
-  &:hover {
-    color: var(--color-primary);
-
-    column-gap: 1rem;
-  }
 `;
 
 function SmallButton({ children, onClick, type, password }) {

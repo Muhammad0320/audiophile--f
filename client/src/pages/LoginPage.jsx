@@ -29,7 +29,7 @@ const StyledSignupContainer = styled.div`
   background-color: var(--color-white-1);
   background-image: var(--color-gradient-light);
   border-radius: 1.5rem;
-  row-gap: ${() => clampBuilder(320, 1200, 1.4, 3)};
+  row-gap: ${() => clampBuilder(320, 1200, 1.4, 2.5)};
   box-shadow: var(--box-shadow-light);
 `;
 
