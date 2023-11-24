@@ -30,7 +30,7 @@
 
 - **Security** : Security is the our priority in this website as user's sensitive data like are not stored verbatim exactly in the database it's hashed by a powerful package called bcrypt - to handle the users password hashing and prevent decoding the hash by attackers - in the backend.
 
-- **Password Reset**: When a user forgets his/her password there is ,
+- **Password Reset**: When a user forgets his/her password there is a forgot password option in the login page, Here user will provided his/her valid password to send passwordResetToken, if sent successfully a page will be shown that user should check theie email and when the user clickes on the email link, user will be redirected to a new page to update their password. And this gives this app a more professional look .
 
 - **Cart Notification** : This gives a preview on the total quantity of items that are present in the cart.
 
