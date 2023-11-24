@@ -14,16 +14,32 @@ const Container = styled.div`
 `;
 
 const TextContainer = styled.div`
-  width: 60%;
+  margin-inline: auto;
+  width: 50%;
 
   display: flex;
 
   flex-flow: column;
 
+  color: var(--color-dark-4);
+
+  background: var(--color-white-2);
+
+  background-image: var(--color-gradient-dark-muted);
+
+  box-shadow: var(--box-shadow-dark);
+
+  border-radius: ${() => clampBuilder(320, 1200, 0.7, 1.2)};
+
+  padding-block: ${() => clampBuilder(320, 1200, 1, 2)};
+  padding-inline: ${() => clampBuilder(320, 1200, 1, 2.3)};
+
+  height: fit-content;
+
   row-gap: ${() => clampBuilder(320, 1200, 1.6, 3)};
 
   & > em {
-    font-size: ${() => clampBuilder(320, 1200, 1.5, 3)};
+    font-size: ${() => clampBuilder(320, 1200, 1.2, 2.5)};
 
     text-align: center;
   }
@@ -31,6 +47,8 @@ const TextContainer = styled.div`
 
 const StyledSVG = styled.div`
   justify-self: center;
+
+  text-align: center;
 
   & svg {
     fill: var(--color-dark);
@@ -55,7 +73,7 @@ function OnSuccessEmail() {
           <SVG src={IconLogo} />
         </StyledSVG>
         <em>
-          A password reset token email was sent to the your email address please
+          A password reset email was sent to the your email address. Please
           click on the password reset button to reset your password.
         </em>
       </TextContainer>

@@ -1,14 +1,14 @@
+import Modal from "../ui/Modal";
+import SVG from "react-inlinesvg";
 import styled from "styled-components";
+import { IconLogo } from "../ui/Icons";
 
 import LoginForm from "../features/Authentication/LoginForm";
 
-import SVG from "react-inlinesvg";
-import { IconLogo } from "../ui/Icons";
 import OtherAuthmethod from "../ui/OtherAuthmethod";
 import { clampBuilder } from "../styles/clampFunction";
 import { Heading } from "../ui/Heading";
 import SmallButton from "../ui/SmallButton";
-import Modal from "../ui/Modal";
 import ForgorPassword from "../features/Authentication/ForgorPassword";
 
 const PageContainer = styled.div`
@@ -29,7 +29,7 @@ const StyledSignupContainer = styled.div`
   background-color: var(--color-white-1);
   background-image: var(--color-gradient-light);
   border-radius: 1.5rem;
-  row-gap: ${() => clampBuilder(320, 1200, 1.4, 3)};
+  row-gap: ${() => clampBuilder(320, 1200, 1.4, 2.5)};
   box-shadow: var(--box-shadow-light);
 `;
 
@@ -53,6 +53,7 @@ const StyledSVG = styled.div`
 
 const ForgotPassword = styled.div`
   text-align: center;
+  margin-inline: auto;
 `;
 
 function LoginPage() {
@@ -68,11 +69,13 @@ function LoginPage() {
           <OtherAuthmethod authMethod="create one" />
 
           <ForgotPassword>
-            {/* <Modal.Open opens="forgot-password">
-              <SmallButton password="true">Forgot password?</SmallButton>
-            </Modal.Open> */}
+            <Modal.Open opens="forgot-password">
+              <SmallButton type="forgot" password="true">
+                Forgot password?
+              </SmallButton>
+            </Modal.Open>
 
-            <Modal.Window name="forgot-password">
+            <Modal.Window name="forgot-password" page="password">
               <ForgorPassword />
             </Modal.Window>
           </ForgotPassword>
