@@ -26,7 +26,7 @@
 
 - **Order Details** : In the order page user can even click an _eye_ icon to even show the overview and details of the product and can also navigate to the products age itself which can be actually useful and save users lots of clicks .
 
-- **Review management** : Users can manage all of their reviews by deleting and editing desired ones.
+- **Review management** : Users can manage all of their reviews by deleting and editing desired reviews.
 
 - **Security** : Security is the our priority in this website as user's sensitive data like are not stored verbatim exactly in the database it's hashed by a powerful package called bcrypt - to handle the users password hashing and prevent decoding the hash by attackers - in the backend.
 
