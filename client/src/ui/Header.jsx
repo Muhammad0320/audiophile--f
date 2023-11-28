@@ -8,7 +8,7 @@ import { clampBuilder } from "../styles/clampFunction";
 const StyledHeader = styled.header`
   --color-dark: rgba(0, 0, 0, 0.98);
 
-  height: 90dvh;
+  max-height: 90dvh;
 
   grid-column: 1 / -1;
   padding-inline: ${() => clampBuilder(950, 1200, 1, 8)};
@@ -19,7 +19,8 @@ const StyledHeader = styled.header`
 `;
 
 const StyledHeaderContent = styled.div`
-  min-height: 20dvh;
+  max-height: 20dvh;
+
   letter-spacing: ${() => clampBuilder(350, 1200, 0.4, 0.8)};
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin: 2rem 0;

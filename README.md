@@ -2,7 +2,7 @@
 
 ## Description
 
-**A fully functional and responsive MERN Stack website for an e-commerce platform with an intuitive user interface and cool user experience . This website is packed with lots of amazing features like allowing users to browse through and purchase products, updating and managing user's data, add and manage reviews, manage their shopping carts and persisting the update in the database, handling real payment with stripe, complete orders, and lot more.**
+**A fully functional and responsive MERN Stack website for an e-commerce platform with an intuitive user interface and cool user experience . This website is packed with lots of amazing features like allowing users to browse through and purchase products, updating and managing user's data, add and manage reviews, manage their shopping carts and persisting the update in the database, handling real payment with stripe, handling real email communication for password reset and newly signup users ,complete orders, and lot more.**
 
 ## Features
 
