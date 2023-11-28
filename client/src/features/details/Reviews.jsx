@@ -8,13 +8,15 @@ export const StyledReviewCard = styled.div`
 
   grid-auto-columns: 27%;
 
-  padding: 0 1rem;
+  padding: 0 ${() => clampBuilder(320, 1200, 0.3, 1)};
 
   column-gap: ${() => clampBuilder(320, 1200, 2.5, 4)};
 
   overflow-x: auto;
 
   scroll-snap-type: x mandatory;
+
+  margin-top: ${() => clampBuilder(320, 1200, 1.3, 2)};
 
   scroll-padding: ${() => clampBuilder(320, 1200, 2.5, 4)};
 
@@ -39,10 +41,9 @@ export const StyledAddReview = styled.span`
     rgba(0, 0, 0, 0.25)
   );
 
-  position: absolute;
+  /* position: absolute; */
 
-  bottom: 1rem;
-  right: 0;
+  /* text-align: right; */
 
   padding-inline: ${() => clampBuilder(320, 1200, 0.8, 1.2)};
 
@@ -70,8 +71,10 @@ export const StyledAddReview = styled.span`
 
   display: flex;
 
-  justify-content: center;
+  justify-content: flex-end;
   row-gap: ${() => clampBuilder(320, 1200, 0.4, 1)};
+
+  width: fit-content;
 
   align-items: center;
 

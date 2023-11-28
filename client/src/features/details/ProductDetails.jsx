@@ -175,18 +175,17 @@ function ProductDetails() {
 
         {/* Where i am  */}
 
+        <Modal.Open opens="add-review">
+          <StyledAddReview>
+            {" "}
+            <FaPlus /> <span> Add Review </span>{" "}
+          </StyledAddReview>
+        </Modal.Open>
+
+        <Modal.Window page="create-review" name="add-review">
+          <EditReviewForm productId={_id} />
+        </Modal.Window>
         <StyledReviewCard>
-          <Modal.Open opens="add-review">
-            <StyledAddReview>
-              {" "}
-              <FaPlus /> <span> Add Review </span>{" "}
-            </StyledAddReview>
-          </Modal.Open>
-
-          <Modal.Window page="create-review" name="add-review">
-            <EditReviewForm productId={_id} />
-          </Modal.Window>
-
           {reviews.length &&
             reviews
               .slice()
