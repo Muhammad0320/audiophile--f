@@ -72,6 +72,7 @@ function EditReviewForm({ review = {}, onClose, productId }) {
           <Input
             id="rating"
             disabled={isWorking}
+            placeholder="Add a rating"
             variation={"review"}
             {...register("rating", { required: "This field is required" })}
           />
@@ -81,6 +82,7 @@ function EditReviewForm({ review = {}, onClose, productId }) {
           <TextArea
             id="review"
             disabled={isWorking}
+            placeholder="write a review"
             variation={"review"}
             {...register("review", { required: "This field is required" })}
           />

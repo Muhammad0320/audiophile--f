@@ -45,6 +45,7 @@ import {
 } from "./OtherProducts";
 import { StyledAddReview, StyledReviewCard } from "./Reviews";
 import Modal from "../../ui/Modal";
+import EditReviewForm from "../../ui/CreateEditReviewForm";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
@@ -168,11 +169,20 @@ function ProductDetails() {
 
         <Heading type="review"> Our customers review </Heading>
 
+        {/* Where i am  */}
+
         <StyledReviewCard>
-          <StyledAddReview>
-            {" "}
-            <FaPlus /> <span> Add Review </span>{" "}
-          </StyledAddReview>
+          <Modal.Open opens="add-review">
+            <StyledAddReview>
+              {" "}
+              <FaPlus /> <span> Add Review </span>{" "}
+            </StyledAddReview>
+          </Modal.Open>
+
+          <Modal.Window page="create-review" name="add-review">
+            <EditReviewForm productId={_id} />
+          </Modal.Window>
+
           {reviews.length &&
             reviews?.map((review) => (
               <ReviewCard reviews={review} key={review.id} />
