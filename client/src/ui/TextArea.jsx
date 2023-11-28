@@ -13,6 +13,10 @@ export const TextArea = styled.textarea`
   position: relative;
   height: ${() => clampBuilder(320, 1200, 7, 10)};
 
+  &:hover {
+    border: 1.5px solid var(--color-primary);
+  }
+
   &::-webkit-input-placeholder {
     color: currentColor;
     opacity: 0.7;

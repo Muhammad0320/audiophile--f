@@ -41,7 +41,7 @@ export const StyledAddReview = styled.span`
 
   position: absolute;
 
-  bottom: 2rem;
+  bottom: 1rem;
   right: 0;
 
   padding-inline: ${() => clampBuilder(320, 1200, 0.8, 1.2)};
