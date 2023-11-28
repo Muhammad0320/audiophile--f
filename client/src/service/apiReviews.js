@@ -9,6 +9,17 @@ export const getCurrentUserReview = async () => {
   return res.data.data.reviews;
 };
 
+export const createReviewApi = async ({ id, data }) => {
+  const res = await axios({
+    url: `${SERVER_ROOT_URL}/products/${id}/review`,
+    method: "POST",
+    data,
+    withCredentials: true,
+  });
+
+  return res.data;
+};
+
 export const deleteReviewApi = async ({ id }) => {
   const res = await axios({
     method: "DELETE",

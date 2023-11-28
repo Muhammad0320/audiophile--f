@@ -6,10 +6,11 @@ import { HiPencil, HiTrash } from "react-icons/hi2";
 import Modal from "../../ui/Modal";
 import DeleteConfirm from "../../ui/DeleteConfirm";
 import { useDeleteReview } from "./useDeleteReview";
-import EditReviewForm from "../../ui/EditReviewForm";
+
 import { ReviewRating } from "../../ui/StarRating";
 import { clampBuilder } from "../../styles/clampFunction";
 import { useViewport } from "../../context/ViewPort";
+import EditReviewForm from "../../ui/CreateEditReviewForm";
 
 const Image = styled.img`
   display: inline-block;

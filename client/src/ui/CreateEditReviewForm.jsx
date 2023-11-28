@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { clampBuilder } from "../styles/clampFunction";
 import { useUpdateReview } from "../features/reviews/useUpdateReview";
 import { TextArea } from "./TextArea";
+import { useCreateReview } from "../features/reviews/useCreateReviews";
 
 const EditFormContainer = styled.div`
   /* width: 40%; */
@@ -21,28 +22,46 @@ const EditFormContainer = styled.div`
   ${() => clampBuilder(320, 1200, 1.7, 3)};
 `;
 
-function EditReviewForm({ review, onClose }) {
+function EditReviewForm({ review = {}, onClose, productId }) {
   const { id, ...otherfields } = review;
 
+  const isEdit = Boolean(id);
+
   const { reset, register, handleSubmit } = useForm({
-    defaultValues: otherfields,
+    defaultValues: isEdit ? otherfields : false,
   });
 
   const { updateReview, isUpdating } = useUpdateReview();
 
+  const { createReview, isCreating } = useCreateReview();
+
+  const isWorking = isCreating || isUpdating;
+
   const OnSubmit = ({ rating, review }, e) => {
     e.preventDefault();
 
-    updateReview(
-      { id, data: { rating, review } },
-      {
-        onSettled: () => {
-          onClose?.();
+    if (isEdit) {
+      updateReview(
+        { id, data: { rating, review } },
+        {
+          onSettled: () => {
+            onClose?.();
 
-          reset();
-        },
-      }
-    );
+            reset();
+          },
+        }
+      );
+    } else {
+      createReview(
+        { id: productId, data: { rating, review } },
+        {
+          onSuccess: () => {
+            onClose?.();
+            reset();
+          },
+        }
+      );
+    }
   };
 
   return (
@@ -52,6 +71,8 @@ function EditReviewForm({ review, onClose }) {
         <FormRow label="Rating">
           <Input
             id="rating"
+            disabled={isWorking}
+            placeholder="Add a rating"
             variation={"review"}
             {...register("rating", { required: "This field is required" })}
           />
@@ -60,19 +81,25 @@ function EditReviewForm({ review, onClose }) {
         <FormRow label="Review">
           <TextArea
             id="review"
+            disabled={isWorking}
+            placeholder="write a review"
             variation={"review"}
             {...register("review", { required: "This field is required" })}
           />
         </FormRow>
 
-        <Button disabled={isUpdating} withspinner={isUpdating ? "true" : ""}>
-          {isUpdating ? (
+        <Button disabled={isWorking} withspinner={isWorking ? "true" : ""}>
+          {isWorking ? (
             <>
               {" "}
-              <SpinnerMini /> <span> updating... </span>{" "}
+              <SpinnerMini />{" "}
+              <span>
+                {" "}
+                {isUpdating ? "Updating review..." : "Creating review..."}{" "}
+              </span>{" "}
             </>
           ) : (
-            <span> save update </span>
+            <span> {isEdit ? "Save update" : "create Review"} </span>
           )}
         </Button>
       </Form2>
