@@ -19,7 +19,7 @@ const StyledHeader = styled.header`
 `;
 
 const StyledHeaderContent = styled.div`
-  max-height: 20dvh;
+  min-height: 20dvh;
 
   letter-spacing: ${() => clampBuilder(350, 1200, 0.4, 0.8)};
   border-top: 1px solid rgba(255, 255, 255, 0.2);
