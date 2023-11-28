@@ -28,4 +28,27 @@ export const StyledReviewCard = styled.div`
   @media (max-width: 500px) {
     grid-auto-columns: 43%;
   }
+
+  position: relative;
+`;
+
+export const StyledAddReview = styled.span`
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  padding-inline: ${() => clampBuilder(320, 1200, 1, 2)};
+
+  padding-block: ${() => clampBuilder(320, 1200, 0.7, 1.2)};
+
+  color: var(--color-primary);
+
+  border: 1px solid red;
+
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--color-primary-light);
+  }
 `;
