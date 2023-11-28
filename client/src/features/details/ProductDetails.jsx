@@ -42,7 +42,7 @@ import {
   OtherTextBox,
   OthersContainer,
 } from "./OtherProducts";
-import { StyledReviewCard } from "./Reviews";
+import { StyledAddReview, StyledReviewCard } from "./Reviews";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
@@ -164,7 +164,9 @@ function ProductDetails() {
       </GalleryContainer>
 
       <Heading type="review"> Our customers review </Heading>
+
       <StyledReviewCard>
+        <StyledAddReview>Add review</StyledAddReview>
         {reviews.length &&
           reviews?.map((review) => (
             <ReviewCard reviews={review} key={review.id} />

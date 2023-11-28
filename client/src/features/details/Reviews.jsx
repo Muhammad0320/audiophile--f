@@ -33,22 +33,48 @@ export const StyledReviewCard = styled.div`
 `;
 
 export const StyledAddReview = styled.span`
+  --color-gradient-dark-1: linear-gradient(
+    145deg,
+    rgb(217, 126, 74, 0.5),
+    rgba(0, 0, 0, 0.25)
+  );
+
   position: absolute;
 
-  top: 0;
+  bottom: 2rem;
   right: 0;
 
-  padding-inline: ${() => clampBuilder(320, 1200, 1, 2)};
+  padding-inline: ${() => clampBuilder(320, 1200, 0.8, 1.2)};
 
-  padding-block: ${() => clampBuilder(320, 1200, 0.7, 1.2)};
+  padding-block: ${() => clampBuilder(320, 1200, 0.5, 1)};
 
   color: var(--color-primary);
 
-  border: 1px solid red;
+  /* background: var(--color-primary-muted); */
 
-  transition: color 0.3s ease;
+  background-image: var(--color-gradient-dark-1);
+
+  background-position: bottom left;
+
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+
+  font-weight: 500;
+
+  background-size: 0% 1.5px;
+
+  transition: all 0.3s ease-in;
+
+  font-size: ${() => clampBuilder(320, 1200, 0.6, 1.3)};
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     color: var(--color-primary-light);
+    background-size: 100% 1.5px;
   }
 `;
