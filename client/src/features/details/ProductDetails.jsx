@@ -5,6 +5,7 @@
 import { Text } from "../../ui/Text";
 import Button from "../../ui/Button";
 import Spinner from "../../ui/Spinner";
+import { FaPlus } from "react-icons/fa6";
 import { Heading } from "../../ui/Heading";
 import { styled } from "styled-components";
 import { useUser } from "../users/useUser";
@@ -42,7 +43,9 @@ import {
   OtherTextBox,
   OthersContainer,
 } from "./OtherProducts";
-import { StyledReviewCard } from "./Reviews";
+import { StyledAddReview, StyledReviewCard } from "./Reviews";
+import Modal from "../../ui/Modal";
+import EditReviewForm from "../../ui/CreateEditReviewForm";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
@@ -105,96 +108,119 @@ function ProductDetails() {
 
   const productFeature = features.split("\n");
 
+  const test = [1, 2, 3].slice().reverse();
+
+  console.log(test);
+
   return (
-    <ProductContainer>
-      <SmallButton onClick={moveback} kind="back">
-        {" "}
-        Go Back{" "}
-      </SmallButton>
-      <Container>
-        <ImageContainer style={{ gridColumn: "1 / 2" }}>
-          <img src={src} alt="product" />
-        </ImageContainer>
+    <Modal>
+      <ProductContainer>
+        <SmallButton onClick={moveback} kind="back">
+          {" "}
+          Go Back{" "}
+        </SmallButton>
+        <Container>
+          <ImageContainer style={{ gridColumn: "1 / 2" }}>
+            <img src={src} alt="product" />
+          </ImageContainer>
 
-        <DescriptionContainer>
-          {isNew && <NewProduct> new product </NewProduct>}
+          <DescriptionContainer>
+            {isNew && <NewProduct> new product </NewProduct>}
 
-          <ProductName> {name} </ProductName>
-          <Text type="product"> {description} </Text>
-          <ProductPrice> {formatCurrency(price)} </ProductPrice>
-          {!isInCart ? (
-            <Button size="large" onClick={() => handleAddToCart()}>
+            <ProductName> {name} </ProductName>
+            <Text type="product"> {description} </Text>
+            <ProductPrice> {formatCurrency(price)} </ProductPrice>
+            {!isInCart ? (
+              <Button size="large" onClick={() => handleAddToCart()}>
+                {" "}
+                add to cart{" "}
+              </Button>
+            ) : (
+              <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
+            )}
+          </DescriptionContainer>
+        </Container>
+
+        <FeatureBox>
+          <div style={{ flexBasis: "60%" }}>
+            <Heading> Features </Heading>
+            <FeatureContainer>
+              {productFeature.map((feat, i) => (
+                <FeatureText key={i}> {feat} </FeatureText>
+              ))}
+            </FeatureContainer>
+          </div>
+
+          <IntheBoxAndHeaderContainer>
+            <Heading type="inTheBox"> in the box </Heading>
+
+            <InTheBoxContainer>
+              {includes?.map((item) => (
+                <InTheBox key={item._id}>
+                  <Quantity> {item.quantity + "x"} </Quantity>
+                  <FeatureText> {item.item} </FeatureText>
+                </InTheBox>
+              ))}
+            </InTheBoxContainer>
+          </IntheBoxAndHeaderContainer>
+        </FeatureBox>
+
+        <GalleryContainer>
+          <img src={`/assets/product/${first}`} alt="GalleryImage 1" />
+          <img src={`/assets/product/${second}`} alt="GalleryImage 2" />
+          <img src={`/assets/product/${third}`} alt="GalleryImage 3 " />
+        </GalleryContainer>
+
+        <Heading type="review"> Our customers review </Heading>
+
+        {/* Where i am  */}
+
+        <StyledReviewCard>
+          <Modal.Open opens="add-review">
+            <StyledAddReview>
               {" "}
-              add to cart{" "}
-            </Button>
-          ) : (
-            <UpdateCartItem currentQuantity={currentQuantity} id={_id} />
-          )}
-        </DescriptionContainer>
-      </Container>
+              <FaPlus /> <span> Add Review </span>{" "}
+            </StyledAddReview>
+          </Modal.Open>
 
-      <FeatureBox>
-        <div style={{ flexBasis: "60%" }}>
-          <Heading> Features </Heading>
-          <FeatureContainer>
-            {productFeature.map((feat, i) => (
-              <FeatureText key={i}> {feat} </FeatureText>
-            ))}
-          </FeatureContainer>
-        </div>
+          <Modal.Window page="create-review" name="add-review">
+            <EditReviewForm productId={_id} />
+          </Modal.Window>
 
-        <IntheBoxAndHeaderContainer>
-          <Heading type="inTheBox"> in the box </Heading>
+          {reviews.length &&
+            reviews
+              .slice()
+              .reverse()
+              ?.map((review) => (
+                <ReviewCard reviews={review} key={review.id} />
+              ))}
+        </StyledReviewCard>
 
-          <InTheBoxContainer>
-            {includes?.map((item) => (
-              <InTheBox key={item._id}>
-                <Quantity> {item.quantity + "x"} </Quantity>
-                <FeatureText> {item.item} </FeatureText>
-              </InTheBox>
-            ))}
-          </InTheBoxContainer>
-        </IntheBoxAndHeaderContainer>
-      </FeatureBox>
+        {product && <Heading type="others"> You may also like </Heading>}
+        <OtherItemContainer>
+          {others?.map((item) => {
+            return (
+              <OthersContainer key={item._id}>
+                <OtherImageContainer>
+                  <img
+                    src={`/assets/product/${item?.image}`}
+                    alt=" OtherImage "
+                  />
+                </OtherImageContainer>
 
-      <GalleryContainer>
-        <img src={`/assets/product/${first}`} alt="GalleryImage 1" />
-        <img src={`/assets/product/${second}`} alt="GalleryImage 2" />
-        <img src={`/assets/product/${third}`} alt="GalleryImage 3 " />
-      </GalleryContainer>
-
-      <Heading type="review"> Our customers review </Heading>
-      <StyledReviewCard>
-        {reviews.length &&
-          reviews?.map((review) => (
-            <ReviewCard reviews={review} key={review.id} />
-          ))}
-      </StyledReviewCard>
-
-      {product && <Heading type="others"> You may also like </Heading>}
-      <OtherItemContainer>
-        {others?.map((item) => {
-          return (
-            <OthersContainer key={item._id}>
-              <OtherImageContainer>
-                <img
-                  src={`/assets/product/${item?.image}`}
-                  alt=" OtherImage "
-                />
-              </OtherImageContainer>
-
-              <OtherTextBox>
-                <p> {item.name} </p>
-                <Button onClick={() => navigate(`/product/${item.slug}`)}>
-                  {" "}
-                  see product{" "}
-                </Button>
-              </OtherTextBox>
-            </OthersContainer>
-          );
-        })}
-      </OtherItemContainer>
-    </ProductContainer>
+                <OtherTextBox>
+                  <p> {item.name} </p>
+                  <Button onClick={() => navigate(`/product/${item.slug}`)}>
+                    {" "}
+                    see product{" "}
+                  </Button>
+                </OtherTextBox>
+              </OthersContainer>
+            );
+          })}
+        </OtherItemContainer>
+      </ProductContainer>
+    </Modal>
   );
 }
 
