@@ -2,12 +2,12 @@ import Form2 from "./Form2";
 import Input from "./Input";
 import Button from "./Button";
 import FormRow from "./FormRow";
+import { TextArea } from "./TextArea";
 import styled from "styled-components";
 import SpinnerMini from "./SpinnerMini";
 import { useForm } from "react-hook-form";
 import { clampBuilder } from "../styles/clampFunction";
 import { useUpdateReview } from "../features/reviews/useUpdateReview";
-import { TextArea } from "./TextArea";
 import { useCreateReview } from "../features/reviews/useCreateReviews";
 
 const EditFormContainer = styled.div`
@@ -35,7 +35,7 @@ function EditReviewForm({ review = {}, onClose, productId }) {
 
   const { createReview, isCreating } = useCreateReview();
 
-  const isWorking = isCreating || isUpdating;
+  const isWorking = isUpdating || isCreating;
 
   const OnSubmit = ({ rating, review }, e) => {
     e.preventDefault();
@@ -55,8 +55,9 @@ function EditReviewForm({ review = {}, onClose, productId }) {
       createReview(
         { id: productId, data: { rating, review } },
         {
-          onSuccess: () => {
+          onSettled: () => {
             onClose?.();
+
             reset();
           },
         }
@@ -71,8 +72,6 @@ function EditReviewForm({ review = {}, onClose, productId }) {
         <FormRow label="Rating">
           <Input
             id="rating"
-            disabled={isWorking}
-            placeholder="Add a rating"
             variation={"review"}
             {...register("rating", { required: "This field is required" })}
           />
@@ -81,8 +80,6 @@ function EditReviewForm({ review = {}, onClose, productId }) {
         <FormRow label="Review">
           <TextArea
             id="review"
-            disabled={isWorking}
-            placeholder="write a review"
             variation={"review"}
             {...register("review", { required: "This field is required" })}
           />
@@ -95,11 +92,11 @@ function EditReviewForm({ review = {}, onClose, productId }) {
               <SpinnerMini />{" "}
               <span>
                 {" "}
-                {isUpdating ? "Updating review..." : "Creating review..."}{" "}
+                {isUpdating ? "Updating review..." : "Add review..."}{" "}
               </span>{" "}
             </>
           ) : (
-            <span> {isEdit ? "Save update" : "create Review"} </span>
+            <span> {isEdit ? "Update review" : "Add review"} </span>
           )}
         </Button>
       </Form2>

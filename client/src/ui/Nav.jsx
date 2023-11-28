@@ -79,36 +79,38 @@ const CartIconNotification = styled.span`
 `;
 
 const AuthButton = styled.a`
+  box-sizing: border-box;
   text-decoration: none;
   display: grid;
   place-items: center;
-  padding: 0.8rem 1.4rem;
+  padding-inline: ${() => clampBuilder(320, 1200, 0.7, 1.4)};
+  padding-block: ${() => clampBuilder(320, 1200, 0.4, 0.8)};
   background-color: transparent;
-  border: 1px solid var(--color-white);
-  font-size: 1.6rem;
+
+  font-size: ${() => clampBuilder(320, 1200, 1, 1.6)};
   font-weight: 500;
   text-transform: uppercase;
   transition: background-color 0.3s ease-out;
 
   &:hover {
-    background-color: var(--color-primary);
     color: var(--color-white);
-    border: none;
-    background-color: var(--color-primary-muted);
-    background-image: var(--color-gradient-dark);
   }
 
   &:first-of-type {
-    border: none;
-    margin-right: 2rem;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 2px;
+
+    transition: border 0.3s ease-out;
 
     &:hover {
+      border-color: var(--color-primary-dark);
     }
   }
 
   &:last-of-type {
     border: none;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     background-color: var(--color-primary-muted);
     background-image: var(--color-gradient-dark);
 
