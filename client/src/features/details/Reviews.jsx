@@ -71,6 +71,8 @@ export const StyledAddReview = styled.span`
   display: flex;
 
   justify-content: center;
+  row-gap: ${() => clampBuilder(320, 1200, 0.4, 1)};
+
   align-items: center;
 
   &:hover {

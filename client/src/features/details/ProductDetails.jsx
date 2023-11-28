@@ -5,6 +5,7 @@
 import { Text } from "../../ui/Text";
 import Button from "../../ui/Button";
 import Spinner from "../../ui/Spinner";
+import { FaPlus } from "react-icons/fa6";
 import { Heading } from "../../ui/Heading";
 import { styled } from "styled-components";
 import { useUser } from "../users/useUser";
@@ -166,7 +167,10 @@ function ProductDetails() {
       <Heading type="review"> Our customers review </Heading>
 
       <StyledReviewCard>
-        <StyledAddReview>Add review</StyledAddReview>
+        <StyledAddReview>
+          {" "}
+          <FaPlus /> <span> Add Review </span>{" "}
+        </StyledAddReview>
         {reviews.length &&
           reviews?.map((review) => (
             <ReviewCard reviews={review} key={review.id} />
