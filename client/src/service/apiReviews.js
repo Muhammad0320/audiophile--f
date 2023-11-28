@@ -19,10 +19,12 @@ export const createReviewApi = async ({ id }) => {
   return res.data;
 };
 
-export const deleteReviewApi = async ({ id }) => {
+export const deleteReviewApi = async ({ id, data }) => {
   const res = await axios({
     method: "DELETE",
     url: `${SERVER_ROOT_URL}/reviews/${id}`,
+
+    data,
 
     withCredentials: true,
   });
