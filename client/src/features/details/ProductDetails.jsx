@@ -108,6 +108,10 @@ function ProductDetails() {
 
   const productFeature = features.split("\n");
 
+  const test = [1, 2, 3].slice().reverse();
+
+  console.log(test);
+
   return (
     <Modal>
       <ProductContainer>
@@ -184,9 +188,12 @@ function ProductDetails() {
           </Modal.Window>
 
           {reviews.length &&
-            reviews?.map((review) => (
-              <ReviewCard reviews={review} key={review.id} />
-            ))}
+            reviews
+              .slice()
+              .reverse()
+              ?.map((review) => (
+                <ReviewCard reviews={review} key={review.id} />
+              ))}
         </StyledReviewCard>
 
         {product && <Heading type="others"> You may also like </Heading>}
