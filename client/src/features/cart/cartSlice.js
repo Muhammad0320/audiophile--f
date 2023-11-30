@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// https://dev.to/opensauced/open-source-101-a-beginners-guide-to-getting-started-37fb
-
-// https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/
-
 const initialState = {
   cart: [],
   changes: [],
@@ -98,13 +94,10 @@ export const getCart = (state) => state.cart?.cart;
 export const getChanges = (state) => state.cart?.changes;
 
 export const getTotalCartQuantity = (state) =>
-  state.cart?.cart?.reduce((acc, curr) => acc + curr?.quantity, 0) ?? 0;
+  state.cart.cart?.reduce((acc, curr) => acc + curr?.quantity, 0) ?? 0;
 
 export const getTotalCartPrice = (state) =>
-  state.cart?.cart?.reduce((acc, curr) => acc + curr?.totalPrice, 0);
+  state.cart.cart?.reduce((acc, curr) => acc + curr?.totalPrice, 0);
 
 export const getCurrentItemQuantityById = (id) => (state) =>
-  state.cart?.cart?.find((item) => item?.product?._id === id)?.quantity ?? 0;
-
-export const getLastItemInCart = (state) =>
-  state.cart?.cart.at(-1)?.quantity ?? 0;
+  state.cart.cart?.find((item) => item.product._id === id)?.quantity ?? 0;

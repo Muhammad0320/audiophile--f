@@ -107,10 +107,7 @@ function ProductDetails() {
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
 
   const productFeature = features.split("\n");
-
-  const test = [1, 2, 3].slice().reverse();
-
-  console.log(test);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
 
   return (
     <Modal>
@@ -173,14 +170,16 @@ function ProductDetails() {
 
         <Heading type="review"> Our customers review </Heading>
 
-        {/* Where i am  */}
+        {/* Where am i  */}
 
-        <Modal.Open opens="add-review">
-          <StyledAddReview>
-            {" "}
-            <FaPlus /> <span> Add Review </span>{" "}
-          </StyledAddReview>
-        </Modal.Open>
+        {currentUser && (
+          <Modal.Open opens="add-review">
+            <StyledAddReview>
+              {" "}
+              <FaPlus /> <span> Add Review </span>{" "}
+            </StyledAddReview>
+          </Modal.Open>
+        )}
 
         <Modal.Window page="create-review" name="add-review">
           <EditReviewForm productId={_id} />
