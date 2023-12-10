@@ -41,17 +41,11 @@ export const StyledAddReview = styled.span`
     rgba(0, 0, 0, 0.25)
   );
 
-  /* position: absolute; */
-
-  /* text-align: right; */
-
   padding-inline: ${() => clampBuilder(320, 1200, 0.8, 1.2)};
 
   padding-block: ${() => clampBuilder(320, 1200, 0.5, 1)};
 
   color: var(--color-primary);
-
-  /* background: var(--color-primary-muted); */
 
   background-image: var(--color-gradient-dark-1);
 
