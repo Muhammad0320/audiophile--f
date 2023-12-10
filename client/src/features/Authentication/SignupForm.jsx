@@ -1,10 +1,9 @@
 import Form2 from "../../ui/Form2";
-import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-
-import { useForm } from "react-hook-form";
-import { useSignup } from "./useSignup";
 import Button from "../../ui/Button";
+import FormRow from "../../ui/FormRow";
+import { useSignup } from "./useSignup";
+import { useForm } from "react-hook-form";
 import SpinnerMini from "../../ui/SpinnerMini";
 
 function SignupForm() {
