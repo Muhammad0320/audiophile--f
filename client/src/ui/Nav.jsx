@@ -1,5 +1,5 @@
 import Modal from "./Modal";
-import { Text } from "./Text";
+
 import SVG from "react-inlinesvg";
 import { IconLogo } from "./Icons";
 import SpinnerMini from "./SpinnerMini";
@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import Avatar from "../features/users/avatar";
 import { css, styled } from "styled-components";
 import { useViewport } from "../context/ViewPort";
-import { useUser } from "../features/users/useUser";
+
 import { clampBuilder } from "../styles/clampFunction";
 import { useLogout } from "../features/users/useLogout";
 import { NavLink, useLocation } from "react-router-dom";
