@@ -147,8 +147,6 @@ function Nav({ type }) {
 
   const { viewportWidth } = useViewport();
 
-  // const user = localStorage.getItem("user");
-
   const handleLogoutFunction = () => {
     logout(null, {
       onSuccess: () => {
