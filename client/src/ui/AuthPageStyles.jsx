@@ -2,14 +2,11 @@ import styled from "styled-components";
 import { clampBuilder } from "../styles/clampFunction";
 
 export const PageContainer = styled.div`
-  width: 100dvw;
   height: 100dvh;
   display: grid;
   justify-content: center;
   align-items: center;
   padding-block: ${() => clampBuilder(320, 1200, 3, 6)};
-  overflow-y: scroll;
-  overflow-x: hidden;
 `;
 
 export const StyledAuthContainer = styled.div`
