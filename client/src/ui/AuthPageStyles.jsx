@@ -11,7 +11,7 @@ export const PageContainer = styled.div`
   overflow-y: scroll;
 `;
 
-export const StyledSignupContainer = styled.div`
+export const StyledAuthContainer = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
