@@ -1,9 +1,9 @@
 import SVG from "react-inlinesvg";
 import { IconLogo } from "../ui/Icons";
-import SignupForm from "../features/Authentication/SignupForm";
-import OtherAuthmethod from "../ui/OtherAuthmethod";
-
 import { Heading } from "../ui/Heading";
+import OtherAuthmethod from "../ui/OtherAuthmethod";
+import SignupForm from "../features/Authentication/SignupForm";
+
 import {
   PageContainer,
   StyledAuthContainer,
