@@ -1,9 +1,8 @@
-import styled from "styled-components";
 import SVG from "react-inlinesvg";
-
-import { clampBuilder } from "../styles/clampFunction";
+import styled from "styled-components";
 import { IconLogo } from "../ui/Icons";
 import { Heading } from "../ui/Heading";
+import { clampBuilder } from "../styles/clampFunction";
 import ResetPasswordForm from "../features/Authentication/ResetPasswordForm";
 
 const Container = styled.section`
