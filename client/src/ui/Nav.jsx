@@ -139,13 +139,15 @@ const NavCornerContainer = styled.div`
 function Nav({ type }) {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
-  const { user, isLoading } = useUser();
+  // const { user, isLoading } = useUser();
 
   const { logout, isLoggingOut } = useLogout();
 
   const location = useLocation();
 
   const { viewportWidth } = useViewport();
+
+  const user = localStorage.getItem("user");
 
   const handleLogoutFunction = () => {
     logout(null, {
@@ -216,8 +218,6 @@ function Nav({ type }) {
                   </HeaderIcon>
                 )}
               </>
-            ) : isLoading ? (
-              <Text type="avatar"> Loading... </Text>
             ) : (
               <>
                 {" "}
