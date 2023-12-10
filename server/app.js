@@ -9,9 +9,7 @@ const helmet = require('helmet');
 const xss = require('xss-clean');
 
 const cors = require('cors');
-
 const path = require('path');
-
 const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
