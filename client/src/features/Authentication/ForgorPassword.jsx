@@ -25,7 +25,7 @@ function ForgorPassword() {
   const [email, setEmail] = useState("");
 
   const { forgotPassword, isLoading } = useForgotPassword();
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email) return;

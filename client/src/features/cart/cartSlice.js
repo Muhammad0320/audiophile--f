@@ -38,7 +38,7 @@ const cartSlice = createSlice({
         { type: "delete", itemId: action.payload },
       ];
     },
-
+      
     addItemQuantity(state, action) {
       const item = state.cart.find(
         (item) => item.product._id === action.payload
@@ -101,3 +101,5 @@ export const getTotalCartPrice = (state) =>
 
 export const getCurrentItemQuantityById = (id) => (state) =>
   state.cart.cart?.find((item) => item.product._id === id)?.quantity ?? 0;
+
+

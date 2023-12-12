@@ -146,7 +146,7 @@ function Nav({ type }) {
   const location = useLocation();
 
   const { viewportWidth } = useViewport();
-
+  
   const handleLogoutFunction = () => {
     logout(null, {
       onSuccess: () => {

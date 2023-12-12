@@ -85,13 +85,14 @@ function App() {
                 </ProtectedRoutes>
               }
             >
+
               <Route index element={<Navigate replace to="settings" />} />
               <Route path="settings" element={<Settings />} />
               <Route path="my-reviews" element={<ReviewPage />} />
               <Route path="my-cart" element={<CartPage />} />
               <Route path="my-order" element={<OrderTable />} />
             </Route>
-
+              
             <Route path="checkout" element={<CheckoutPage />} />
             <Route path="success-email" element={<OnSuccessEmail />} />
 

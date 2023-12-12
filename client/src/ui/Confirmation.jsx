@@ -92,7 +92,7 @@ const CartPriceOverview = styled.div`
   row-gap: ${() => clampBuilder(320, 1200, 2, 2.5)};
   padding: ${() => clampBuilder(320, 1200, 1.4, 2)};
   background-color: var(--color-dark-1);
-
+  
   @media (max-width: 500px) {
     padding-block: ${() => clampBuilder(320, 500, 1.3, 2)};
     padding-inline: ${() => clampBuilder(320, 500, 2, 3)};

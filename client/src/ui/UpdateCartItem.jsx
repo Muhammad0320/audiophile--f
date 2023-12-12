@@ -50,9 +50,9 @@ const UpdateSign = styled.button`
 
 function UpdateCartItem({ icons, currentQuantity, id, ...otherProps }) {
   const dispatch = useDispatch();
-
+  
   const { reduce, add } = icons || { reduce: "-", add: "+" };
-
+   
   return (
     <Container {...otherProps}>
       <div>

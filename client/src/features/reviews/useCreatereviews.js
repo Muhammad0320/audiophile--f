@@ -4,7 +4,7 @@ import { createReviewApi } from "../../service/apiReviews";
 import { toast } from "react-hot-toast";
 
 export const useCreateReview = () => {
-  const { isLoading, mutate: createReview } = useMutation({
+  const { isLoading: isCreating, mutate: createReview } = useMutation({
     mutationFn: createReviewApi,
 
     onSuccess: () => {
@@ -16,5 +16,5 @@ export const useCreateReview = () => {
     },
   });
 
-  return { createReview, isLoading };
+  return { createReview, isCreating };
 };

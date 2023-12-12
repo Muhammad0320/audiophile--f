@@ -107,8 +107,9 @@ function ProductDetails() {
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
 
   const productFeature = features.split("\n");
-  const currentUser = JSON.parse(localStorage.getItem("user"));
 
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  
   return (
     <Modal>
       <ProductContainer>
