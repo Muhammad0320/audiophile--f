@@ -8,7 +8,7 @@ const Button = styled.button`
   opacity: 0.7;
   background-color: transparent;
   font-size: ${() => clampBuilder(350, 1200, 1, 1.5)};
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
