@@ -1,15 +1,14 @@
 import styled from "styled-components";
-import Table from "../../ui/Table";
 import { useState } from "react";
 import Menu from "../../ui/Menu";
-import { HiPencil, HiTrash } from "react-icons/hi2";
+import Table from "../../ui/Table";
 import Modal from "../../ui/Modal";
 import DeleteConfirm from "../../ui/DeleteConfirm";
-import { useDeleteReview } from "./useDeleteReview";
-
 import { ReviewRating } from "../../ui/StarRating";
-import { clampBuilder } from "../../styles/clampFunction";
+import { HiPencil, HiTrash } from "react-icons/hi2";
+import { useDeleteReview } from "./useDeleteReview";
 import { useViewport } from "../../context/ViewPort";
+import { clampBuilder } from "../../styles/clampFunction";
 import EditReviewForm from "../../ui/CreateEditReviewForm";
 
 const Image = styled.img`
