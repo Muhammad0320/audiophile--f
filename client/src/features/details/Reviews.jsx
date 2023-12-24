@@ -31,12 +31,12 @@ export const StyledReviewCard = styled.div`
     grid-auto-columns: 43%;
   }
 
-  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
   -webkit-mask: linear-gradient(
     90deg,
     transparent,
-    white 20%,
-    white 80%,
+    white 10%,
+    white 90%,
     transparent
   );
 
