@@ -31,6 +31,15 @@ export const StyledReviewCard = styled.div`
     grid-auto-columns: 43%;
   }
 
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+
   position: relative;
 `;
 
@@ -46,7 +55,7 @@ export const StyledAddReview = styled.span`
   padding-block: ${() => clampBuilder(320, 1200, 0.5, 1)};
 
   color: var(--color-primary);
-    
+
   background-image: var(--color-gradient-dark-1);
 
   background-position: bottom left;
