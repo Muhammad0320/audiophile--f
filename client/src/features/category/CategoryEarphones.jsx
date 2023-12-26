@@ -1,10 +1,9 @@
-import { styled } from "styled-components";
-
 import Category from "./Category";
-import ContainerHero from "../../ui/ContainerHero";
-import CategoryBox from "../../ui/CategoryBox";
-import { useProductCategory } from "./useProductCategory";
 import Spinner from "../../ui/Spinner";
+import { styled } from "styled-components";
+import CategoryBox from "../../ui/CategoryBox";
+import ContainerHero from "../../ui/ContainerHero";
+import { useProductCategory } from "./useProductCategory";
 
 const CategoryContainer = styled.div`
   margin: 15rem 0;
