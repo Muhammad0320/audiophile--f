@@ -33,9 +33,9 @@ function EditReviewForm({ review = {}, onClose, productId }) {
 
   const { updateReview, isUpdating } = useUpdateReview();
 
-  const { createReview, isCreating } = useCreateReview();
+  const { createReview, isLoading } = useCreateReview();
 
-  const isWorking = isUpdating || isCreating;
+  const isWorking = isUpdating || isLoading;
 
   const OnSubmit = ({ rating, review }, e) => {
     e.preventDefault();
