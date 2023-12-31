@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { css, styled } from "styled-components";
+import { clampBuilder } from "../styles/clampFunction";
 import {
   addItemQuantity,
   removeItemQuantity,
 } from "../features/cart/cartSlice";
-import { clampBuilder } from "../styles/clampFunction";
 
 const Container = styled.div`
   background-color: var(--color-white-2);
@@ -50,9 +50,9 @@ const UpdateSign = styled.button`
 
 function UpdateCartItem({ icons, currentQuantity, id, ...otherProps }) {
   const dispatch = useDispatch();
-  
+
   const { reduce, add } = icons || { reduce: "-", add: "+" };
-   
+
   return (
     <Container {...otherProps}>
       <div>
