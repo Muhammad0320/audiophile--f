@@ -87,7 +87,7 @@ function Cart({ page, onClose }) {
   const navigate = useNavigate();
 
   const vat = VAT * +totalCartPrice;
-    
+
   const { ref } = useClickOutside(onClose);
 
   if (!carts.length)
