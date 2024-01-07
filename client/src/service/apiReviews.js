@@ -11,8 +11,8 @@ export const getCurrentUserReview = async () => {
 
 export const createReviewApi = async ({ id, data }) => {
   const res = await axios({
-    url: `${SERVER_ROOT_URL}/products/${id}/review`,
     method: "POST",
+    url: `${SERVER_ROOT_URL}/products/${id}/review`,
     data,
     withCredentials: true,
   });

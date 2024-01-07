@@ -109,7 +109,7 @@ function ProductDetails() {
   const productFeature = features.split("\n");
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  
+
   return (
     <Modal>
       <ProductContainer>
