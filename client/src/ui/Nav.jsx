@@ -126,7 +126,7 @@ const LeftNavContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: ${() => clampBuilder(400, 920, 1, 2)};
+  column-gap: ${() => clampBuilder(400, 920, 1, 2.2)};
 `;
 
 const NavCornerContainer = styled.div`
