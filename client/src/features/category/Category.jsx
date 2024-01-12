@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useViewport } from "../../context/ViewPort";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 import {
   Container,
@@ -19,6 +20,8 @@ function Category({ categoryData, index, loading }) {
 
   const navigate = useNavigate();
 
+  console.log(loading);
+
   const moveback = useMoveBack();
 
   const src = image.startsWith("https") ? image : `/assets/product/${image}`;
@@ -28,11 +31,16 @@ function Category({ categoryData, index, loading }) {
   return (
     <>
       <SmallButton onClick={moveback}> Go back </SmallButton>
+
       <Container>
         <ImageContainer
           style={{ gridColumn: index % 2 === 0 ? "1 / 2" : "2 / -1" }}
         >
-          {loading ? <Skeleton /> : <img src={src} alt=" Product" />}
+          {true ? (
+            <Skeleton height={"100%"} width={"100%"} />
+          ) : (
+            <img src={src} alt=" Product" />
+          )}
         </ImageContainer>
 
         <DescriptionContainer
@@ -42,8 +50,8 @@ function Category({ categoryData, index, loading }) {
           }}
         >
           {isNew && <NewProduct> New product </NewProduct>}
-          <ProductName> {loading ? <Skeleton /> : name} </ProductName>
-          <Text> {loading ? <Skeleton count={5} /> : description} </Text>
+          <ProductName> {true ? <Skeleton /> : name} </ProductName>
+          <Text> {true ? <Skeleton count={5} /> : description} </Text>
           <Button onClick={() => navigate(`/product/${slug}`)}>
             {" "}
             See product{" "}

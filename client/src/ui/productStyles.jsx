@@ -25,12 +25,14 @@ export const Container = styled.div`
 
 export const ImageContainer = styled.div`
   background-color: var(--color-white-2);
+
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: flex;
+
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
   box-shadow: var(--box-shadow-light-2);
 
@@ -38,7 +40,6 @@ export const ImageContainer = styled.div`
     grid-row: 1 / 2;
     width: 90%;
     height: 90%;
-    object-fit: cover;
 
     & > img {
       width: 45%;

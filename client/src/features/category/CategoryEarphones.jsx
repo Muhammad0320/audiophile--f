@@ -11,13 +11,19 @@ const CategoryContainer = styled.div`
 
 function CategoryEarphones() {
   const { categoryProduct = [], isLoading } = useProductCategory("earphones");
+  console.log(isLoading);
 
-  if (isLoading) return <Spinner />;
+  // if (isLoading) return <Spinner />;
 
   return (
     <CategoryContainer>
       {categoryProduct.map((data, index) => (
-        <Category key={data._id} categoryData={data} index={index} />
+        <Category
+          key={data._id}
+          categoryData={data}
+          index={index}
+          loading={isLoading}
+        />
       ))}
 
       <CategoryBox />

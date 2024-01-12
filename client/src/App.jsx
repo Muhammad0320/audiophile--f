@@ -61,15 +61,13 @@ function App() {
     cartData();
   }, [dispatch]);
 
+  // baseColor="var(--color-white-vivid)"
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <ViewPortProvider>
-        <GlobalStyles />
-        <SkeletonTheme
-          baseColor="var(--color-white-vivid)"
-          highlightColor="var(--color-primary-light-dark)"
-        >
+      <SkeletonTheme baseColor="#fbaf85" highlightColor="#f0ccb8">
+        <ViewPortProvider>
+          <GlobalStyles />
           <BrowserRouter>
             <ScrollToTop />
 
@@ -135,8 +133,8 @@ function App() {
               }}
             />
           </BrowserRouter>
-        </SkeletonTheme>
-      </ViewPortProvider>
+        </ViewPortProvider>
+      </SkeletonTheme>
     </QueryClientProvider>
   );
 }
