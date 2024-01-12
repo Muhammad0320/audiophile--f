@@ -14,6 +14,7 @@ import {
   NewProduct,
   ProductName,
 } from "../../ui/productStyles";
+import { ButtonContainer } from "../skeleton/ButtonSkeleton";
 
 function Category({ categoryData = {}, index, loading }) {
   const { image, new: isNew, name, description, slug } = categoryData;
@@ -52,7 +53,9 @@ function Category({ categoryData = {}, index, loading }) {
           <Text> {loading ? <Skeleton count={5} /> : description} </Text>
 
           {loading ? (
-            <Skeleton />
+            <ButtonContainer>
+              <Skeleton height={"100%"} width={"100%"} />
+            </ButtonContainer>
           ) : (
             <Button onClick={() => navigate(`/product/${slug}`)}>
               see product
