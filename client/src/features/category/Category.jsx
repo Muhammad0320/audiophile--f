@@ -37,7 +37,7 @@ function Category({ categoryData = {}, index, loading }) {
           {loading ? (
             <Skeleton height={"100%"} width={"100%"} />
           ) : (
-            <img src={src} alt=" Product" />
+            <img src={src} alt={`${name}`} />
           )}
         </ImageContainer>
 

@@ -18,7 +18,7 @@ function CategoryEarphones() {
   if (isLoading)
     return (
       <CategoryContainer>
-        {Array(5)
+        {Array(3)
           .fill(0)
           .map((_, index) => (
             <Category index={index} loading={true} key={index} />
@@ -30,12 +30,7 @@ function CategoryEarphones() {
   return (
     <CategoryContainer>
       {categoryProduct.map((data, index) => (
-        <Category
-          key={data._id}
-          categoryData={data}
-          index={index}
-          loading={isLoading}
-        />
+        <Category key={data._id} categoryData={data} index={index} />
       ))}
 
       <CategoryBox />
