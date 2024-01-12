@@ -1,11 +1,12 @@
 import Category from "./Category";
-import Spinner from "../../ui/Spinner";
+
 import { styled } from "styled-components";
 import CategoryBox from "../../ui/CategoryBox";
 import ContainerHero from "../../ui/ContainerHero";
 import { useProductCategory } from "./useProductCategory";
+import SkeletonLoader from "../skeleton/SkeletonLoader";
 
-const CategoryContainer = styled.div`
+export const CategoryContainer = styled.div`
   margin: 15rem 0;
 `;
 
@@ -13,19 +14,7 @@ function CategoryEarphones() {
   const { categoryProduct = [], isLoading } = useProductCategory("earphones");
   console.log(isLoading);
 
-  // if (isLoading) return <Spinner />;
-
-  if (isLoading)
-    return (
-      <CategoryContainer>
-        {Array(3)
-          .fill(0)
-          .map((_, index) => (
-            <Category index={index} loading={true} key={index} />
-          ))}
-        <CategoryBox />
-      </CategoryContainer>
-    );
+  if (isLoading) return <SkeletonLoader />;
 
   return (
     <CategoryContainer>
