@@ -15,7 +15,7 @@ function CategoryEarphones() {
   console.log(isLoading);
 
   if (isLoading) return <SkeletonLoader />;
-
+  
   return (
     <CategoryContainer>
       {categoryProduct.map((data, index) => (

@@ -71,7 +71,7 @@ const Button = styled.button`
   border: none;
 
   ${(props) => variations[props.variation]}
-
+  
   ${(props) =>
     props.size === "large" &&
     css`

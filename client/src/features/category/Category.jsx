@@ -26,7 +26,7 @@ function Category({ categoryData = {}, index, loading }) {
   const src = image?.startsWith("https") ? image : `/assets/product/${image}`;
 
   const { viewportWidth } = useViewport();
-
+    
   return (
     <>
       <SmallButton onClick={moveback}> Go back </SmallButton>
