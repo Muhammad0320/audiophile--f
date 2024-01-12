@@ -15,6 +15,18 @@ function CategoryEarphones() {
 
   // if (isLoading) return <Spinner />;
 
+  if (isLoading)
+    return (
+      <CategoryContainer>
+        {Array(5)
+          .fill(0)
+          .map((_, index) => (
+            <Category index={index} loading={true} key={index} />
+          ))}
+        <CategoryBox />
+      </CategoryContainer>
+    );
+
   return (
     <CategoryContainer>
       {categoryProduct.map((data, index) => (

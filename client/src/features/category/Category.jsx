@@ -15,16 +15,14 @@ import {
   ProductName,
 } from "../../ui/productStyles";
 
-function Category({ categoryData, index, loading }) {
+function Category({ categoryData = {}, index, loading }) {
   const { image, new: isNew, name, description, slug } = categoryData;
 
   const navigate = useNavigate();
 
-  console.log(loading);
-
   const moveback = useMoveBack();
 
-  const src = image.startsWith("https") ? image : `/assets/product/${image}`;
+  const src = image?.startsWith("https") ? image : `/assets/product/${image}`;
 
   const { viewportWidth } = useViewport();
 
@@ -36,7 +34,7 @@ function Category({ categoryData, index, loading }) {
         <ImageContainer
           style={{ gridColumn: index % 2 === 0 ? "1 / 2" : "2 / -1" }}
         >
-          {true ? (
+          {loading ? (
             <Skeleton height={"100%"} width={"100%"} />
           ) : (
             <img src={src} alt=" Product" />
@@ -50,8 +48,8 @@ function Category({ categoryData, index, loading }) {
           }}
         >
           {isNew && <NewProduct> New product </NewProduct>}
-          <ProductName> {true ? <Skeleton /> : name} </ProductName>
-          <Text> {true ? <Skeleton count={5} /> : description} </Text>
+          <ProductName> {loading ? <Skeleton /> : name} </ProductName>
+          <Text> {loading ? <Skeleton count={5} /> : description} </Text>
           <Button onClick={() => navigate(`/product/${slug}`)}>
             {" "}
             See product{" "}
