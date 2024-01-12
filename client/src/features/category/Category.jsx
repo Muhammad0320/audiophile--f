@@ -4,6 +4,7 @@ import SmallButton from "../../ui/SmallButton";
 import { useNavigate } from "react-router-dom";
 import { useViewport } from "../../context/ViewPort";
 import { useMoveBack } from "../../hooks/useMoveBack";
+import Skeleton from "react-loading-skeleton";
 
 import {
   Container,
@@ -13,7 +14,7 @@ import {
   ProductName,
 } from "../../ui/productStyles";
 
-function Category({ categoryData, index }) {
+function Category({ categoryData, index, loading }) {
   const { image, new: isNew, name, description, slug } = categoryData;
 
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Category({ categoryData, index }) {
         <ImageContainer
           style={{ gridColumn: index % 2 === 0 ? "1 / 2" : "2 / -1" }}
         >
-          <img src={src} alt=" Product" />
+          {loading ? <Skeleton /> : <img src={src} alt=" Product" />}
         </ImageContainer>
 
         <DescriptionContainer
@@ -41,8 +42,8 @@ function Category({ categoryData, index }) {
           }}
         >
           {isNew && <NewProduct> New product </NewProduct>}
-          <ProductName> {name} </ProductName>
-          <Text> {description} </Text>
+          <ProductName> {loading ? <Skeleton /> : name} </ProductName>
+          <Text> {loading ? <Skeleton count={5} /> : description} </Text>
           <Button onClick={() => navigate(`/product/${slug}`)}>
             {" "}
             See product{" "}
