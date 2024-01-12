@@ -32,6 +32,8 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 //  React quert setup
 
+import { SkeletonTheme } from "react-loading-skeleton";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -64,71 +66,76 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <ViewPortProvider>
         <GlobalStyles />
-        <BrowserRouter>
-          <ScrollToTop />
+        <SkeletonTheme
+          baseColor="var(--color-white-vivid)"
+          highlightColor="var(--color-primary-light-dark)"
+        >
+          <BrowserRouter>
+            <ScrollToTop />
 
-          <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<Navigate replace to="home" />} />
-              <Route path="home" element={<HomePage />} />
-              <Route path="headphones" element={<Headphone />} />
-              <Route path="earphones" element={<Earphone />} />
-              <Route path="speakers" element={<Speakers />} />
-              <Route path="product/:slug" element={<Details />} />
-            </Route>
+            <Routes>
+              <Route element={<AppLayout />}>
+                <Route index element={<Navigate replace to="home" />} />
+                <Route path="home" element={<HomePage />} />
+                <Route path="headphones" element={<Headphone />} />
+                <Route path="earphones" element={<Earphone />} />
+                <Route path="speakers" element={<Speakers />} />
+                <Route path="product/:slug" element={<Details />} />
+              </Route>
 
-            <Route
-              element={
-                <ProtectedRoutes>
-                  {" "}
-                  <AccountPage />{" "}
-                </ProtectedRoutes>
-              }
-            >
-              <Route index element={<Navigate replace to="settings" />} />
-              <Route path="settings" element={<Settings />} />
-              <Route path="my-reviews" element={<ReviewPage />} />
-              <Route path="my-cart" element={<CartPage />} />
-              <Route path="my-order" element={<OrderTable />} />
-            </Route>
+              <Route
+                element={
+                  <ProtectedRoutes>
+                    {" "}
+                    <AccountPage />{" "}
+                  </ProtectedRoutes>
+                }
+              >
+                <Route index element={<Navigate replace to="settings" />} />
+                <Route path="settings" element={<Settings />} />
+                <Route path="my-reviews" element={<ReviewPage />} />
+                <Route path="my-cart" element={<CartPage />} />
+                <Route path="my-order" element={<OrderTable />} />
+              </Route>
 
-            <Route path="checkout" element={<CheckoutPage />} />
-            <Route path="success-email" element={<OnSuccessEmail />} />
+              <Route path="checkout" element={<CheckoutPage />} />
+              <Route path="success-email" element={<OnSuccessEmail />} />
 
-            <Route
-              path="passwordReset/:token"
-              element={<PasswordResetPage />}
+              <Route
+                path="passwordReset/:token"
+                element={<PasswordResetPage />}
+              />
+              <Route path="success" element={<PaymentConfirmationPage />} />
+
+              <Route path="signup" element={<SignupPage />} />
+              <Route path="login" element={<LoginPage />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+
+            <Toaster
+              position="top-center"
+              gutter={13}
+              containerStyle={{ margin: "8px" }}
+              toastOptions={{
+                error: {
+                  duration: 5000,
+                },
+
+                success: {
+                  duration: 3000,
+                },
+
+                style: {
+                  padding: "16px 24px",
+                  fontSize: "16px",
+                  backgroundColor: "var(--color-white-1)",
+                  color: "var(--color-dark-1)",
+                  maxWidth: "500px",
+                },
+              }}
             />
-            <Route path="success" element={<PaymentConfirmationPage />} />
-
-            <Route path="signup" element={<SignupPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-
-          <Toaster
-            position="top-center"
-            gutter={13}
-            containerStyle={{ margin: "8px" }}
-            toastOptions={{
-              error: {
-                duration: 5000,
-              },
-
-              success: {
-                duration: 3000,
-              },
-
-              style: {
-                padding: "16px 24px",
-                fontSize: "16px",
-                backgroundColor: "var(--color-white-1)",
-                color: "var(--color-dark-1)",
-                maxWidth: "500px",
-              },
-            }}
-          />
-        </BrowserRouter>
+          </BrowserRouter>
+        </SkeletonTheme>
       </ViewPortProvider>
     </QueryClientProvider>
   );
