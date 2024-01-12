@@ -65,7 +65,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <SkeletonTheme baseColor="#fbaf85" highlightColor="#f0ccb8">
+      <SkeletonTheme
+        highlightColor="var(--color-white-vivid)"
+        baseColor="var(--color-primary-light-muted)"
+      >
         <ViewPortProvider>
           <GlobalStyles />
           <BrowserRouter>

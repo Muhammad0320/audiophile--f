@@ -4,7 +4,8 @@ import Category from "./Category";
 import ContainerHero from "../../ui/ContainerHero";
 import CategoryBox from "../../ui/CategoryBox";
 import { useProductCategory } from "./useProductCategory";
-import Spinner from "../../ui/Spinner";
+
+import SkeletonLoader from "../skeleton/SkeletonLoader";
 
 const CategoryContainer = styled.div`
   margin: 15rem 0;
@@ -13,7 +14,7 @@ const CategoryContainer = styled.div`
 function CategorySpeakers() {
   const { categoryProduct = [], isLoading } = useProductCategory("speakers");
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <SkeletonLoader />;
 
   return (
     <CategoryContainer>

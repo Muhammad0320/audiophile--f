@@ -50,9 +50,9 @@ function Category({ categoryData = {}, index, loading }) {
           {isNew && <NewProduct> New product </NewProduct>}
           <ProductName> {loading ? <Skeleton /> : name} </ProductName>
           <Text> {loading ? <Skeleton count={5} /> : description} </Text>
+
           <Button onClick={() => navigate(`/product/${slug}`)}>
-            {" "}
-            See product{" "}
+            {loading ? <Skeleton /> : "See product"}
           </Button>
         </DescriptionContainer>
       </Container>

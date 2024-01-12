@@ -4,7 +4,8 @@ import Category from "./Category";
 import ContainerHero from "../../ui/ContainerHero";
 import CategoryBox from "../../ui/CategoryBox";
 import { useProductCategory } from "./useProductCategory";
-import Spinner from "../../ui/Spinner";
+
+import SkeletonLoader from "../skeleton/SkeletonLoader";
 
 const CategoryContainer = styled.div`
   margin: 15rem 0;
@@ -15,7 +16,7 @@ function CategoryHeadphone() {
 
   // if (!categoryProduct.length) return <div> odeh </div>;
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <SkeletonLoader count={5} />;
 
   return (
     <CategoryContainer>

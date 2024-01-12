@@ -7,10 +7,10 @@ const CategoryContainer = styled.div`
   margin: 15rem 0;
 `;
 
-function SkeletonLoader() {
+function SkeletonLoader({ count = 3 }) {
   return (
     <CategoryContainer>
-      {Array(3)
+      {Array(count)
         .fill(0)
         .map((_, index) => (
           <Category index={index} loading={true} key={index} />
