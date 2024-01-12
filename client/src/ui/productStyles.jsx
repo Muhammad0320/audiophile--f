@@ -27,7 +27,7 @@ export const ImageContainer = styled.div`
   background-color: var(--color-white-2);
 
   width: 100%;
-  height: 100%;
+  height: 90%;
   object-fit: cover;
 
   /* display: flex;

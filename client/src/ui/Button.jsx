@@ -63,13 +63,15 @@ const variations = {
 
 const Button = styled.button`
   text-transform: uppercase;
-  padding: ${() => clampBuilder(320, 1200, 0.8, 1)}
-    ${() => clampBuilder(320, 1200, 1.1, 1.4)};
+  padding-block: ${() => clampBuilder(320, 1200, 0.8, 1)};
+  padding-inline: ${() => clampBuilder(320, 1200, 1.1, 1.4)};
+
   font-size: ${() => clampBuilder(320, 1200, 1, 1.3)};
 
   border: none;
 
   ${(props) => variations[props.variation]}
+
   ${(props) =>
     props.size === "large" &&
     css`

@@ -51,9 +51,13 @@ function Category({ categoryData = {}, index, loading }) {
           <ProductName> {loading ? <Skeleton /> : name} </ProductName>
           <Text> {loading ? <Skeleton count={5} /> : description} </Text>
 
-          <Button onClick={() => navigate(`/product/${slug}`)}>
-            {loading ? <Skeleton /> : "See product"}
-          </Button>
+          {loading ? (
+            <Skeleton />
+          ) : (
+            <Button onClick={() => navigate(`/product/${slug}`)}>
+              see product
+            </Button>
+          )}
         </DescriptionContainer>
       </Container>
     </>
