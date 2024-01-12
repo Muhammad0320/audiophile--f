@@ -30,9 +30,9 @@ export const ImageContainer = styled.div`
   height: 100%;
   object-fit: cover;
 
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
   box-shadow: var(--box-shadow-light-2);
 
