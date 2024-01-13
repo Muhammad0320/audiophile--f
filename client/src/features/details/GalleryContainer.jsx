@@ -17,12 +17,12 @@ export const GalleryContainer = styled.div`
     box-shadow: var(--box-shadow-light);
   }
 
-  & > img:first-of-type {
+  /* & > img:first-of-type { */
+  & > :first-child {
     grid-row: 1 / 2;
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
 
     grid-column: 1 / 2;
 

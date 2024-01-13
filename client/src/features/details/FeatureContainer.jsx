@@ -40,6 +40,14 @@ export const InTheBox = styled.div`
   column-gap: ${() => clampBuilder(320, 1200, 1, 2)};
 
   align-items: flex-start;
+
+  * > :first-child {
+    flex: 1;
+  }
+
+  * > :last-child {
+    flex: 10;
+  }
 `;
 
 export const IntheBoxAndHeaderContainer = styled.div`

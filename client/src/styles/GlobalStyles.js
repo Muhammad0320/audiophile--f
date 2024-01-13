@@ -98,6 +98,15 @@ html {
 }
 
 
+
+.flex-container {
+ flex-grow: 1;
+
+
+}
+
+
+
 body {
   margin: 0;
   padding: 0;

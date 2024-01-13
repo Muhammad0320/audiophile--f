@@ -167,16 +167,18 @@ function ProductDetails() {
             <Heading> Features </Heading>
 
             <FeatureContainer>
-              {isLoading ? (
-                <FeatureText>
-                  {" "}
-                  <Skeleton count={4} />{" "}
-                </FeatureText>
-              ) : (
-                productFeature?.map((feat, i) => (
-                  <FeatureText key={i}> {feat} </FeatureText>
-                ))
-              )}
+              {isLoading
+                ? Array(2)
+                    .fill(8)
+                    .map((_, i) => (
+                      <FeatureText key={i}>
+                        {" "}
+                        <Skeleton count={4} />{" "}
+                      </FeatureText>
+                    ))
+                : productFeature?.map((feat, i) => (
+                    <FeatureText key={i}> {feat} </FeatureText>
+                  ))}
 
               {/* {productFeature?.map((feat, i) => (
                 <FeatureText key={i}> {feat} </FeatureText>
@@ -188,27 +190,37 @@ function ProductDetails() {
             <Heading> in the box </Heading>
 
             <InTheBoxContainer>
-              {isLoading ? (
-                <SkeletonMap count={5}>
-                  <InTheBox>
-                    <Quantity>
-                      {" "}
-                      <Skeleton />{" "}
-                    </Quantity>
-                    <FeatureText>
-                      {" "}
-                      <Skeleton />{" "}
-                    </FeatureText>
-                  </InTheBox>
-                </SkeletonMap>
-              ) : (
-                includes?.map((item) => (
-                  <InTheBox key={item._id}>
-                    <Quantity> {item.quantity + "x"} </Quantity>
-                    <FeatureText> {item.item} </FeatureText>
-                  </InTheBox>
-                ))
-              )}
+              {isLoading
+                ? Array(5)
+                    .fill(2)
+                    .map((_, i) => (
+                      <>
+                        <InTheBox key={i}>
+                          <Quantity
+                            style={{ flex: "0 0 20%" }}
+                            className="flex-container"
+                          >
+                            <Skeleton height={"100%"} />
+                          </Quantity>
+                          <FeatureText
+                            className="flex-container"
+                            style={{ flex: "1 1 auto" }}
+                          >
+                            <Skeleton
+                              height={"100%"}
+                              width={"100%"}
+                              containerClassName="flex-container"
+                            />
+                          </FeatureText>
+                        </InTheBox>
+                      </>
+                    ))
+                : includes?.map((item) => (
+                    <InTheBox key={item._id}>
+                      <Quantity> {item.quantity + "x"} </Quantity>
+                      <FeatureText> {item.item} </FeatureText>
+                    </InTheBox>
+                  ))}
 
               {/* {includes?.map((item) => (
                 <InTheBox key={item._id}>
@@ -222,7 +234,11 @@ function ProductDetails() {
 
         <GalleryContainer>
           {isLoading ? (
-            <Skeleton height={"100%"} width={"100%"} />
+            <Skeleton
+              height={"100%"}
+              width={"100%"}
+              className="flex-container"
+            />
           ) : (
             <img src={`/assets/product/${first}`} alt="GalleryImage 1" />
           )}
