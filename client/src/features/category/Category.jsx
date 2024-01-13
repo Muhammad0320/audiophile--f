@@ -14,7 +14,7 @@ import {
   NewProduct,
   ProductName,
 } from "../../ui/productStyles";
-import { ButtonContainer } from "../skeleton/ButtonSkeleton";
+import { ButtonSkeleton } from "../skeleton/ButtonSkeleton";
 
 function Category({ categoryData = {}, index, loading }) {
   const { image, new: isNew, name, description, slug } = categoryData;
@@ -26,7 +26,7 @@ function Category({ categoryData = {}, index, loading }) {
   const src = image?.startsWith("https") ? image : `/assets/product/${image}`;
 
   const { viewportWidth } = useViewport();
-    
+
   return (
     <>
       <SmallButton onClick={moveback}> Go back </SmallButton>
@@ -53,9 +53,9 @@ function Category({ categoryData = {}, index, loading }) {
           <Text> {loading ? <Skeleton count={5} /> : description} </Text>
 
           {loading ? (
-            <ButtonContainer>
+            <ButtonSkeleton>
               <Skeleton height={"100%"} width={"100%"} />
-            </ButtonContainer>
+            </ButtonSkeleton>
           ) : (
             <Button onClick={() => navigate(`/product/${slug}`)}>
               see product
