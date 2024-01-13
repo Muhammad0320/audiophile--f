@@ -2,6 +2,7 @@
 
 // https://youtu.be/FErIfEd3IHI?si=bQHsyv4Le3WgbiK6
 
+import Modal from "../../ui/Modal";
 import { Text } from "../../ui/Text";
 import Button from "../../ui/Button";
 import Spinner from "../../ui/Spinner";
@@ -19,7 +20,10 @@ import { useMoveBack } from "../../hooks/useMoveBack";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetProductBySlug } from "./useProductBySlug";
 import { clampBuilder } from "../../styles/clampFunction";
+import EditReviewForm from "../../ui/CreateEditReviewForm";
+import { StyledAddReview, StyledReviewCard } from "./Reviews";
 import { addItem, getCurrentItemQuantityById } from "../cart/cartSlice";
+
 import {
   Container,
   DescriptionContainer,
@@ -43,9 +47,10 @@ import {
   OtherTextBox,
   OthersContainer,
 } from "./OtherProducts";
-import { StyledAddReview, StyledReviewCard } from "./Reviews";
-import Modal from "../../ui/Modal";
-import EditReviewForm from "../../ui/CreateEditReviewForm";
+
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import SkeletonLoader from "../skeleton/SkeletonLoader";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
@@ -102,11 +107,11 @@ function ProductDetails() {
 
   const isInCart = currentQuantity > 0;
 
-  if (isLoading) return <Spinner />;
+  // if (isLoading) return <Spinner />;
 
-  const src = image.startsWith("https") ? image : `/assets/product/${image}`;
+  const src = image?.startsWith("https") ? image : `/assets/product/${image}`;
 
-  const productFeature = features.split("\n");
+  const productFeature = features?.split("\n");
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -119,16 +124,37 @@ function ProductDetails() {
         </SmallButton>
         <Container>
           <ImageContainer style={{ gridColumn: "1 / 2" }}>
-            <img src={src} alt="product" />
+            {isLoading ? (
+              <Skeleton height={"100%"} width={"100%"} />
+            ) : (
+              <img src={src} alt={`product-${name}`} />
+            )}
           </ImageContainer>
 
           <DescriptionContainer>
-            {isNew && <NewProduct> new product </NewProduct>}
+            {isLoading ? (
+              <Skeleton />
+            ) : (
+              isNew && <NewProduct> new product </NewProduct>
+            )}
+            {/* {isNew && <NewProduct> new product </NewProduct>} */}
 
-            <ProductName> {name} </ProductName>
-            <Text type="product"> {description} </Text>
-            <ProductPrice> {formatCurrency(price)} </ProductPrice>
-            {!isInCart ? (
+            <ProductName> {isLoading ? <Skeleton /> : name} </ProductName>
+
+            <Text type="product">
+              {" "}
+              {isLoading ? <Skeleton count={6} /> : description}{" "}
+            </Text>
+            <ProductPrice>
+              {" "}
+              {isLoading ? <Skeleton /> : formatCurrency(price)}{" "}
+            </ProductPrice>
+
+            {isLoading ? (
+              <SkeletonLoader>
+                <Skeleton />{" "}
+              </SkeletonLoader>
+            ) : !isInCart ? (
               <Button size="large" onClick={() => handleAddToCart()}>
                 {" "}
                 add to cart{" "}
@@ -141,9 +167,17 @@ function ProductDetails() {
 
         <FeatureBox>
           <div style={{ flexBasis: "60%" }}>
-            <Heading> Features </Heading>
+            <Heading> {isLoading ? <Skeleton /> : "Features"} </Heading>
             <FeatureContainer>
-              {productFeature.map((feat, i) => (
+              {isLoading ? (
+                <Skeleton />
+              ) : (
+                productFeature?.map((feat, i) => (
+                  <FeatureText key={i}> {feat} </FeatureText>
+                ))
+              )}
+
+              {productFeature?.map((feat, i) => (
                 <FeatureText key={i}> {feat} </FeatureText>
               ))}
             </FeatureContainer>
@@ -171,8 +205,6 @@ function ProductDetails() {
 
         <Heading type="review"> Our customers review </Heading>
 
-        {/* Where am i  */}
-
         {currentUser && (
           <Modal.Open opens="add-review">
             <StyledAddReview>
@@ -186,7 +218,7 @@ function ProductDetails() {
           <EditReviewForm productId={_id} />
         </Modal.Window>
         <StyledReviewCard>
-          {reviews.length &&
+          {reviews?.length &&
             reviews
               .slice()
               .reverse()
