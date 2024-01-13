@@ -223,37 +223,109 @@ function ProductDetails() {
         </FeatureBox>
 
         <GalleryContainer>
-          <img src={`/assets/product/${first}`} alt="GalleryImage 1" />
-          <img src={`/assets/product/${second}`} alt="GalleryImage 2" />
-          <img src={`/assets/product/${third}`} alt="GalleryImage 3 " />
+          {isLoading ? (
+            <Skeleton height={"100%"} width={"100%"} />
+          ) : (
+            <img src={`/assets/product/${first}`} alt="GalleryImage 1" />
+          )}
+          {isLoading ? (
+            <Skeleton height={"100%"} width={"100%"} />
+          ) : (
+            <img src={`/assets/product/${second}`} alt="GalleryImage 1" />
+          )}
+          {isLoading ? (
+            <Skeleton height={"100%"} width={"100%"} />
+          ) : (
+            <img src={`/assets/product/${third}`} alt="GalleryImage 1" />
+          )}
         </GalleryContainer>
 
         <Heading type="review"> Our customers review </Heading>
 
-        {currentUser && (
+        {isLoading ? (
+          <StyledAddReview>
+            {" "}
+            <Skeleton />
+          </StyledAddReview>
+        ) : (
+          currentUser && (
+            <Modal.Open opens="add-review">
+              <StyledAddReview>
+                {" "}
+                <FaPlus /> <span> Add Review </span>{" "}
+              </StyledAddReview>
+            </Modal.Open>
+          )
+        )}
+
+        {/* {currentUser && (
           <Modal.Open opens="add-review">
             <StyledAddReview>
               {" "}
               <FaPlus /> <span> Add Review </span>{" "}
             </StyledAddReview>
           </Modal.Open>
-        )}
+        )} */}
 
         <Modal.Window page="create-review" name="add-review">
           <EditReviewForm productId={_id} />
         </Modal.Window>
+
         <StyledReviewCard>
-          {reviews?.length &&
+          {isLoading
+            ? Array(5)
+                .fill(2)
+                .map((_, i) => <Skeleton key={i} />)
+            : reviews?.length &&
+              reviews
+                .slice()
+                .reverse()
+                ?.map((review) => (
+                  <ReviewCard reviews={review} key={review.id} />
+                ))}
+
+          {/* {reviews?.length &&
             reviews
               .slice()
               .reverse()
               ?.map((review) => (
                 <ReviewCard reviews={review} key={review.id} />
-              ))}
+              ))} */}
         </StyledReviewCard>
 
         {product && <Heading type="others"> You may also like </Heading>}
+
         <OtherItemContainer>
+          {isLoading
+            ? Array(3)
+                .fill(8)
+                .map((_, i) => (
+                  <OthersContainer key={i}>
+                    {" "}
+                    <Skeleton />{" "}
+                  </OthersContainer>
+                ))
+            : others?.map((item) => {
+                return (
+                  <OthersContainer key={item._id}>
+                    <OtherImageContainer>
+                      <img
+                        src={`/assets/product/${item?.image}`}
+                        alt=" OtherImage "
+                      />
+                    </OtherImageContainer>
+
+                    <OtherTextBox>
+                      <p> {item.name} </p>
+                      <Button onClick={() => navigate(`/product/${item.slug}`)}>
+                        {" "}
+                        see product{" "}
+                      </Button>
+                    </OtherTextBox>
+                  </OthersContainer>
+                );
+              })}
+
           {others?.map((item) => {
             return (
               <OthersContainer key={item._id}>
