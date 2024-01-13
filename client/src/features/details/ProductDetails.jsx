@@ -50,7 +50,7 @@ import {
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import SkeletonLoader from "../skeleton/SkeletonLoader";
+import { ButtonSkeleton } from "../skeleton/ButtonSkeleton";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
@@ -122,6 +122,7 @@ function ProductDetails() {
           {" "}
           Go Back{" "}
         </SmallButton>
+
         <Container>
           <ImageContainer style={{ gridColumn: "1 / 2" }}>
             {isLoading ? (
@@ -132,14 +133,7 @@ function ProductDetails() {
           </ImageContainer>
 
           <DescriptionContainer>
-            {isLoading ? (
-              <NewProduct>
-                <Skeleton />
-              </NewProduct>
-            ) : (
-              isNew && <NewProduct> new product </NewProduct>
-            )}
-            {/* {isNew && <NewProduct> new product </NewProduct>} */}
+            {isNew && <NewProduct> new product </NewProduct>}
 
             <ProductName> {isLoading ? <Skeleton /> : name} </ProductName>
 
@@ -153,9 +147,9 @@ function ProductDetails() {
             </ProductPrice>
 
             {isLoading ? (
-              <SkeletonLoader>
-                <Skeleton />{" "}
-              </SkeletonLoader>
+              <ButtonSkeleton>
+                <Skeleton />
+              </ButtonSkeleton>
             ) : !isInCart ? (
               <Button size="large" onClick={() => handleAddToCart()}>
                 {" "}
@@ -275,7 +269,9 @@ function ProductDetails() {
           {isLoading
             ? Array(5)
                 .fill(2)
-                .map((_, i) => <Skeleton key={i} />)
+                .map((_, i) => (
+                  <Skeleton key={i} height={"100%"} width={"100%"} />
+                ))
             : reviews?.length &&
               reviews
                 .slice()
