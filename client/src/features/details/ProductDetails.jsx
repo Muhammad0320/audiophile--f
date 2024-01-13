@@ -294,24 +294,19 @@ function ProductDetails() {
         {product && <Heading type="others"> You may also like </Heading>}
 
         <OtherItemContainer>
-
-
-        {isLoading
+          {isLoading
             ? Array(3)
                 .fill(0)
                 .map((_, i) => (
-              
                   <OtherTextBox className="flex-container">
-                     
-                  <Skeleton
-                    height={"100%"}
-                    width={"100%"}
-                    containerClassName="flex-container"
-                  />
+                    <Skeleton
+                      height={"100%"}
+                      width={"100%"}
+                      containerClassName="flex-container"
+                    />
 
-                  <ButtonSkeleton className="flex-container" />
-                </OtherTextBox>
-
+                    <ButtonSkeleton className="flex-container" />
+                  </OtherTextBox>
                 ))
             : others?.map((item) => {
                 return (
@@ -326,56 +321,18 @@ function ProductDetails() {
                     <OtherTextBox>
                       <p> {item.name} </p>
                       <Button onClick={() => navigate(`/product/${item.slug}`)}>
-                        
                         see product
                       </Button>
                     </OtherTextBox>
                   </OthersContainer>
                 );
               })}
-
-
-          {/* {others?.map((item) => {
-            return (
-              <OthersContainer key={item._id}>
-                <OtherImageContainer>
-                  <img
-                    src={`/assets/product/${item?.image}`}
-                    alt=" OtherImage "
-                  />
-                </OtherImageContainer>
-
-
-
-                 <OtherTextBox className="flex-container">
-                     
-                      <Skeleton
-                        height={"100%"}
-                        width={"100%"}
-                        containerClassName="flex-container"
-                      />
-
-                      <ButtonSkeleton className="flex-container" />
-                    </OtherTextBox>
-
-
-
-                <OtherTextBox>
-                  <p> {item.name} </p>
-                  <Button onClick={() => navigate(`/product/${item.slug}`)}>
-                    {" "}
-                    see product{" "}
-                  </Button>
-                </OtherTextBox>
-              </OthersContainer>
-            );
-          })} */}
-
-          
         </OtherItemContainer>
       </ProductContainer>
     </Modal>
   );
 }
+
+// muhammawwal@005
 
 export default ProductDetails;
