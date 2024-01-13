@@ -51,6 +51,7 @@ import {
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { ButtonSkeleton } from "../skeleton/ButtonSkeleton";
+import SkeletonMap from "../skeleton/SkeletonMap";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
@@ -188,16 +189,18 @@ function ProductDetails() {
 
             <InTheBoxContainer>
               {isLoading ? (
-                <InTheBox>
-                  <Quantity>
-                    {" "}
-                    <Skeleton />{" "}
-                  </Quantity>
-                  <FeatureText>
-                    {" "}
-                    <Skeleton />{" "}
-                  </FeatureText>
-                </InTheBox>
+                <SkeletonMap count={5}>
+                  <InTheBox>
+                    <Quantity>
+                      {" "}
+                      <Skeleton />{" "}
+                    </Quantity>
+                    <FeatureText>
+                      {" "}
+                      <Skeleton />{" "}
+                    </FeatureText>
+                  </InTheBox>
+                </SkeletonMap>
               ) : (
                 includes?.map((item) => (
                   <InTheBox key={item._id}>
@@ -267,19 +270,17 @@ function ProductDetails() {
         </Modal.Window>
 
         <StyledReviewCard>
-          {isLoading
-            ? Array(5)
-                .fill(2)
-                .map((_, i) => (
-                  <Skeleton key={i} height={"100%"} width={"100%"} />
-                ))
-            : reviews?.length &&
-              reviews
-                .slice()
-                .reverse()
-                ?.map((review) => (
-                  <ReviewCard reviews={review} key={review.id} />
-                ))}
+          {isLoading ? (
+            <SkeletonMap count={7}>
+              <Skeleton height={"100%"} width={"100%"} />
+            </SkeletonMap>
+          ) : (
+            reviews?.length &&
+            reviews
+              .slice()
+              .reverse()
+              ?.map((review) => <ReviewCard reviews={review} key={review.id} />)
+          )}
 
           {/* {reviews?.length &&
             reviews
@@ -293,35 +294,36 @@ function ProductDetails() {
         {product && <Heading type="others"> You may also like </Heading>}
 
         <OtherItemContainer>
-          {isLoading
-            ? Array(3)
-                .fill(8)
-                .map((_, i) => (
-                  <OthersContainer key={i}>
-                    {" "}
-                    <Skeleton />{" "}
-                  </OthersContainer>
-                ))
-            : others?.map((item) => {
-                return (
-                  <OthersContainer key={item._id}>
-                    <OtherImageContainer>
-                      <img
-                        src={`/assets/product/${item?.image}`}
-                        alt=" OtherImage "
-                      />
-                    </OtherImageContainer>
+          {isLoading ? (
+            <SkeletonMap>
+              {" "}
+              <OthersContainer>
+                {" "}
+                <Skeleton />{" "}
+              </OthersContainer>{" "}
+            </SkeletonMap>
+          ) : (
+            others?.map((item) => {
+              return (
+                <OthersContainer key={item._id}>
+                  <OtherImageContainer>
+                    <img
+                      src={`/assets/product/${item?.image}`}
+                      alt=" OtherImage "
+                    />
+                  </OtherImageContainer>
 
-                    <OtherTextBox>
-                      <p> {item.name} </p>
-                      <Button onClick={() => navigate(`/product/${item.slug}`)}>
-                        {" "}
-                        see product{" "}
-                      </Button>
-                    </OtherTextBox>
-                  </OthersContainer>
-                );
-              })}
+                  <OtherTextBox>
+                    <p> {item.name} </p>
+                    <Button onClick={() => navigate(`/product/${item.slug}`)}>
+                      {" "}
+                      see product{" "}
+                    </Button>
+                  </OtherTextBox>
+                </OthersContainer>
+              );
+            })
+          )}
 
           {/* {others?.map((item) => {
             return (
