@@ -298,14 +298,24 @@ function ProductDetails() {
             ? Array(3)
                 .fill(0)
                 .map((_, i) => (
-                  <OtherTextBox className="flex-container" key={i}>
+                  <OtherTextBox
+                    className="flex-container"
+                    key={i}
+                    style={{ display: "block" }}
+                  >
                     <Skeleton
                       height={"100%"}
                       width={"100%"}
+                      style={{ minHeight: "25rem" }}
                       containerClassName="flex-container"
                     />
-
-                    <ButtonSkeleton className="flex-container" />
+                    <ButtonSkeleton>
+                      <Skeleton
+                        height={"100%"}
+                        width={"100%"}
+                        style={{ textAlign: "center" }}
+                      />
+                    </ButtonSkeleton>
                   </OtherTextBox>
                 ))
             : others?.map((item) => {
