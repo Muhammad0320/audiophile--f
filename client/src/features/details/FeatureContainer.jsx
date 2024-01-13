@@ -40,14 +40,12 @@ export const InTheBox = styled.div`
   column-gap: ${() => clampBuilder(320, 1200, 1, 2)};
 
   align-items: flex-start;
+`;
 
-  * > :first-child {
-    flex: 1;
-  }
-
-  * > :last-child {
-    flex: 10;
-  }
+export const Quantity = styled.span`
+  font-size: ${() => clampBuilder(320, 1200, 1.2, 2.5)};
+  font-weight: 600;
+  color: var(--color-primary);
 `;
 
 export const IntheBoxAndHeaderContainer = styled.div`
@@ -69,10 +67,4 @@ export const InTheBoxContainer = styled.div`
     margin-top: 3rem;
     align-self: flex-start;
   }
-`;
-
-export const Quantity = styled.span`
-  font-size: ${() => clampBuilder(320, 1200, 1.2, 2.5)};
-  font-weight: 600;
-  color: var(--color-primary);
 `;

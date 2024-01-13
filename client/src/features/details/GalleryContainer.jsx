@@ -15,15 +15,15 @@ export const GalleryContainer = styled.div`
 
   & > * {
     box-shadow: var(--box-shadow-light);
+    min-height: 25rem;
+    border-radius: ${() => clampBuilder(320, 1200, 0.4, 0.8)};
   }
 
-  /* & > img:first-of-type { */
   & > :first-child {
     grid-row: 1 / 2;
     display: block;
     width: 100%;
     height: 100%;
-
     grid-column: 1 / 2;
 
     @media (max-width: 420px) {
@@ -31,7 +31,7 @@ export const GalleryContainer = styled.div`
     }
   }
 
-  & > img:nth-of-type(2) {
+  & > :nth-child(2) {
     grid-row: 2 / -1;
     grid-column: 1 / 2;
     display: block;
@@ -44,7 +44,8 @@ export const GalleryContainer = styled.div`
     }
   }
 
-  & > img:last-of-type {
+  /* & > img:last-of-type { */
+  & > :last-child {
     grid-row: 1 / -1;
     grid-column: 2 / -1;
     display: block;
