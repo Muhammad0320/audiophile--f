@@ -326,7 +326,7 @@ function ProductDetails() {
                 );
               })}
 
-          {others?.map((item) => {
+          {/* {others?.map((item) => {
             return (
               <OthersContainer key={item._id}>
                 <OtherImageContainer>
@@ -345,7 +345,7 @@ function ProductDetails() {
                 </OtherTextBox>
               </OthersContainer>
             );
-          })}
+          })} */}
         </OtherItemContainer>
       </ProductContainer>
     </Modal>
