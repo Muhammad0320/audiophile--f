@@ -139,11 +139,13 @@ function ProductDetails() {
             </Text>
             <ProductPrice>
               {" "}
-              {isLoading ? <Skeleton /> : formatCurrency(price)}{" "}
+              {isLoading ?  <ButtonSkeleton  >
+                <Skeleton />
+              </ButtonSkeleton> : formatCurrency(price)}{" "}
             </ProductPrice>
 
             {isLoading ? (
-              <ButtonSkeleton>
+              <ButtonSkeleton type='other' >
                 <Skeleton />
               </ButtonSkeleton>
             ) : !isInCart ? (
