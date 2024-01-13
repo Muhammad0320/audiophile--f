@@ -298,7 +298,7 @@ function ProductDetails() {
             ? Array(3)
                 .fill(0)
                 .map((_, i) => (
-                  <OtherTextBox className="flex-container">
+                  <OtherTextBox className="flex-container" key={i}>
                     <Skeleton
                       height={"100%"}
                       width={"100%"}
