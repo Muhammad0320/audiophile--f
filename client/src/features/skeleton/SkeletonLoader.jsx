@@ -1,11 +1,7 @@
 import CategoryBox from "../../ui/CategoryBox";
 import Category from "../category/Category";
 
-import { styled } from "styled-components";
-
-const CategoryContainer = styled.div`
-  margin: 15rem 0;
-`;
+import { CategoryContainer } from "../category/CategoryEarphones";
 
 function SkeletonLoader({ count = 3 }) {
   return (

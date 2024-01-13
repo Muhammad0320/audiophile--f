@@ -7,7 +7,7 @@ import { useProductCategory } from "./useProductCategory";
 
 import SkeletonLoader from "../skeleton/SkeletonLoader";
 
-const CategoryContainer = styled.div`
+export const CategoryContainer = styled.div`
   margin: 15rem 0;
 `;
 

@@ -133,7 +133,9 @@ function ProductDetails() {
 
           <DescriptionContainer>
             {isLoading ? (
-              <Skeleton />
+              <NewProduct>
+                <Skeleton />
+              </NewProduct>
             ) : (
               isNew && <NewProduct> new product </NewProduct>
             )}
@@ -170,29 +172,52 @@ function ProductDetails() {
             <Heading> {isLoading ? <Skeleton /> : "Features"} </Heading>
             <FeatureContainer>
               {isLoading ? (
-                <Skeleton />
+                <FeatureText>
+                  {" "}
+                  <Skeleton />{" "}
+                </FeatureText>
               ) : (
                 productFeature?.map((feat, i) => (
                   <FeatureText key={i}> {feat} </FeatureText>
                 ))
               )}
 
-              {productFeature?.map((feat, i) => (
+              {/* {productFeature?.map((feat, i) => (
                 <FeatureText key={i}> {feat} </FeatureText>
-              ))}
+              ))} */}
             </FeatureContainer>
           </div>
 
           <IntheBoxAndHeaderContainer>
-            <Heading type="inTheBox"> in the box </Heading>
+            <Heading> {isLoading ? <Skeleton /> : "in the box"} </Heading>
 
             <InTheBoxContainer>
-              {includes?.map((item) => (
+              {isLoading ? (
+                <InTheBox>
+                  <Quantity>
+                    {" "}
+                    <Skeleton />{" "}
+                  </Quantity>
+                  <FeatureText>
+                    {" "}
+                    <Skeleton />{" "}
+                  </FeatureText>
+                </InTheBox>
+              ) : (
+                includes?.map((item) => (
+                  <InTheBox key={item._id}>
+                    <Quantity> {item.quantity + "x"} </Quantity>
+                    <FeatureText> {item.item} </FeatureText>
+                  </InTheBox>
+                ))
+              )}
+
+              {/* {includes?.map((item) => (
                 <InTheBox key={item._id}>
                   <Quantity> {item.quantity + "x"} </Quantity>
                   <FeatureText> {item.item} </FeatureText>
                 </InTheBox>
-              ))}
+              ))} */}
             </InTheBoxContainer>
           </IntheBoxAndHeaderContainer>
         </FeatureBox>
