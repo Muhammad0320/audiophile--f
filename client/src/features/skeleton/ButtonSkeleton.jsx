@@ -7,11 +7,16 @@ export const ButtonSkeleton = styled.div`
   border-radius: ${() => clampBuilder(320, 1200, 0.4, 1)};
 
   ${(props) =>
-    props.type === "other" &&
+    props.center === "true" &&
     css`
       margin-inline: auto;
+    `}
 
+  ${(props) =>
+    props.type === "other" &&
+    css`
+      margin-bottom: 2rem;
       height: ${() => clampBuilder(320, 1200, 2, 3.5)};
-      width: ${() => clampBuilder(320, 1200, 5, 9.5)};
+      width: ${() => clampBuilder(320, 1200, 5, 12.5)};
     `}
 `;

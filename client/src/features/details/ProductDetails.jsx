@@ -309,12 +309,11 @@ function ProductDetails() {
                       style={{ minHeight: "25rem" }}
                       containerClassName="flex-container"
                     />
-                    <ButtonSkeleton>
-                      <Skeleton
-                        height={"100%"}
-                        width={"100%"}
-                        style={{ textAlign: "center" }}
-                      />
+                    <ButtonSkeleton center="true" type="other">
+                      <Skeleton height={"100%"} width={"100%"} />
+                    </ButtonSkeleton>
+                    <ButtonSkeleton center="true">
+                      <Skeleton />
                     </ButtonSkeleton>
                   </OtherTextBox>
                 ))
