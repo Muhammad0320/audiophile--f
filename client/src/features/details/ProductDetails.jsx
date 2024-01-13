@@ -163,12 +163,13 @@ function ProductDetails() {
 
         <FeatureBox>
           <div style={{ flexBasis: "60%" }}>
-            <Heading> {isLoading ? <Skeleton /> : "Features"} </Heading>
+            <Heading> Features </Heading>
+
             <FeatureContainer>
               {isLoading ? (
                 <FeatureText>
                   {" "}
-                  <Skeleton />{" "}
+                  <Skeleton count={4} />{" "}
                 </FeatureText>
               ) : (
                 productFeature?.map((feat, i) => (
@@ -183,7 +184,7 @@ function ProductDetails() {
           </div>
 
           <IntheBoxAndHeaderContainer>
-            <Heading> {isLoading ? <Skeleton /> : "in the box"} </Heading>
+            <Heading> in the box </Heading>
 
             <InTheBoxContainer>
               {isLoading ? (
