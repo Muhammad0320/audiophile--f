@@ -16,7 +16,7 @@ export const ButtonSkeleton = styled.div`
     props.type === "other" &&
     css`
       margin-bottom: 2rem;
-      height: ${() => clampBuilder(320, 1200, 2, 3.5)};
+      height: ${() => clampBuilder(320, 1200, 2.5, 5)};
       width: ${() => clampBuilder(320, 1200, 5, 12.5)};
     `}
 `;

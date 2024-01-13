@@ -49,7 +49,6 @@ import {
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { ButtonSkeleton } from "../skeleton/ButtonSkeleton";
-import SkeletonMap from "../skeleton/SkeletonMap";
 
 const ProductContainer = styled.div`
   margin: ${() => clampBuilder(320, 1200, 4, 5.5)} 0;
@@ -105,8 +104,6 @@ function ProductDetails() {
   const currentQuantity = useSelector(getCurrentItemQuantityById(_id));
 
   const isInCart = currentQuantity > 0;
-
-  // if (isLoading) return <Spinner />;
 
   const src = image?.startsWith("https") ? image : `/assets/product/${image}`;
 
@@ -254,7 +251,7 @@ function ProductDetails() {
 
         <Heading type="review"> Our customers review </Heading>
 
-        {currentUser && (
+        {!isLoading && currentUser && (
           <Modal.Open opens="add-review">
             <StyledAddReview>
               {" "}
