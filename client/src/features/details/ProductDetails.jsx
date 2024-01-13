@@ -3,7 +3,7 @@
 import Modal from "../../ui/Modal";
 import { Text } from "../../ui/Text";
 import Button from "../../ui/Button";
-import Spinner from "../../ui/Spinner";
+
 import { FaPlus } from "react-icons/fa6";
 import { Heading } from "../../ui/Heading";
 import { styled } from "styled-components";
@@ -294,13 +294,24 @@ function ProductDetails() {
         {product && <Heading type="others"> You may also like </Heading>}
 
         <OtherItemContainer>
-          {isLoading
+
+
+        {isLoading
             ? Array(3)
                 .fill(0)
                 .map((_, i) => (
-                  <OthersContainer key={i}>
-                    <Skeleton height={"100%"} width={"100%"} />
-                  </OthersContainer>
+              
+                  <OtherTextBox className="flex-container">
+                     
+                  <Skeleton
+                    height={"100%"}
+                    width={"100%"}
+                    containerClassName="flex-container"
+                  />
+
+                  <ButtonSkeleton className="flex-container" />
+                </OtherTextBox>
+
                 ))
             : others?.map((item) => {
                 return (
@@ -315,13 +326,14 @@ function ProductDetails() {
                     <OtherTextBox>
                       <p> {item.name} </p>
                       <Button onClick={() => navigate(`/product/${item.slug}`)}>
-                        {" "}
-                        see product{" "}
+                        
+                        see product
                       </Button>
                     </OtherTextBox>
                   </OthersContainer>
                 );
               })}
+
 
           {/* {others?.map((item) => {
             return (
@@ -333,6 +345,21 @@ function ProductDetails() {
                   />
                 </OtherImageContainer>
 
+
+
+                 <OtherTextBox className="flex-container">
+                     
+                      <Skeleton
+                        height={"100%"}
+                        width={"100%"}
+                        containerClassName="flex-container"
+                      />
+
+                      <ButtonSkeleton className="flex-container" />
+                    </OtherTextBox>
+
+
+
                 <OtherTextBox>
                   <p> {item.name} </p>
                   <Button onClick={() => navigate(`/product/${item.slug}`)}>
@@ -343,6 +370,8 @@ function ProductDetails() {
               </OthersContainer>
             );
           })} */}
+
+          
         </OtherItemContainer>
       </ProductContainer>
     </Modal>
