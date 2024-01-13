@@ -44,3 +44,5 @@ export const OtherTextBox = styled.div`
   font-size: ${() => clampBuilder(320, 1200, 1.3, 3.5)};
   font-weight: 500;
 `;
+
+// https://cashvib.com/?r=1056653
