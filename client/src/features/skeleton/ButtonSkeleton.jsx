@@ -20,3 +20,5 @@ export const ButtonSkeleton = styled.div`
       width: ${() => clampBuilder(320, 1200, 5, 12.5)};
     `}
 `;
+
+// muhammawwal@005
