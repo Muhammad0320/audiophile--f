@@ -21,8 +21,8 @@ function SignupForm() {
       }
     );
   };
-
-  return (
+  
+  return (  
     <Form2 onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Name">
         <Input

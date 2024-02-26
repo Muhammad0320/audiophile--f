@@ -177,9 +177,7 @@ function ProductDetails() {
                     <FeatureText key={i}> {feat} </FeatureText>
                   ))}
 
-              {/* {productFeature?.map((feat, i) => (
-                <FeatureText key={i}> {feat} </FeatureText>
-              ))} */}
+
             </FeatureContainer>
           </div>
 

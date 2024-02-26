@@ -13,7 +13,7 @@ const CategoryContainer = styled.div`
 
 function CategoryHeadphone() {
   const { categoryProduct, isLoading } = useProductCategory("headphones");
-
+  
   if (isLoading) return <SkeletonLoader count={5} />;
 
   return (
